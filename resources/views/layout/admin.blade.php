@@ -73,7 +73,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                       <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="/"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Data-data Admin</li>
 
@@ -99,7 +99,7 @@
                                 class="fa fa-book" style="width: 20%;"></i>Data Post </a>
                     </li>
                     <li>
-                        <a href="ulasan.html"> <i
+                        <a href="/ulasan"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>
                     </li>
                     <li>
