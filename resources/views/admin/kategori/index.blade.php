@@ -33,9 +33,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama</th>
-                                    <th>Komentar</th>
-                                    <th>Tanggal</th>
+                                    <th>kategori</th>
 
                                     <th>Aksi</th>
                                 </tr>
@@ -44,10 +42,10 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $row )
+                                @foreach ($data as $index=>$row )
                                 <tr>
-                                    <th scope="row">
-                                    <td>{{ $row->kategori }}</td>
+                                    <th scope="row">{{ $index +$data->firstitem()}}</th>
+                                    <td>{{ $row->kategori}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
                                         <a href="/tampilkandataulasan/{{$row->id}}" class="btn btn-warning">edit</a>
