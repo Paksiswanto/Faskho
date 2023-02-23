@@ -48,8 +48,7 @@
                                     <td>{{ $row->kategori}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
-                                        <a href="/tampilkandataulasan/{{$row->id}}" class="btn btn-warning">edit</a>
-                                        <a href="/deletedata/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                        <a href="/deleted/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -32,4 +32,9 @@ route::get('/tampilkandataulasan/{id}',[UlasanController::class, 'tampilkandatau
 route::post('/updatedata/{id}',[UlasanController::class, 'updatedata'])->name('updatedata');
 route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('deletedata');
 
+//kategori
+
 route::get('/kategori',[KategoriController::class,'index'])->name('index');
+route::get('/tambahkategori',[KategoriController::class,'tambahkategori'])->name('tambahkategori');
+route::post('/insertdatakategori',[UlasanController::class, 'insertdatakategori'])->name('insertdatakategori');
+route::get('/deleted/{id}',[UlasanController::class, 'deleted'])->name('deleted');
