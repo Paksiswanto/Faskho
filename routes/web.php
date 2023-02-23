@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LoginController;
@@ -30,3 +31,5 @@ route::post('/insertdataulasan',[UlasanController::class, 'insertdataulasan'])->
 route::get('/tampilkandataulasan/{id}',[UlasanController::class, 'tampilkandataulasan'])->name('tampilkandataulasan');
 route::post('/updatedata/{id}',[UlasanController::class, 'updatedata'])->name('updatedata');
 route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('deletedata');
+
+route::get('/kategori',[KategoriController::class,'index'])->name('index');

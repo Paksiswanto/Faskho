@@ -4,6 +4,7 @@
 @section('content')
 
 <body>
+    @extends('layout.sidebar')
     <div class="content">
         <div class="row">
             <div class="col">
@@ -14,7 +15,7 @@
                     <div class="add_button ms-2 mb-3">
                     </div>
                     <div class="card-body--">
-                        <form action="/updatedata/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        <form class="p-2"action="/updatedata/{{$data->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                             <div class="mb-3">

@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 class UlasanController extends Controller
 {
-    public function  index(){
-        $data = ulasan::paginate(5);
-    
+    public function  index(Request $request)
+    {
+        $keyword = $request->keyword;
+        $data = ulasan::where('nama', 'LIKE', '%'.$keyword.'%')
+                -> paginate(10);
         return view('dataulasan',compact('data'));
     }
     public function tambahulasan(){
@@ -18,7 +20,11 @@ class UlasanController extends Controller
     }
     
     public function insertdataulasan(request $request){
-        //dd($request->all());  
+        //dd($request->all());
+        $validatedata=$request->validate([
+            'nama'=>'required',
+            'komentar'=>'required'
+        ]);
     $data = ulasan::create($request->all());
     
     return redirect()->route('ulasan')->with('success','data Berhasil Ditambahkan');
@@ -43,4 +49,5 @@ class UlasanController extends Controller
         return redirect()->route('ulasan')->with('success','data Berhasil Di Hapus');
 
     }
+
 }
