@@ -1,3 +1,4 @@
+
  <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -14,7 +15,7 @@
                     </li>
                     <li>
                         <a href="/menu"> <i
-                                class="fa fa-tasks" style="width: 20%;"></i>Data Menu </a>
+                                class="fa fa-tags" style="width: 20%;"></i>Data Tag </a>
                     </li>
                     <li>
                         <a href="/jenis"> <i
