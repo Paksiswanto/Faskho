@@ -17,10 +17,7 @@
                         <a href="/tag"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Tag </a>
                     </li>
-                    <li>
-                        <a href="/jenis"> <i
-                                class="fa fa-tag" style="width: 20%;"></i>Data jenismakanan</a>
-                    </li>
+
                     <li>
                         <a href="/author"> <i
                                 class="fa fa-group" style="width: 20%;"></i>Data User </a>
