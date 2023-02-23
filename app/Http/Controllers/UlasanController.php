@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UlasanController extends Controller
 {
     public function  index(){
-        $data = ulasan::paginate(5);
+        $data = ulasan::paginate(10);
     
         return view('dataulasan',compact('data'));
     }

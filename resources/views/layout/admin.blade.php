@@ -27,6 +27,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
 
    <style>
     #weatherWidget .currentDesc {
@@ -275,6 +277,18 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src=" {{ asset ('elaadmin/assets/js/init/fullcalendar-init.js')  }}"></script>
+    
+     <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/datatables.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/dataTables.buttons.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/buttons.bootstrap.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/jszip.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/vfs_fonts.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/buttons.html5.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/buttons.print.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/lib/data-table/buttons.colVis.min.js') }}"></script>
+    <script src=" {{ asset ('elaadmin/assets/js/init/datatables-init.js') }}"></script>
+    
     <!--Local Stuff-->
     <script>
         jQuery(document).ready(function($) {
