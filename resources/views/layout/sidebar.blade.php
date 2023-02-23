@@ -14,7 +14,7 @@
                             <i class="fa fa-thumb-tack" style="width: 20%;"></i>Data Tempat </a>
                     </li>
                     <li>
-                        <a href="/menu"> <i
+                        <a href="/tag"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Tag </a>
                     </li>
                     <li>
@@ -22,7 +22,7 @@
                                 class="fa fa-tag" style="width: 20%;"></i>Data jenismakanan</a>
                     </li>
                     <li>
-                        <a href="/user"> <i
+                        <a href="/author"> <i
                                 class="fa fa-group" style="width: 20%;"></i>Data User </a>
                     </li>
                     <li>
@@ -42,7 +42,7 @@
                                 class="fa fa-exclamation-triangle" style="width: 20%;"></i>Data Laporan </a>
                     </li>
                     <li>
-                        <a href="/sub_kategori"> <i
+                        <a href="/kategori"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Sub Category </a>
                     </li>
                     <li>

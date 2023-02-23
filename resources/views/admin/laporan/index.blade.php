@@ -33,13 +33,13 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->nama }}</td>
-                                    <td>{{ $row->email }}</td>
+                                    <td>{{ $row->Auth::user()->name }}</td>
+                                    <td>{{ $row->Auth::user()->email }}</td>
                                     <td>{{ $row->laporan }}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
                                         <a href="/tampillaporan/{{$row->id}}" class="btn btn-warning">edit</a>
-                                        <a href="/deletelaporan/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                        <a href="/deletedp/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

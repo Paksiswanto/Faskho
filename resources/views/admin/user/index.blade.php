@@ -15,12 +15,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Data Ulasan</strong>
+                        <strong class="card-title">Data User</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered">
                             <div class="add_button ms-2 mb-3">
-                                <a href="/tambahkategori" class="btn btn-success">Tambah+</a>
+                                <a href="/tambahuser" class="btn btn-success">Tambah +</a>
                                 <div class="my-3">
                                     <form action="" method="get">
                                         <div class="input-group mb-3 col-12 col-sm-8 col-md-6">
@@ -33,7 +33,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>kategori</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>tanggal</th>
 
                                     <th>Aksi</th>
                                 </tr>
@@ -45,10 +48,12 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->kategori}}</td>
+                                    <td>{{ $row->name}}</td>
+                                    <td>{{ $row->email}}</td>
+                                    <td>{{ $row->password}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
-                                        <a href="/deleted/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                        <a href="/deleteda/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
