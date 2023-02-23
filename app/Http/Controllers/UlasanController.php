@@ -20,7 +20,11 @@ class UlasanController extends Controller
     }
     
     public function insertdataulasan(request $request){
-        //dd($request->all());  
+        //dd($request->all());
+        $validatedata=$request->validate([
+            'nama'=>'required',
+            'komentar'=>'required'
+        ]);
     $data = ulasan::create($request->all());
     
     return redirect()->route('ulasan')->with('success','data Berhasil Ditambahkan');
@@ -45,4 +49,5 @@ class UlasanController extends Controller
         return redirect()->route('ulasan')->with('success','data Berhasil Di Hapus');
 
     }
+
 }

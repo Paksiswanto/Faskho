@@ -2,10 +2,17 @@
 
 
 @section('content')
+<<<<<<< Updated upstream
 
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
+=======
+@extends('layout.sidebar')
+ <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+>>>>>>> Stashed changes
 
             <div class="col-md-12">
                 <div class="card">
