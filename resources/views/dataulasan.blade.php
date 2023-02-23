@@ -7,11 +7,11 @@
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
+
 @extends('layout.sidebar')
  <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -24,7 +24,7 @@
                                 <div class="my-3">
                                     <form action="" method="get">
                                         <div class="input-group mb-3 col-12 col-sm-8 col-md-6">
-                                                <input type="text" class="form-control" name="keyword" placeholder="Cari Data">
+                                                <input type="text" class="form-control" name="keyword" placeholder="Cari Data berdasarkan nama">
                                                  <button  class="input-group-text btn btn-primary">Search</button>
                                         </div>
                                     </form>
@@ -46,8 +46,9 @@
                                 @endphp
                                 @foreach ($data as $index=>$row )
                                 <tr>
-                                    <th scope="row">{{ $index +$data->firstitem()}}</th
-                                    <td>{{ $row->kategori }}</td>
+                                    <th scope="row">{{ $index +$data->firstitem()}}</th>
+                                    <td>{{ $row->nama }}</td>
+                                    <td>{{ $row->komentar }}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
                                         <a href="/tampilkandataulasan/{{$row->id}}" class="btn btn-warning">edit</a>
