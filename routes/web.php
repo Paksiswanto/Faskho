@@ -22,7 +22,7 @@ use App\Models\ulasan;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin');
 });
 
 Route::get('/login', [LoginController::class, 'index']);

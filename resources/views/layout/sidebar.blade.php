@@ -40,7 +40,7 @@
                     </li>
                     <li>
                         <a href="/kategori"> <i
-                                class="fa fa-tags" style="width: 20%;"></i>Data Sub Category </a>
+                                class="fa fa-tags" style="width: 20%;"></i>Data Kategori </a>
                     </li>
                     <li>
                         <a href="/trend"> <i

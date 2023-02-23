@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Data Ulasan</strong>
+                        <strong class="card-title">Data Kategori</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered">
