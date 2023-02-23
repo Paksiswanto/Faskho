@@ -44,9 +44,9 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $row )
+                                @foreach ($data as $index=>$row )
                                 <tr>
-                                    <th scope="row">
+                                    <th scope="row">{{ $index +$data->firstitem()}}</th
                                     <td>{{ $row->kategori }}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
