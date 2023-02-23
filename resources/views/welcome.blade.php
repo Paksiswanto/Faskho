@@ -1,6 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
+ @extends('layout.sidebar')
    <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
