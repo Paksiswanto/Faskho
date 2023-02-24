@@ -220,7 +220,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/45.jpg" style="width: 75%;height:fit-content;">
+                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/45.jpg') }}" style="width: 75%;height:fit-content;">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -262,7 +262,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/10.jpg" alt="">
+                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/10.jpg') }}" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -321,7 +321,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/6.jpg" alt="">
+                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/6.jpg') }}" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -366,7 +366,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/7.jpg" alt="">
+                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/7.jpg') }}" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -424,7 +424,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="img/sidebar-img/1.jpg" alt="">
+                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Kilang Anggur Terbaik Untuk Dikunjungi Di Malang</h6>
@@ -434,7 +434,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="img/sidebar-img/2.jpg" alt="">
+                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6> Makanan Terbaik di Malang</h6>
@@ -444,7 +444,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="img/sidebar-img/3.jpg" alt="">
+                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Tempat Festival Terbaik di Malang</h6>
@@ -454,7 +454,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="img/sidebar-img/4.jpg" alt="">
+                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>10 Unggulan Makanan Pemimpin di Malang</h6>
@@ -464,7 +464,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="img/sidebar-img/5.jpg" alt="">
+                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Makan Dengan Anggaran Terjangkau</h6>
@@ -525,6 +525,7 @@
             <img src="img/instagram-img/5.jpg" alt="">
             <!-- Hover -->
         </div>
+        @include('layout.footer')
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
