@@ -5,6 +5,7 @@ use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -78,9 +79,8 @@ route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda
 route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
 route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
-
-
-//untuk halaman Author
+//postingan
+route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 
 
 //halaman Author

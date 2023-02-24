@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('postingans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('judul');
+            $table->string('konten');
+            $table->string('foto');
+            $table->string('tag');
             $table->timestamps();
         });
     }
