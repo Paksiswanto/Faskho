@@ -53,7 +53,7 @@
     </style>
 
     <!-- Responsive CSS -->
-    <link href="{{asset ('css/responsive/responsive.css') }}" rel="stylesheet">
+    <link href="{{asset ('yummy-master/yummy-master/css/responsive/responsive.css') }}" rel="stylesheet">
 
 </head>
 
@@ -82,7 +82,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="img/bg-img/slide-1.jpg" alt="">
+            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-1.jpg') }}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -98,7 +98,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="img/bg-img/slide-2.jpg" alt="">
+            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-2.jpg') }}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -114,7 +114,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="img/bg-img/slide-3.jpg" alt="">
+            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-3.jpg') }}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -130,7 +130,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="img/bg-img/slide-4.jpg" alt="">
+            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-4.jpg') }}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -146,7 +146,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="img/bg-img/slide-4.jpg" alt="">
+            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-4.jpg') }}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -175,7 +175,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/1.jpg" alt="">
+                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/1.jpg') }}" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">

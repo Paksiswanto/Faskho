@@ -72,4 +72,4 @@
     <!-- All Plugins JS -->
     <script src="{{asset ('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
-    <script src="{{asset ('js/active.js') }}"></script>
+    <script src="{{asset ('yummy-master/yummy-master/js/active.js') }}"></script>
