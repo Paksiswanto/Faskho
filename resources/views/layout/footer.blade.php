@@ -1,8 +1,4 @@
 
-
-</div>
-    <!-- ****** Our Creative Portfolio Area End ****** -->
-
     <!-- ****** Footer Social Icon Area Start ****** -->
     <div class="social_icon_area clearfix">
         <div class="container">
@@ -68,12 +64,12 @@
     <!-- ****** Footer Menu Area End ****** -->
 
     <!-- Jquery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{{asset ('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js') }}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{{asset ('yummy-master/yummy-master/js/bootstrap/popper.min.js') }}"></script>
     <!-- Bootstrap-4 js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{asset ('yummy-master/yummy-master/js/bootstrap/bootstrap.min.js') }}"></script>
     <!-- All Plugins JS -->
-    <script src="js/others/plugins.js"></script>
+    <script src="{{asset ('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
-    <script src="js/active.js"></script>
+    <script src="{{asset ('js/active.js') }}"></script>

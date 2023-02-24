@@ -15,7 +15,7 @@
     <link rel="icon" href="img/core-img/mkmk-removebg-preview.png">
 
     <!-- Core Stylesheet -->
-    <link href="{{asset ('yummy-master/yummy-master/style.css')" rel="stylesheet">
+    <link href="{{asset ('yummy-master/yummy-master/style.css') }}" rel="stylesheet">
     <style>
 .search-container {
   display: flex;
@@ -53,16 +53,13 @@
     </style>
 
     <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <link href="{{asset ('css/responsive/responsive.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
     <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="yummy-load"></div>
-    </div>
-
+   
     <!-- Background Pattern Swither -->
 
 
