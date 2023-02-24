@@ -100,7 +100,7 @@
                                 <span class="count bg-danger">3</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="notification">
-                                <p class="red">You have 3 Notification</p>
+                                <p class="red"></p>
                                 <a class="dropdown-item media" href="#">
                                     <i class="fa fa-check"></i>
                                     <p>Server #1 overloaded.</p>
@@ -171,7 +171,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 

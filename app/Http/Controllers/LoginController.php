@@ -1,23 +1,55 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index()
-    {
-        return view ('login.index1', [
-            'tittle' => 'Login'
-        ]);
+        public function login(){
+            return view('login.login');
+        }
+
+    public function loginproses(Request $request){
+        if(Auth::attempt($request->only('email','password'))){
+            return redirect('/admin');
+        }
+        
+        return redirect('login');
     }
     public function register()
     {
-        return view ('login.register1', [
+        return view ('login.register', [
             'tittle' => 'register'
         ]);
     }
 
+    public function registeruser(Request $request){
+        //dd($request->all());
+         $request->validate([
+            'email' => 'required|unique:users',
+            'name' => 'required|unique:users',
+        ]);
+        user::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60),
+    
+        ]);
+        return redirect('/login');
+        }
+
+        public function logout(){
+            Auth::logout();
+            return redirect('login');
+        }
+
     
 }
+
+
+
+

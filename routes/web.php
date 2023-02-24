@@ -21,41 +21,69 @@ use App\Models\ulasan;
 |
 */
 
-Route::get('/', function () {
+//halaman Admin
+Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('/register', [LoginController::class, 'register']);
-route::get('/ulasan',[UlasanController::class, 'index'])->name('ulasan');
-route::get('/tambahulasan',[UlasanController::class, 'tambahulasan'])->name('tambahulasan');
-route::post('/insertdataulasan',[UlasanController::class, 'insertdataulasan'])->name('insertdataulasan');
-route::get('/tampilkandataulasan/{id}',[UlasanController::class, 'tampilkandataulasan'])->name('tampilkandataulasan');
-route::post('/updatedata/{id}',[UlasanController::class, 'updatedata'])->name('updatedata');
-route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('deletedata');
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
+
+//login
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
+route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
+route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+
+//ulasan
+
+route::get('/ulasan',[UlasanController::class, 'index'])->name('ulasan')->middleware('auth');
+route::get('/tambahulasan',[UlasanController::class, 'tambahulasan'])->name('tambahulasan')->middleware('auth');
+route::post('/insertdataulasan',[UlasanController::class, 'insertdataulasan'])->name('insertdataulasan')->middleware('auth');
+route::get('/tampilkandataulasan/{id}',[UlasanController::class, 'tampilkandataulasan'])->name('tampilkandataulasan')->middleware('auth');
+route::post('/updatedata/{id}',[UlasanController::class, 'updatedata'])->name('updatedata')->middleware('auth');;
+route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('deletedata')->middleware('auth');;
 
 //kategori
 
-route::get('/kategori',[KategoriController::class,'index'])->name('index');
-route::get('/tambahkategori',[KategoriController::class,'tambahkategori'])->name('tambahkategori');
-route::post('/insertdatakategori',[KategoriController::class, 'insertdatakategori'])->name('insertdatakategori');
-route::get('/tampilkandatakategori/{id}',[KategoriController::class, 'tampilkandatakategori'])->name('tampilkandatakategori');
-route::get('/deleted/{id}',[KategoriController::class, 'deleted'])->name('deleted');
+route::get('/kategori',[KategoriController::class,'index'])->name('index')->middleware('auth');
+route::get('/tambahkategori',[KategoriController::class,'tambahkategori'])->name('tambahkategori')->middleware('auth');
+route::post('/insertdatakategori',[KategoriController::class, 'insertdatakategori'])->name('insertdatakategori')->middleware('auth');
+route::get('/tampilkandatakategori/{id}',[KategoriController::class, 'tampilkandatakategori'])->name('tampilkandatakategori')->middleware('auth');
+route::get('/deleted/{id}',[KategoriController::class, 'deleted'])->name('deleted')->middleware('auth');
 
 //tag
 
-route::get('/tag',[TagController::class,'index'])->name('index');
-route::get('/tambahtag',[TagController::class,'tambahtag'])->name('tambahtag');
-route::post('/insertdatatag',[TagController::class, 'insertdatatag'])->name('insertdatatag');
+route::get('/tag',[TagController::class,'index'])->name('index')->middleware('auth');
+route::get('/tambahtag',[TagController::class,'tambahtag'])->name('tambahtag')->middleware('auth');
+route::post('/insertdatatag',[TagController::class, 'insertdatatag'])->name('insertdatatag')->middleware('auth');
 route::get('/tampilkandatatag/{id}',[TagController::class, 'tampilkandatatag'])->name('tampilkandatatag');
 route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede');
 
 //user
 
-route::get('/author',[UserController::class,'index'])->name('index');
-route::get('/deleteda/{id}',[TagController::class, 'deleteda'])->name('deleteda');
+route::get('/author',[UserController::class,'index'])->name('index')->middleware('auth');
+route::get('/deleteda/{id}',[TagController::class, 'deleteda'])->name('deleteda')->middleware('auth');
 
 //laporan
 
-route::get('/laporan',[LaporanController::class,'index'])->name('index');
-route::get('/deletedp/{id}',[TagController::class, 'deletedp'])->name('deletedp');
+route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
+route::get('/deletedp/{id}',[TagController::class, 'deletedp'])->name('deletedp')->middleware('auth');
+
+
+
+//untuk halaman Author
+
+
+//halaman Author
+
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
+
+

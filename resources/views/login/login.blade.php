@@ -35,16 +35,15 @@
                             <a href="/login" class="active">Login</a>
                             <a href="/register">Register</a>
                         </div>
-                        <form action="/yummy-master/yummy-master/index.html">
-                            <input class="form-control" type="text" name="username" placeholder="Email" required>
+                        <form action="/loginproses" method="post">
+                              @csrf
+                            <input class="form-control" type="email" name="email" placeholder="Email" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Login</button>
                             </div>
                         </form>
-                        <div class="other-links">
-                            <span>Atau login dengan</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
-                        </div>
+                       
                     </div>
                 </div>
             </div>

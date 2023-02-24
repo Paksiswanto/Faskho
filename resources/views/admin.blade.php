@@ -215,7 +215,7 @@
               
                 <!-- /To Do and Live Chat -->
                 <!-- Calender Chart Weather  -->
-                <div class="content">">
+                <div class="content">
                    
 
                     <div class="col-lg-4 col-md-6">

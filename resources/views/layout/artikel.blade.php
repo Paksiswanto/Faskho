@@ -10,7 +10,7 @@
   <title>Postingan</title>
 
 
-  <link rel="stylesheet" href="css/bootstrap1.min.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html') }}css/bootstrap1.min.css" />
 
   <link rel="stylesheet" href="vendors/themefy_icon/themify-icons.css" />
 
