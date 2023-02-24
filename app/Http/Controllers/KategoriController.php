@@ -21,7 +21,7 @@ class KategoriController extends Controller
     public function insertdatakategori(request $request){
     $data = kategori::create($request->all());
     
-    return redirect()->route('index')->with('success','data Berhasil Ditambahkan');
+    return redirect()->route('kategori')->with('success','data Berhasil Ditambahkan');
     }
     public function tampilkandatakategori($id){
         $data = kategori::find($id);
@@ -31,7 +31,7 @@ class KategoriController extends Controller
     public function deleted($id){
         $data = kategori::find($id);
         $data->delete();
-        return redirect()->route('index')->with('success','data Berhasil Di Hapus');
+        return redirect()->route('kategori')->with('success','data Berhasil Di Hapus');
 
     }
 

@@ -17,7 +17,7 @@ class UserController extends Controller
     public function deleteda($id){
         $data = User::find($id);
         $data->delete();
-        return redirect()->route('index')->with('success','data Berhasil Di Hapus');
+        return redirect()->route('user')->with('success','data Berhasil Di Hapus');
 
     }
 }

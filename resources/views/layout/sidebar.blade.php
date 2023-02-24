@@ -23,7 +23,7 @@
                                 class="fa fa-group" style="width: 20%;"></i>Data User </a>
                     </li>
                     <li>
-                        <a href="/post"> <i
+                        <a href="/postingan"> <i
                                 class="fa fa-book" style="width: 20%;"></i>Data Post </a>
                     </li>
                     <li>

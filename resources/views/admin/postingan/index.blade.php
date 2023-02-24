@@ -37,6 +37,7 @@
                                     <th>judul</th>
                                     <th>content</th>
                                     <th>foto</th>
+                                    <th>tag</th>
 
                                     <th>Aksi</th>
                                 </tr>
@@ -48,9 +49,11 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->name}}</td>
-                                    <td>{{ $row->email}}</td>
-                                    <td>{{ $row->password}}</td>
+                                    <td>{{ $row->user->name}}</td>
+                                    <td>{{ $row->judul}}</td>
+                                    <td>{{ $row->konten}}</td>
+                                    <td>{{ $row->foto}}</td>
+                                    <td>{{ $row->tag}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
                                         <a href="/deleteda/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>

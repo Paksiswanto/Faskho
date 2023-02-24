@@ -5,6 +5,7 @@ use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -54,7 +55,7 @@ route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('de
 
 //kategori
 
-route::get('/kategori',[KategoriController::class,'index'])->name('index')->middleware('auth');
+route::get('/kategori',[KategoriController::class,'index'])->name('kategori')->middleware('auth');
 route::get('/tambahkategori',[KategoriController::class,'tambahkategori'])->name('tambahkategori')->middleware('auth');
 route::post('/insertdatakategori',[KategoriController::class, 'insertdatakategori'])->name('insertdatakategori')->middleware('auth');
 route::get('/tampilkandatakategori/{id}',[KategoriController::class, 'tampilkandatakategori'])->name('tampilkandatakategori')->middleware('auth');
@@ -62,15 +63,15 @@ route::get('/deleted/{id}',[KategoriController::class, 'deleted'])->name('delete
 
 //tag
 
-route::get('/tag',[TagController::class,'index'])->name('index')->middleware('auth');
+route::get('/tag',[TagController::class,'index'])->name('tag')->middleware('auth');
 route::get('/tambahtag',[TagController::class,'tambahtag'])->name('tambahtag')->middleware('auth');
 route::post('/insertdatatag',[TagController::class, 'insertdatatag'])->name('insertdatatag')->middleware('auth');
-route::get('/tampilkandatatag/{id}',[TagController::class, 'tampilkandatatag'])->name('tampilkandatatag');
-route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede');
+route::get('/tampilkandatatag/{id}',[TagController::class, 'tampilkandatatag'])->name('tampilkandatatag')->middleware('auth');
+route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede')->middleware('auth');
 
 //user
 
-route::get('/author',[UserController::class,'index'])->name('index')->middleware('auth');
+route::get('/author',[UserController::class,'index'])->name('user')->middleware('auth');
 route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
 
 //laporan
@@ -78,9 +79,8 @@ route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda
 route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
 route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
-
-
-//untuk halaman Author
+//postingan
+route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 
 
 //halaman Author
