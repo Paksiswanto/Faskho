@@ -30,6 +30,9 @@ Route::get('/admin', function () {
 Route::get('/artikel', function () {
     return view('artikel');
 });
+Route::get('/', function () {
+    return view('user.index');
+});
 
 
 //login
