@@ -29,7 +29,7 @@ Route::get('/admin', function () {
 });
 
 Route::get('/artikel', function () {
-    return view('artikel');
+    return view('post.post');
 });
 Route::get('/', function () {
     return view('user.index');
@@ -83,7 +83,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 
 
-//halaman Author
+//data tempat
 
 
 
