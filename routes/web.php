@@ -85,9 +85,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //halaman Author
 
-Route::get('/artikel', function () {
-    return view('artikel');
-});
+
 
 
 
