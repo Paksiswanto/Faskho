@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Models\ulasan;
+use Illuminate\Foundation\Auth\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,12 +68,12 @@ route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede'
 //user
 
 route::get('/author',[UserController::class,'index'])->name('index')->middleware('auth');
-route::get('/deleteda/{id}',[TagController::class, 'deleteda'])->name('deleteda')->middleware('auth');
+route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
 
 //laporan
 
 route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
-route::get('/deletedp/{id}',[TagController::class, 'deletedp'])->name('deletedp')->middleware('auth');
+route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
 
 

@@ -12,7 +12,7 @@ class LaporanController extends Controller
         $keyword = $request->keyword;
         $data = laporan::where('laporan', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
-        return view('admin.user.index',compact('data'));
+        return view('admin.laporan.index',compact('data'));
     }
     public function deletedp($id){
         $data = laporan::find($id);

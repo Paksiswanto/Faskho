@@ -4,7 +4,7 @@
  <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-
+@extends('layout.sidebar')
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
