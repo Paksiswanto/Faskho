@@ -22,13 +22,9 @@ class TagController extends Controller
     public function insertdatatag(request $request){
     $data = tag::create($request->all());
     
-    return redirect()->route('index')->with('success','data Berhasil Ditambahkan');
+    return redirect()->route('tag')->with('success','data Berhasil Ditambahkan');
     }
-    public function tampilkandatatag($id){
-        $data = tag::find($id);
-       // dd($data);
-       return view('tampildatatag', compact('data'));
-    }
+
     public function deletede($id){
         $data = tag::find($id);
         $data->delete();
