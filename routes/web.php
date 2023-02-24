@@ -30,6 +30,9 @@ Route::get('/admin', function () {
 Route::get('/artikel', function () {
     return view('artikel');
 });
+Route::get('/', function () {
+    return view('user.index');
+});
 
 
 //login
@@ -82,9 +85,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //halaman Author
 
-Route::get('/artikel', function () {
-    return view('artikel');
-});
+
 
 
 
