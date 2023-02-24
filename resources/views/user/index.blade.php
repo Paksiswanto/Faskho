@@ -525,7 +525,7 @@
             <img src="img/instagram-img/5.jpg" alt="">
             <!-- Hover -->
         </div>
-        @include('layout.footer')
+
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
@@ -624,6 +624,7 @@
     <!-- All Plugins JS -->
     <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script>
     <!-- Active JS -->
+    
     <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js')}}"></script>
 
 </body>
