@@ -10,38 +10,38 @@
   <title>Postingan</title>
 
 
-  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html') }}css/bootstrap1.min.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/bootstrap1.min.css') }}" />
 
-  <link rel="stylesheet" href="vendors/themefy_icon/themify-icons.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/themefy_icon/themify-icons.css') }}" />
 
-  <link rel="stylesheet" href="vendors/niceselect/css/nice-select.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/niceselect/css/nice-select.css') }}" />
 
-  <link rel="stylesheet" href="vendors/owl_carousel/css/owl.carousel.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/owl_carousel/css/owl.carousel.css') }}" />
 
-  <link rel="stylesheet" href="vendors/gijgo/gijgo.min.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/gijgo/gijgo.min.css') }}" />
 
-  <link rel="stylesheet" href="vendors/font_awesome/css/all.min.css" />
-  <link rel="stylesheet" href="vendors/tagsinput/tagsinput.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/font_awesome/css/all.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/tagsinput/tagsinput.css') }}" />
 
-  <link rel="stylesheet" href="vendors/datepicker/date-picker.css" />
-  <link rel="stylesheet" href="vendors/vectormap-home/vectormap-2.0.2.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datepicker/date-picker.css') }}" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/vectormap-home/vectormap-2.0.2.css') }}" />
 
-  <link rel="stylesheet" href="vendors/scroll/scrollable.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/scroll/scrollable.css') }}" />
 
-  <link rel="stylesheet" href="vendors/datatable/css/jquery.dataTables.min.css" />
-  <link rel="stylesheet" href="vendors/datatable/css/responsive.dataTables.min.css" />
-  <link rel="stylesheet" href="vendors/datatable/css/buttons.dataTables.min.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/css/jquery.dataTables.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/css/responsive.dataTables.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/css/buttons.dataTables.min.css') }}" />
 
-  <link rel="stylesheet" href="vendors/text_editor/summernote-bs4.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.css') }}" />
 
-  <link rel="stylesheet" href="vendors/morris/morris.css">
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/morris/morris.css') }}">
 
-  <link rel="stylesheet" href="vendors/material_icon/material-icons.css" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/material_icon/material-icons.css') }}" />
 
-  <link rel="stylesheet" href="css/metisMenu.css">
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/metisMenu.css') }}">
 
-  <link rel="stylesheet" href="css/style1.css" />
-  <link rel="stylesheet" href="css/colors/default.css" id="colorSkinCSS">
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/style1.css') }}" />
+  <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/colors/default.css') }}" id="colorSkinCSS">
 </head>
 
 <body class="crm_body_bg">
@@ -674,64 +674,64 @@
     </a>
   </div>
 
-  <script src="js/jquery1-3.4.1.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/jquery1-3.4.1.min.js') }}"></script>
 
-  <script src="js/popper1.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/popper1.min.js') }}"></script>
 
-  <script src="js/bootstrap.min.html"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/bootstrap.min.html') }}"></script>
 
-  <script src="js/metisMenu.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/metisMenu.js') }}"></script>
 
-  <script src="vendors/count_up/jquery.waypoints.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/count_up/jquery.waypoints.min.js') }}"></script>
 
-  <script src="vendors/chartlist/Chart.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chartlist/Chart.min.js') }}"></script>
 
-  <script src="vendors/count_up/jquery.counterup.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/count_up/jquery.counterup.min.js') }}"></script>
 
-  <script src="vendors/niceselect/js/jquery.nice-select.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/niceselect/js/jquery.nice-select.min.js') }}"></script>
 
-  <script src="vendors/owl_carousel/js/owl.carousel.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/owl_carousel/js/owl.carousel.min.js') }}"></script>
 
-  <script src="vendors/datatable/js/jquery.dataTables.min.js"></script>
-  <script src="vendors/datatable/js/dataTables.responsive.min.js"></script>
-  <script src="vendors/datatable/js/dataTables.buttons.min.js"></script>
-  <script src="vendors/datatable/js/buttons.flash.min.js"></script>
-  <script src="vendors/datatable/js/jszip.min.js"></script>
-  <script src="vendors/datatable/js/pdfmake.min.js"></script>
-  <script src="vendors/datatable/js/vfs_fonts.js"></script>
-  <script src="vendors/datatable/js/buttons.html5.min.js"></script>
-  <script src="vendors/datatable/js/buttons.print.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/buttons.flash.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/jszip.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/pdfmake.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/vfs_fonts.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datatable/js/buttons.print.min.js') }}"></script>
 
-  <script src="vendors/datepicker/datepicker.js"></script>
-  <script src="vendors/datepicker/datepicker.en.js"></script>
-  <script src="vendors/datepicker/datepicker.custom.js"></script>
-  <script src="js/chart.min.js"></script>
-  <script src="vendors/chartjs/roundedBar.min.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datepicker/datepicker.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datepicker/datepicker.en.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/datepicker/datepicker.custom.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/chart.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chartjs/roundedBar.min.js') }}"></script>
 
-  <script src="vendors/progressbar/jquery.barfiller.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/progressbar/jquery.barfiller.js') }}"></script>
 
-  <script src="vendors/tagsinput/tagsinput.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/tagsinput/tagsinput.js') }}"></script>
 
-  <script src="vendors/text_editor/summernote-bs4.js"></script>
-  <script src="vendors/am_chart/amcharts.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/am_chart/amcharts.js') }}"></script>
 
-  <script src="vendors/scroll/perfect-scrollbar.min.js"></script>
-  <script src="vendors/scroll/scrollable-custom.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/scroll/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/scroll/scrollable-custom.js') }}"></script>
 
-  <script src="vendors/vectormap-home/vectormap-2.0.2.min.js"></script>
-  <script src="vendors/vectormap-home/vectormap-world-mill-en.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/vectormap-home/vectormap-2.0.2.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/vectormap-home/vectormap-world-mill-en.js') }}"></script>
 
-  <script src="vendors/apex_chart/apex-chart2.js"></script>
-  <script src="vendors/apex_chart/apex_dashboard.js"></script>
-  <script src="vendors/echart/echarts.min.js"></script>
-  <script src="vendors/chart_am/core.js"></script>
-  <script src="vendors/chart_am/charts.js"></script>
-  <script src="vendors/chart_am/animated.js"></script>
-  <script src="vendors/chart_am/kelly.js"></script>
-  <script src="vendors/chart_am/chart-custom.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/apex_chart/apex-chart2.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/apex_chart/apex_dashboard.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/echart/echarts.min.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chart_am/core.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chart_am/charts.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chart_am/animated.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chart_am/kelly.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/chart_am/chart-custom.js') }}"></script>
 
-  <script src="js/dashboard_init.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/dashboard_init.js') }}"></script>
+  <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/custom.js') }}"></script>
 </body>
 
 <!-- Mirrored from demo.dashboardpack.com/sales-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Feb 2023 06:37:07 GMT -->
