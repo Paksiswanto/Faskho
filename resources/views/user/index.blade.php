@@ -251,7 +251,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="single1.html">
+                                    <a href="/single1">
                                         <h4 class="post-headline">Swara Alam Suasana Sejuk Aman di kantong</h4>
                                     </a>
                                 </div>

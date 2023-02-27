@@ -36,6 +36,9 @@ Route::get('/artikel', function () {
 Route::get('/', function () {
     return view('user.index');
 });
+Route::get('/single1', function () {
+    return view('single1');
+});
 
 
 //login
@@ -85,6 +88,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 
 
+<<<<<<< Updated upstream
 //data tempat
 
 
@@ -94,6 +98,12 @@ route::post('/insertdatatempat',[TempatController::class, 'insertdatatempat'])->
 route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatatempat'])->name('tampilkandatatempat')->middleware('auth');
 route::post('/updatetempat/{id}',[TempatController::class, 'updatetempat'])->name('updatetempat')->middleware('auth');;
 route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name('deletetempat')->middleware('auth');;
+=======
+//singel1
+
+
+
+>>>>>>> Stashed changes
 
 
 
