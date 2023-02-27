@@ -12,7 +12,7 @@
     <title>KulinerKu - Food Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/mkmk-removebg-preview.png">
+    <link rel="iacon" href="{{asset('yummy-master/yummy-master/img/core-img/mkmk-removebg-preview.png')}}">
 
     <!-- Core Stylesheet -->
     <link href="{{asset('yummy-master/yummy-master/style.css')}}" rel="stylesheet">
@@ -53,13 +53,16 @@
     </style>
 
     <!-- Responsive CSS -->
-    <link href="{{asset ('yummy-master/yummy-master/css/responsive/responsive.css') }}" rel="stylesheet">
+    <link href="{{asset('yummy-master/yummy-master/css/responsive/responsive.css')}}" rel="stylesheet">
 
 </head>
 
 <body>
     <!-- Preloader Start -->
-   
+    <div id="preloader">
+        <div class="yummy-load"></div>
+    </div>
+
     <!-- Background Pattern Swither -->
 
 
@@ -82,7 +85,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-1.jpg') }}" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-1.jpg')}}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -98,7 +101,7 @@
         <!-- Single Slide -->
         <div class="welcome-single-slide">
             <!-- Post Thumb -->
-            <img src="{{asset ('yummy-master/yummy-master/img/bg-img/slide-2.jpg') }}" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-2.jpg')}}" alt="">
             <!-- Overlay Text -->
             <div class="project_title">
                 <div class="post-date-commnents d-flex">
@@ -220,7 +223,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/45.jpg') }}" style="width: 75%;height:fit-content;">
+                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/45.jpg')}}" style="width: 75%;height:fit-content;">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -262,7 +265,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/10.jpg') }}" alt="">
+                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/10.jpg')}}" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -321,7 +324,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/6.jpg') }}" alt="">
+                                    <img src="img/blog-img/6.jpg" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -366,7 +369,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset ('yummy-master/yummy-master/img/blog-img/7.jpg') }}" alt="">
+                                    <img src="img/blog-img/7.jpg" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -424,7 +427,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
+                                <img src="img/sidebar-img/1.jpg" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Kilang Anggur Terbaik Untuk Dikunjungi Di Malang</h6>
@@ -434,7 +437,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
+                                <img src="img/sidebar-img/2.jpg" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6> Makanan Terbaik di Malang</h6>
@@ -444,7 +447,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
+                                <img src="img/sidebar-img/3.jpg" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Tempat Festival Terbaik di Malang</h6>
@@ -454,7 +457,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
+                                <img src="img/sidebar-img/4.jpg" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>10 Unggulan Makanan Pemimpin di Malang</h6>
@@ -464,7 +467,7 @@
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset ('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
+                                <img src="img/sidebar-img/5.jpg" alt="">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6>Makan Dengan Anggaran Terjangkau</h6>
@@ -494,60 +497,62 @@
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/1.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/2.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/3.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/3.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/4.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/4.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/5.jpg" alt="">
-            <!-- Hover -->
-        </div>
-
-
-        <!-- Instagram Item -->
-        <div class="instagram_gallery_item">
-            <!-- Instagram Thumb -->
-            <img src="img/instagram-img/6.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/5.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/1.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/6.jpg')}}" alt="">
             <!-- Hover -->
         </div>
 
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/2.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg')}}" alt="">
             <!-- Hover -->
-        </div>    
-     
+        </div>
+
+        <!-- Instagram Item -->
+        <div class="instagram_gallery_item">
+            <!-- Instagram Thumb -->
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg')}}" alt="">
+            <!-- Hover -->
+        </div>
+
+    </div>
+    <!-- ****** Our Creative Portfolio Area End ****** -->
+
     <!-- ****** Footer Social Icon Area Start ****** -->
     <div class="social_icon_area clearfix">
         <div class="container">
@@ -613,18 +618,14 @@
     <!-- ****** Footer Menu Area End ****** -->
 
     <!-- Jquery-2.2.4 js -->
-    {{-- <script src="{{asset ('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js') }}"></script> --}}
     <script src="{{asset('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js')}}"></script>
     <!-- Popper js -->
-    {{-- <script src="{{asset ('yummy-master/yummy-master/js/bootstrap/popper.min.js') }}"></script> --}}
     <script src="{{asset('yummy-master/yummy-master/js/bootstrap/popper.min.js')}}"></script>
     <!-- Bootstrap-4 js -->
-    {{-- <script src="{{asset ('yummy-master/yummy-master/js/bootstrap/bootstrap.min.js') }}"></script> --}}
     <script src="{{asset('yummy-master/yummy-master/js/bootstrap/bootstrap.min.js')}}"></script>
-    <!-- All Plugins JS -->
-    <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script>
-    <!-- Active JS -->
-    
+    <!-- All Plugins  -->
     <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js')}}"></script>
-
+    <!-- Active  -->
+    <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script>
+    
 </body>

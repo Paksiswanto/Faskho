@@ -14,7 +14,7 @@ class LoginController extends Controller
 
     public function loginproses(Request $request){
         if(Auth::attempt($request->only('email','password'))){
-            return redirect('/admin');
+            return redirect('/');
         }
         
         return redirect('login');
@@ -29,8 +29,9 @@ class LoginController extends Controller
     public function registeruser(Request $request){
         //dd($request->all());
          $request->validate([
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|email:dns',
             'name' => 'required|unique:users',
+            'password'=>'required|min:8'
         ]);
         user::create([
             'name' => $request->name,
@@ -42,11 +43,14 @@ class LoginController extends Controller
         return redirect('/login');
         }
 
+
         public function logout(){
             Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
             return redirect('login');
+    
         }
-
     
 }
 

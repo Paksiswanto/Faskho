@@ -17,7 +17,7 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area  d-flex">
                             <div class="login position-absolute">
-                                <a href="/yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/login5.html"> Login</a>
+                                <a href="/login">Login</a>
                             </div>
                             <div class="user-area dropdown float-right" id="yummyfood-nav">
                                 <a href="#" class="dropdown-toggle active"id="yummyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,8 +26,8 @@
                                       </svg>
                                 </a>
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
-                                    <a class="nav-link" href="/user/demo.dashboardpack.com/sales-html/posts.html"><i class="fa fa-plus"></i>Tambah Artikel</a>
-                                    <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+                                    <a class="nav-link" href="/post"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
                                 </div>
                             </div>
                         <!-- Search Button Area -->
