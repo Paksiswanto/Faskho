@@ -29,7 +29,7 @@
 
 
         <li class="">
-            <a href="" aria-expanded="false">
+            <a href="/posts" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
                     <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/2.svg ')}}" alt="">

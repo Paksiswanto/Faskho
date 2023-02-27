@@ -9,14 +9,14 @@
                     <li class="menu-title">Data-data Admin</li>
 
                    
-                    <li>
+                    {{-- <li>
                         <a href="/tempat"> 
                             <i class="fa fa-thumb-tack" style="width: 20%;"></i>Data Tempat </a>
                     </li>
-                    <li>
-                        <a href="/tag"> <i
+                    <li> --}}
+                        {{-- <a href="/tag"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Tag </a>
-                    </li>
+                    </li> --}}
 
                     <li>
                         <a href="/author"> <i
@@ -30,10 +30,10 @@
                         <a href="/ulasan"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="/penghargaan"> <i
                                 class="fa fa-trophy" style="width: 20%;"></i>Data Penghargaan </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="/laporan"> <i
                                 class="fa fa-exclamation-triangle" style="width: 20%;"></i>Data Laporan </a>
@@ -42,10 +42,10 @@
                         <a href="/kategori"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Kategori </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="/trend"> <i
                                 class="fa fa-bar-chart" style="width: 20%;"></i>Data Trend </a>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div><!-- /.navbar-collapse -->

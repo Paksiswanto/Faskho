@@ -93,6 +93,10 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //postingan
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
+route::get('/posts',[PostinganController::class,'index'])->name('posts')->middleware('auth');
+
+route::get('/tampatpostingan',[PostinganController::class,'tambahtempat'])->name('tambahtempat')->middleware('auth');
+route::get('/insertdatapostingan',[PostinganController::class,'insertdatapostingan'])->name('insertdatapostingan')->middleware('auth');
 
 
 //data tempat
@@ -106,7 +110,7 @@ route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('u
 route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name('deletetempat')->middleware('auth');;
 
 
-//singel1
+//
 
 
 
