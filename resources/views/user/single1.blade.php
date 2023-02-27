@@ -76,7 +76,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">KulinerKu</a>
+                        <a href="/" class="yummy-logo">KulinerKu</a>
                     </div>
                 </div>
             </div>
@@ -98,17 +98,17 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
-                                        <a href="pembuka.html" class="dropdown-item">Makanan Pembuka</a>
-                                        <a href="utama.html" class="dropdown-item">Makanan Utama</a>
-                                        <a href="penutup.html" class="dropdown-item">Makanan Penutup</a>
+                                        <a href="/pembuka" class="dropdown-item">Makanan Pembuka</a>
+                                        <a href="/utama" class="dropdown-item">Makanan Utama</a>
+                                        <a href="/penutup" class="dropdown-item">Makanan Penutup</a>
                                     </div>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="archive.html">Artikel</a>
+                                    <a class="nav-link" href="/artikel">Artikel</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Kontak</a>
+                                    <a class="nav-link" href="/kontak">Kontak</a>
                                 </li>
                             </ul>
                         </div>

@@ -63,13 +63,13 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Beranda <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
                                 </li>
                                 
                                 <li class="nav-item dropdown mt-0">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
-                                        <a href="pembuka.html" class="dropdown-item">Makanan Pembuka</a>
+                                        <a href="/pembuka" class="dropdown-item">Makanan Pembuka</a>
                                         <a href="utama.html" class="dropdown-item">Makanan Utama</a>
                                         <a href="penutup.html" class="dropdown-item">Makanan Penutup</a>
                                     </div>
