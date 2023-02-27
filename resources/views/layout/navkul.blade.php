@@ -25,6 +25,7 @@
                                 </a>
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     <a class="nav-link" href="/artikel"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
                                     @auth
                                     <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
                                    
@@ -70,16 +71,16 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
                                         <a href="/pembuka" class="dropdown-item">Makanan Pembuka</a>
-                                        <a href="utama.html" class="dropdown-item">Makanan Utama</a>
-                                        <a href="penutup.html" class="dropdown-item">Makanan Penutup</a>
+                                        <a href="/utama" class="dropdown-item">Makanan Utama</a>
+                                        <a href="/penutup" class="dropdown-item">Makanan Penutup</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="archive.html">Artikel</a>
+                                    <a class="nav-link" href="/artikel">Artikel</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Kontak</a>
+                                    <a class="nav-link" href="/kontak">Kontak</a>
                                 </li>
                             </ul>
                         </div>

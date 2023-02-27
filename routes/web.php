@@ -45,7 +45,9 @@ Route::get('/pembuka', function () {
 Route::get('/pembuka1', function () {
     return view('user.pembuka1');
 });
-
+Route::get('/kontak', function () {
+    return view('user.kontak');
+});
 
 //login
 

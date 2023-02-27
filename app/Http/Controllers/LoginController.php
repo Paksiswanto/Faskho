@@ -29,7 +29,7 @@ class LoginController extends Controller
     public function registeruser(Request $request){
         //dd($request->all());
          $request->validate([
-            'email' => 'required|unique:users|email:dns',
+            'email' => 'required|unique:users|email',
             'name' => 'required|unique:users',
             'password'=>'required|min:8'
         ]);
