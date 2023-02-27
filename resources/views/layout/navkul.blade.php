@@ -16,18 +16,22 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area  d-flex">
-                            <div class="login position-absolute">
-                                <a href="/login">Login</a>
-                            </div>
-                            <div class="user-area dropdown float-right" id="yummyfood-nav">
-                                <a href="#" class="dropdown-toggle active"id="yummyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <svg class="ml-1"style="width:30"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                                      </svg>
+                     
+                            <div class="user-area dropdown float-right">
+                                <svg class="ml-1"style="width:30"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                  </svg>
+                               
                                 </a>
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
-                                    <a class="nav-link" href="/post"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link" href="/artikel"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    @auth
                                     <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
+                                   
+                                        @else
+                                        <a class="nav-link" href="/login"><i class="fa fa-power-off"></i>login</a>
+                                    @endauth
+                                   
                                 </div>
                             </div>
                         <!-- Search Button Area -->

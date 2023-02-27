@@ -46,7 +46,7 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->nama}}</td>
+                                    <td>{{ $row->Nama}}</td>
                                     <td>{{ $row->jam_oprasional}}</td>
 
                                     <td>{{ $row->alamat}}</td>
