@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tempats', function (Blueprint $table) {
             $table->id();
+            $table->string('Nama');
+            $table->string('jam_oprasional');
+            $table->string('Alamat');
             $table->timestamps();
         });
     }

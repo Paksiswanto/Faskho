@@ -9,6 +9,8 @@ use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TempatController;
+
 use App\Models\ulasan;
 use Illuminate\Foundation\Auth\User;
 
@@ -33,6 +35,9 @@ Route::get('/artikel', function () {
 });
 Route::get('/', function () {
     return view('user.index');
+});
+Route::get('/single1', function () {
+    return view('single1');
 });
 
 
@@ -83,9 +88,22 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 
 
+<<<<<<< Updated upstream
 //data tempat
 
 
+route::get('/tempat',[TempatController::class, 'index'])->name('tempat')->middleware('auth');
+route::get('/tambahtempat',[TempatController::class, 'tambahtempat'])->name('tambahtempat')->middleware('auth');
+route::post('/insertdatatempat',[TempatController::class, 'insertdatatempat'])->name('insertdatatempat')->middleware('auth');
+route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatatempat'])->name('tampilkandatatempat')->middleware('auth');
+route::post('/updatetempat/{id}',[TempatController::class, 'updatetempat'])->name('updatetempat')->middleware('auth');;
+route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name('deletetempat')->middleware('auth');;
+=======
+//singel1
+
+
+
+>>>>>>> Stashed changes
 
 
 
