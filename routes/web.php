@@ -92,12 +92,6 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //postingan
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
-<<<<<<< Updated upstream
-
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 
 
 //data tempat
@@ -110,12 +104,7 @@ route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatat
 route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('updatedata')->middleware('auth');
 route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name('deletetempat')->middleware('auth');;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
 
->>>>>>> Stashed changes
 //singel1
 
 
