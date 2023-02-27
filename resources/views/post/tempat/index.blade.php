@@ -49,10 +49,10 @@
                                     <td>{{ $row->Nama}}</td>
                                     <td>{{ $row->jam_oprasional}}</td>
 
-                                    <td>{{ $row->alamat}}</td>
+                                    <td>{{ $row->Alamat}}</td>
 
                                     <td>
-                                        <a href="/updatetempat/{{ $row->id }}" class="btn btn-warning">Edit</a>
+                                        <a href="/tampilkandatatempat/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
                                         <a href="/deletetempat/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>

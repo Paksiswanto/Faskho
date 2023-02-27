@@ -10,24 +10,52 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Tambah Ulasan </h4>
+                        <h4 class="box-title">Daftarkan Tempat </h4>
                     </div>
                     <div class="add_button ms-2 mb-3">
                     </div>
                     <div class="card-body--">
-                        <form class="p-2"action="/updatedata/{{$data->id}}" method="POST" enctype="multipart/form-data">
-                                @csrf
+                        <form class="px-4" action="/updatedata/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
-                                <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "  value="{{ $data ->nama }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">isi komentar</label>
-                                <input type="text" name="komentar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $data ->komentar }}">
+                                <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
+                                <input type="text" name="Nama" value="{{ $data ->Nama}}" class="form-control @error('Nama')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                @error('Nama')
+                                {{$message}}
+                                @enderror
                             </div>
 
-                        <button type="submit" class="btn btn-primary">update data</button>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Jam oprasional</label>
+                                <input type="text" name="jam_oprasional" class="form-control @error('jam_oprasional')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{ $data ->jam_oprasional}}" aria-describedby="emailHelp">@error('jam_oprasional')
+                                {{$message}}
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                                <input type="text" name="Alamat" class="form-control @error('Alamat')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{ $data ->Alamat}}" aria-describedby="emailHelp">@error('Alamat')
+                                {{$message}}
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Konten:</label>
+                                <textarea name="konten" id="summernote" class="form-control @error('konten')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{ $data->konten}}" aria-describedby="emailHelp">@error('konten')
+                                {{$message}}
+                                @enderror {!! $data->konten !!}</textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">kirim</button>
                         </form>
                     </div>
                 </div>

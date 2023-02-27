@@ -19,6 +19,7 @@
                                 @csrf
 
                             <div class="mb-3">
+                            
                                 <label for="exampleInputEmail1" class="form-label">Nama Pengguna</label>
                                 <input type="text" name="nama" value="{{old('nama')}}" class="form-control @error('nama')
                                     is-invalid

@@ -20,10 +20,10 @@
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
-                                <input type="text" name="nama" value="{{old('nama')}}" class="form-control @error('nama')
+                                <input type="text" name="Nama" value="{{old('Nama')}}" class="form-control @error('Nama')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                @error('nama')
+                                @error('Nama')
                                 {{$message}}
                                 @enderror
                             </div>
@@ -39,11 +39,20 @@
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                                <input type="text" name="alamat" class="form-control @error('alamat')
+                                <input type="text" name="Alamat" class="form-control @error('Alamat')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('alamat')}}" aria-describedby="emailHelp">@error('alamat')
+                                @enderror" id="exampleInputEmail1" value="{{old('Alamat')}}" aria-describedby="emailHelp">@error('Alamat')
                                 {{$message}}
                                 @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Konten:</label>
+                                <textarea name="konten" id="summernote" class="form-control @error('konten')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{old('konten')}}" aria-describedby="emailHelp">@error('konten')
+                                {{$message}}
+                                @enderror</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">kirim</button>

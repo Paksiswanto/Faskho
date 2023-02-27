@@ -24,9 +24,11 @@ class TempatController extends Controller
     public function insertdatatempat(request $request){
         //dd($request->all());
         $validatedata=$request->validate([
-            'nama'=>'required',
+            'Nama'=>'required',
             'jam_oprasional'=>'required',
-            'alamat'=>'required'
+            'Alamat'=>'required',
+            'konten'=>'required'
+
         ]);
     $data = tempat::create($request->all());
     
@@ -35,14 +37,15 @@ class TempatController extends Controller
     public function tampilkandatatempat($id){
         $data = tempat::find($id);
        // dd($data);
-       return view('tampildatatempat', compact('data'));
+       return view('post.tempat.tampildatatempat', compact('data'));
     }
-    public function updatetempat(Request $request,$id){
+    public function updatedata(Request $request,$id){
         $data = tempat::find($id);
         $data->update([
-            'nama' =>$request->nama,
+            'Nama' =>$request->Nama,
             'jam_oprasional' =>$request->jam_oprasional,
-            'alamat' =>$request->alamat,
+            'Alamat' =>$request->Alamat,
+            'konten' =>$request->konten
 
         ]);
     return redirect()->route('tempat')->with('success','data Berhasil Di Update');

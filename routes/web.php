@@ -92,12 +92,14 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //postingan
 route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 =======
-
-
+=======
 >>>>>>> Stashed changes
+
+
 //data tempat
 
 
@@ -105,11 +107,15 @@ route::get('/tempat',[TempatController::class, 'index'])->name('tempat')->middle
 route::get('/tambahtempat',[TempatController::class, 'tambahtempat'])->name('tambahtempat')->middleware('auth');
 route::post('/insertdatatempat',[TempatController::class, 'insertdatatempat'])->name('insertdatatempat')->middleware('auth');
 route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatatempat'])->name('tampilkandatatempat')->middleware('auth');
-route::post('/updatetempat/{id}',[TempatController::class, 'updatetempat'])->name('updatetempat')->middleware('auth');;
+route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('updatedata')->middleware('auth');
 route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name('deletetempat')->middleware('auth');;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+
+>>>>>>> Stashed changes
 //singel1
 
 
@@ -117,5 +123,4 @@ route::get('/deletetempat/{id}',[TempatController::class, 'deletetempat'])->name
 
 
 
->>>>>>> Stashed changes
 

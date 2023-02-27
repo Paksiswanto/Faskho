@@ -42,6 +42,9 @@
 
   <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/style1.css') }}" />
   <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/colors/default.css') }}" id="colorSkinCSS">
+
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body class="crm_body_bg">
@@ -284,6 +287,17 @@
 
   <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/dashboard_init.js') }}"></script>
   <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/custom.js') }}"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#Mysummernote").summernote({
+          height: 250,
+        });
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 </body>
 
 <!-- Mirrored from demo.dashboardpack.com/sales-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Feb 2023 06:37:07 GMT -->

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('Nama');
             $table->string('jam_oprasional');
             $table->string('Alamat');
+            $table->longText('konten');
             $table->timestamps();
         });
     }
