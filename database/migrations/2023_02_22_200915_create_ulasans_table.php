@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('ulasans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('rate');
+            $table->string('email');
+            $table->string('foto');
             $table->string('komentar');
             $table->timestamps();
         });

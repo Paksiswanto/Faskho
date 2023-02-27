@@ -355,6 +355,7 @@
                                                 </li>
                                             </ol>
                                         </li>
+                                        @foreach ($data as $item )
                                         <li class="single_comment_area">
                                             <div class="comment-wrapper d-flex">
                                                 <!-- Comment Meta -->
@@ -363,9 +364,9 @@
                                                 </div>
                                                 <!-- Comment Content -->
                                                 <div class="comment-content">
-                                                    <span class="comment-date text-muted">27 Aug 2018</span>
-                                                    <h5>Rahmat Gantenk</h5>
-                                                    <p>Disin tempatnya sangat sejuk dan harga makananya tidak mahal
+                                                    <span class="comment-date text-muted">{{$item->createed_at}}</span>
+                                                    <h5>{{$item->nama}}</h5>
+                                                    <p>{{$item->komentar}}
                                                     </p>
                                                     <a href="#">Like</a>
                                                     <a class="active" href="#">Reply</a>
@@ -374,39 +375,42 @@
                                         </li>
                                     </ol>
                                 </div>
+                                @endforeach
 
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area section_padding_50 clearfix">
                                     <div class="comment-form">
                                         <h4 class="mb-30">Tinggalkan Komentar</h4>
-                                        <div class="rate">
-                                            <input type="radio" id="star5" name="rate" value="5" />
-                                            <label for="star5" title="sangat bagus">5 stars</label>
-                                            <input type="radio" id="star4" name="rate" value="4" />
-                                            <label for="star4" title="bagus">4 stars</label>
-                                            <input type="radio" id="star3" name="rate" value="3" />
-                                            <label for="star3" title="cukup">3 stars</label>
-                                            <input type="radio" id="star2" name="rate" value="2" />
-                                            <label for="star2" title="buruk">2 stars</label>
-                                            <input type="radio" id="star1" name="rate" value="1" />
-                                            <label for="star1" title="sangat buruk">1 star</label>
-                                        </div>
+                            
                                         <!-- Comment Form -->
-                                        <form action="#" method="post">
+                                        <form action="/insertdataulasan" method="post">
+                                            @csrf
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="sangat bagus">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="bagus">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="cukup">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="buruk">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="sangat buruk">1 star</label>
+                                            </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="contact-name"
+                                                <input type="text" name="nama" class="form-control" id="contact-name"
                                                     placeholder="Nama">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control" id="contact-email"
+                                                <input type="email" name="email" class="form-control" id="contact-email"
                                                     placeholder="Email">
                                             </div>
                                             <div class="form-group-append">
-                                                <input type="file" class="form-control" id="contact-email"
+                                                <input type="file" name="foto" class="form-control" id="contact-email"
                                                     placeholder="upload foto">
                                             </div>
                                             <div class="form-group">
-                                                <textarea class="form-control" name="message" id="message" cols="30"
+                                                <textarea class="form-control" name="komentar" name="message" id="message" cols="30"
                                                     rows="10" placeholder="Pesan"></textarea>
                                             </div>
                                             <button type="submit" class="btn contact-btn">Posting Komentar</button>

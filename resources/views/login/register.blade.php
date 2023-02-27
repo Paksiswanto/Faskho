@@ -33,7 +33,7 @@
                         @csrf
                             <input class="form-control @error('name')
                                 is-invalid
-                            @enderror" type="text" name="name" placeholder="Nama Lengkap" required>
+                            @enderror" type="text" value="{{old('name')}}" name="name" placeholder="Nama Lengkap" required>
                             @error('name')
                             <div class="invalid-feedback">
                                 {{$message}}

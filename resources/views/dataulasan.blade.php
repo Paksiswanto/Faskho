@@ -33,7 +33,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Rate</th>
                                     <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>foto</th>
                                     <th>Komentar</th>
                                     <th>Tanggal</th>
 
@@ -47,7 +50,10 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
+                                    <td>{{ $row->rate }}</td>
                                     <td>{{ $row->nama }}</td>
+                                    <td>{{ $row->email }}</td>
+                                    <td><img src="img/{{ $row->foto }}"></td>
                                     <td>{{ $row->komentar }}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>

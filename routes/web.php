@@ -63,6 +63,7 @@ route::post('/insertdataulasan',[UlasanController::class, 'insertdataulasan'])->
 route::get('/tampilkandataulasan/{id}',[UlasanController::class, 'tampilkandataulasan'])->name('tampilkandataulasan')->middleware('auth');
 route::post('/updatedata/{id}',[UlasanController::class, 'updatedata'])->name('updatedata')->middleware('auth');;
 route::get('/deletedata/{id}',[UlasanController::class, 'deletedata'])->name('deletedata')->middleware('auth');;
+route::get('/CRUD',[UlasanController::class,'CRUD'])->middleware('auth');
 
 //kategori
 
