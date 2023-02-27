@@ -9,24 +9,21 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>KulinerKu - Food Blog Template</title>
+    <title>KulinerKu - Food Blog</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <link href="{{asset('yummy-master/yummy-master/style.css') }}" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="css/responsive/responsive.css" rel="stylesheet">
+    <link href="{{asset('yummy-master/yummy-master/css/responsive/responsive.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- Preloader Start -->
-    <div id="preloader">
-        <div class="yummy-load"></div>
-    </div>
+    
 
     <!-- Background Pattern Swither -->
 
@@ -94,7 +91,7 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">Beranda <span
+                                    <a class="nav-link" href="/">Beranda <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown mt-0">
@@ -121,7 +118,7 @@
         </div>
     </header>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(img/blog-img/111.jpg);width: 100%;">
+    <div class="breadcumb-area" style="background-image: url({{asset('yummy-master/yummy-master/img/blog-img/111.jpg') }});width: 100%;">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -172,13 +169,14 @@
                         <div class="col-10 col-sm-11">
                             <div class="single-post">
                                 <!-- Post Thumb -->
-
+                                
                                 <div class="post-thumb">
+                                    <center>
                                     <a href="#">
                                         <h1 class="post-headline">Swara Alam Suasana Sejuk Aman di Kantong</h1>
                                     </a>
 
-                                    <img src="img/blog-img/45.jpg" alt="">
+                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/45.jpg') }}" alt="" style="width: 700px"></center>
                                     <div class="row ml-100">
                                         <div class="media col-4">
                                             <svg style="width: 30;" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -270,7 +268,7 @@
                                         menikmati makanan khas rumahan yang membuat sobat traveler kangen masakan
                                         rumahan.
                                     <div>
-                                        <img class="br-30 mb-30" src="img/blog-img/47.jpg" width="500" alt="">
+                                      <center>  <img class="br-30 mb-30" src="{{asset('yummy-master/yummy-master/img/blog-img/47.jpg') }}" width="500" alt=""></center>
                                     </div>
                                     <p>
                                         Menu tersebut antara lain: Sego Sambel Ayam Suwir, Mie Ambyar, Sego Goreng, Sego
@@ -296,7 +294,7 @@
                                         kesehatan, sehingga antar kursi diberi jarak. Cafe Swara Alam buka setiap hari
                                         di jam 10.00-22.00 WIB</p>
 
-                                    <img class="br-30 mb-30" src="img/blog-img/46.jpg" alt="">
+                                    <center><img class="br-30 mb-30" src="{{asset('yummy-master/yummy-master/img/blog-img/46.jpg') }}" alt=""></center>
                                     <p>Itulah sedikit ulasan mengenai Cafe Swara Alam, sebuah tempat nongkrong asik di
                                         Kepanjen, dan harganya sangat terjangkau gak bikin kantongmu jebol.
 
@@ -312,117 +310,10 @@
                                     <a href="#">viral</a>
                                     <a href="#">nongkrong</a>
                                 </div>
-                                <!-- Related Post Area -->
-                                <div class="related-post-area section_padding_50">
-                                    <h4 class="mb-30">Related post</h4>
-
-                                    <div class="related-post-slider owl-carousel">
-                                        <!-- Single Related Post-->
-                                        <div class="single-post">
-                                            <!-- Post Thumb -->
-                                            <div class="post-thumb">
-                                                <img src="img/blog-img/15.jpg" alt="">
-                                            </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <div class="post-meta d-flex">
-                                                    <div class="post-author-date-area d-flex">
-                                                        <!-- Post Author -->
-                                                        <div class="post-author">
-                                                            <a href="#">By Marian</a>
-                                                        </div>
-                                                        <!-- Post Date -->
-                                                        <div class="post-date">
-                                                            <a href="#">May 19, 2017</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#">
-                                                    <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Single Related Post-->
-                                        <div class="single-post">
-                                            <!-- Post Thumb -->
-                                            <div class="post-thumb">
-                                                <img src="img/blog-img/5.jpg" alt="">
-                                            </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <div class="post-meta d-flex">
-                                                    <div class="post-author-date-area d-flex">
-                                                        <!-- Post Author -->
-                                                        <div class="post-author">
-                                                            <a href="#">By Marian</a>
-                                                        </div>
-                                                        <!-- Post Date -->
-                                                        <div class="post-date">
-                                                            <a href="#">May 19, 2017</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#">
-                                                    <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Single Related Post-->
-                                        <div class="single-post">
-                                            <!-- Post Thumb -->
-                                            <div class="post-thumb">
-                                                <img src="img/blog-img/16.jpg" alt="">
-                                            </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <div class="post-meta d-flex">
-                                                    <div class="post-author-date-area d-flex">
-                                                        <!-- Post Author -->
-                                                        <div class="post-author">
-                                                            <a href="#">By Marian</a>
-                                                        </div>
-                                                        <!-- Post Date -->
-                                                        <div class="post-date">
-                                                            <a href="#">May 19, 2017</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#">
-                                                    <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Single Related Post-->
-                                        <div class="single-post">
-                                            <!-- Post Thumb -->
-                                            <div class="post-thumb">
-                                                <img src="img/blog-img/5.jpg" alt="">
-                                            </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <div class="post-meta d-flex">
-                                                    <div class="post-author-date-area d-flex">
-                                                        <!-- Post Author -->
-                                                        <div class="post-author">
-                                                            <a href="#">By Marian</a>
-                                                        </div>
-                                                        <!-- Post Date -->
-                                                        <div class="post-date">
-                                                            <a href="#">May 19, 2017</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="#">
-                                                    <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Comment Area Start -->
                                 <div class="comment_area section_padding_50 clearfix">
-                                    <h4 class="mb-30">2 Comments</h4>
+                                    <h4 class="mb-30">2 Komentar</h4>
 
                                     <ol>
                                         <!-- Single Comment Area -->
@@ -430,7 +321,7 @@
                                             <div class="comment-wrapper d-flex">
                                                 <!-- Comment Meta -->
                                                 <div class="comment-author">
-                                                    <img src="img/blog-img/17.jpg" alt="">
+                                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/17.jpg') }}" alt="">
                                                 </div>
                                                 <!-- Comment Content -->
                                                 <div class="comment-content">
@@ -447,7 +338,7 @@
                                                     <div class="comment-wrapper d-flex">
                                                         <!-- Comment Meta -->
                                                         <div class="comment-author">
-                                                            <img src="img/blog-img/18.jpg" alt="">
+                                                            <img src="{{asset('yummy-master/yummy-master/img/blog-img/18.jpg') }}" alt="">
                                                         </div>
                                                         <!-- Comment Content -->
                                                         <div class="comment-content">
@@ -455,7 +346,7 @@
                                                             <h5>Felix WiBu PrO TZY</h5>
                                                             <p>Saya ada ngab
                                                                 <br>
-                                                                <img style="width: 40%;" src="img/blog-img/12.jpg">
+                                                                <img style="width: 30%;" src="{{asset('yummy-master/yummy-master/img/blog-img/12.jpg') }}">
                                                             </p>
                                                             <a href="#">Like</a>
                                                             <a class="active" href="#">Reply</a>
@@ -468,7 +359,7 @@
                                             <div class="comment-wrapper d-flex">
                                                 <!-- Comment Meta -->
                                                 <div class="comment-author">
-                                                    <img src="img/blog-img/19.jpg" alt="">
+                                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/19.jpg') }}" alt="">
                                                 </div>
                                                 <!-- Comment Content -->
                                                 <div class="comment-content">
@@ -535,7 +426,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/1.jpg" alt="">
+                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Makanan enak di England</h6>
@@ -545,7 +436,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/2.jpg" alt="">
+                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>8 Makanan Terlezat Di jakarta</h6>
@@ -555,7 +446,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/3.jpg" alt="">
+                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Tempat kuliner Terbaik</h6>
@@ -565,7 +456,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/4.jpg" alt="">
+                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Harrogate's top 10 makanan penutup terenak</h6>
@@ -575,7 +466,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/5.jpg" alt="">
+                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Makanan Termurah di Oxford</h6>
@@ -614,7 +505,7 @@
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/1.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
             <div class="hover_overlay">
                 <div class="yummy-table">
