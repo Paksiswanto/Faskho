@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class postingan extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(user::class,'id_user','id');
+
     }
 }
