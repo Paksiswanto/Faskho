@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Data User</strong>
+                        <strong class="card-title">Data postingan</strong>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-bordered">
@@ -36,8 +36,7 @@
                                     <th>Username</th>
                                     <th>judul</th>
                                     <th>tag</th>
-                                    <th>content</th>
-                                    <th>foto</th>
+                                    <th>Thumbnail</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -51,7 +50,6 @@
                                     <td>{{ $row->nama}}</td>
                                     <td>{{ $row->judul}}</td>
                                      <td>{{ $row->tag}}</td>
-                                    <td>{{ $row->konten}}</td>
                                     <td>
                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                                 </td>
