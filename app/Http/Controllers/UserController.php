@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\laporan;
+use App\Models\postingan;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,6 +16,17 @@ class UserController extends Controller
                 -> paginate(10);
         return view('admin.user.index',compact('data'));
     }
+    public function showTotalUsers()
+{
+    $totalUsers = User::count();
+    $totalpostingan=postingan::count();
+    $totallaporan=laporan::count();
+    
+
+    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan]);
+}
+
+
     public function deleteda($id){
         $data = User::find($id);
         $data->delete();

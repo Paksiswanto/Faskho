@@ -26,9 +26,7 @@ use Illuminate\Foundation\Auth\User;
 */
 
 //halaman Admin
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware('auth');
+
 
 Route::get('/artikel', function () {
     return view('post.post');
@@ -103,6 +101,7 @@ route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede'
 //user
 
 route::get('/author',[UserController::class,'index'])->name('user')->middleware('auth');
+route::get('/admin',[UserController::class,'showTotalUsers'])->name('showTotalUsers')->middleware('auth');
 route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
 
 //laporan

@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
+                                            <div class="stat-text"><span class="count">{{$totalUsers}}</span></div>
                                             <div class="stat-heading">User</div>
                                         </div>
                                     </div>
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
+                                            <div class="stat-text"><span class="count">{{$totalpostingan}}</span></div>
                                             <div class="stat-heading">Postingan</div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
+                                            <div class="stat-text"><span class="count">{{$totallaporan}}</span></div>
                                             <div class="stat-heading">Ulasan</div>
                                         </div>
                                     </div>
