@@ -61,6 +61,10 @@ Route::get('/kontak', function () {
     return view('user.kontak');
 })->middleware('auth');
 
+Route::group(['middleware' => ['auth','hakakses:admin']], function(){
+    route::get('/postingan',[PostinganController::class,'index'])->name('postingan');
+
+});
 
 //login
 
@@ -108,7 +112,6 @@ route::post('/insertdatalaporan',[LaporanController::class,'insertlaporan'])->na
 route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
 //postingan
-route::get('/postingan',[PostinganController::class,'index'])->name('postingan')->middleware('auth');
 route::get('/posts',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');
 route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->name('insertdatapost')->middleware('auth');
