@@ -78,10 +78,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Artikel</a>
                                 </li>
-
+                                @auth
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="/kontak">Kontak</a>
                                 </li>
+                                @endauth
                             </ul>
                         </div>
                     </nav>
