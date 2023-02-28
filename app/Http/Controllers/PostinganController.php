@@ -14,55 +14,69 @@ class PostinganController extends Controller
         $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
                 $data2=User::all();
-        return view('post.postingan.index',compact('data'));
+        return view('admin.postingan.index',compact('data'));
     }
+        
 
         public function  posts(Request $request)
         {
             $keyword = $request->keyword;
-            $data = postingan::where('nama', 'LIKE', '%'.$keyword.'%')
+            $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
                     -> paginate(10);
-            return view('post.tempat.index',compact('data'));
-          
+            return view('post.postingan.post',compact('data'));
+        
         }
-        public function tambahtempat(){
+        public function tambahpostingan(){
+            $datauser = User::all();
             $data = postingan::all();
-            return view('post.tempat.tambah');
+            return view('post.postingan.tambah',compact('datauser'));
         }
         
-        public function insertdatatempat(request $request){
+        public function insertdatapost(request $request){
             //dd($request->all());
             $validatedata=$request->validate([
-                'Nama'=>'required',
-                'jam_oprasional'=>'required',
-                'Alamat'=>'required',
-                'konten'=>'required'
+                'judul'=>'required',
+                'konten'=>'required',
+                'foto'=>'required',
+                'tag'=>'required'
     
             ]);
-        $data = postingan::create($request->all());
-        
-        return redirect()->route('tempat')->with('success','data Berhasil Ditambahkan');
+            $data = postingan::create($request->all());
+            if($request->hasFile('foto')){
+                $request ->file('foto') ->move('thumbnail/', $request->file('foto')->getClientOriginalName());
+                $data->foto = $request->file('foto')->getClientOriginalName();
+                $data->save();
+            }
+        return redirect()->route('posts')->with('success','data Berhasil Ditambahkan');
         }
-        public function tampilkandatatempat($id){
+        public function tampilkandatapostingan($id){
             $data = postingan::find($id);
+            $user_id =User::all();
+
            // dd($data);
-           return view('post.tempat.tampildatatempat', compact('data'));
+           return view('post.postingan.tampildatapost', compact('data','user_id'));
         }
         public function updatedata(Request $request,$id){
             $data = postingan::find($id);
             $data->update([
-                'Nama' =>$request->Nama,
-                'jam_oprasional' =>$request->jam_oprasional,
-                'Alamat' =>$request->Alamat,
-                'konten' =>$request->konten
-    
+                'judul' =>$request->judul,
+                'konten' =>$request->konten,
+                'foto' =>$request->foto,
+                'tag' =>$request->tag,
+                'user_id' =>$request->user_id
+
             ]);
-        return redirect()->route('tempat')->with('success','data Berhasil Di Update');
+            if($request->hasFile('foto')){
+                $request ->file('foto') ->move('thumbnail/', $request->file('foto')->getClientOriginalName());
+                $data->foto = $request->file('foto')->getClientOriginalName();
+                $data->save();
+            }
+        return redirect()->route('post')->with('success','data Berhasil Di Update');
         }
         public function deletetempat($id){
             $data = postingan::find($id);
             $data->delete();
-            return redirect()->route('tempat')->with('success','data Berhasil Di Hapus');
+            return redirect()->route('post')->with('success','data Berhasil Di Hapus');
     
         }
     }

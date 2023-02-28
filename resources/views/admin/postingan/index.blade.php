@@ -49,7 +49,7 @@
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->user->name}}</td>
+                                     <td>{{ $row->users->name }}</td>
                                     <td>{{ $row->judul}}</td>
                                     <td>{{ $row->konten}}</td>
                                     <td>{{ $row->foto}}</td>

@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
     public function postingan()
     {
-        return $this->hasMany(postingan::class);
+        return $this->hasMany(postingan::class,'id_user','id');
     }
 }
