@@ -18,7 +18,7 @@
 
 
         <li class="">
-            <a href="" aria-expanded="false">
+            <a href="/artikel" aria-expanded="false">
                 <div class="icon_menu">
                     <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
                 </div>

@@ -10,16 +10,24 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Daftarkan Tempat </h4>
+                        <h4 class="box-title">Buat Postingan </h4>
                     </div>
                     <div class="add_button ms-2 mb-3">
                     </div>
                     <div class="card-body--">
-                        <form class="px-4" action="/updatedata/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        <form class="px-4" action="/updt/{{$data->id}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nama Tempat</label>
+                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Judul:</label>
                                 <input type="text" name="judul" value="{{ $data ->judul}}" class="form-control @error('judul')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -37,14 +45,11 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                                <input type="text" name="Alamat" class="form-control @error('Alamat')
-                                    is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{ $data ->Alamat}}" aria-describedby="emailHelp">@error('Alamat')
-                                {{$message}}
-                                @enderror
-                            </div>
+                           <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
+          <input type="file" name="foto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $data ->foto }}" >
+          <img src="{{ asset('thumbnail/'.$data->foto) }}" alt="" style="width: 130px;">
+        </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Konten:</label>

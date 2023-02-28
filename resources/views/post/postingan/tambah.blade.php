@@ -22,6 +22,11 @@
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             </div>
 
+                            
+                            <div class="mb-3">
+                                <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
+                            </div>
+
 
                             <div class="mb-3">
                                 <h3>Judul:</h3>
