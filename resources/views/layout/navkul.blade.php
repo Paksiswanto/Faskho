@@ -76,7 +76,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/artikel">Artikel</a>
+                                    <a class="nav-link" href="#">Artikel</a>
                                 </li>
 
                                 <li class="nav-item">
