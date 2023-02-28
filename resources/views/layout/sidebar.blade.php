@@ -26,7 +26,7 @@
                         <a href="/postingan"> <i
                                 class="fa fa-book" style="width: 20%;"></i>Data Post </a>
                     </li>
-                    <li>
+                    <li> 
                         <a href="/ulasan"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>
                     </li>

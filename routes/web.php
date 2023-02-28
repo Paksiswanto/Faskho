@@ -28,11 +28,11 @@ use Illuminate\Foundation\Auth\User;
 //halaman Admin
 Route::get('/admin', function () {
     return view('admin');
-});
+})->middleware('auth');
 
 Route::get('/artikel', function () {
     return view('post.post');
-});
+})->middleware('auth');
 Route::get('/', function () {
     return view('user.index');
 });
