@@ -13,8 +13,8 @@ class PostinganController extends Controller
         $keyword = $request->keyword;
         $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
-                $data2=User::all();
-        return view('admin.postingan.index',compact('data'));
+                $datauser = User::all();
+                return view('admin.postingan.index',compact('data','datauser'));
     }
         
 
@@ -56,12 +56,11 @@ class PostinganController extends Controller
            // dd($data);
            return view('post.postingan.tampildatapost', compact('data','user_id'));
         }
-        public function updatedata(Request $request,$id){
+        public function updt(Request $request,$id){
             $data = postingan::find($id);
             $data->update([
                 'judul' =>$request->judul,
                 'konten' =>$request->konten,
-                'foto' =>$request->foto,
                 'tag' =>$request->tag,
                 'user_id' =>$request->user_id
 
@@ -71,12 +70,12 @@ class PostinganController extends Controller
                 $data->foto = $request->file('foto')->getClientOriginalName();
                 $data->save();
             }
-        return redirect()->route('post')->with('success','data Berhasil Di Update');
+        return redirect()->route('posts')->with('success','data Berhasil Di Update');
         }
-        public function deletetempat($id){
+        public function deletepostingan($id){
             $data = postingan::find($id);
             $data->delete();
-            return redirect()->route('post')->with('success','data Berhasil Di Hapus');
+            return redirect()->route('posts')->with('success','data Berhasil Di Hapus');
     
         }
     }

@@ -100,8 +100,8 @@ route::get('/posts',[PostinganController::class,'posts'])->name('posts')->middle
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');
 route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->name('insertdatapost')->middleware('auth');
 route::get('/tampilkandatapostingan/{id}',[PostinganController::class,'tampilkandatapostingan'])->name('tampilkandatapostingan')->middleware('auth');
-route::post('/updatedata/{id}',[PostinganController::class, 'updatedata'])->name('updatedata')->middleware('auth');
-route::post('/updatedata/{id}',[PostinganController::class, 'updatedata'])->name('updatedata')->middleware('auth');
+route::post('/updt/{id}',[PostinganController::class, 'updt'])->name('updt')->middleware('auth');
+route::get('/deletepostingan/{id}',[PostinganController::class, 'deletepostingan'])->name('deletepostingan')->middleware('auth');
 
 
 //data tempat
@@ -112,7 +112,7 @@ route::get('/tambahtempat',[TempatController::class, 'tambahtempat'])->name('tam
 route::post('/insertdatatempat',[TempatController::class, 'insertdatatempat'])->name('insertdatatempat')->middleware('auth');
 route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatatempat'])->name('tampilkandatatempat')->middleware('auth');
 route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('updatedata')->middleware('auth');
-route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('updatedata')->middleware('auth');
+route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')->middleware('auth');
 
 
 //

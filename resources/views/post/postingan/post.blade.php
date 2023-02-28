@@ -35,7 +35,6 @@
                                     <th>#</th>
                                     <th>Judul</th>
                                     <th>Tag</th>
-                                    <th>Konten </th>
                                     <th>Thumbnail</th>
 
                                     <th>Aksi</th>
@@ -50,14 +49,13 @@
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->judul}}</td>
                                      <td>{{ $row->tag}}</td>
-                                    <td>{{ $row->konten}}</td>
                          <td>
                         <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                     </td>
                                     <td>
                                         <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
-                                        <a href="/deletetempat/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                        <a href="/deletepostingan/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

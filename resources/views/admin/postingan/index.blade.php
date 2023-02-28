@@ -35,27 +35,27 @@
                                     <th>#</th>
                                     <th>Username</th>
                                     <th>judul</th>
+                                    <th>tag</th>
                                     <th>content</th>
                                     <th>foto</th>
-                                    <th>tag</th>
-
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
+                              @php
                                 $no = 1;
                                 @endphp
                                 @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                     <td>{{ $row->users->name }}</td>
+                                    <td>{{ $row->nama}}</td>
                                     <td>{{ $row->judul}}</td>
+                                     <td>{{ $row->tag}}</td>
                                     <td>{{ $row->konten}}</td>
-                                    <td>{{ $row->foto}}</td>
-                                    <td>{{ $row->tag}}</td>
-                                    <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
+                                    <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
+                                </td>
+                                        <td>
                                         <a href="/deleteda/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
                                 </tr>
