@@ -45,9 +45,22 @@ Route::get('/pembuka', function () {
 Route::get('/pembuka1', function () {
     return view('user.pembuka1');
 });
+Route::get('/utama', function () {
+    return view('user.utama');
+});
+Route::get('/utama1', function () {
+    return view('user.utama1');
+});
+Route::get('/penutup', function () {
+    return view('user.penutup');
+});
+Route::get('/penutup1', function () {
+    return view('user.penutup1');
+});
 Route::get('/kontak', function () {
     return view('user.kontak');
 })->middleware('auth');
+
 
 //login
 

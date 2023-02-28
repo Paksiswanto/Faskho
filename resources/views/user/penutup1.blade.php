@@ -23,16 +23,17 @@
 </head>
 
 <body>
+    <!-- Preloader Start -->
     <!-- Background Pattern Swither -->
 
-    @include('layout.navpem1')
+    @include('layout.navpen1')
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-2.tstatic.net/kaltim/foto/bank/images/resep-sup-wonton-ayam.jpg);">
+    <div class="breadcumb-area" style="background-image: url(https://www.bca.co.id/-/media/Feature/Promo/Page/2022/11/20221104-SKS-banner.jpg?v=1);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Informasi Terperinci</h2>
+                        <h2>Makanan Penutup</h2>
                     </div>
                 </div>
             </div>
@@ -46,7 +47,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
                             <li class="breadcrumb-item"><a href="#">Kategori</a></li>
-                            <li class="breadcrumb-item"><a href="#">Makanan Pembuka</a></li>
+                            <li class="breadcrumb-item"><a href="#">Makanan Penutup</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Informasi Terperinci</li>
                         </ol>
                     </nav>
@@ -79,7 +80,7 @@
                             <div class="single-post">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="https://i0.wp.com/kepo.co/wp-content/uploads/2021/03/Resep-Wonton-Soup.jpeg?fit=700%2C465&ssl=1" alt="">
+                                    <img src="https://cdn.idntimes.com/content-images/community/2020/02/photo-1560910615-9eaa2e704e63-e2e5e885e3d909d1088f693e934c32ca.jpeg" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -111,26 +112,31 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h3 class="post-headline">Hidangan pembuka wonton dari China ini merupakan varian pangsit dengan kulit tipis.</h3>
+                                        <h3 class="post-headline">Tak melulu makanan yang rumit, biskuit juga dapat menjadi salah satu jenis dari makanan penutup.</h3>
                                     </a>
-                                    <p>Wonton atau Wanton atau Pangsit adalah makanan berupa daging cincang yang dibungkus lembaran tepung terigu. Setelah direbus sebentar, pangsit umumnya dihidangkan di dalam sup. Selain direbus, pangsit juga digoreng dengan minyak goreng yang banyak hingga seperti kerupuk. Pangsit (wonton) termasuk salah satu jenis dim sum.</p>
+                                    <p>Biskuit adalah produk jajanan renyah yang terbuat dari tepung terigu dan tambahan bahan makanan lain dengan cara dipanggang (kue kering). Biskuit memiliki istilah yang berbeda-beda di berbagai wilayah di dunia. Asal kata 'biskuit' atau ‘biscuit’ (dalam Bahasa Inggris) berasal dari Bahasa Latin, yaitu bis coctus yang berarti "dimasak dua kali".</p>
 
-                                    <h4>Anda Dapat Membeli Online atau Secara Langsung Ke Gerai yang Telah Dibuka</h4>
-                                    <p>Isi pangsit umumnya dibuat dari udang, daging babi, atau sayuran. Di Indonesia, isi pangsit terutama dibuat dari udang atau campuran daging ayam dan udang dengan tambahan jahe, bawang bombay, atau bawang putih yang dicincang. Bumbu untuk isi pangsit bisa berupa kecap asin, saus tiram, dan minyak wijen.</p>
+                                    <h5>Di Amerika Serikat, biskuit tidaklah keras, tebal dan seperti gulungan kecil yang serupa dengan mafin (muffin). Sedangkan di Inggris, biskuit sama dengan cookie atau cracker Amerika.</h5>
+                                    <p>Di Amerika, biskuit populer dengan sebutan cookie, yang berarti kue kecil yang dipanggang atau kue kering. Sejak abad ke-16 hingga abad ke-18, sering disebut dengan besquite dan bisket. Bentuk kata sejenis juga tercipta di beberapa bahasa Eropa. Ciri-ciri dari biskuit di antaranya, renyah dan kering, bentuk umumnya kecil, tipis, manis, dan rata</p>
                                     <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398426-sup-wonton-pinterest-CanuckCuisine.JPG" alt=""></center>
-                                    <p>Kulit pangsit dibuat dari adonan tepung terigu, air, dan garam dapur. Adonan ditipiskan dan dipotong-potong berukuran persegi. Selain bisa dibuat sendiri, kulit pangsit bisa dibeli dalam kemasan berisi 10 hingga 20 lembar. Sewaktu membuat siomay (bukan tahu bakso), kulit pangsit dipakai sebagai pembungkus daging cincang.</p>
-                                        <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398483-pinterest-Denise-Wolens.jpeg" alt=""></center>
-                                   </div>
+                                    <img class="br-30 mb-30" src="https://www.satumedia.net/wp-content/uploads/2015/11/Marie-Regal.jpg" alt="">
+                                    </center>
+                                    <p>Biskuit memiliki kandungan senyawa protein tinggi. Kemudian, protein ini memilki kemampuan untuk membantu anda di dalam meningkatakan kekuatan tubuh serta dapat membantu anda untuk meningkatkan massa otot dan menjaga kekencangan kulit.</p>
+                                    <center>
+                                    <img class="br-30 mb-30" src="https://nilaigizi.com/assets/images/produk/produk_1537407329.jpg" alt="" style="width: 400px;">
+                                    </center>
+                                    <p>Bahan-bahan yang dapat digunakan dalam pembuatan biskuit antara lain margarin, susu bubuk, gula halus, kuning telur, garam, dan baking powder. Setiap bahan yang digunakan dalam pembuatan biskuit, memiliki fungsi masing-masing</p>
+                                    <img class="br-30 mb-15" src="https://akcdn.detik.net.id/community/media/visual/2020/02/27/62fb1ef2-4612-4fcb-9076-cd2a6b26c2c1.jpeg?w=700&q=90" alt="">
+                                </div>
                             </div>
 
                             <!-- Tags Area -->
                             <div class="tags-area">
-                                <a href="#">kuliner</a>
-                                <a href="#">makananpembuka</a>
-                                <a href="#">asia</a>
+                                <a href="#">makanmalam</a>
+                                <a href="#">anekasate</a>
+                                <a href="#">malamdingin</a>
                             </div>
+
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30">3 Komentar</h4>
@@ -147,7 +153,7 @@
                                             <div class="comment-content">
                                                 <span class="comment-date text-muted">27 agustus 2018</span>
                                                 <h5>Brandon</h5>
-                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga wonton spesial ramah dikantong.</p>
+                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga sate ini juga ramah dikantong.</p>
                                                 <a href="#">Suka</a>
                                                 <a class="active" href="#">Balas</a>
                                             </div>
@@ -181,7 +187,7 @@
                                             <div class="comment-content">
                                                 <span class="comment-date text-muted">27 Okto 2018</span>
                                                 <h5>Salman</h5>
-                                                <p>Solusi ditanggal tua, tapi masih pengen sarapan enak. Always di wonton lah. Walaupun harga nya terjangkau tapi worth to buy krena rasanya juga enak.</p>
+                                                <p>Solusi ditanggal tua, tapi masih pengen makan malam enak. Always di sate lah. Walaupun harga nya terjangkau tapi worth to buy krena rasanya juga enak.</p>
                                                 <a href="#">Suka</a>
                                                 <a class="active" href="#">Balas</a>
                                             </div>
@@ -490,7 +496,7 @@
                     <div class="footer-content">
                         <!-- Logo Area Start -->
                         <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">KulinerKu</a>
+                            <a href="/" class="yummy-logo">KulinerKu</a>
                         </div>
                         <!-- Menu Area Start -->
                     </div>

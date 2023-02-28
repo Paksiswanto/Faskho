@@ -23,18 +23,19 @@
 </head>
 
 <body>
+    <!-- Preloader Start -->
 
     <!-- ****** Top Header Area Start ****** -->
-   @include('layout.navpem')
+   @include('layout.navut')
     <!-- ****** Header Area End ****** -->
 
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg);">
+    <div class="breadcumb-area" style="background-image: url(https://images.tokopedia.net/blog-tokopedia-com/uploads/2020/05/desain-banner-makanan-featured.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Makanan Pembuka</h2>
+                        <h2>Makanan Utama</h2>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Kategori</li>
-                            <li class="breadcrumb-item active" aria-current="page">Makanan Pembuka</li>
+                            <li class="breadcrumb-item active" aria-current="page">Makanan Utama</li>
                         </ol>
                     </nav>
                 </div>
@@ -67,7 +68,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="" style="width:300px">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131407/hot-dog-300x200.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -98,8 +99,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="/pembuka1">
-                                <h5 class="post-headline">Hidangan pembuka wonton dari China ini merupakan varian pangsit dengan kulit tipis.</h5>
+                            <a href="/utama1">
+                                <h5 class="post-headline">Hot dog merupakan makanan internasional yang biasa disajikan sebagai camilan negara Amerika Serikat.</h5>
                             </a>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.2s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462875-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13130607/susho-300x225.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -142,7 +143,7 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="post-headline">Kimchi Korea Selatan dikenal sebagai hidangan pembuka maupun makanan pendamping bagi masyarakat negeri gingseng itu.</h5>
+                                <h5 class="post-headline">Sushi bisa dikatakan sebagai salah satu kuliner khas Jepang. Makanan ini terbuat dari olahan nasi yang memiliki tekstur lembut dengan rasa yang masam.</h5>
                             </a>
                         </div>
                     </div>
@@ -153,7 +154,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462873-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131347/chilli-crab-300x225.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -185,7 +186,7 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="post-headline">Hidangan pembuka khas Peru, Ceviche ini merupakan kombinasi antara potongan ikan atau kerang segar.</h5>
+                                <h5 class="post-headline">Tak mau ketinggalan, Singapura juga memiliki makanan internasionalnya sendiri yaitu chilli crab atau kepiting cabai.</h5>
                             </a>
                         </div>
                     </div>
@@ -196,7 +197,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462870-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131252/penang-asam-laksa-300x169.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -228,7 +229,7 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="post-headline">Guacamole dari Meksiko berbahan dasar alpukat yang dihaluskan bersama bahan-bahan dapur.</h5>
+                                <h5 class="post-headline">Penam Assam Laksa menjadi makanan internasional khas Malaysia yang sudah banyak diketahui oleh para wisatawan mancanegara.</h5>
                             </a>
                         </div>
                     </div>
@@ -239,7 +240,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462868-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131249/masala-dosa-300x200.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -271,7 +272,7 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="post-headline">Spring rolls China terdiri dari lembaran adonan yang diisi dengan daging babi, udang, jamur, dan sayuran. </h5>
+                                <h5 class="post-headline">Masala dosa merupakan makanan khas asal India yang memiliki bentuk seperti lekker crepes yang ada di Indonesia.</h5>
                             </a>
                         </div>
                     </div>
@@ -282,7 +283,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.6s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462869-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
+                            <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131205/krokotten-300x131.jpg" alt="">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -314,13 +315,21 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="post-headline">Bruschetta, hidangan tradisional Italia ini terbuat dari potongan roti panggang dengan olesan bawang putih, dan bumbu lainnya.</h5>
+                                <h5 class="post-headline">Kroketten sudah banyak dikenal di berbagai negara Eropa. Makanan ini memiliki rasa yang enak dan unik.</h5>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Single Post -->
+                
+                
+                
+                
+                
+                
+
+               
+
                 <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
                         <nav aria-label="#">
@@ -464,7 +473,7 @@
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/2.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
             <div class="hover_overlay">
                 <div class="yummy-table">
@@ -522,7 +531,7 @@
                     <div class="footer-content">
                         <!-- Logo Area Start -->
                         <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">KulinerKu</a>
+                            <a href="/" class="yummy-logo">KulinerKu</a>
                         </div>
                         <!-- Menu Area Start -->
                     </div>

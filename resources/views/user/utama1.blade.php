@@ -23,16 +23,17 @@
 </head>
 
 <body>
+    <!-- Preloader Start -->
     <!-- Background Pattern Swither -->
 
-    @include('layout.navpem1')
+    @include('layout.navut1')
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-2.tstatic.net/kaltim/foto/bank/images/resep-sup-wonton-ayam.jpg);">
+    <div class="breadcumb-area" style="background-image: url(https://images.tokopedia.net/blog-tokopedia-com/uploads/2020/05/desain-banner-makanan-featured.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Informasi Terperinci</h2>
+                        <h2>Makanan Utama</h2>
                     </div>
                 </div>
             </div>
@@ -46,7 +47,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
                             <li class="breadcrumb-item"><a href="#">Kategori</a></li>
-                            <li class="breadcrumb-item"><a href="#">Makanan Pembuka</a></li>
+                            <li class="breadcrumb-item"><a href="#">Makanan Utama</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Informasi Terperinci</li>
                         </ol>
                     </nav>
@@ -78,9 +79,10 @@
                         <div class="col-10 col-sm-11">
                             <div class="single-post">
                                 <!-- Post Thumb -->
+                                <center>
                                 <div class="post-thumb">
-                                    <img src="https://i0.wp.com/kepo.co/wp-content/uploads/2021/03/Resep-Wonton-Soup.jpeg?fit=700%2C465&ssl=1" alt="">
-                                </div>
+                                    <img class="br-30 mb-30" src="https://i0.wp.com/blog.duniamasak.com/wp-content/uploads/Memanggang-Hot-Dog.jpg?w=900&ssl=1" alt="">
+                                </div></center>
                                 <!-- Post Content -->
                                 <div class="post-content">
                                     <div class="post-meta d-flex">
@@ -111,26 +113,39 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h3 class="post-headline">Hidangan pembuka wonton dari China ini merupakan varian pangsit dengan kulit tipis.</h3>
+                                        <h3 class="post-headline">Hot dog merupakan makanan internasional yang biasa disajikan sebagai camilan negara Amerika Serikat.</h3>
                                     </a>
-                                    <p>Wonton atau Wanton atau Pangsit adalah makanan berupa daging cincang yang dibungkus lembaran tepung terigu. Setelah direbus sebentar, pangsit umumnya dihidangkan di dalam sup. Selain direbus, pangsit juga digoreng dengan minyak goreng yang banyak hingga seperti kerupuk. Pangsit (wonton) termasuk salah satu jenis dim sum.</p>
+                                    <p>Hot dog (frankfurter, frank, wiener, weenie) adalah suatu jenis sosis yang dimasak atau diasapi dan memiliki tekstur yang lebih halus serta rasa yang lebih lembut dan basah daripada kebanyakan sosis. Hot dog sering dimakan dengan tangan (fingerfood), terutama di Amerika Serikat, dan biasanya dimakan bersama roti lunak (bun) yang berbentuk sama dengan sosis, kadang disertai bumbu dan topping. Sandwich yang terbentuk dari kombinasi ini disebut juga dengan istilah hot dog.</p>
+
+
+                                    <blockquote class="yummy-blockquote mt-30 mb-30">
+                                        <h5 class="mb-30">Istilah "frankfurter" berasal dari kota Frankfurt, Jerman, dimana sosis daging babi yang mirip dengan hot dog berasal.</h5>
+                                        <h6 class="text-muted">Stevi Kenanga</h6>
+                                    </blockquote>
 
                                     <h4>Anda Dapat Membeli Online atau Secara Langsung Ke Gerai yang Telah Dibuka</h4>
-                                    <p>Isi pangsit umumnya dibuat dari udang, daging babi, atau sayuran. Di Indonesia, isi pangsit terutama dibuat dari udang atau campuran daging ayam dan udang dengan tambahan jahe, bawang bombay, atau bawang putih yang dicincang. Bumbu untuk isi pangsit bisa berupa kecap asin, saus tiram, dan minyak wijen.</p>
+                                    <p>Selain hamburger, hot dog juga salah satu makanan negeri Paman Sam yang punya banyak penggemar. Sosis panjang yang sudah dimasak disajikan bersama dengan roti bun kemudian diberi potongan selada, tomat, timun, bawang bombay. Tak lupa di atasnya diberi saos mayonaise, saos tomat, dan juga saos sambal.</p>
+
                                     <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398426-sup-wonton-pinterest-CanuckCuisine.JPG" alt=""></center>
-                                    <p>Kulit pangsit dibuat dari adonan tepung terigu, air, dan garam dapur. Adonan ditipiskan dan dipotong-potong berukuran persegi. Selain bisa dibuat sendiri, kulit pangsit bisa dibeli dalam kemasan berisi 10 hingga 20 lembar. Sewaktu membuat siomay (bukan tahu bakso), kulit pangsit dipakai sebagai pembungkus daging cincang.</p>
-                                        <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398483-pinterest-Denise-Wolens.jpeg" alt=""></center>
-                                   </div>
+                                    <img src="https://cdnwpseller.gramedia.net/wp-content/uploads/2022/05/13131407/hot-dog-300x200.jpg" alt="" style="width: 500px;">
+                                    </center>
+                                    <p>Suatu hari, seorang pelukis kartun terkenal, Ted Dorgan, melihat penjual berteriak. Dia kemudian mendapat inspirasi untuk menggambar anjing tekel yang dilapisi mustard, disematkan ke sanggul. Karena dachshund sulit diucapkan oleh kebanyakan orang Amerika, lukisan itu diberi nama hot dog.</p>
+                                    <center>
+                                    <img class="br-30 mb-15" src="https://asset.kompas.com/crops/XfT7DR8OE-knKnxEb7mllkYkrvs=/163x90:963x624/750x500/data/photo/2022/12/03/638ae108d89f0.jpg" alt="" style="width: 500px;">
+                                        </center>
+                                </div>
                             </div>
 
                             <!-- Tags Area -->
                             <div class="tags-area">
-                                <a href="#">kuliner</a>
-                                <a href="#">makananpembuka</a>
-                                <a href="#">asia</a>
+                                <a href="#">makananutama</a>
+                                <a href="#">barat</a>
+                                <a href="#">viral</a>
                             </div>
+
+
+                                    <div class="single-post">
+                                        <!-- Post 
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30">3 Komentar</h4>
@@ -147,7 +162,7 @@
                                             <div class="comment-content">
                                                 <span class="comment-date text-muted">27 agustus 2018</span>
                                                 <h5>Brandon</h5>
-                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga wonton spesial ramah dikantong.</p>
+                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga hot dog ramah dikantong.</p>
                                                 <a href="#">Suka</a>
                                                 <a class="active" href="#">Balas</a>
                                             </div>
@@ -181,7 +196,7 @@
                                             <div class="comment-content">
                                                 <span class="comment-date text-muted">27 Okto 2018</span>
                                                 <h5>Salman</h5>
-                                                <p>Solusi ditanggal tua, tapi masih pengen sarapan enak. Always di wonton lah. Walaupun harga nya terjangkau tapi worth to buy krena rasanya juga enak.</p>
+                                                <p>Solusi ditanggal tua, tapi masih pengen makan makanan barat. Always di hot dog lah. Walaupun harga nya terjangkau tapi worth to buy karena rasanya juga enak.</p>
                                                 <a href="#">Suka</a>
                                                 <a class="active" href="#">Balas</a>
                                             </div>
@@ -195,6 +210,7 @@
                                 <div class="comment-form">
                                     <h4 class="mb-30">Tinggalkan Komentar</h4>
 
+                                    <!-- Comment Form -->
                                     <form action="#" method="post">
                                         <div class="rate">
 
@@ -490,7 +506,7 @@
                     <div class="footer-content">
                         <!-- Logo Area Start -->
                         <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">KulinerKu</a>
+                            <a href="/" class="yummy-logo">KulinerKu</a>
                         </div>
                         <!-- Menu Area Start -->
                     </div>
