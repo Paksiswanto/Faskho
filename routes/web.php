@@ -91,6 +91,7 @@ route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda
 //laporan
 
 route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
+route::post('/insertdatalaporan',[LaporanController::class,'insertlaporan'])->name('save')->middleware('auth');
 route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
 //postingan
