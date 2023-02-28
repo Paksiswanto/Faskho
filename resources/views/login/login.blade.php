@@ -36,7 +36,7 @@
                 <img src="https://i.pinimg.com/564x/43/00/48/430048f53d07e801799c90612618c834.jpg" alt="">
             </div>
         </div>
-        <div id="wraper">
+       
             <div class="form-holder my-auto ">
                 <div class="form-content">
                     <div class="form-items">
@@ -61,7 +61,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <script src="{{ asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/js/jquery.min.js') }}"></script>
     <script src="{{ asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/js/popper.min.js') }}"></script>

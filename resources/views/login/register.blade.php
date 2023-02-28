@@ -10,6 +10,15 @@
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/iofrm-style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/iofrm-theme5.css') }}">
+    <style>
+         //login
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
+route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
+route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+    </style>
 </head>
 <body>
     <br>
