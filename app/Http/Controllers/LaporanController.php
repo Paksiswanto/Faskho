@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\laporan;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -19,6 +20,11 @@ class LaporanController extends Controller
         $data->delete();
         return redirect()->route('index')->with('success','data Berhasil Di Hapus');
 
+    }
+    public function insertlaporan(Request $request)
+    {
+        $data=laporan::create($request->all());
+        return redirect('/kontak');
     }
 }
 

@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
-            $table->foreignid('users_id');
+            $table->string('nama');
+            $table->string('email');
             $table->string('laporan');
-            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+           
             $table->timestamps();
         });
     }

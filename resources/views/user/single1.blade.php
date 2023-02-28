@@ -355,27 +355,10 @@
                                                 </li>
                                             </ol>
                                         </li>
-                                        @foreach ($data as $item )
-                                        <li class="single_comment_area">
-                                            <div class="comment-wrapper d-flex">
-                                                <!-- Comment Meta -->
-                                                <div class="comment-author">
-                                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/19.jpg') }}" alt="">
-                                                </div>
-                                                <!-- Comment Content -->
-                                                <div class="comment-content">
-                                                    <span class="comment-date text-muted">{{$item->createed_at}}</span>
-                                                    <h5>{{$item->nama}}</h5>
-                                                    <p>{{$item->komentar}}
-                                                    </p>
-                                                    <a href="#">Like</a>
-                                                    <a class="active" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                      
+                                      
                                     </ol>
                                 </div>
-                                @endforeach
 
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area section_padding_50 clearfix">

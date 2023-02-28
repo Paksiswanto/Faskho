@@ -25,12 +25,12 @@
                                 </a>
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     @auth
-                                    <a class="nav-link" href="/artikel"><i class="fa fa-plus"></i>Tambah Artikel</a>
-                                    <a class="nav-link" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
-                                    <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
+                                    <a class="nav-link mr-2" href="/artikel"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
+                                    <a class="nav-link mr-2" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
                                    
                                         @else
-                                        <a class="nav-link" href="/login"><i class="fa fa-power-off"></i>login</a>
+                                        <a class="nav-link mr-2" href="/login"><i class="fa fa-power-off"></i>login</a>
                                     @endauth
                                    
                                 </div>
@@ -76,7 +76,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/artikel">Artikel</a>
+                                    <a class="nav-link" href="#">Artikel</a>
                                 </li>
 
                                 <li class="nav-item">

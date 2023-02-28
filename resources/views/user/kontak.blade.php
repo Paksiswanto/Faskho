@@ -30,7 +30,7 @@
     
     <!-- ****** Header Area End ****** -->
     <!-- ****** Header Area End ****** -->
-@include('layout.navkon')
+@include('layout.navkul')
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210729/ourlarge/pngtree-delicious-korean-traditional-foods-doodle-png-image_3731697.jpg);">
         <div class="container h-100">
@@ -96,18 +96,19 @@
                         <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
                             <h2 class="contact-form-title mb-30">Jika Anda Memiliki Pertanyaan Hubungi Saya Sekarang!!</h2>
                             <!-- Contact Form -->
-                            <form action="#" method="post">
+                            <form action="/insertdatalaporan" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-name" placeholder="Nama">
+                                    <input type="hidden" name="nama" value="{{Auth::user()->name}}" class="form-control" id="contact-name" placeholder="Nama">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                                    <input type="hidden" name="email" value="{{Auth::user()->email}}" class="form-control" id="contact-email" placeholder="Email">
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="text" class="form-control" id="contact-website" placeholder="Website">
                                 </div> -->
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Tulis Pernyataan anda"></textarea>
+                                    <textarea class="form-control" name="laporan" id="message" cols="30" rows="10" placeholder="Tulis Pernyataan anda"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-danger">Kirimkan</button>
                             </form>
