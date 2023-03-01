@@ -11,8 +11,8 @@ class kategori extends Model
     protected $guarded = [];
     protected $dates = ['created_at'];
 
-    public function kategoris()
+    public function postingan()
     {
-        return $this->hasMany(kategori::class,'kategori_id','id');
+        return $this->hasMany(postingan::class);
     }
 }

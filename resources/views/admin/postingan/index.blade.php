@@ -51,7 +51,7 @@
                                                 <td>{{ $row->nama}}</td>
                                                 <td>{{ $row->judul}}</td>
                                                 <td>{{ $row->tag}}</td>
-                                                <td>{{ $row->kategoris->kategori }}</td>
+                                                <td>{{ $row->kategori->kategori }}</td>
 
                                                 <td>
                                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">

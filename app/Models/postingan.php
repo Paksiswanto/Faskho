@@ -15,9 +15,9 @@ class postingan extends Model
 
     }
 
-    public function kategoris()
+    public function kategori()
     {
-        return $this->belongsTo(kategori::class,'kategori_id','id');
+        return $this->belongsTo(kategori::class);
 
     }
 

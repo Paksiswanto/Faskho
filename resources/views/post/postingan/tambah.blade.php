@@ -59,9 +59,9 @@
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Kategori:</label>
-                                <select class="form-select" name="kategori_id" aria-label="Default select example">
+                                <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
                                     <option selected>Pilih Kategori</option>
-                                    @foreach ($datakategori as $data)
+                                    @foreach ($dtkategori as $data)
                                     <option value="{{ $data->id }}">{{ $data->kategori }}</option>
                                     @endforeach
                                 </select>

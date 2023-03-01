@@ -12,7 +12,7 @@ class PostinganController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-        $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
+        $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();
@@ -23,16 +23,17 @@ class PostinganController extends Controller
     public function  posts(Request $request)
     {
         $keyword = $request->keyword;
-        $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
+        $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
             ->paginate(5);
         return view('post.postingan.post', compact('data'));
     }
     public function tambahpostingan()
     {
         $datauser = User::all();
-        $datakategori = kategori::all();
+        $dtkategori = kategori::all();
         $data = postingan::all();
-        return view('post.postingan.tambah', compact('datauser','datakategori'));
+
+        return view('post.postingan.tambah', compact('datauser','dtkategori'));
     }
 
     public function insertdatapost(request $request)
@@ -57,17 +58,18 @@ class PostinganController extends Controller
     }
     public function tampilkandatapostingan($id)
     {
-        $data = postingan::find($id);
+        $data = postingan::with('kategori')->find($id);
         $user_id = User::all();
-        $kategori_id = kategori::all();
+        $dtkategori = kategori::all();
+        $kt = postingan::with('kategori')->find($id);
 
 
         // dd($data);
-        return view('post.postingan.tampildatapost', compact('data', 'user_id','kategori_id'));
+        return view('post.postingan.tampildatapost', compact('data', 'user_id','dtkategori','kt'));
     }
     public function updt(Request $request, $id)
     {
-        $data = postingan::find($id);
+        $data = postingan::with('kategori')->find($id);
         $data->update([
             'judul' => $request->judul,
             'konten' => $request->konten,

@@ -58,16 +58,16 @@
                                 @enderror
                             </div>
 
-                            {{-- <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Kategori</label>
+                                <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Kategori:</label>
                                 <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
-                                    <option selected>Daftar Kategori</option>
-                                    @foreach ($kategori_id as $data)
-                                    <option value="{{ $data->id}}" @if( $data->kategori_id == $data->kategori_id )selected @endif> {{ $data->kategori }} </option>
+                                    <option disabled value>Pilih Kategori</option>
+                                    <option value="{{ $kt->kategori_id }}">{{ $kt->kategori->kategori }}</option>
+                                    @foreach ($dtkategori as $kt)
+                                    <option value="{{ $kt->id }}">{{ $kt->kategori }}</option>
                                     @endforeach
-
                                 </select>
-                            </div> --}}
+                            </div>
                             
 
                             <div class="mb-3">
@@ -80,7 +80,7 @@
                                 <label for="exampleInputEmail1" class="form-label">Konten:</label>
                                 <textarea name="konten" id="summernote" class="form-control @error('konten')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{ $data->konten}}" aria-describedby="emailHelp">@error('konten')
+                                @enderror" id="exampleInputEmail1"  aria-describedby="emailHelp">@error('konten')
                                 {{$message}}
                                 @enderror {!! $data->konten !!}</textarea>
                             </div>
