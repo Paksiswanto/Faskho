@@ -22,7 +22,7 @@ class PostinganController extends Controller
         {
             $keyword = $request->keyword;
             $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
-                    -> paginate(10);
+                    -> paginate(5);
             return view('post.postingan.post',compact('data'));
         
         }

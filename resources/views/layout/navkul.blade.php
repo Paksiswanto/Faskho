@@ -27,7 +27,7 @@
                                 </a>
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     @auth
-                                    <a class="nav-link mr-2" href="/artikel"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link mr-2" href="/posts"><i class="fa fa-plus"></i>Tambah Artikel</a>
                                     <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
                                     <a class="nav-link mr-2" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
                                    
