@@ -22,7 +22,7 @@
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                             </div>
 
-                            
+
                             <div class="mb-3">
                                 <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
                             </div>
@@ -38,13 +38,33 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-4">
                                 <h3>Tag:</h3>
                                 <input type="text" name="tag" class="form-control @error('tag')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" value="{{old('tag')}}" aria-describedby="emailHelp">@error('tag')
                                 {{$message}}
                                 @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <h3>Deskripsi:</h3>
+                                <input type="text" name="deskripsi" value="{{old('deskripsi')}}" class="form-control @error('deskripsi')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                @error('deskripsi')
+                                {{$message}}
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Kategori:</label>
+                                <select class="form-select" name="kategori_id" aria-label="Default select example">
+                                    <option selected>Pilih Kategori</option>
+                                    @foreach ($datakategori as $data)
+                                    <option value="{{ $data->id }}">{{ $data->kategori }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="mb-3">

@@ -4,9 +4,6 @@
 @section('content')
 
 
-<div class="content">
-    <div class="animated fadeIn">
-        <div class="row">
  @extends('layout.sidepost')
  
   <div class="main_content_iner ">
@@ -42,7 +39,7 @@
                           </p>
                           <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
                           <br>
-                        <a href="" class="btn btn-primary">Baca Selengkapnya</a>
+                            <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
                       </div>
                     </div>

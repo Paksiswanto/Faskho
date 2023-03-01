@@ -11,8 +11,15 @@ class postingan extends Model
     protected $guarded = [];
     public function users()
     {
-        return $this->belongsTo(user::class,'id_user','id');
+        return $this->belongsTo(user::class,'user_id','id');
 
     }
+
+    public function kategoris()
+    {
+        return $this->belongsTo(kategori::class,'kategori_id','id');
+
+    }
+
 
 }

@@ -112,6 +112,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 
 //postingan
 route::get('/posts',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
+Route::get('/show/{id}',[PostinganController::class,'show'])->name('show')->middleware('auth');
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');
 route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->name('insertdatapost')->middleware('auth');
 route::get('/tampilkandatapostingan/{id}',[PostinganController::class,'tampilkandatapostingan'])->name('tampilkandatapostingan')->middleware('auth');

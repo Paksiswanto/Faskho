@@ -19,6 +19,8 @@ return new class extends Migration
             $table->longText('konten');
             $table->string('foto');
             $table->string('tag');
+            $table->string('deskripsi');
+            $table->integer('kategori_id');
             $table->timestamps();
         });
     }

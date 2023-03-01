@@ -10,4 +10,9 @@ class kategori extends Model
     use HasFactory;
     protected $guarded = [];
     protected $dates = ['created_at'];
+
+    public function kategoris()
+    {
+        return $this->hasMany(kategori::class,'kategori_id','id');
+    }
 }

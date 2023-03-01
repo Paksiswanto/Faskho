@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
     public function postingans()
     {
-        return $this->hasMany(postingan::class,'id_user','id');
+        return $this->hasMany(postingan::class,'user_id','id');
     }
 
 }

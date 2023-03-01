@@ -26,6 +26,10 @@
                                 <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
                             </div>
 
+                             <div class="mb-3">
+                                <input type="hidden" name="kategori_id" value="{{ auth()->user()->id}}">
+                            </div>
+
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Judul:</label>
                                 <input type="text" name="judul" value="{{ $data ->judul}}" class="form-control @error('judul')
@@ -45,11 +49,32 @@
                                 @enderror
                             </div>
 
-                           <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
-          <input type="file" name="foto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $data ->foto }}" >
-          <img src="{{ asset('thumbnail/'.$data->foto) }}" alt="" style="width: 130px;">
-        </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Deskripsi:</label>
+                                <input type="text" name="deskripsi" class="form-control @error('deskripsi')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{ $data ->deskripsi}}" aria-describedby="emailHelp">@error('deskripsi')
+                                {{$message}}
+                                @enderror
+                            </div>
+
+                            {{-- <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Kategori</label>
+                                <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
+                                    <option selected>Daftar Kategori</option>
+                                    @foreach ($kategori_id as $data)
+                                    <option value="{{ $data->id}}" @if( $data->kategori_id == $data->kategori_id )selected @endif> {{ $data->kategori }} </option>
+                                    @endforeach
+
+                                </select>
+                            </div> --}}
+                            
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Thumbnail</label>
+                                <input type="file" name="foto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data ->foto }}">
+                                <img src="{{ asset('thumbnail/'.$data->foto) }}" alt="" style="width: 130px;">
+                            </div>
 
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Konten:</label>
