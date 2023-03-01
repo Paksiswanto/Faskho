@@ -12,7 +12,7 @@
     <title>KulinerKu - Food Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- Favicon -->
-    <link rel="iacon" href="{{asset('yummy-master/yummy-master/img/core-img/mkmk-removebg-preview.png')}}">
+    <link rel="icon" href="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png') }}">
 
     <!-- Core Stylesheet -->
     <link href="{{asset('yummy-master/yummy-master/style.css')}}" rel="stylesheet">

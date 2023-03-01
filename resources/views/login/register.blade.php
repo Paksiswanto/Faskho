@@ -10,15 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/iofrm-style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset ('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/iofrm-theme5.css') }}">
-    <style>
-         //login
-
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
-route::post('/loginproses',[LoginController::class, 'loginproses'])->name('loginproses');
-route::get('/logout',[LoginController::class, 'logout'])->name('logout');
-    </style>
+    <link rel="icon" href="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png') }}">
 </head>
 <body>
     <br>
@@ -40,30 +32,59 @@ route::get('/logout',[LoginController::class, 'logout'])->name('logout');
                         </div>
                         <form action="/registeruser" method="post">
                         @csrf
-                            <input class="form-control @error('name')
-                                is-invalid
-                            @enderror" type="text" value="{{old('name')}}" name="name" placeholder="Nama Lengkap" required>
-                            @error('name')
-                            <div class="invalid-feedback">
-                                {{$message}}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input  value="{{old('name')}}" id="username" type="text" class="form-control @error('name')
+                                    is-invalid
+                                @enderror" name="name" placeholder="Username" required>@error('name')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                @enderror
+                                
+                                <div class="input-group-append">
+                                    <span class="input-group-text" onclick="showPassword()">
+                                        <i id="show-password-icon" class="fa fa-user"></i>
+                                    </span>
+                                </div>
                             </div>
-                            @enderror
-                            <input class="form-control @error('email')
-                                is-invalid
-                            @enderror" type="email" name="email" placeholder="Email" required>
-                            @error('email')
-                            <div class="invalid-feedback">
-                                {{$message}}
+                        </div>
+                        <div class="form-group">
+                           
+                            <div class="input-group">
+                                <input value="{{old('email')}}" id="email" type="email" class="form-control @error('email')
+                                    is-invalid
+                                @enderror" name="email" placeholder="Email" required>@error('email')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                @enderror
+                                <div class="input-group-append">
+                                    <span class="input-group-text" >
+                                        <i id="show-password-icon" class="fa fa-envelope"></i>
+                                    </span>
+                                </div>
                             </div>
-                            @enderror
-                            <input class="form-control @error('password')
-                                is-invalid
-                            @enderror" type="password" name="password" placeholder="Password" required>
-                            @error('password')
-                            <div class="invalid-feedback">
-                                {{$message}}
+                        </div>
+                        
+                            <div class="form-group">
+                                
+                                <div class="input-group">
+                                    <input id="password" type="password" class="form-control @error('password')
+                                        is-invalid
+                                    @enderror" name="password" placeholder="Password" required>@error('password')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                    @enderror
+                                    <div class="input-group-append" style="background-color: transparent">
+                                        <span class="input-group-text" onclick="showPassword()">
+                                            <i id="show-password-icon" class="fa fa-eye-slash"></i>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            @enderror
+                            
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>
@@ -82,6 +103,23 @@ route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 <script src="{{asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/js/popper.min.js')}}"></script>
 <script src="{{asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/js/main.js')}}"></script>
+<script>
+    function showPassword() {
+        var password = document.getElementById("password");
+        var icon = document.getElementById("show-password-icon");
+
+        if (password.type === "password") {
+            password.type = "text";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        } else {
+            password.type = "password";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
+
 </body>
 
 <!-- Mirrored from brandio.io/envato/iofrm/html/register5.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Feb 2023 02:43:07 GMT -->
