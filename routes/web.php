@@ -129,12 +129,6 @@ route::get('/tampilkandatatempat/{id}',[TempatController::class, 'tampilkandatat
 route::post('/updatedata/{id}',[TempatController::class, 'updatedata'])->name('updatedata')->middleware('auth');
 route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')->middleware('auth');
 
+//Komentar
 
-//
-
-
-
-
-
-
-
+Route::resource('comments', App\Http\Controllers\CommentController::class);

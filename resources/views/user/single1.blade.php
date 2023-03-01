@@ -15,15 +15,15 @@
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
-    <link href="{{asset('yummy-master/yummy-master/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('yummy-master/yummy-master/style.css') }}" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="{{asset('yummy-master/yummy-master/css/responsive/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('yummy-master/yummy-master/css/responsive/responsive.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-    
+
 
     <!-- Background Pattern Swither -->
 
@@ -49,10 +49,11 @@
                                     Login</a>
                             </div>
                             <div class="user-area dropdown float-right" id="yummyfood-nav">
-                                <a href="#" class="dropdown-toggle active" id="yummyDropdown" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <svg class="ml-1" style="width:30" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <a href="#" class="dropdown-toggle active" id="yummyDropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg class="ml-1" style="width:30" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
@@ -84,9 +85,9 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav"
-                            aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i
-                                class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false"
+                            aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
@@ -118,7 +119,8 @@
         </div>
     </header>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{asset('yummy-master/yummy-master/img/blog-img/111.jpg') }});width: 100%;">
+    <div class="breadcumb-area"
+        style="background-image: url({{ asset('yummy-master/yummy-master/img/blog-img/111.jpg') }});width: 100%;">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -135,7 +137,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"
+                                        aria-hidden="true"></i>
                                     Beranda</a></li>
                             <li class="breadcrumb-item"><a href="#">Postingan Pribadi</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Swara Alam</li>
@@ -157,11 +160,16 @@
                         <!-- Single Post Share Info -->
                         <div class="col-2 col-sm-1">
                             <div class="single-post-share-info mt-100">
-                                <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#" class="googleplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#" class="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="twitter"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="googleplus"><i class="fa fa-google-plus"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="pinterest"><i class="fa fa-pinterest"
+                                        aria-hidden="true"></i></a>
                             </div>
                         </div>
 
@@ -169,14 +177,16 @@
                         <div class="col-10 col-sm-11">
                             <div class="single-post">
                                 <!-- Post Thumb -->
-                                
+
                                 <div class="post-thumb">
                                     <center>
-                                    <a href="#">
-                                        <h1 class="post-headline">Swara Alam Suasana Sejuk Aman di Kantong</h1>
-                                    </a>
+                                        <a href="#">
+                                            <h1 class="post-headline">Swara Alam Suasana Sejuk Aman di Kantong</h1>
+                                        </a>
 
-                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/45.jpg') }}" alt="" style="width: 700px"></center>
+                                        <img src="{{ asset('yummy-master/yummy-master/img/blog-img/45.jpg') }}"
+                                            alt="" style="width: 700px">
+                                    </center>
                                     <div class="row ml-100">
                                         <div class="media col-4">
                                             <svg style="width: 30;" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -239,7 +249,8 @@
                                         </div>
                                         <!-- Post Comments -->
                                         <div class="post-comments">
-                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+                                                12</a>
                                         </div>
                                         <!-- Post Share -->
                                         <div class="post-share">
@@ -268,7 +279,9 @@
                                         menikmati makanan khas rumahan yang membuat sobat traveler kangen masakan
                                         rumahan.
                                     <div>
-                                      <center>  <img class="br-30 mb-30" src="{{asset('yummy-master/yummy-master/img/blog-img/47.jpg') }}" width="500" alt=""></center>
+                                        <center> <img class="br-30 mb-30"
+                                                src="{{ asset('yummy-master/yummy-master/img/blog-img/47.jpg') }}"
+                                                width="500" alt=""></center>
                                     </div>
                                     <p>
                                         Menu tersebut antara lain: Sego Sambel Ayam Suwir, Mie Ambyar, Sego Goreng, Sego
@@ -294,7 +307,9 @@
                                         kesehatan, sehingga antar kursi diberi jarak. Cafe Swara Alam buka setiap hari
                                         di jam 10.00-22.00 WIB</p>
 
-                                    <center><img class="br-30 mb-30" src="{{asset('yummy-master/yummy-master/img/blog-img/46.jpg') }}" alt=""></center>
+                                    <center><img class="br-30 mb-30"
+                                            src="{{ asset('yummy-master/yummy-master/img/blog-img/46.jpg') }}"
+                                            alt=""></center>
                                     <p>Itulah sedikit ulasan mengenai Cafe Swara Alam, sebuah tempat nongkrong asik di
                                         Kepanjen, dan harganya sangat terjangkau gak bikin kantongmu jebol.
 
@@ -321,7 +336,8 @@
                                             <div class="comment-wrapper d-flex">
                                                 <!-- Comment Meta -->
                                                 <div class="comment-author">
-                                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/17.jpg') }}" alt="">
+                                                    <img src="{{ asset('yummy-master/yummy-master/img/blog-img/17.jpg') }}"
+                                                        alt="">
                                                 </div>
                                                 <!-- Comment Content -->
                                                 <div class="comment-content">
@@ -338,7 +354,8 @@
                                                     <div class="comment-wrapper d-flex">
                                                         <!-- Comment Meta -->
                                                         <div class="comment-author">
-                                                            <img src="{{asset('yummy-master/yummy-master/img/blog-img/18.jpg') }}" alt="">
+                                                            <img src="{{ asset('yummy-master/yummy-master/img/blog-img/18.jpg') }}"
+                                                                alt="">
                                                         </div>
                                                         <!-- Comment Content -->
                                                         <div class="comment-content">
@@ -346,7 +363,8 @@
                                                             <h5>Felix WiBu PrO TZY</h5>
                                                             <p>Saya ada ngab
                                                                 <br>
-                                                                <img style="width: 30%;" src="{{asset('yummy-master/yummy-master/img/blog-img/12.jpg') }}">
+                                                                <img style="width: 30%;"
+                                                                    src="{{ asset('yummy-master/yummy-master/img/blog-img/12.jpg') }}">
                                                             </p>
                                                             <a href="#">Like</a>
                                                             <a class="active" href="#">Reply</a>
@@ -355,49 +373,34 @@
                                                 </li>
                                             </ol>
                                         </li>
-                                      
-                                      
+
+
                                     </ol>
                                 </div>
+                                @foreach ($comment as $comment)
+                                    <div class="card">
+                                        <div class="card-header">{{ $comment->user->name }}</div>
+                                        <div class="card-body">{{ $comment->content }}</div>
+                                    </div>
+                                @endforeach
 
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area section_padding_50 clearfix">
                                     <div class="comment-form">
                                         <h4 class="mb-30">Tinggalkan Komentar</h4>
-                            
+
                                         <!-- Comment Form -->
-                                        <form action="/insertdataulasan" method="post">
+                                        <form method="POST" action="{{ route('comments.store') }}">
                                             @csrf
-                                            <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="sangat bagus">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="bagus">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="cukup">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="buruk">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="sangat buruk">1 star</label>
+                                            <input type="hidden" name="postingan_id" value="{{ $postingan->id }}">
+                                            <div class="form-group">
+                                                <textarea name="content" rows="3" class="form-control" placeholder="Tulis komentar Anda"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="nama" class="form-control" id="contact-name"
-                                                    placeholder="Nama">
+                                                <button type="submit" class="btn btn-primary">Kirim</button>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control" id="contact-email"
-                                                    placeholder="Email">
-                                            </div>
-                                            <div class="form-group-append">
-                                                <input type="file" name="foto" class="form-control" id="contact-email"
-                                                    placeholder="upload foto">
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" name="komentar" name="message" id="message" cols="30"
-                                                    rows="10" placeholder="Pesan"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn contact-btn">Posting Komentar</button>
                                         </form>
+                                        
                                     </div>
                                 </div>
 
@@ -413,7 +416,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
+                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Makanan enak di England</h6>
@@ -423,7 +426,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
+                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>8 Makanan Terlezat Di jakarta</h6>
@@ -433,7 +436,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
+                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Tempat kuliner Terbaik</h6>
@@ -443,7 +446,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
+                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Harrogate's top 10 makanan penutup terenak</h6>
@@ -453,7 +456,7 @@
                         </div>
                         <!-- Single Popular Post -->
                         <div class="single-populer-post d-flex">
-                            <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
+                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
                             <div class="post-content">
                                 <a href="#">
                                     <h6>Makanan Termurah di Oxford</h6>
@@ -474,8 +477,10 @@
                         </p>
                         <div class="newsletter-form">
                             <form action="#" method="post">
-                                <input type="email" name="newsletter-email" id="email" placeholder="Your email">
-                                <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                <input type="email" name="newsletter-email" id="email"
+                                    placeholder="Your email">
+                                <button type="submit"><i class="fa fa-paper-plane-o"
+                                        aria-hidden="true"></i></button>
                             </form>
                         </div>
                     </div>
@@ -492,7 +497,7 @@
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
+            <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
             <div class="hover_overlay">
                 <div class="yummy-table">
@@ -627,26 +632,31 @@
                 <div class="col-12">
                     <div class="footer-social-area d-flex">
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+                            <a href="#"><i class="fa fa-facebook"
+                                    aria-hidden="true"></i><span>facebook</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                            <a href="#"><i class="fa fa-twitter"
+                                    aria-hidden="true"></i><span>Twitter</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
+                            <a href="#"><i class="fa fa-google-plus"
+                                    aria-hidden="true"></i><span>GOOGLE+</span></a>
                         </div>
                         <div class="single-icon">
                             <a href="#"><i class="fa fa-linkedin-square"
                                     aria-hidden="true"></i><span>linkedin</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                            <a href="#"><i class="fa fa-instagram"
+                                    aria-hidden="true"></i><span>Instagram</span></a>
                         </div>
                         <div class="single-icon">
                             <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
+                            <a href="#"><i class="fa fa-youtube-play"
+                                    aria-hidden="true"></i><span>YOUTUBE</span></a>
                         </div>
                     </div>
                 </div>
@@ -686,13 +696,14 @@
     <!-- ****** Footer Menu Area End ****** -->
 
     <!-- Jquery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="{{asset('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js')}}"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="{{asset('yummy-master/yummy-master/js/bootstrap/popper.min.js')}}"></script>
     <!-- Bootstrap-4 js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{asset('yummy-master/yummy-master/js/bootstrap/bootstrap.min.js')}}"></script>
     <!-- All Plugins JS -->
-    <script src="js/others/plugins.js"></script>
+    <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js')}}"></script>
     <!-- Active JS -->
-    <script src="js/active.js"></script>
+    <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script> 
+    
 </body>

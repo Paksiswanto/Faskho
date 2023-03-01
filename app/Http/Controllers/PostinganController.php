@@ -76,7 +76,9 @@ class PostinganController extends Controller
             $data = postingan::find($id);
             $data->delete();
             return redirect()->route('posts')->with('success','data Berhasil Di Hapus');
+
     
         }
+
     }
 
