@@ -19,11 +19,21 @@ class UserController extends Controller
     public function showTotalUsers()
 {
     $totalUsers = User::count();
+    $user=user::all();
     $totalpostingan=postingan::count();
     $totallaporan=laporan::count();
     
+    $data=[];
+    $data2=[];
+    $data3=[];
+foreach($user as $us){
+    $data[]=$totalUsers;
+    $data2[]=$totallaporan;
+    $data3[]=$totalpostingan;
+}
 
-    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan]);
+
+    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data,'data2'=>$data2,'data3'=>$data3]);
 }
 
 
