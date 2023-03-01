@@ -27,7 +27,7 @@ route::get('/logout',[LoginController::class, 'logout'])->name('logout');
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="https://i.pinimg.com/564x/43/00/48/430048f53d07e801799c90612618c834.jpg" alt="">
+                    <img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 300px">
                 </div>
             </div>
             <div class="form-holder">
