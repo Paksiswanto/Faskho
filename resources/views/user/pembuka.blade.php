@@ -38,13 +38,15 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row">
-
+                @foreach ($pembuka as $data )
+                    
+               
                 <!-- Single Post -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="" style="width:300px">
+                            <img src="thumbnail/{{$data->foto}} style="width:300px">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -52,7 +54,7 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="#">By Krisna</a>
+                                        <a href="#">By {{$data->username}}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
@@ -76,226 +78,13 @@
                                 </div>
                             </div>
                             <a href="/pembuka1">
-                                <h5 class="post-headline">Hidangan pembuka wonton dari China ini merupakan varian pangsit dengan kulit tipis.</h5>
+                                <h5 class="post-headline">{{$data->judul}}.</h5>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.2s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462875-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h5 class="post-headline">Kimchi Korea Selatan dikenal sebagai hidangan pembuka maupun makanan pendamping bagi masyarakat negeri gingseng itu.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462873-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h5 class="post-headline">Hidangan pembuka khas Peru, Ceviche ini merupakan kombinasi antara potongan ikan atau kerang segar.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462870-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h5 class="post-headline">Guacamole dari Meksiko berbahan dasar alpukat yang dihaluskan bersama bahan-bahan dapur.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462868-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h5 class="post-headline">Spring rolls China terdiri dari lembaran adonan yang diisi dengan daging babi, udang, jamur, dan sayuran. </h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.6s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462869-hidangan-pembuka-paling-terkenal-di-dunia.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h5 class="post-headline">Bruschetta, hidangan tradisional Italia ini terbuat dari potongan roti panggang dengan olesan bawang putih, dan bumbu lainnya.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <!-- Single Post -->
                 <div class="col-12">

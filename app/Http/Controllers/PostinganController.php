@@ -6,6 +6,7 @@ use App\Models\postingan;
 use App\Models\User;
 use App\Models\kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostinganController extends Controller
 {
@@ -97,5 +98,12 @@ class PostinganController extends Controller
     {
         $data = postingan::findOrFail($id);
         return view('post.postingan.show', compact('data'));
+    }
+    public function pembuka()
+    {
+        $pembuka=postingan::all();
+        $pembuka = postingan::where('kategori_id', '=', '1')->get();
+
+        return view('user.pembuka',compact('pembuka'));
     }
 }
