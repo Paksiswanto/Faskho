@@ -33,7 +33,7 @@
                         <form action="/registeruser" method="post">
                         @csrf
                         <div class="form-group">
-                            <div class="input-group">
+                           
                                 <input  value="{{old('name')}}" id="username" type="text" class="form-control @error('name')
                                     is-invalid
                                 @enderror" name="name" placeholder="Username" required>@error('name')
@@ -42,16 +42,13 @@
                                     </div>
                                 @enderror
                                 
-                                <div class="input-group-append">
-                                    <span class="input-group-text" onclick="showPassword()">
-                                        <i id="show-password-icon" class="fa fa-user"></i>
-                                    </span>
-                                </div>
-                            </div>
+
+                                    
+
                         </div>
                         <div class="form-group">
                            
-                            <div class="input-group">
+
                                 <input value="{{old('email')}}" id="email" type="email" class="form-control @error('email')
                                     is-invalid
                                 @enderror" name="email" placeholder="Email" required>@error('email')
@@ -59,30 +56,24 @@
                                         {{$message}}
                                     </div>
                                 @enderror
-                                <div class="input-group-append">
-                                    <span class="input-group-text" >
-                                        <i id="show-password-icon" class="fa fa-envelope"></i>
-                                    </span>
-                                </div>
-                            </div>
+
+                                   
+                                        
+
+
                         </div>
                         
-                            <div class="form-group">
+                            <div class="form-group" style="">
                                 
-                                <div class="input-group">
-                                    <input id="password" type="password" class="form-control @error('password')
+                                
+                                    <input  id="password" type="password" class="form-control col-100 @error('password')
                                         is-invalid
                                     @enderror" name="password" placeholder="Password" required>@error('password')
                                         <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
                                     @enderror
-                                    <div class="input-group-append" style="background-color: transparent">
-                                        <span class="input-group-text" onclick="showPassword()">
-                                            <i id="show-password-icon" class="fa fa-eye-slash"></i>
-                                        </span>
-                                    </div>
-                                </div>
+
                             </div>
                             
                             <div class="form-button">

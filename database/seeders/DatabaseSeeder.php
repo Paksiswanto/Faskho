@@ -14,19 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
-            [
-                'name' => 'Kuryu',
-                'email' => 'unitedkuryu@gmail.com',
-                'password' => bcrypt('password'),
-                'role' => 'admin'
-            ],
+    //     $users = [
+    //         [
+    //             'name' => 'Kuryu',
+    //             'email' => 'unitedkuryu@gmail.com',
+    //             'password' => bcrypt('password'),
+    //             'role' => 'admin'
+    //         ],
            
             
-            // dan seterusnya
-        ];
-        foreach ($users as $user) {
-            User::create($user);
-    }
+    //         // dan seterusnya
+    //     ];
+    //     foreach ($users as $user) {
+    //         User::create($user);
+    // }
 }
 }
