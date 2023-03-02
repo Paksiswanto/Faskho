@@ -14,6 +14,7 @@ class UserController extends Controller
         $keyword = $request->keyword;
         $data = User::where('name', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
+                
         return view('admin.user.index',compact('data'));
     }
     public function showTotalUsers()

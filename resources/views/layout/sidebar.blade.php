@@ -42,17 +42,18 @@
                         <a href="/kategori"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Kategori </a>
                     </li>
+                    
+                    <li>
+                        <a href="/trend"> <i
+                                class="fa fa-bar-chart" style="width: 20%;"></i>Data Trend </a>
+                    </li>
+                    <br>
                     <li>
                         <a href="/"> 
                             <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                             </svg> HOME
                     </li>
-                    {{-- <li>
-                        <a href="/trend"> <i
-                                class="fa fa-bar-chart" style="width: 20%;"></i>Data Trend </a>
-                    </li> --}}
-
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

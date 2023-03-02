@@ -20,6 +20,10 @@ class postingan extends Model
         return $this->belongsTo(kategori::class);
 
     }
-
+    
+    public function trend()
+    {
+        return $this->hasMany(trend::class);
+    }
 
 }
