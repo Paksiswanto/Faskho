@@ -32,8 +32,8 @@
                             </div>
                             <thead>
                                 <tr>
+                                    
                                     <th>#</th>
-                                    <th>Id</th>
                                     <th>Nama Postingan</th>
                                    
                                     <th>Aksi</th>
@@ -46,7 +46,6 @@
                                 @foreach ($datapostingan as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->id }}</td>
                                     <td>{{ $row->judul }}</td>
                                     <td>
                                         <a href="/tampilkandataulasan/{{$row->id}}" class="btn btn-warning">edit</a>
