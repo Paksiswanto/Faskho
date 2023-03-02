@@ -81,10 +81,14 @@
                 <div class="profile_info_iner">
                   <div class="profile_author_name">
                     <p>Penulis </p>
-                    <h5>Vinicius Cainelli</h5>
+                    <h5>{{Auth::user()->name}}</h5>
                   </div>
                   <div class="profile_info_details">
-                    <a href="profil.html">Profil </a>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+@include('layout.modalprofile')
                     <a href="#">Keluar</a>
                   </div>
                 </div>
