@@ -20,6 +20,8 @@ class UserController extends Controller
 {
     $totalUsers = User::count();
     $user=user::all();
+    $postingan=postingan::all();
+    $laporan=laporan::all();
     $totalpostingan=postingan::count();
     $totallaporan=laporan::count();
     
@@ -28,8 +30,12 @@ class UserController extends Controller
     $data3=[];
 foreach($user as $us){
     $data[]=$totalUsers;
-    $data2[]=$totallaporan;
-    $data3[]=$totalpostingan;
+}
+foreach($postingan as $po){
+    $data2[]=$totalpostingan;
+}
+foreach($laporan as $po){
+    $data3[]=$totallaporan;
 }
 
 

@@ -74,7 +74,7 @@
                                 <div class="col-lg-8">
                                     <div class="card-body">
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="chartstatis" class="traffic-chart"></div>
+                                        <div id="chartbulanan" class="traffic-chart"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -324,7 +324,7 @@
         @section('footer')
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script>
-            Highcharts.chart('chartstatis', {
+            Highcharts.chart('chartbulanan', {
                 chart: {
                     type: 'column'
                 },
