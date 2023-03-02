@@ -93,7 +93,7 @@ class PostinganController extends Controller
         $data->delete();
         return redirect()->route('posts')->with('success', 'data Berhasil Di Hapus');
     }
-
+        //ini untuk pratinjau
     public function show($id)
     {
         $data = postingan::findOrFail($id);
@@ -104,8 +104,14 @@ class PostinganController extends Controller
     public function pembuka()
     {
         $pembuka=postingan::all();
-        $pembuka = postingan::where('kategori_id', '=', '1')->get();
-
         return view('user.pembuka',compact('pembuka'));
+    }
+    //ini untuk tampil di halaman utama
+    public function tampil($id)
+    {
+        $data = postingan::findOrFail($id);
+        $data->increment('views');
+
+        return view('user.tampil', compact('data'));
     }
 }

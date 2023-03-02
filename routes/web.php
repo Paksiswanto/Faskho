@@ -115,6 +115,7 @@ route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('delet
 //postingan
 route::get('/posts',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
 Route::get('/show/{id}',[PostinganController::class,'show'])->name('show')->middleware('auth');
+Route::get('/tampil/{id}',[PostinganController::class,'tampil'])->name('tampil');
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');
 route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->name('insertdatapost')->middleware('auth');
 route::get('/tampilkandatapostingan/{id}',[PostinganController::class,'tampilkandatapostingan'])->name('tampilkandatapostingan')->middleware('auth');
@@ -135,9 +136,17 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+<<<<<<< Updated upstream
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+=======
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+>>>>>>> Stashed changes
 
 
 //Trend

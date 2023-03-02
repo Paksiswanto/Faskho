@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                             <li class="breadcrumb-item active" aria-current="page">Makanan Pembuka</li>
                         </ol>
@@ -46,7 +46,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="thumbnail/{{$data->foto}} style="width:300px">
+                              <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:300px">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -54,11 +54,11 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="#">By {{$data->username}}</a>
+                                        <a href="#">By {{ auth()->user()->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
-                                        <a href="#">Juni 19, 2017</a>
+                                        <a href="#">{{ $data->created_at->format('d F Y') }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="/pembuka1">
+                            <a href="{{ route('tampil', $data->id) }}">
                                 <h5 class="post-headline">{{$data->judul}}.</h5>
                             </a>
                         </div>

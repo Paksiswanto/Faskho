@@ -22,9 +22,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="#">Kategori</a></li>
-                            <li class="breadcrumb-item"><a href="#">Makanan Pembuka</a></li>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="/pembuka">Makanan Pembuka</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Informasi Terperinci</li>
                         </ol>
                     </nav>
@@ -55,9 +54,14 @@
                         <!-- Single Post -->
                         <div class="col-10 col-sm-11">
                             <div class="single-post">
+                             @php
+                                    // increment article views count
+                                    DB::table('postingans')->where('id', $data->id)->increment('views');
+                                    @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="https://i0.wp.com/kepo.co/wp-content/uploads/2021/03/Resep-Wonton-Soup.jpeg?fit=700%2C465&ssl=1" alt="">
+                              <img src="{{ asset('thumbnail/'.$data->foto) }}" >
+
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -65,11 +69,11 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                                <a href="#">By Krisna</a>
+                                        <a href="#">By {{ auth()->user()->name }}</a>
                                             </div>
                                             <!-- Post Date -->
                                             <div class="post-date">
-                                                <a href="#">Juni 19, 2017</a>
+                                        <a href="#">{{ $data->created_at->format('d F Y') }}</a>
                                             </div>
                                         </div>
                                         <!-- Post Comment & Share Area -->
@@ -89,17 +93,10 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h3 class="post-headline">Hidangan pembuka wonton dari China ini merupakan varian pangsit dengan kulit tipis.</h3>
+                                        <h3 class="post-headline">{{$data->judul}}</h3>
                                     </a>
-                                    <p>Wonton atau Wanton atau Pangsit adalah makanan berupa daging cincang yang dibungkus lembaran tepung terigu. Setelah direbus sebentar, pangsit umumnya dihidangkan di dalam sup. Selain direbus, pangsit juga digoreng dengan minyak goreng yang banyak hingga seperti kerupuk. Pangsit (wonton) termasuk salah satu jenis dim sum.</p>
-
-                                    <h4>Anda Dapat Membeli Online atau Secara Langsung Ke Gerai yang Telah Dibuka</h4>
-                                    <p>Isi pangsit umumnya dibuat dari udang, daging babi, atau sayuran. Di Indonesia, isi pangsit terutama dibuat dari udang atau campuran daging ayam dan udang dengan tambahan jahe, bawang bombay, atau bawang putih yang dicincang. Bumbu untuk isi pangsit bisa berupa kecap asin, saus tiram, dan minyak wijen.</p>
-                                    <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398426-sup-wonton-pinterest-CanuckCuisine.JPG" alt=""></center>
-                                    <p>Kulit pangsit dibuat dari adonan tepung terigu, air, dan garam dapur. Adonan ditipiskan dan dipotong-potong berukuran persegi. Selain bisa dibuat sendiri, kulit pangsit bisa dibeli dalam kemasan berisi 10 hingga 20 lembar. Sewaktu membuat siomay (bukan tahu bakso), kulit pangsit dipakai sebagai pembungkus daging cincang.</p>
-                                        <center>
-                                    <img class="br-30 mb-30" src="https://public.urbanasia.com/images/post/2021/02/15/1613398483-pinterest-Denise-Wolens.jpeg" alt=""></center>
+                                    <hr>
+                                    <div>{!! $data->konten !!}</div>
                                    </div>
                             </div>
 
