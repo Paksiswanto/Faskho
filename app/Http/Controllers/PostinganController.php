@@ -97,6 +97,8 @@ class PostinganController extends Controller
     public function show($id)
     {
         $data = postingan::findOrFail($id);
+        $data->increment('views');
+
         return view('post.postingan.show', compact('data'));
     }
     public function pembuka()

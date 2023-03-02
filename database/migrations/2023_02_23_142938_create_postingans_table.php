@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('foto');
             $table->string('tag');
             $table->string('deskripsi');
+            $table->integer('views')->default(0);
             $table->timestamps();
             $table->foreignId('kategori_id')->references('id')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
 
