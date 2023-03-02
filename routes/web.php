@@ -10,8 +10,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TempatController;
+<<<<<<< Updated upstream
+use App\Models\postingan;
+=======
+use App\Http\Controllers\TrendController;
 
-
+>>>>>>> Stashed changes
 use Illuminate\Foundation\Auth\User;
 
 /*
@@ -58,6 +62,8 @@ Route::get('/penutup1', function () {
 Route::get('/kontak', function () {
     return view('user.kontak');
 })->middleware('auth');
+
+
 
 Route::group(['middleware' => ['auth','hakakses:admin']], function(){
     route::get('/postingan',[PostinganController::class,'index'])->name('postingan');
@@ -133,3 +139,18 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+<<<<<<< Updated upstream
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+=======
+
+
+//Trend
+Route::get('/trend', [TrendController::class, 'index'])->name('trend');
+route::get('/tambahtrend',[TrendController::class, 'tambahtrend'])->name('tambahtrend')->middleware('auth');
+route::post('/insertdatatrend',[TrendController::class, 'insertdatatrend'])->name('insertdatatrend')->middleware('auth');
+route::get('/tampilkandatatrend/{id}',[TrendController::class, 'tampilkandatatrend'])->name('tampilkandatatrend')->middleware('auth');
+route::post('/updatedata/{id}',[TrendController::class, 'updatedata'])->name('updatedata')->middleware('auth');
+route::post('/delete/{id}',[TrendController::class, 'delete'])->name('delete')->middleware('auth');
+>>>>>>> Stashed changes

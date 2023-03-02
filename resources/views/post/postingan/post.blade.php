@@ -33,9 +33,7 @@
                           
                           
                           <p class="card-text">
-                          @if(strlen($row->konten) <= 150)
-                            {!! $row->konten !!}
-                            @endif
+                          {{ $row->deskripsi }}
                           </p>
                           <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
                           <br>
