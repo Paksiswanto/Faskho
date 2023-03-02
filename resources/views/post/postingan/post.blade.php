@@ -49,7 +49,6 @@
                     <a href="/deletepostingan/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                     </div>
                     </div>
-
                     
                    
                  @endforeach
