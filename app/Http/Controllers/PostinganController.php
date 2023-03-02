@@ -103,8 +103,20 @@ class PostinganController extends Controller
     }
     public function pembuka()
     {
-        $pembuka=postingan::all();
+        $pembuka = postingan::where('kategori_id', '=', '1')->get();
         return view('user.pembuka',compact('pembuka'));
+    }
+
+    public function utama()
+    {
+        $utama=postingan::where('kategori_id', '=', '3')->get();;
+        return view('user.utama',compact('utama'));
+    }
+
+    public function penutup()
+    {
+        $penutup=postingan::where('kategori_id', '=', '2')->get();;
+        return view('user.penutup',compact('penutup'));
     }
     //ini untuk tampil di halaman utama
     public function tampil($id)
