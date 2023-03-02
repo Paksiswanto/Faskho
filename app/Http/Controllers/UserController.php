@@ -48,6 +48,23 @@ foreach($laporan as $po){
         $data = User::find($id);
         $data->delete();
         return redirect()->route('user')->with('success','data Berhasil Di Hapus');
-
+    
+    }
+    public function updateprofile(Request $request, $id)
+    {
+        //dd($request->all());
+        $data = User::find($id);
+        $data->update($request->all());
+        if ($request->hasFile('foto')) {
+            // $file = $request->file('foto');
+            // $extention = $file->getClientOriginalExtension( );
+            // $filename = time() . '.' . $extention;
+            // $file->move('fotouser/', $filename);
+            // $data->foto = $filename;
+            $data->foto = $request->file('foto')->store('fotouser', 'public');
+        }
+        $data->save();
+        // Storage::disk('public')->put('foto',  $request ->file('foto'));
+        return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
 }

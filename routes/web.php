@@ -105,6 +105,7 @@ route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede'
 route::get('/author',[UserController::class,'index'])->name('user')->middleware('auth');
 route::get('/admin',[UserController::class,'showTotalUsers'])->name('showTotalUsers')->middleware('auth');
 route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
+Route::put('/updateprofile/{id}',[AuthController::class,'updateprofile']);
 
 //laporan
 
@@ -136,17 +137,14 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
-<<<<<<< Updated upstream
-// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
-//pembuka
-Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-=======
-
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
->>>>>>> Stashed changes
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
 
 //Trend
