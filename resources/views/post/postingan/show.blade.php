@@ -25,7 +25,8 @@
                                     @endphp
                                     <h1>{{ $data->judul}}</h1>
                                     <p>Posted on: {{ $data->created_at->format('d F Y') }}</p>
-                                    <p>Author: {{ auth()->user()->name }}</p>
+                                    <p>Author: {{ Auth::user()->name}}</p>
+                                    <p>Author: {{ $data->kategori->kategori}}</p>
 
                                     <hr>
                                     <div>{!! $data->konten !!}</div>

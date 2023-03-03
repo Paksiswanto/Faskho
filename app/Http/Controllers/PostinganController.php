@@ -115,7 +115,7 @@ class PostinganController extends Controller
 
     public function penutup()
     {
-        $penutup=postingan::where('kategori_id', '=', '2')->get();;
+        $penutup=postingan::where('kategori_id', '=', '3')->get();;
         return view('user.penutup',compact('penutup'));
     }
     //ini untuk tampil di halaman utama

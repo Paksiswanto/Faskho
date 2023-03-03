@@ -142,6 +142,10 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+<<<<<<< HEAD
+
+=======
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
@@ -152,6 +156,7 @@ Route::resource('comments', App\Http\Controllers\CommentController::class);
 =======
 >>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
 >>>>>>> Stashed changes
+<<<<<<< Updated upstream
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
@@ -168,10 +173,33 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
 >>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
+=======
+>>>>>>> acc11dcf43e63e3be57d85218fbea5b1e0aaade9
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+>>>>>>> Stashed changes
 
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
+>>>>>>> acc11dcf43e63e3be57d85218fbea5b1e0aaade9
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+<<<<<<< HEAD
+=======
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
@@ -196,6 +224,19 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+>>>>>>> acc11dcf43e63e3be57d85218fbea5b1e0aaade9
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
 
@@ -219,6 +260,7 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 >>>>>>> Stashed changes
@@ -226,6 +268,27 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 =======
 >>>>>>> Stashed changes
 
+=======
+<<<<<<< HEAD
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+=======
+<<<<<<< Updated upstream
+
+
+>>>>>>> Stashed changes
+>>>>>>> acc11dcf43e63e3be57d85218fbea5b1e0aaade9
+
+=======
+>>>>>>> Stashed changes
+
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 //Trend
 Route::get('/trend', [TrendController::class, 'index'])->name('trend');
@@ -238,5 +301,5 @@ route::post('/delete/{id}',[TrendController::class, 'delete'])->name('delete')->
 //profile
 
 route::get('/profile',[ProfileController::class,'profile'])->name('profile')->middleware('auth');
-route::get('/tampil/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
+route::get('/tampillah/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
 route::put('/updatedpo/{id}',[ProfileController::class,'updatedpo'])->name('updatedpo')->middleware('auth');

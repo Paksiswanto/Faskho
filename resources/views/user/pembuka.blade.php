@@ -39,8 +39,6 @@
         <div class="container">
             <div class="row">
                 @foreach ($pembuka as $data )
-                    
-               
                 <!-- Single Post -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">

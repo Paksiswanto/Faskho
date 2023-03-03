@@ -375,7 +375,7 @@
                             </div>
                            <div>
 
-                            <button class="btn btn-success"> <a href="/tampil/{{Auth::user()->id}}">edit Profile</a></button>
+                            <button class="btn btn-success"> <a href="/tampillah/{{Auth::user()->id}}">edit Profile</a></button>
 
                            </div>
 
