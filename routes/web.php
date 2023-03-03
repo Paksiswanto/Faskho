@@ -142,6 +142,7 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
 =======
@@ -157,6 +158,10 @@ Route::resource('comments', App\Http\Controllers\CommentController::class);
 >>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
 >>>>>>> Stashed changes
 <<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
@@ -165,6 +170,7 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
@@ -178,6 +184,8 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
@@ -208,18 +216,6 @@ Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
 Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< Updated upstream
-
-
-
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
->>>>>>> Stashed changes
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
@@ -258,6 +254,7 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
 
 
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -289,6 +286,8 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 >>>>>>> Stashed changes
 
 >>>>>>> Stashed changes
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 //Trend
 Route::get('/trend', [TrendController::class, 'index'])->name('trend');

@@ -144,7 +144,7 @@
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
                                                         <h5>{{$row->nama}}</h5>
                                                         <p>{{$row->email}}</p>
-                                                        <img src="{{ asset('foto/' . $row->foto) }}"  alt="..."> 
+                                                        <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
                                                         <p>{{$row->pesan}}</p>
                                                         <a href="#">Suka</a>
                                                         <a class="active" href="#">Balas</a>
@@ -181,7 +181,7 @@
                                     <h4 class="mb-30">Tinggalkan Komentar</h4>
 
                                     <!-- Comment Form -->
-                                    <form action="/insert" method="post">
+                                    <form action="/insert" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <div class="rate">
 

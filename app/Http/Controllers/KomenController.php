@@ -22,15 +22,11 @@ class KomenController extends Controller
         ]);
         // dd($data);
         if($request->hasFile('foto')){
-<<<<<<< HEAD
+
             $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
-            $data->save();
-=======
-            $request->file('foto')->move('foto/', $request->file('foto')->getClientOrigialName());
-            $data->foto=$request->file('foto')->getClientOriginalName();
-            $data->save();  
->>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
+            $data->save(); 
+
         }
         return redirect()->route('index');
     }
