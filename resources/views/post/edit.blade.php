@@ -374,33 +374,32 @@
                                 </div>
                             </div>
                            <div>
-                            @foreach ($data as $item )
+
                             <div class="card-body--">
-                                <form class="p-2"action="/updatepo/{{$item->id}}" method="POST" enctype="multipart/form-data">
+                                <form class="p-2"action="/updatedpo/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
                                         @csrf
-        @method('put')
+                                    @method('put')
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "  value="{{ $item->name }}">
+                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $item->email }}">
+                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
                                     </div>
         
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">deskripsi</label>
-                                        <input type="text" name="deskripsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $item->deskripsi }}">
+                                        <input type="text" name="deskripsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ Auth::user()->deskripsi }}">
                                     </div>
         
                                     <div class="mb-3">
-                                      <input type="file" name="foto" value="{{$item->foto}}">
+                                      <input type="file" name="foto" value="{{Auth::user()->foto}}">
                                     </div>
         
                                 <button type="submit" class="btn btn-primary">update data</button>
                                 </form>
                             </div>
-                            @endforeach
                            </div>
 
 

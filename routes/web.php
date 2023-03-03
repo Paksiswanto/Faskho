@@ -183,3 +183,9 @@ route::post('/insertdatatrend',[TrendController::class, 'insertdatatrend'])->nam
 route::get('/tampilkandatatrend/{id}',[TrendController::class, 'tampilkandatatrend'])->name('tampilkandatatrend')->middleware('auth');
 route::post('/updatedata/{id}',[TrendController::class, 'updatedata'])->name('updatedata')->middleware('auth');
 route::post('/delete/{id}',[TrendController::class, 'delete'])->name('delete')->middleware('auth');
+
+//profile
+
+route::get('/profile',[ProfileController::class,'profile'])->name('profile')->middleware('auth');
+route::get('/tampil/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
+route::put('/updatedpo/{id}',[ProfileController::class,'updatedpo'])->name('updatedpo')->middleware('auth');

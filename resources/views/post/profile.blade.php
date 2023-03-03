@@ -374,10 +374,9 @@
                                 </div>
                             </div>
                            <div>
-                            @foreach ($data as $item )
-                                
-                            <button class="btn btn-success"> <a href="/tampil/{{$item->id}}">edit Profile</a></button>
-                            @endforeach
+
+                            <button class="btn btn-success"> <a href="/tampil/{{Auth::user()->id}}">edit Profile</a></button>
+
                            </div>
 
 

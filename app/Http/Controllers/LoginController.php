@@ -41,13 +41,7 @@ class LoginController extends Controller
             'remember_token' => Str::random(60),
     
         ]);
-
-        if ($request->hasFile('foto')) {
-            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
-            $data->save();
-        }
-        return redirect()->route('utama1');
+        return redirect()->route('/');
         }
 
 
