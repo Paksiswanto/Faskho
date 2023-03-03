@@ -82,7 +82,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Artikel</a>
+                                    <a class="nav-link" href="/artikel">Artikel</a>
                                 <li class="nav-item active">
                                 @auth
                                 

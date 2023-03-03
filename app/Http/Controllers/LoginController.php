@@ -42,6 +42,7 @@ class LoginController extends Controller
     
         ]);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
 
@@ -52,6 +53,8 @@ class LoginController extends Controller
         }
 =======
 >>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         return redirect()->route('login');
         }

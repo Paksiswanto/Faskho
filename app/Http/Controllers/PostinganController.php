@@ -126,4 +126,10 @@ class PostinganController extends Controller
 
         return view('user.tampil', compact('data'));
     }
+
+    public function artikel()
+    {
+        $artikel=postingan::all();
+        return view('user.artikel',compact('artikel'));
+    }
 }

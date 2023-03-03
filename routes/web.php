@@ -247,10 +247,10 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
-
 //penutup
 Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
-
+//artikel
+Route::get('/artikel',[PostinganController::class,'artikel'])->name('artikel');
 
 
 
@@ -300,5 +300,9 @@ route::post('/delete/{id}',[TrendController::class, 'delete'])->name('delete')->
 //profile
 
 route::get('/profile',[ProfileController::class,'profile'])->name('profile')->middleware('auth');
+<<<<<<< Updated upstream
 route::get('/tampillah/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
+=======
+route::get('/profilku/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
+>>>>>>> Stashed changes
 route::put('/updatedpo/{id}',[ProfileController::class,'updatedpo'])->name('updatedpo')->middleware('auth');

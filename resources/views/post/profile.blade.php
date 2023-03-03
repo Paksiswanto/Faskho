@@ -375,7 +375,11 @@
                             </div>
                            <div>
 
+<<<<<<< Updated upstream
                             <button class="btn btn-success"> <a href="/tampillah/{{Auth::user()->id}}">edit Profile</a></button>
+=======
+                            <button class="btn btn-success"> <a href="/profilku/{{Auth::user()->id}}">edit Profile</a></button>
+>>>>>>> Stashed changes
 
                            </div>
 
