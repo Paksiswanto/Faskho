@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostinganController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -141,26 +142,18 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
-<<<<<<< Updated upstream
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
-<<<<<<< Updated upstream
->>>>>>> 6f27d75a8d0a91aae68f55fa0be6622c35371957
 
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-=======
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
@@ -168,12 +161,10 @@ Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
 //penutup
 Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
->>>>>>> Stashed changes
 
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-=======
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
@@ -192,4 +183,3 @@ route::post('/insertdatatrend',[TrendController::class, 'insertdatatrend'])->nam
 route::get('/tampilkandatatrend/{id}',[TrendController::class, 'tampilkandatatrend'])->name('tampilkandatatrend')->middleware('auth');
 route::post('/updatedata/{id}',[TrendController::class, 'updatedata'])->name('updatedata')->middleware('auth');
 route::post('/delete/{id}',[TrendController::class, 'delete'])->name('delete')->middleware('auth');
-
