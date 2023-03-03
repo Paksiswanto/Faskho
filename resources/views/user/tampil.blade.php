@@ -69,7 +69,7 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                        <a href="#">By {{ auth()->user()->name }}</a>
+                                        <a href="#">By {{$data->users->name }}</a>
                                             </div>
                                             <!-- Post Date -->
                                             <div class="post-date">
