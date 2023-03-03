@@ -142,7 +142,34 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+<<<<<<< Updated upstream
+=======
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+>>>>>>> Stashed changes
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+
+<<<<<<< Updated upstream
+
+
+
+=======
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
@@ -157,6 +184,7 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
 
 
+>>>>>>> Stashed changes
 
 //Trend
 Route::get('/trend', [TrendController::class, 'index'])->name('trend');
