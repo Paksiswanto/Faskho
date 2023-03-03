@@ -144,7 +144,7 @@
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
                                                         <h5>{{$row->nama}}</h5>
                                                         <p>{{$row->email}}</p>
-                                                        <img src="{{asset('$row->foto') }}" alt="">
+                                                        <img src="{{ asset('foto/' . $row->foto) }}"  alt="..."> 
                                                         <p>{{$row->pesan}}</p>
                                                         <a href="#">Suka</a>
                                                         <a class="active" href="#">Balas</a>
@@ -201,13 +201,11 @@
                                                 placeholder="Nama">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Email">
-                                        </div>
-                                        <div class="form-group-append">
-                                            <input type="file" class="form-control" name="foto" id="foto"
-                                                placeholder="upload foto">
-                                        </div>
+                                            <input type="text" class="form-control" name="email" id="email"
+                                                placeholder="email">
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control" name="foto" id="foto"
+                                                        placeholder="foto">
                                         <div class="form-group">
                                             <textarea class="form-control" name="pesan" id="pesan" cols="30"
                                                 rows="10" placeholder="Pesan"></textarea>

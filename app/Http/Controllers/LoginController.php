@@ -41,6 +41,18 @@ class LoginController extends Controller
             'remember_token' => Str::random(60),
     
         ]);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+=======
+>>>>>>> f88e9ef42a0ec8cb3b275acf69b19ea6b770a792
+>>>>>>> Stashed changes
         return redirect()->route('login');
         }
 
