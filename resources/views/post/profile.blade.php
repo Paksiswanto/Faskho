@@ -44,7 +44,7 @@
                             </div>
                            <div>
 
-                            <a href="/profilku/{{Auth::user()->id}}"><button class="btn first">Edit Profil</button></a><style>
+                            <a href="/profilku/{{Auth::user()->id}}"><button class="btn first p-3">Edit Profil</button></a><style>
 
 
 .btn {
