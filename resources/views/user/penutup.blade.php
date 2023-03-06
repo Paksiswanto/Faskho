@@ -47,7 +47,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                              <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:300px">
+                              <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:100%;">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">

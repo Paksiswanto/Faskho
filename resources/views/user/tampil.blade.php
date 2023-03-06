@@ -5,12 +5,12 @@
 
     @include('layout.navpem')
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-2.tstatic.net/kaltim/foto/bank/images/resep-sup-wonton-ayam.jpg);">
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/'.$data->foto) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Informasi Terperinci</h2>
+                        <h2>{{$data->judul}}</h2>
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Kategori </li>
-                            <li class="breadcrumb-item active" aria-current="page">Informasi Terperinci</li>
+                            <li class="breadcrumb-item active" aria-current="page">Artikel </li>
+                            <li class="breadcrumb-item active" aria-current="page">{{$data->judul}} </li>
                         </ol>
                     </nav>
                 </div>
