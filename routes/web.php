@@ -64,6 +64,10 @@ Route::get('/kontak', function () {
     return view('user.kontak');
 })->middleware('auth');
 
+Route::get('/terms', function () {
+    return view('post.postingan.terms');
+})->middleware('auth');
+
 
 
 Route::group(['middleware' => ['auth','hakakses:admin']], function(){

@@ -53,7 +53,6 @@
 
 <body class="crm_body_bg">
 
- @extends('layout.sidepost')
 
 
   <section class="main_content dashboard_part large_header_bg">
@@ -303,6 +302,8 @@
         $('.dropdown-toggle').dropdown();
     });
 </script>
+@stack('scripts')
+
 </body>
 
 <!-- Mirrored from demo.dashboardpack.com/sales-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Feb 2023 06:37:07 GMT -->

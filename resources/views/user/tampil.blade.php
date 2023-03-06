@@ -110,7 +110,7 @@
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
 
-                                @foreach ($komen as $row)
+                                {{-- @foreach ($komen as $row)
                                 <ol> 
                                             <li class="single_comment_area">
                                                 <div class="comment-wrapper d-flex">
@@ -145,7 +145,7 @@
                                                 </div>
                                             </li>
                                         </ol>
-                                        @endforeach
+                                        @endforeach --}}
 
 
                             <!-- Leave A Comment -->

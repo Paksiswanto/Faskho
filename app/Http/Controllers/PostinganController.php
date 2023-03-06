@@ -46,6 +46,7 @@ class PostinganController extends Controller
             'foto' => 'required',
             'deskripsi' => 'required',
             'kategori_id' => 'required',
+            'agree' => 'required',
             'tag' => 'required'
 
         ]);

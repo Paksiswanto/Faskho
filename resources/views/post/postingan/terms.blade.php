@@ -7,15 +7,17 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
     <br>
     <br>
-   <center> <div class="top-left">
-        <div class="navbar-header">
-            <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+    <center>
+        <div class="top-left">
+            <div class="navbar-header">
+                <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+            </div>
         </div>
-    </div>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
-    </div></center>
+        </div>
+    </center>
     <br>
     <br>
     <ul id="sidebar_menu">
@@ -29,7 +31,7 @@
                 <span>Postingan</span>
             </a>
         </li>
-        
+
 
 
         <li class="">
@@ -91,71 +93,39 @@
         </li>
 
 </nav>
- 
-  <div class="main_content_iner ">
-      <div class="container-fluid p-0 ">
+
+<div class="main_content_iner ">
+    <div class="container-fluid p-0 ">
         <div class="row ">
-          <div class="col-12">
-            <div class="dashboard_header mb_50">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="dashboard_header_title">
-                    <h3></h3>
-                  </div>
-                </div>
-                @foreach ($data as $index=>$row )   
-              
-                   
-                <div class="card shadow-sm mb-5 bg-white rounded ">
+            <div class="col-12">
+                <div class="dashboard_header mb_50">
                     <div class="row">
-                      <div class="col-5" style="width: 340px;">
-                        <div>
-                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="..."> 
-                      </div>
-                      </div>
-                      <div class="col-5 my-auto">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ $row->judul }}</h5>
-                          
-                          
-                          <p class="card-text">
-                          {{ $row->deskripsi }}
-                          </p>
-                          <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
-                          <br>
-                            <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                        <div class="col-lg-6">
+                            <div class="dashboard_header_title">
+                                <h3></h3>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                     <div class="card-footer">
-                    <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
-                    <a href="/deletepostingan/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
-                    </div>
-                    </div>
-                    
-                   
-                 @endforeach
+                        <div class="card">
+                            <div class="card-header">
+                                Syarat & Ketentuan </div>
+                            <div class="card-body">
+                                <h5 class="card-title">1. Faktual</h5>
+                                <p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
 
-                        <div>
-                            showing
-                            {{ $data->firstitem() }}
-                            to
-                            {{ $data->lastitem() }}
-                            of
-                            {{ $data->total() }}
-                            entries
-                        </div>
-                        <div class="pull-right">
-                            {{ $data ->withQueryString()-> links() }}
+                                    Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
+                                                                    <h5 class="card-title">2. Aktual</h5>
+<p class="card-text">Aktual adalah istilah lain dari up to date, atau kejadian yang terkini. Sebuah peristiwa baru bisa menjadi berita kalau kejadiannya masih baru atau hangat. Buat apa menceritakan sesuatu yang sudah lama terjadi dan kemungkinan semua orang sudah tahu? Karena itu, dalam jurnalistik juga dikenal prinsip aktualitas.</p>
+                                                                    <h5 class="card-title">3. Tidak Memihak</h5>
+<p class="card-text">Peristiwa yang akan disajikan menjadi sebuah berita harus bersifat objektif alias tidak memihak. Misalnya, ketika melihat sebuah peristiwa tawuran antarpelajar, lalu Sobat SMP akan menyajikannya menjadi sebuah berita. Cobalah untuk menempatkan diri pada posisi yang netral, tidak boleh berpihak kepada salah satu kelompok pelajar yang tawuran tersebut.</p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
 </div>
 @endsection
-
-

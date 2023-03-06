@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->longText('konten');
             $table->string('foto');
+            $table->string('agree');
             $table->string('tag');
             $table->string('deskripsi');
             $table->integer('views')->default(0);
