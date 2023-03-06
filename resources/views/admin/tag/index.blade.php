@@ -20,7 +20,6 @@
                     <div class="card-body">
                         <table class="table table-striped table-bordered">
                             <div class="add_button ms-2 mb-3">
-                                <a href="/tambahtag" class="btn btn-success">Tambah+</a>
                                 <div class="my-3">
                                     <form action="" method="get">
                                         <div class="input-group mb-3 col-12 col-sm-8 col-md-6">

@@ -117,8 +117,7 @@ class PostinganController extends Controller
 
     public function penutup()
     {
-        $penutup=postingan::where('kategori_id', '=', '3')->get()
-        ->paginate(6);;
+        $penutup=postingan::where('kategori_id', '=', '3')->get();
         return view('user.penutup',compact('penutup'));
     }
     //ini untuk tampil di halaman utama
@@ -134,5 +133,20 @@ class PostinganController extends Controller
     {
         $artikel=postingan::all();
         return view('user.artikel',compact('artikel'));
+    }
+    public function litindex()
+    {
+            $posts=postingan::all();
+            $posts = DB::table('postingans')
+            ->latest()
+            ->get()
+            ->take(5);
+            
+            $data=postingan::all();
+            $data=DB::table('postingans')
+            ->orderBy('views','desc')
+            ->get()
+            ->take(10);
+        return view('user.index',compact('posts','data'));
     }
 }

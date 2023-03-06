@@ -320,11 +320,12 @@
                         <!-- ******* List Blog Area Start ******* -->
 
                         <!-- Single Post -->
+                        @foreach ($posts as $item)
                         <div class="col-12">
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/6.jpg') }}" alt="">
+                                    <img src="{{ asset('thumbnail/'.$item->foto) }}" style="width: 100%">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -332,12 +333,11 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                                <a href="#">By Marian</a>
+                                                <a href="#">{{$item->nama}}</a>
                                             </div>
                                             <!-- Post Date -->
                                             <div class="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
+                                                <a href="#">{{ $item->created_at}}</a>                                            </div>
                                         </div>
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
@@ -356,59 +356,17 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h4 class="post-headline">10 Bar Terbaik Di Tepi Laut Di Malang Selatan, Malang</h4>
+                                        <h4 class="post-headline"> {{$item->judul}} </h4>
                                     </a>
-                                    <p>Pada saat yang sama mereka jatuh ke dalam rasa sakit dan penderitaan yang luar biasa. Untuk sampai ke detail terkecil, apa latihan kita?</p>
-                                    <a href="#" class="read-more">Lanjut Membaca...</a>
+                                    <p>{{$item->deskripsi}}</p>
+                                    <a href="/tampil/{{$item->id}}" class="read-more">Lanjut Membaca...</a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Single Post -->
-                        <div class="col-12">
-                            <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".4s">
-                                <!-- Post Thumb -->
-                                <div class="post-thumb">
-                                    <img src="{{asset('yummy-master/yummy-master/img/blog-img/7.jpg') }}" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <div class="post-meta d-flex">
-                                        <div class="post-author-date-area d-flex">
-                                            <!-- Post Author -->
-                                            <div class="post-author">
-                                                <a href="#">By Marian</a>
-                                            </div>
-                                            <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">May 19, 2017</a>
-                                            </div>
-                                        </div>
-                                        <!-- Post Comment & Share Area -->
-                                        <div class="post-comment-share-area d-flex">
-                                            <!-- Post Favourite -->
-                                            <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                            <!-- Post Comments -->
-                                            <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                            </div>
-                                            <!-- Post Share -->
-                                            <div class="post-share">
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                        <h4 class="post-headline">Cara Membuat Seorang Narsisis Merasakan Empati</h4>
-                                    </a>
-                                    <p>Pada saat yang sama mereka jatuh ke dalam rasa sakit dan penderitaan yang luar biasa. Untuk sampai ke detail terkecil, apa latihan kita?</p>
-                                    <a href="#" class="read-more">Lanjut Membaca...</a>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+                       
+                @endforeach
+                    </div>
                 </div>
                 <!-- ****** Blog Sidebar ****** -->
                 <div class="col-12 col-sm-8 col-md-6 col-lg-4">
@@ -425,57 +383,21 @@
                                 <h6>Postingan Populer</h6>
                             </div>
                             <!-- Single Popular Post -->
+                            @foreach ($data as $item )
+                        
                             <div class="single-populer-post d-flex">
-                                <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
+                                <img src="{{ asset('thumbnail/'.$item->foto) }}" alt="">
                                 <div class="post-content">
                                     <a href="#">
-                                        <h6>Kilang Anggur Terbaik Untuk Dikunjungi Di Malang</h6>
+                                        <h6> {{$item->judul}} </h6>
                                     </a>
-                                    <p>Selasa, Oktober 3, 2017</p>
+                                    <p>{{$item->created_at}}</p>
+                                    <p> {{$item->views}} </p>
                                 </div>
                             </div>
-                            <!-- Single Popular Post -->
-                            <div class="single-populer-post d-flex">
-                                <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
-                                <div class="post-content">
-                                    <a href="#">
-                                        <h6> Makanan Terbaik di Malang</h6>
-                                    </a>
-                                    <p>Selasa, Oktober 3, 2017</p>
-                                </div>
-                            </div>
-                            <!-- Single Popular Post -->
-                            <div class="single-populer-post d-flex">
-                                <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
-                                <div class="post-content">
-                                    <a href="#">
-                                        <h6>Tempat Festival Terbaik di Malang</h6>
-                                    </a>
-                                    <p>Selasa, Oktober 3, 2017</p>
-                                </div>
-                            </div>
-                            <!-- Single Popular Post -->
-                            <div class="single-populer-post d-flex">
-                                <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
-                                <div class="post-content">
-                                    <a href="#">
-                                        <h6>10 Unggulan Makanan Pemimpin di Malang</h6>
-                                    </a>
-                                    <p>Selasa, Oktober 3, 2017</p>
-                                </div>
-                            </div>
-                            <!-- Single Popular Post -->
-                            <div class="single-populer-post d-flex">
-                                <img src="{{asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
-                                <div class="post-content">
-                                    <a href="#">
-                                        <h6>Makan Dengan Anggaran Terjangkau</h6>
-                                    </a>
-                                    <p>Selasa, Oktober 3, 2017</p>
-                                </div>
-                            </div>
-                        </div>
-
+                                    
+                            @endforeach
+                            
                         <!-- Single Widget Area -->
                        
 

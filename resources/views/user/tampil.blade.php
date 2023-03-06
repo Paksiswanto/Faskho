@@ -60,7 +60,7 @@
                                     @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                              <img src="{{ asset('thumbnail/'.$data->foto) }}" >
+                              <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width: 100%">
 
                                 </div>
                                 <!-- Post Content -->

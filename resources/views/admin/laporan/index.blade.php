@@ -12,7 +12,6 @@
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <div class="add_button ms-2 mb-3">
-                                    <a href="/add" class="btn btn-success">Tambah+</a>
                                 </div>
                                 <thead class="table table-secondary">
                                     <tr>

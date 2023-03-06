@@ -41,12 +41,7 @@ class LoginController extends Controller
             'remember_token' => Str::random(60),
     
         ]);
-<<<<<<< Updated upstream
-=======
 
-        
-
->>>>>>> Stashed changes
         return redirect()->route('login');
         }
 
