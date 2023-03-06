@@ -42,9 +42,12 @@ Route::get('/single1', function () {
 Route::get('/pembuka', function () {
     return view('user.pembuka');
 });
-Route::get('/pembuka1', function () {
-    return view('user.pembuka1');
-});
+
+Route::get('pembuka1', [KomenController::class, 'inpem'])->name('inpem');
+
+// Route::get('/pembuka1', function () {
+//     return view('user.pembuka1');
+// });
 Route::get('/utama', function () {
     return view('user.utama');
 });
@@ -114,7 +117,7 @@ Route::put('/updateprofile/{id}',[AuthController::class,'updateprofile']);
 
 //laporan
 
-route::get('/laporan',[LaporanController::class,'index'])->name('index')->middleware('auth');
+route::get('/laporan',[LaporanController::class,'index'])->name('laporan')->middleware('auth');
 route::post('/insertdatalaporan',[LaporanController::class,'insertlaporan'])->name('save')->middleware('auth');
 route::get('/deletedp/{id}',[LaporanController::class, 'deletedp'])->name('deletedp')->middleware('auth');
 
@@ -143,7 +146,53 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
 
+<<<<<<< Updated upstream
 
+=======
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+>>>>>>> Stashed changes
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+<<<<<<< Updated upstream
+=======
+
+
+
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+
+
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+>>>>>>> Stashed changes
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+<<<<<<< Updated upstream
+//artikel
+Route::get('/artikel',[PostinganController::class,'artikel'])->name('artikel');
+
+
+=======
 
 // Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
 //pembuka
@@ -155,10 +204,45 @@ Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
 //penutup
 Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
-//artikel
-Route::get('/artikel',[PostinganController::class,'artikel'])->name('artikel');
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
 
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+// Route::get('/posts/{post}/view', [\App\Http\Controllers\PostViewController::class, 'increment']);
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+
+
+
+
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+//utama
+Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
+
+//penutup
+Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+
+>>>>>>> Stashed changes
 //Trend
 Route::get('/trend', [TrendController::class, 'index'])->name('trend');
 route::get('/tambahtrend',[TrendController::class, 'tambahtrend'])->name('tambahtrend')->middleware('auth');

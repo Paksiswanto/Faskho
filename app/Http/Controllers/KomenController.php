@@ -13,8 +13,14 @@ class KomenController extends Controller
         $komen = Komen::all();
         return view ('user.utama1', ['data' => $data, 'komen' => $komen]);
     }
+    public function inpem(){
+        $data = postingan::all();
+        $komen = Komen::all();
+        return view ('user.pembuka1', ['data' => $data, 'komen' => $komen]);
+    }
    public function insert(Request $request){
        $data = Komen::create([
+            'rating' => $request->rating,
             'nama' => $request->nama, 
             'email' => $request->email,
             'foto' => $request->foto,
@@ -28,6 +34,7 @@ class KomenController extends Controller
             $data->save(); 
 
         }
+        return redirect()->route('inpem');
         return redirect()->route('index');
     }
 }

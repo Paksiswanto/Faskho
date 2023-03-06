@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('komen', function (Blueprint $table) {
             $table->id();
+            $table->string('rating');
             $table->string('nama');
             $table->string('email');
             $table->string('foto');
