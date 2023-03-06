@@ -46,7 +46,6 @@
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->kategori}}</td>
-                                    <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
                                         <a href="/deleted/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                     </td>
