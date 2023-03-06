@@ -81,7 +81,7 @@
               
               </div>
               <div class="profile_info">
-                <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/card.jpg ')}}" alt="#">
+                <img src="{{asset('storage/' . Auth::user()->foto)}}" alt="#">
                 <div class="profile_info_iner">
                   <div class="profile_author_name">
                     <p>Penulis </p>
@@ -89,9 +89,8 @@
                   </div>
                   <div class="profile_info_details">
                     <!-- Button trigger modal -->
-
-@include('layout.modalprofile')
-                    <a href="#">Keluar</a>
+                    <a href="/profile">Profil</a>
+                    <a href="/logout">Keluar</a>
                   </div>
                 </div>
               </div>

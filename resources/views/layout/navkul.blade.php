@@ -29,14 +29,15 @@
                                     @auth
 
                                     <a class="nav-link mr-2" href="/posts"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link mr-2" href="/profile"><i class="fa fa-user"></i>Profil</a>
                                     @if (auth::user()->role=='admin')
                                         
                                     <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
                                     @endif
-                                    <a class="nav-link mr-2" href="/logout"><i class="fa fa-power-off"></i>Logout</a>
+                                    <a class="nav-link mr-2" href="/logout"><i class="fa fa-power-off"></i>Keluar</a>
                                    
                                         @else
-                                        <a class="nav-link mr-2" href="/login"><i class="fa fa-power-off"></i>login</a>
+                                        <a class="nav-link mr-2" href="/login"><i class="fa fa-power-off"></i>Masuk</a>
                                     @endauth
                                    
                                 </div>

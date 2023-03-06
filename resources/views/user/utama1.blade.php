@@ -146,8 +146,8 @@
                                                         <p>{{$row->email}}</p>
                                                         <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
                                                         <p>{{$row->pesan}}</p>
-                                                        <a href="#">Suka</a>
-                                                        <a class="active" href="#">Balas</a>
+                                                        <"return redirect()->route('inut')">Suka</a>
+                                                        <a class="active" href="">Balas</a>
                                                     </div>
                                                 </div>
                                             </li>

@@ -357,10 +357,10 @@
                                         </div>
                                         <div class="profile_box_1">
                                             <div class="profile-cover-image">
-                                                <img src="foto/{{Auth::user()->foto}}">
+                                                <img src="{{asset('storage/' . Auth::user()->foto)}}">
                                             </div>
                                             <div class="profile-picture">
-                                                <img src="foto/{{Auth::user()->foto}}">
+                                                <img src="{{asset('storage/' . Auth::user()->foto)}}">
                                             </div>
                                             <div class="profile-content">
                                                 <h1>
@@ -376,21 +376,21 @@
                            <div>
 
                             <div class="card-body--">
-                                <form class="p-2"action="/updatedpo/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
+                                <form class="p-2"action="/updateprofile/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                     @method('put')
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">
+                                        <label for="name" class="form-label">Username</label>
+                                        <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
                                     </div>
         
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">deskripsi</label>
-                                        <input type="text" name="deskripsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ Auth::user()->deskripsi }}">
+                                        <label for="deskripsi" class="form-label">deskripsi</label>
+                                        <input type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="emailHelp"  value="{{ Auth::user()->deskripsi }}">
                                     </div>
         
                                     <div class="mb-3">
@@ -403,7 +403,7 @@
                            </div>
 
 
-        <div class="footer_part">
+          <div class="footer_part">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">

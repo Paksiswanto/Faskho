@@ -18,18 +18,34 @@ class ProfileController extends Controller
        // dd($data);
        return view('post.edit', compact('data'));
     }
-    public function updatedpo(Request $request,$id){
+    public function updateprofile(Request $request, $id)
+    {
+        //dd($request->all());
         $data = User::find($id);
-        $data->update([
-            'name' =>$request->name,
-            'email' =>$request->email,
-            'deskripsi' =>$request->deskripsi,
-        ]);
-        if ($request->hasFile('avatar')) {
-            $request->file('avatar')->move('avatar/', $request->file('avatar')->getClientOriginalName());
-            $data->foto = $request->file('avatar')->getClientOriginalName();
-            $data->save();
+        $data->update($request->all());
+        if ($request->hasFile('foto')) {
+            // $file = $request->file('foto');
+            // $extention = $file->getClientOriginalExtension( );
+            // $filename = time() . '.' . $extention;
+            // $file->move('fotouser/', $filename);
+            // $data->foto = $filename;
+            $data->foto = $request->file('foto')->store('fotouser', 'public');
         }
-    return redirect()->route('profile')->with('success','data Berhasil Di Update');
+        $data->save();
+        // Storage::disk('public')->put('foto',  $request ->file('foto'));
+        return redirect()->route('profile')->with('sukses', 'Data Berhasil Di Perbarui');
     }
+    // public function updateprofile(Request $request,$id){
+    //     $data = User::find($id);
+    //     $data->update([
+    //         'name' =>$request->name,
+    //         'email' =>$request->email,
+    //         'deskripsi' =>$request->deskripsi
+    //     ]);
+    //     if ($request->hasFile('avatar')) {
+    //         $data->avatar = $request->file('avatar')->store('foto', 'public');
+    //     }
+    //     $data->save();
+    // return redirect()->route('profile')->with('success','data Berhasil Di Update');
+    // }
 }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class KomenController extends Controller
 {
-    public function index(){
+    public function inut(){
         $data = postingan::all();
         $komen = Komen::all();
         return view ('user.utama1', ['data' => $data, 'komen' => $komen]);
@@ -34,7 +34,11 @@ class KomenController extends Controller
             $data->save(); 
 
         }
+<<<<<<< Updated upstream
         return redirect()->route('inpem');
         return redirect()->route('index');
+=======
+        return redirect()->route('inut');
+>>>>>>> Stashed changes
     }
 }

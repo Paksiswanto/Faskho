@@ -1,19 +1,17 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
-    <div class="logo d-flex justify-content-between">
-        <a href="posts.html">
-            <h2>Kulinerku</h2>
-        </a>
+    <br>
+    <br>
+   <center> <div class="top-left">
+        <div class="navbar-header">
+            <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+        </div>
+    </div>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
-    </div>
-    <li class="">
-        <a href="editor.html" aria-expanded="false">
-            <div class="icon_menu">
-            </div>
-            <span><button type="button" class="btn mb-3  btn-primary"><i class="fa fa-plus m"></i>Postingan
-                    Baru</button></span>
-    </li>
+    </div></center>
+    <br>
+    <br>
     <ul id="sidebar_menu">
 
 

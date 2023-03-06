@@ -119,59 +119,28 @@
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30">3 Komentar</h4>
 
+                                @foreach ($komen as $row)
                                 <ol>
-                                    <!-- Single Comment Area -->
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('yummy-master/yummy-master/img/blog-img/17.jpg') }}" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <span class="comment-date text-muted">27 agustus 2018</span>
-                                                <h5>Brandon</h5>
-                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga sate ini juga ramah dikantong.</p>
-                                                <a href="#">Suka</a>
-                                                <a class="active" href="#">Balas</a>
-                                            </div>
-                                        </div>
-                                        <ol class="children">
                                             <li class="single_comment_area">
                                                 <div class="comment-wrapper d-flex">
                                                     <!-- Comment Meta -->
                                                     <div class="comment-author">
-                                                        <img src="{{asset('yummy-master/yummy-master/img/blog-img/18.jpg') }}" alt="">
+                                                        <img src="{{asset('$row->profile') }}" alt="">
                                                     </div>
                                                     <!-- Comment Content -->
                                                     <div class="comment-content">
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
-                                                        <h5>Kelley</h5>
-                                                        <p>Ya itu benar sekali</p>
+                                                        <h5>{{$row->nama}}</h5>
+                                                        <p>{{$row->email}}</p>
+                                                        <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
+                                                        <p>{{$row->pesan}}</p>
                                                         <a href="#">Suka</a>
                                                         <a class="active" href="#">Balas</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ol>
-                                    </li>
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('yummy-master/yummy-master/img/blog-img/19.jpg') }}" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <span class="comment-date text-muted">27 Okto 2018</span>
-                                                <h5>Salman</h5>
-                                                <p>Solusi ditanggal tua, tapi masih pengen makan malam enak. Always di sate lah. Walaupun harga nya terjangkau tapi worth to buy krena rasanya juga enak.</p>
-                                                <a href="#">Suka</a>
-                                                <a class="active" href="#">Balas</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
+                                        @endforeach
                             </div>
 
                             <!-- Leave A Comment -->
@@ -179,7 +148,8 @@
                                 <div class="comment-form">
                                     <h4 class="mb-30">Tinggalkan Komentar</h4>
 
-                                    <form action="#" method="post">
+                                    <form action="/insert" method="post" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="rate">
 
                                             <input type="radio" id="star5" name="rate" value="5" />
@@ -194,19 +164,17 @@
                                             <label for="star1" title="sangat buruk">1 star</label>
                                         </div>    
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="contact-name"
+                                            <input type="text" class="form-control" name="nama" id="nama"
                                                 placeholder="Nama">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="contact-email"
-                                                placeholder="Email">
-                                        </div>
-                                        <div class="form-group-append">
-                                            <input type="file" class="form-control" id="contact-email"
-                                                placeholder="upload foto">
-                                        </div>
+                                            <input type="text" class="form-control" name="email" id="email"
+                                                placeholder="email">
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control" name="foto" id="foto"
+                                                        placeholder="foto">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="message" id="message" cols="30"
+                                            <textarea class="form-control" name="pesan" id="pesan" cols="30"
                                                 rows="10" placeholder="Pesan"></textarea>
                                         </div>
                                         <button type="submit" class="btn contact-btn">Posting Komentar</button>
