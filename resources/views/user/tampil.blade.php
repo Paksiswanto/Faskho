@@ -108,62 +108,45 @@
                             </div>
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
-                                <h4 class="mb-30">3 Komentar</h4>
+                                <h4 class="mb-30"> Komentar</h4>
 
-                                <ol>
-                                    <!-- Single Comment Area -->
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('yummy-master/yummy-master/img/blog-img/17.jpg') }}" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <span class="comment-date text-muted">27 agustus 2018</span>
-                                                <h5>Brandon</h5>
-                                                <p>"Datang lapar, pulang bahagia" kenapa bisa sebahagia itu? Karena selain makanan dan minuman nya yang enak, harga wonton spesial ramah dikantong.</p>
-                                                <a href="#">Suka</a>
-                                                <a class="active" href="#">Balas</a>
-                                            </div>
-                                        </div>
-                                        <ol class="children">
+                                @foreach ($komen as $row)
+                                <ol> 
                                             <li class="single_comment_area">
                                                 <div class="comment-wrapper d-flex">
                                                     <!-- Comment Meta -->
                                                     <div class="comment-author">
-                                                        <img src="{{asset('yummy-master/yummy-master/img/blog-img/18.jpg') }}" alt="">
+                                                        <img src="{{asset('$row->profile') }}" alt="">
                                                     </div>
                                                     <!-- Comment Content -->
                                                     <div class="comment-content">
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
-                                                        <h5>Kelley</h5>
-                                                        <p>Ya itu benar sekali</p>
+                                                        <div class="rate">
+
+                                                            <input type="radio" id="star5" name="rating" {{($row->rating=='5')?"checked" :""}}  value="5" />
+                                                            <label for="star5" title="sangat bagus">5 stars</label>
+                                                            <input type="radio" id="star4" name="rating" {{($row->rating=='4')?"checked" :""}}  value="4" />
+                                                            <label for="star4" title="bagus">4 stars</label>
+                                                            <input type="radio" id="star3" name="rating" {{($row->rating=='3')?"checked" :""}}  value="3" />
+                                                            <label for="star3" title="cukup">3 stars</label>
+                                                            <input type="radio" id="star2" name="rating" {{($row->rating=='2')?"checked" :""}}  value="2" />
+                                                            <label for="star2" title="buruk">2 stars</label>
+                                                            <input type="radio" id="star1" name="rating" {{($row->rating=='1')?"checked" :""}}  value="1" />
+                                                            <label for="star1" title="sangat buruk">1 star</label>
+                                                        </div>  
+                                                        <h5>{{$row->rating}}</h5>
+                                                        <h5>{{$row->nama}}</h5>
+                                                        <p>{{$row->email}}</p>
+                                                        <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
+                                                        <p>{{$row->pesan}}</p>
                                                         <a href="#">Suka</a>
                                                         <a class="active" href="#">Balas</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ol>
-                                    </li>
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('yummy-master/yummy-master/img/blog-img/19.jpg') }}" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <span class="comment-date text-muted">27 Okto 2018</span>
-                                                <h5>Salman</h5>
-                                                <p>Solusi ditanggal tua, tapi masih pengen sarapan enak. Always di wonton lah. Walaupun harga nya terjangkau tapi worth to buy krena rasanya juga enak.</p>
-                                                <a href="#">Suka</a>
-                                                <a class="active" href="#">Balas</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
+                                        @endforeach
+
 
                             <!-- Leave A Comment -->
                             <div class="leave-comment-area section_padding_50 clearfix">
@@ -193,7 +176,7 @@
                                                 placeholder="Email">
                                         </div>
                                         <div class="form-group-append">
-                                            <input type="file" class="form-control" id="contact-email"
+                                            <input type="file" class="form-control" id="contact-foto"
                                                 placeholder="upload foto">
                                         </div>
                                         <div class="form-group">

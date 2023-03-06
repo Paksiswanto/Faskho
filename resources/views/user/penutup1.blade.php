@@ -117,7 +117,7 @@
 
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
-                                <h4 class="mb-30">3 Komentar</h4>
+                                <h4 class="mb-30"> Komentar</h4>
 
                                 @foreach ($komen as $row)
                                 <ol>

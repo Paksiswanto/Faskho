@@ -124,19 +124,7 @@
                                                     <!-- Comment Content -->
                                                     <div class="comment-content">
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
-                                                        <div class="rate">
-
-                                                            <input type="radio" id="star5" name="rating" {{($row->rating=='5')?"checked" :""}}  value="5" />
-                                                            <label for="star5" title="sangat bagus">5 stars</label>
-                                                            <input type="radio" id="star4" name="rating" {{($row->rating=='4')?"checked" :""}}  value="4" />
-                                                            <label for="star4" title="bagus">4 stars</label>
-                                                            <input type="radio" id="star3" name="rating" {{($row->rating=='3')?"checked" :""}}  value="3" />
-                                                            <label for="star3" title="cukup">3 stars</label>
-                                                            <input type="radio" id="star2" name="rating" {{($row->rating=='2')?"checked" :""}}  value="2" />
-                                                            <label for="star2" title="buruk">2 stars</label>
-                                                            <input type="radio" id="star1" name="rating" {{($row->rating=='1')?"checked" :""}}  value="1" />
-                                                            <label for="star1" title="sangat buruk">1 star</label>
-                                                        </div>  
+                                                        <p>{{$row->rating}}</p>
                                                         <h5>{{$row->nama}}</h5>
                                                         <p>{{$row->email}}</p>
                                                         <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
@@ -158,15 +146,15 @@
                                         @csrf
                                         <div class="rate">
 
-                                            <input type="radio" id="star5" name="rating" value="5" />
+                                            <input type="radio" id="star5" name="rating" value="sangat bagus" />
                                             <label for="star5" title="sangat bagus">5 stars</label>
-                                            <input type="radio" id="star4" name="rating" value="4" />
+                                            <input type="radio" id="star4" name="rating" value="bagus" />
                                             <label for="star4" title="bagus">4 stars</label>
-                                            <input type="radio" id="star3" name="rating" value="3" />
+                                            <input type="radio" id="star3" name="rating" value="cukup" />
                                             <label for="star3" title="cukup">3 stars</label>
-                                            <input type="radio" id="star2" name="rating" value="2" />
+                                            <input type="radio" id="star2" name="rating" value="buruk" />
                                             <label for="star2" title="buruk">2 stars</label>
-                                            <input type="radio" id="star1" name="rating" value="1" />
+                                            <input type="radio" id="star1" name="rating" value="sangat buruk" />
                                             <label for="star1" title="sangat buruk">1 star</label>
                                         </div>    
                                         <div class="form-group">

@@ -18,6 +18,11 @@ class KomenController extends Controller
         $komen = Komen::all();
         return view ('user.pembuka1', ['data' => $data, 'komen' => $komen]);
     }
+    public function inpes(){
+        $data = postingan::all();
+        $komen = Komen::all();
+        return view ('user.tampil', ['data' => $data, 'komen' => $komen]);
+    }
    public function insert(Request $request){
        $data = Komen::create([
             'rating' => $request->rating,
@@ -37,8 +42,12 @@ class KomenController extends Controller
 <<<<<<< Updated upstream
         return redirect()->route('inpem');
         return redirect()->route('index');
+<<<<<<< Updated upstream
 =======
         return redirect()->route('inut');
+>>>>>>> Stashed changes
+=======
+        
 >>>>>>> Stashed changes
     }
 }
