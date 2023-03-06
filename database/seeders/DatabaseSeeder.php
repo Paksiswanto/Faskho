@@ -27,13 +27,16 @@ class DatabaseSeeder extends Seeder
          ]);
          $kategori = [
             [
-               'kategori'=>'pembuka'
+               'kategori'=>'pembuka',
+               'created_at'=>now()
             ],
             [
-                'kategori'=>'utama'
+                'kategori'=>'utama',
+                'created_at'=>now()
             ],
             [
-                'kategori'=>'penutup'
+                'kategori'=>'penutup',
+                'created_at'=>now()
             ],
         ];
         foreach ($kategori as $user) {
