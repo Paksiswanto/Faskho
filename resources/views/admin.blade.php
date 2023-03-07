@@ -43,7 +43,7 @@
                         </div>
                     </div>
                   
-                    <div class="col-lg-z col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -74,7 +74,8 @@
                                 <div class="col-lg-8">
                                     <div class="card-body">
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="chartbulanan" class="traffic-chart"></div>
+                                        <canvas id="myChart"></canvas>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -322,68 +323,42 @@
             <!-- .animated -->
         </div>
         @section('footer')
-        <script src="https://code.highcharts.com/highcharts.js"></script>
+       
         <script>
-            Highcharts.chart('chartbulanan', {
-                chart: {
-                    type: 'column'
+            var data = <?php echo json_encode($data); ?>;
+            
+            var labels = [];
+            var views = [];
+            
+            for (var i in data) {
+                labels.push(data[i].judul);
+                views.push(data[i].views);
+            }
+            
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Trend Views',
+                        data: views,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                title: {
-                    text: 'STATISTIK BULANAN'
-                },
-                subtitle: {
-                    text: ''
-                },
-                xAxis: {
-                    categories: [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                        'Oct',
-                        'Nov',
-                        'Dec'
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Jumlah'
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
                     }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                   
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'User',
-                    data:{!!json_encode($data)!!}
-
-                }, {
-                    name: 'Laporan',
-                    data: {!!json_encode($data2)!!}
-
-                }, {
-                    name: 'Postingan',
-                    data: {!!json_encode($data3)!!}
-
-                }]
+                }
             });
         </script>
+    
     @endsection
         @endsection
