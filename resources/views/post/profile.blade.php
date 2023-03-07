@@ -27,10 +27,19 @@
                                             <div class="profile-cover-image"
                                                 style=" filter: blur(4px);
                                             -webkit-filter: blur(4px);">
-                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}" />
+                                            @if (Auth::user()->foto)
+                                            <img src="{{ asset('storage/' . Auth::user()->foto) }}" />
+                                            @else
+                                            <img src="{{ asset('poto.jpg') }}" />
+                                            @endif
+                                               
                                             </div>
                                             <div class="profile-picture">
+                                                @if (Auth::user()->foto)
                                                 <img src="{{ asset('storage/' . Auth::user()->foto) }}">
+                                                @else
+                                            <img src="{{ asset('poto.jpg') }}" />
+                                            @endif
                                             </div>
                                             <div class="profile-content">
                                                 <h1>

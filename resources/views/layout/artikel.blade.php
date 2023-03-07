@@ -82,7 +82,11 @@
               
               </div>
               <div class="profile_info">
+                @if (Auth::user()->foto)
                 <img src="{{asset('storage/' . Auth::user()->foto)}}" alt="#">
+                @else
+                <img src="{{ asset('poto.jpg') }}" />
+                @endif
                 <div class="profile_info_iner">
                   <div class="profile_author_name">
                     <p>Penulis </p>
