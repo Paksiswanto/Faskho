@@ -153,7 +153,8 @@
                                 <div class="comment-form">
                                     <h4 class="mb-30">Tinggalkan Komentar</h4>
 
-                                    <form action="#" method="post">
+                                    <form action="/insert" method="post" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="rate">
 
                                             <input type="radio" id="star5" name="rate" value="5" />
@@ -168,19 +169,19 @@
                                             <label for="star1" title="sangat buruk">1 star</label>
                                         </div>    
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="contact-name"
+                                            <input type="text" class="form-control" name="nama" id="contact-name"
                                                 placeholder="Nama">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="contact-email"
+                                            <input type="email" name="email" class="form-control" id="contact-email"
                                                 placeholder="Email">
                                         </div>
                                         <div class="form-group-append">
-                                            <input type="file" class="form-control" id="contact-foto"
+                                            <input type="file" name="foto" class="form-control" id="contact-foto"
                                                 placeholder="upload foto">
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control" name="message" id="message" cols="30"
+                                            <textarea class="form-control" name="pesan" id="message" cols="30"
                                                 rows="10" placeholder="Pesan"></textarea>
                                         </div>
                                         <button type="submit" class="btn contact-btn">Posting Komentar</button>

@@ -26,6 +26,7 @@ class KomenController extends Controller
    public function insert(Request $request){
        $data = Komen::create([
             'rating' => $request->rating,
+            'post_id' => 2,
             'nama' => $request->nama, 
             'email' => $request->email,
             'foto' => $request->foto,
@@ -39,17 +40,9 @@ class KomenController extends Controller
             $data->save(); 
 
         }
-<<<<<<< Updated upstream
-        return redirect()->route('inpem');
-        return redirect()->route('index');
-
-        return redirect()->route('inut');
-
-=======
-
         return redirect()->route('inpem');
         return redirect()->route('inut');
+        return redirect()->route('inpen');
         return redirect()->route('inpes');
->>>>>>> Stashed changes
-    }
+        }
 }

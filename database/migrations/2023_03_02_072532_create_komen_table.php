@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('komen', function (Blueprint $table) {
             $table->id();
-            $table->string('rating');
+            $table->string('rating')->nullable();
             $table->foreignId('komen_id')->nullable();
-<<<<<<< Updated upstream
-=======
-            $table->foreignId('post_id')->constrained('postingan')->onDelete('cascade')->onUpdate('cascade');
->>>>>>> Stashed changes
+            $table->foreignId('post_id')->constrained('postingans')->onDelete('cascade')->onUpdate('cascade');
+
             $table->string('nama');
             $table->string('email');
             $table->string('foto');
