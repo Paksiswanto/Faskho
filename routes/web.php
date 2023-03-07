@@ -133,6 +133,7 @@ route::post('/updt/{id}',[PostinganController::class, 'updt'])->name('updt')->mi
 route::get('/deletepostingan/{id}',[PostinganController::class, 'deletepostingan'])->name('deletepostingan')->middleware('auth');
 route::get('/deletepost/{id}',[PostinganController::class, 'deletepost'])->name('deletepost')->middleware('auth');
 route::get('/deleteps/{id}',[PostinganController::class, 'deleteps'])->name('deleteps')->middleware('auth');
+route::post('storeKomentar/{id}',[PostinganController::class, 'storeKomentar'])->name('komentar.store')->middleware('auth');
 
 
 //data tempat

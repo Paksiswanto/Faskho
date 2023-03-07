@@ -29,6 +29,8 @@ class UserController extends Controller
     
    
 $postings = Postingan::all();
+$postings = Postingan::orderByDesc('views')->take(10)->get();
+
         $data = [];
         
         foreach ($postings as $posting) {
