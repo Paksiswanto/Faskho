@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class PostinganController extends Controller
 {
-    public function index(Request $request)
+    public function postingan(Request $request)
     {
         $keyword = $request->keyword;
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
@@ -18,6 +18,13 @@ class PostinganController extends Controller
         $datauser = User::all();
         $datakategori = kategori::all();
         return view('admin.postingan.index', compact('data', 'datauser', 'datakategori'));
+    }
+
+    public function deletepost($id)
+    {
+        $data = postingan::find($id);
+        $data->delete();
+        return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
     }
 
 

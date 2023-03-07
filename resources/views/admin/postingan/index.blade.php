@@ -56,7 +56,7 @@
                                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href="/deleteda/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                                    <a href="/deletepost/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                                 </td>
                                             </tr>
                                             @endforeach

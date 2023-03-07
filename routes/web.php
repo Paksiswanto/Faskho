@@ -71,7 +71,7 @@ Route::get('/terms', function () {
 
 
 Route::group(['middleware' => ['auth','hakakses:admin']], function(){
-    route::get('/postingan',[PostinganController::class,'index'])->name('postingan');
+    route::get('/postingan',[PostinganController::class,'postingan'])->name('postingan');
 
 });
 
@@ -131,6 +131,8 @@ route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->na
 route::get('/tampilkandatapostingan/{id}',[PostinganController::class,'tampilkandatapostingan'])->name('tampilkandatapostingan')->middleware('auth');
 route::post('/updt/{id}',[PostinganController::class, 'updt'])->name('updt')->middleware('auth');
 route::get('/deletepostingan/{id}',[PostinganController::class, 'deletepostingan'])->name('deletepostingan')->middleware('auth');
+route::get('/deletepost/{id}',[PostinganController::class, 'deletepost'])->name('deletepost')->middleware('auth');
+route::get('/deleteps/{id}',[PostinganController::class, 'deleteps'])->name('deleteps')->middleware('auth');
 
 
 //data tempat
