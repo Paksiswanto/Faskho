@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('rating');
             $table->foreignId('komen_id')->nullable();
+<<<<<<< Updated upstream
+=======
+            $table->foreignId('post_id')->constrained('postingan')->onDelete('cascade')->onUpdate('cascade');
+>>>>>>> Stashed changes
             $table->string('nama');
             $table->string('email');
             $table->string('foto');

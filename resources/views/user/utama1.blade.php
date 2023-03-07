@@ -142,11 +142,12 @@
                                                     <!-- Comment Content -->
                                                     <div class="comment-content">
                                                         <span class="comment-date text-muted">27 Aug 2018</span>
+                                                        <p>{{$row->rating}}</p>
                                                         <h5>{{$row->nama}}</h5>
                                                         <p>{{$row->email}}</p>
                                                         <img src="{{ asset('foto/' . $row->foto) }}"  alt="..." style="width: 100px"> 
                                                         <p>{{$row->pesan}}</p>
-                                                        <"return redirect()->route('inut')">Suka</a>
+                                                        <a href="#">Suka</a>
                                                         <a class="active" href="">Balas</a>
                                                     </div>
                                                 </div>
@@ -154,26 +155,7 @@
                                         </ol>
                                         @endforeach
 
-                                    </li>
-                                    
-                                    <li class="single_comment_area">
-                                        <div class="comment-wrapper d-flex">
-                                            <!-- Comment Meta -->
-                                            <div class="comment-author">
-                                                <img src="{{asset('yummy-master/yummy-master/img/blog-img/19.jpg') }}" alt="">
-                                            </div>
-                                            <!-- Comment Content -->
-                                            <div class="comment-content">
-                                                <span class="comment-date text-muted">27 Okto 2018</span>
-                                                <h5>Salman</h5>
-                                                <p>Solusi ditanggal tua, tapi masih pengen makan makanan barat. Always di hot dog lah. Walaupun harga nya terjangkau tapi worth to buy karena rasanya juga enak.</p>
-                                                <a href="#">Suka</a>
-                                                <a class="active" href="#">Balas</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
+                                   
 
                             <!-- Leave A Comment -->
                             <div class="leave-comment-area section_padding_50 clearfix">
@@ -185,15 +167,15 @@
                                         @csrf
                                         <div class="rate">
 
-                                            <input type="radio" id="star5" name="rate" value="5" />
+                                            <input type="radio" id="star5" name="rating" value="5" />
                                             <label for="star5" title="sangat bagus">5 stars</label>
-                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <input type="radio" id="star4" name="rating" value="4" />
                                             <label for="star4" title="bagus">4 stars</label>
-                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <input type="radio" id="star3" name="rating" value="3" />
                                             <label for="star3" title="cukup">3 stars</label>
-                                            <input type="radio" id="star2" name="rate" value="2" />
+                                            <input type="radio" id="star2" name="rating" value="2" />
                                             <label for="star2" title="buruk">2 stars</label>
-                                            <input type="radio" id="star1" name="rate" value="1" />
+                                            <input type="radio" id="star1" name="rating" value="1" />
                                             <label for="star1" title="sangat buruk">1 star</label>
                                         </div>    
                                         <div class="form-group">

@@ -39,10 +39,17 @@ class KomenController extends Controller
             $data->save(); 
 
         }
+<<<<<<< Updated upstream
         return redirect()->route('inpem');
         return redirect()->route('index');
 
         return redirect()->route('inut');
 
+=======
+
+        return redirect()->route('inpem');
+        return redirect()->route('inut');
+        return redirect()->route('inpes');
+>>>>>>> Stashed changes
     }
 }
