@@ -18,7 +18,7 @@ class LaporanController extends Controller
     public function deletedp($id){
         $data = laporan::find($id);
         $data->delete();
-        return redirect()->route('index')->with('success','data Berhasil Di Hapus');
+        return redirect()->back()->with('success','data Berhasil Di Hapus');
 
     }
     public function insertlaporan(Request $request)

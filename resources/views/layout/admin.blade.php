@@ -503,7 +503,7 @@
             // Bar Chart #flotBarChart End
         });
     </script>
-
+@stack('scripts')
 </body>
 
 </html>
