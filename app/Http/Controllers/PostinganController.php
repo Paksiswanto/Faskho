@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\postingan;
 use App\Models\User;
 use App\Models\kategori;
+use App\Models\Komen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -133,8 +134,10 @@ class PostinganController extends Controller
     {
         $data = postingan::findOrFail($id);
         $data->increment('views');
+        $komentars = Komen::where('postingan_id', $id)->get();
 
-        return view('user.tampil', compact('data'));
+
+        return view('user.tampil', compact('data','komentars'));
     }
 
     public function artikel()
@@ -156,5 +159,27 @@ class PostinganController extends Controller
             ->get()
             ->take(10);
         return view('user.index',compact('posts','data'));
+    }
+     public function storeKomentar(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required|email',
+            'pesan' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'rating' => 'nullable|numeric|min:1|max:5',
+        ]);
+
+        $foto = $request->file('foto');
+        if ($foto) {
+            $fotoName = time() . '_' . $foto->getClientOriginalName();
+            $fotoPath = $foto->storeAs('public/komentar', $fotoName);
+        } else {
+            $fotoPath = null;
+        }
+
+        $komentar = Komen::create($request->all());
+
+        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
     }
 }
