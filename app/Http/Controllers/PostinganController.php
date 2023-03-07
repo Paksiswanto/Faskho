@@ -137,7 +137,7 @@ class PostinganController extends Controller
         $komentars = Komen::where('postingan_id', $id)->get();
 
 
-        return view('user.tampil', compact('data','komentars'));
+        return view('user.tampil', compact('data','komentars'   ));
     }
 
     public function artikel()
