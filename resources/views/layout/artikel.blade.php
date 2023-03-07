@@ -46,6 +46,10 @@
 
   <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/style1.css') }}" />
   <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/colors/default.css') }}" id="colorSkinCSS">
+  <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+
+<!-- Optional - Adds useful class to manipulate icon font display -->
+<link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
 
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
@@ -299,7 +303,7 @@
   <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/js/custom.js') }}"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#Mysummernote").summernote({

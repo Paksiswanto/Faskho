@@ -168,7 +168,7 @@
               })
               .then((willDelete) => {
                 if (willDelete) {
-                  window.location = "/deletepost/"+postinganid+""
+                  window.location = "/deletepostingan/"+postinganid+""
                   swal("Data Berhasil dihapus", {
                     icon: "success",
                   });

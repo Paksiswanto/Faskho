@@ -25,8 +25,12 @@ class PostinganController extends Controller
     {
         $data = postingan::find($id);
         $data->delete();
+        
+         // set cookie untuk notifikasi popup
+         setcookie("article_deleted", "true", time() + (86400 * 30), "/posts"); // berlaku selama 30 hari
         return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
     }
+    
 
 
     public function  posts(Request $request)
@@ -100,8 +104,12 @@ class PostinganController extends Controller
     {
         $data = postingan::find($id);
         $data->delete();
-        return redirect()->route('posts')->with('success', 'data Berhasil Di Hapus');
-    }
+        $cookie_name = "article_deleted";
+        $cookie_value = true;
+        $cookie_expire = time() + (60 * 60 * 24); // cookie akan berlaku selama 1 hari
+        setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
+            return redirect()->back()->with('success', 'Post berhasil dihapus.');
+        }
         //ini untuk pratinjau
     public function show($id)
     {
