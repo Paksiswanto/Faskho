@@ -23,10 +23,11 @@ class KomenController extends Controller
         $komen = Komen::all();
         return view ('user.tampil', ['data' => $data, 'komen' => $komen]);
     }
-   public function insert(Request $request){
-       $data = Komen::create([
+   public function insert(Request $request,$id){
+      $data=postingan::find($id) ;
+    $komen = Komen::create([
             'rating' => $request->rating,
-            'post_id' => 2,
+            'postingan_id' => $request->postingan_id,
             'nama' => $request->nama, 
             'email' => $request->email,
             'foto' => $request->foto,
@@ -40,9 +41,9 @@ class KomenController extends Controller
             $data->save(); 
 
         }
+        return view('user.tampil',['data'=>$data]);
         return redirect()->route('inpem');
         return redirect()->route('inut');
         return redirect()->route('inpen');
-        return redirect()->route('inpes');
         }
 }

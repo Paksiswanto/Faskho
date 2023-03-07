@@ -50,7 +50,7 @@ Route::get('/utama', function () {
     return view('user.utama');
 });
 Route::get('utama1', [KomenController::class, 'inut'])->name('inut');
-Route::post('/insert', [KomenController::class, 'insert'])->name('insert');
+Route::post('/insert/{id}', [KomenController::class, 'insert'])->name('insert');
 
 Route::get('penutup1', [KomenController::class, 'inpen'])->name('inpen');
 
@@ -146,6 +146,23 @@ route::post('/delete/{id}',[TempatController::class, 'delete'])->name('delete')-
 //Komentar
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
+
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+
+
+//pembuka
+Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
@@ -155,16 +172,6 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
-
-//pembuka
-Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-
-//pembuka
-Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-
-//pembuka
-Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
-
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
@@ -174,6 +181,8 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
 
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
@@ -187,6 +196,9 @@ Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
+
+
+
 
 //utama
 Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
@@ -201,6 +213,7 @@ Route::get('/artikel',[PostinganController::class,'artikel'])->name('artikel');
 
 
 
+
 //pembuka
 Route::get('/pembuka',[PostinganController::class,'pembuka'])->name('pembuka');
 //utama
@@ -273,6 +286,9 @@ Route::get('/utama',[PostinganController::class,'utama'])->name('utama');
 
 //penutup
 Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
+
+
+
 
 //Trend
 Route::get('/trend', [TrendController::class, 'index'])->name('trend');

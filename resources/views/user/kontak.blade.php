@@ -65,7 +65,7 @@
             <!-- Contact Form  -->
             <div class="contact-form-area">
                 <div class="row">
-                    <div class="col-12 col-md-5" style="background-image: url('yummy-master/yummy-master/img/bg-img/contact.jpg'); background-attachment:fixed; background-position:start; background-repeat:repeat;">
+                    <div class="col-12 col-md-5" style="background-image: url('yummy-master/yummy-master/img/bg-img/contact.jpg'); background-attachment:fixed; background-position:start; background-repeat:no-repeat;">
                         <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s" >
                         </div>
                     </div>

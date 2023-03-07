@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('rating')->nullable();
             $table->foreignId('komen_id')->nullable();
-            $table->foreignId('post_id')->constrained('postingans')->onDelete('cascade')->onUpdate('cascade');
-
-            $table->string('nama');
+            $table->foreignId('postingan_id')->references('id')->on('postingans')->onDelete('cascade')->onUpdate('cascade');            $table->string('nama');
             $table->string('email');
             $table->string('foto');
             $table->string('pesan');

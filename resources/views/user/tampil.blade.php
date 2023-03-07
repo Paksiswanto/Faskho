@@ -153,8 +153,10 @@
                                 <div class="comment-form">
                                     <h4 class="mb-30">Tinggalkan Komentar</h4>
 
-                                    <form action="/insert" method="post" enctype="multipart/form-data">
+                                    <form action="/insert/{{$data->id}} " method="post" enctype="multipart/form-data">
                                         @csrf
+
+                                        <input type="hidden" name="postingan_id" value=" {{$data->id}} ">
                                         <div class="rate">
 
                                             <input type="radio" id="star5" name="rate" value="5" />
