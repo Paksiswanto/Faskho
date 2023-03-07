@@ -1,5 +1,7 @@
 @extends('layout.artikel')
-
+@push('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
 
 @section('content')
 
@@ -130,7 +132,7 @@
                      <div class="card-footer">
                     <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
-                    <a href="/deletepostingan/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                    <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
                     </div>
                     </div>
                     
@@ -157,5 +159,43 @@
     </div><!-- .content -->
 </div>
 @endsection
+
+@push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+<Script>
+  $('.delete').click( function(){
+    var postinganid = $(this).attr('data-id');
+    var judul      = $(this).attr('data-judul');
+     swal({
+                title: "Yakin Mau Hapus Data ?",
+                text: "kamu akan menghapus postingan dengan judul "+judul+"",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  window.location = "/deletepostingan/"+postinganid+""
+                  swal("Data Berhasil dihapus", {
+                    icon: "success",
+                  });
+                } else {
+                  swal("Data tidak jadi dihapus");
+                }
+              });
+  })
+
+  </script>
+  <script>
+  @if(Session::has('success'))
+      toastr.success("{{ Session::get('success') }}")
+
+  @endif
+
+  </script>
+@endpush
 
 

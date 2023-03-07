@@ -192,11 +192,12 @@
             </div>
 
         </div>
-</body>
+
 @endsection
 
 @push('scripts')
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
 <script>
   const termsCheck = document.querySelector('#termsCheck');
   const submitBtn = document.querySelector('#submitBtn');
