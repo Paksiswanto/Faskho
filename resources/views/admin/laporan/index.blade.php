@@ -36,10 +36,7 @@
                                             <td>{{ $row->laporan }}</td>
                                             <td>{{ $row->created_at->format('D M Y') }}</td>
                                             <td>
-                                                <a href="/tampillaporan/{{ $row->id }}"
-                                                    class="btn btn-warning">edit</a>
-                                                <a href="/deletedp/{{ $row->id }}"
-                                                    class="btn btn-danger delete">Hapus</a>
+                                                <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-user="{{ $row->user }}">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,30 +75,35 @@
         </script>
         -->
     </body>
-    <Script>
-        $('.delete').click(function() {
-            var nama = $(this).attr('data-id');
-            swal({
-                    title: "Yakin Mau Hapus Data ?",
-                    text: "kamu akan menghapus data Ulasan dengan " + nama + "",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location = "/deletedata/" + nama + ""
-                        swal("Data Berhasil dihapus", {
-                            icon: "success",
-                        });
-                    } else {
-                        swal("Data tidak jadi dihapus");
-                    }
-                });
-        })
-    </script>
     <script>
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
         @endif
     </script>
+    @push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+<Script>
+  $('.delete').click( function(){
+    var postinganid = $(this).attr('data-id');
+     swal({
+                title: "Yakin Mau Hapus Data ?",
+                text: "kamu akan menghapus ulasan  "+postinganid+"",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  window.location = "/deletedp/"+postinganid+""
+                  swal("Data Berhasil dihapus", {
+                    icon: "success",
+                  });
+                } else {
+                  swal("Data tidak jadi dihapus");
+                }
+              });
+  })
+
+  </script>
+@endpush

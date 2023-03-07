@@ -56,7 +56,7 @@
                                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href="/deletepost/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                                    <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -132,7 +132,6 @@
 
 </div> --}}
 @endsection
-@push('scripts')
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -146,29 +145,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     -->
 </body>
-<Script>
-    $('.delete').click(function() {
-        var nama = $(this).attr('data-id');
-        swal({
-                title: "Yakin Mau Hapus Data ?"
-                , text: "kamu akan menghapus data Ulasan dengan " + nama + ""
-                , icon: "warning"
-                , buttons: true
-                , dangerMode: true
-            , })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/deletedata/" + nama + ""
-                    swal("Data Berhasil dihapus", {
-                        icon: "success"
-                    , });
-                } else {
-                    swal("Data tidak jadi dihapus");
-                }
-            });
-    })
-
-</script>
 <script>
     @if(Session::has('success'))
     toastr.success("{{ Session::get('success') }}")
@@ -176,3 +152,31 @@
     @endif
 
 </script>
+@push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+<Script>
+  $('.delete').click( function(){
+    var postinganid = $(this).attr('data-id');
+    var judul      = $(this).attr('data-judul');
+     swal({
+                title: "Yakin Mau Hapus Data ?",
+                text: "kamu akan menghapus postingan dengan judul "+judul+"",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  window.location = "/deletepost/"+postinganid+""
+                  swal("Data Berhasil dihapus", {
+                    icon: "success",
+                  });
+                } else {
+                  swal("Data tidak jadi dihapus");
+                }
+              });
+  })
+
+  </script>
+@endpush
