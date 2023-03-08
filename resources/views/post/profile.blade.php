@@ -2,8 +2,46 @@
 
 @section('content')
 
+<nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
+    <center> <div class="top-left">
+        <div class="navbar-header">
+            <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+        </div>
+    </div>
+        <div class="sidebar_close_icon d-lg-none">
+            <i class="ti-close"></i>
+        </div>
+    </div></center>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ul id="sidebar_menu">
+          
+
+        <li class="">
+            <a href="/" aria-expanded="false">
+                <div class="icon_menu">
+                    <!-- <i class="fa fa-book"></i> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:25px;"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    </svg>
+
+                </div>
+                <span>HOME</span>
+            </a>
+        </li>
+    </nav>
+
     <body>
-        @extends('layout.sidepost')
 
 
 
