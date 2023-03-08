@@ -84,7 +84,7 @@
         </li>
 
         <li class="">
-            <a href="/" aria-expanded="false">
+            <a href="./" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -111,22 +111,36 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
+
                             <div class="col-lg-3 col-md-6 ">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="stat-widget-five">
                                             <div class="stat-icon dib flat-color-4">
                                                 <i class="fa-solid fa-book" style="color:#eb8b1f"> </i>
-                                                <span>{{$totalpostingan}}</span>
+                                                <span>{{$totalpostingan}} Postingan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    
+                            <div class="col-lg-3 col-md-6 ">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="stat-widget-five">
+                                            <div class="stat-icon dib flat-color-4">
+                                                <i class="fa-solid fa-eye" style="color:#eb8b1f"> </i>
+                                                <span>{{$totalviews}} Total Views</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
+                </div>                    
 
                     <div class="row ">
                         <div class="col">

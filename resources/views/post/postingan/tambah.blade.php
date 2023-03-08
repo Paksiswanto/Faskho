@@ -80,7 +80,7 @@
             </li>
 
             <li class="">
-                <a href="/" aria-expanded="false">
+                <a href="./" aria-expanded="false">
                     <div class="icon_menu">
                         <!-- <i class="fa fa-book"></i> -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -177,13 +177,42 @@
                                 <input type="checkbox" name="agree" id="termsCheck">
                                 <label for="agree">
                                     Saya menyetujui
-                                    <a href="/terms" target="_blank">Syarat dan Ketentuan</a>
-                                </label>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                                        Syarat & Ketentuan
+                                    </button> 
+                                    </label>
 
                                 @if($errors->has('agree'))
                                 <div class="invalid-feedback">{{ $errors->first('agree') }}</div>
                                 @endif
                             </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Syarat & Ketentuan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ <h5>1. Faktual</h5>
+                                <p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
+
+                                    Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
+                                                                    <h5 class="card-title">2. Aktual</h5>
+<p class="card-text">Aktual adalah istilah lain dari up to date, atau kejadian yang terkini. Sebuah peristiwa baru bisa menjadi berita kalau kejadiannya masih baru atau hangat. Buat apa menceritakan sesuatu yang sudah lama terjadi dan kemungkinan semua orang sudah tahu? Karena itu, dalam jurnalistik juga dikenal prinsip aktualitas.</p>
+                                                                    <h5 class="card-title">3. Tidak Memihak</h5>
+<p class="card-text">Peristiwa yang akan disajikan menjadi sebuah berita harus bersifat objektif alias tidak memihak. Misalnya, ketika melihat sebuah peristiwa tawuran antarpelajar, lalu Sobat SMP akan menyajikannya menjadi sebuah berita. Cobalah untuk menempatkan diri pada posisi yang netral, tidak boleh berpihak kepada salah satu kelompok pelajar yang tawuran tersebut.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
                             <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Submit</button>
                         </form>
@@ -193,24 +222,26 @@
 
         </div>
 
-@endsection
+        @endsection
 
-@push('scripts')
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        @push('scripts')
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 <script>
-  const termsCheck = document.querySelector('#termsCheck');
-  const submitBtn = document.querySelector('#submitBtn');
-  
-  // Memeriksa checkbox setiap kali diperbarui
-  termsCheck.addEventListener('change', function () {
-    if (this.checked) {
-      // Checkbox dicentang, aktifkan tombol submit
-      submitBtn.removeAttribute('disabled');
-    } else {
-      // Checkbox tidak dicentang, nonaktifkan tombol submit
-      submitBtn.setAttribute('disabled', true);
-    }
-  });
+    const termsCheck = document.querySelector('#termsCheck');
+    const submitBtn = document.querySelector('#submitBtn');
+
+    // Memeriksa checkbox setiap kali diperbarui
+    termsCheck.addEventListener('change', function() {
+        if (this.checked) {
+            // Checkbox dicentang, aktifkan tombol submit
+            submitBtn.removeAttribute('disabled');
+        } else {
+            // Checkbox tidak dicentang, nonaktifkan tombol submit
+            submitBtn.setAttribute('disabled', true);
+        }
+    });
+
 </script>
+
 @endpush

@@ -1,6 +1,6 @@
 @extends('layout.artikel')
 @push('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
 @section('content')
@@ -9,15 +9,17 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
     <br>
     <br>
-   <center> <div class="top-left">
-        <div class="navbar-header">
-            <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+    <center>
+        <div class="top-left">
+            <div class="navbar-header">
+                <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+            </div>
         </div>
-    </div>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
-    </div></center>
+        </div>
+    </center>
     <br>
     <br>
     <ul id="sidebar_menu">
@@ -31,7 +33,7 @@
                 <span>Postingan</span>
             </a>
         </li>
-        
+
 
 
         <li class="">
@@ -80,10 +82,10 @@
         </li>
 
         <li class="">
-            <a href="/" aria-expanded="false">
+            <a href="./" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:25px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                     </svg>
 
@@ -93,51 +95,51 @@
         </li>
 
 </nav>
- 
-  <div class="main_content_iner ">
-      <div class="container-fluid p-0 ">
-        <div class="row ">
-          <div class="col-12">
-            <div class="dashboard_header mb_50">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="dashboard_header_title">
-                    <h3></h3>
-                  </div>
-                </div>
-                @foreach ($data as $index=>$row )   
-              
-                   
-                <div class="card shadow-sm mb-5 bg-white rounded ">
-                    <div class="row">
-                      <div class="col-5" style="width: 340px;">
-                        <div>
-                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="..."> 
-                      </div>
-                      </div>
-                      <div class="col-5 my-auto">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ $row->judul }}</h5>
-                          
-                          
-                          <p class="card-text">
-                          {{ $row->deskripsi }}
-                          </p>
-                          <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
-                          <br>
-                            <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
-                        </div>
-                      </div>
-                    </div>
-                     <div class="card-footer">
-                    <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
-                    <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
-                    </div>
-                    </div>
-                    
-                   
-                 @endforeach
+<div class="main_content_iner ">
+    <div class="container-fluid p-0 ">
+        <div class="row ">
+            <div class="col-12">
+                <div class="dashboard_header mb_50">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="dashboard_header_title">
+                                <h3></h3>
+                            </div>
+                        </div>
+                        @foreach ($data as $index=>$row )
+
+
+                        <div class="card shadow-sm mb-5 bg-white rounded ">
+                            <div class="row">
+                                <div class="col-5" style="width: 340px;">
+                                    <div>
+                                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-5 my-auto">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $row->judul }}</h5>
+
+
+                                        <p class="card-text">
+                                            {{ $row->deskripsi }}
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
+                                        <br>
+                                        <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
+
+                                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
+                            </div>
+                        </div>
+
+
+                        @endforeach
 
                         <div>
                             showing
@@ -153,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
@@ -161,42 +163,40 @@
 @endsection
 
 @push('scripts')
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 <Script>
-  $('.delete').click( function(){
-    var postinganid = $(this).attr('data-id');
-    var judul      = $(this).attr('data-judul');
-     swal({
-                title: "Yakin Mau Hapus Data ?",
-                text: "kamu akan menghapus postingan dengan judul "+judul+"",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-              })
-              .then((willDelete) => {
+    $('.delete').click(function() {
+        var postinganid = $(this).attr('data-id');
+        var judul = $(this).attr('data-judul');
+        swal({
+                title: "Yakin Mau Hapus Data ?"
+                , text: "kamu akan menghapus postingan dengan judul " + judul + ""
+                , icon: "warning"
+                , buttons: true
+                , dangerMode: true
+            , })
+            .then((willDelete) => {
                 if (willDelete) {
-                  window.location = "/deletepostingan/"+postinganid+""
-                  swal("Data Berhasil dihapus", {
-                    icon: "success",
-                  });
+                    window.location = "/deletepostingan/" + postinganid + ""
+                    swal("Data Berhasil dihapus", {
+                        icon: "success"
+                    , });
                 } else {
-                  swal("Data tidak jadi dihapus");
+                    swal("Data tidak jadi dihapus");
                 }
-              });
-  })
+            });
+    })
 
-  </script>
-  <script>
-  @if(Session::has('success'))
-      toastr.success("{{ Session::get('success') }}")
+</script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
 
-  @endif
+    @endif
 
-  </script>
+</script>
 
 @endpush
-
-

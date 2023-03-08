@@ -80,7 +80,7 @@
         </li>
 
         <li class="">
-            <a href="/" aria-expanded="false">
+            <a href="./" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -110,7 +110,7 @@
                             <div class="card-header">
                                 Syarat & Ketentuan </div>
                             <div class="card-body">
-                                <h5 class="card-title">1. Faktual</h5>
+                                <h5>1. Faktual</h5>
                                 <p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
 
                                     Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
