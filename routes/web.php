@@ -173,7 +173,7 @@ route::get('/author',[UserController::class,'index'])->name('user')->middleware(
 route::get('/admin',[UserController::class,'showTotalUsers'])->name('showTotalUsers')->middleware('auth');
 route::get('/statistik',[UserController::class,'showTotalviews'])->name('showTotalviews')->middleware('auth');
 route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
-Route::put('/updateprofile/{id}',[AuthController::class,'updateprofile']);
+
 
 //laporan
 
