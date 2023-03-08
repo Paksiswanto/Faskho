@@ -4,7 +4,7 @@
     <!-- Preloader Start -->
 
     <!-- ****** Top Header Area Start ****** -->
-   @include('layout.navpem')
+   @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
 
     <!-- ****** Breadcumb Area Start ****** -->

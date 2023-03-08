@@ -25,11 +25,27 @@
                                     @if (Auth::user()->foto)
                                        <img class="user-avatar rounded-circle" src="{{asset('storage/' . Auth::user()->foto)}}" alt="User Avatar" style="width: 30px">
                                        @else
+<<<<<<< Updated upstream
                                        <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
                                        @endif
                                     </a>
                                     @endauth
                                    
+=======
+                                        <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
+                                       @endauth
+                                       @endif
+
+                                       @guest
+                                       <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
+                                       @endguest
+                                       
+                                       
+                                        
+                                  </svg>
+                               
+                                </a>
+>>>>>>> Stashed changes
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     @auth
 
