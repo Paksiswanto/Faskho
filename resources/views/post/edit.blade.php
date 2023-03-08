@@ -334,10 +334,18 @@
                                         </div>
                                         <div class="profile_box_1">
                                             <div class="profile-cover-image">
-                                                <img src="{{asset('storage/' . Auth::user()->foto)}}">
+                                                @if (Auth::user()->foto)
+                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}" style="width: 100%" />
+                                                @else
+                                                <img src="{{ asset('poto.jpg') }}" />
+                                                @endif
                                             </div>
                                             <div class="profile-picture">
-                                                <img src="{{asset('storage/' . Auth::user()->foto)}}">
+                                                @if (Auth::user()->foto)
+                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}">
+                                                @else
+                                            <img src="{{ asset('poto.jpg') }}" />
+                                            @endif
                                             </div>
                                             <div class="profile-content">
                                                 <h1>

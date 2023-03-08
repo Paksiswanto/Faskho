@@ -17,21 +17,17 @@
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area  d-flex">
                             @auth
-                            <p class="mt-1">Selamat datang {{Auth::user()->name}}</p>
+                            <p class="mt-1"style=" display:space-around    ; justify-content:center  ;">Selamat datang {{Auth::user()->name}}</p> 
                             @endauth
-                            <div class="user-area dropdown float-right">
-                                <svg class="ml-1"style="width:5"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <div class="user-area dropdown float-left" >
                                     @auth
-                                        
                                     @if (Auth::user()->foto)
                                        <img class="user-avatar rounded-circle" src="{{asset('storage/' . Auth::user()->foto)}}" alt="User Avatar" style="width: 30px">
-                                       @endauth
                                        @else
-                                        <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
-                                        @endif
-                                  </svg>
-                               
-                                </a>
+                                       <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
+                                       @endif
+                                    </a>
+                                    @endauth
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     @auth
 

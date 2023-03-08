@@ -46,15 +46,15 @@
 
 
         <div class="main_content_iner ">
-            <div class="container-fluid p-0 ">
+               <div class="container-fluid p-0 ">
                 <div class="row ">
                     <div class="col-12">
+                        <div class="col-md-6 mx-auto">
                         <div class="dashboard_header mb_50">
                             <div class="row">
 
 
 
-                                <div class="col-md-6 mx-auto">
                                     <div class="white_box mb_30">
                                         <div class="box_header ">
                                             <div class="main-title">

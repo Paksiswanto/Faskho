@@ -109,7 +109,7 @@
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             @if (Auth::user()->foto)
-                            <img class="user-avatar rounded-circle" src="{{asset('storage/' . Auth::user()->foto)}}"
+                            <img class="user-avatar rounded-circle" style="width: 45px" style="height: 45px" src="{{asset('storage/' . Auth::user()->foto)}}"
                                 alt="User Avatar">
                                 @else
                             <img src="{{ asset('poto.jpg') }}" />
