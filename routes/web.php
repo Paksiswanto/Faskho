@@ -72,7 +72,7 @@ Route::get('/terms', function () {
 
 Route::group(['middleware' => ['auth','hakakses:admin']], function(){
     route::get('/postingan',[PostinganController::class,'postingan'])->name('postingan');
-
+    
 });
 
 //login

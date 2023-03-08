@@ -3,8 +3,8 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                      <li class="">
-                        <a href="/admin"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                      <li class="{{ Request::is('admin') ? 'active' : ''}}">
+                        <a href="{{route('showTotalUsers')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Data-data Admin</li>
 

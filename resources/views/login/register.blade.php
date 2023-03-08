@@ -75,7 +75,6 @@
                                     @enderror
                                     
                                 </div>
-                                <input type="hidden" name="foto" value="">
                             
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>

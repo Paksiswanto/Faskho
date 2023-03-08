@@ -122,6 +122,7 @@
                                     <h4>{{ $komentar->nama }}</h4>
                                     <p>{{ $komentar->pesan }}</p>
                                     <img src="{{asset('storage'.$komentar->foto)}}" alt="">
+                                    <img src="{{asset('storage/'.$komentar->foto)}}" alt="">
                                 @endforeach
 
                                 <!-- Leave A Comment -->

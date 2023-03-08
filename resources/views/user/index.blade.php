@@ -488,5 +488,5 @@
     <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js')}}"></script>
     <!-- Active  -->
     <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script>
-    
+    z
 </body>

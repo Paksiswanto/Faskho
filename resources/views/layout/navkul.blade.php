@@ -23,12 +23,14 @@
                                 <svg class="ml-1"style="width:5"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     @auth
                                     @if (Auth::user()->foto)
-                                       <img class="user-avatar rounded-circle" src="{{asset('storage/' . Auth::user()->foto)}}" alt="User Avatar" style="width: 30px">
-                                       @else
-                                       <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
-                                       @endif
-                                    </a>
+                                    <img class="user-avatar rounded-circle" src="{{asset('storage/' . Auth::user()->foto)}}" alt="User Avatar" style="width: 30px">
+                                    @else
+                                    <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="" style="width: 30px">
+                                    @endif
                                     @endauth
+                                   
+                                    </a>
+                                 
                                    
                                         
                                        @guest
