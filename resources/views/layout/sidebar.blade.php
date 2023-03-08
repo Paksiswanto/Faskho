@@ -18,28 +18,28 @@
                                 class="fa fa-tags" style="width: 20%;"></i>Data Tag </a>
                     </li> --}}
 
-                    <li>
-                        <a href="/author"> <i
+                    <li class="{{ Request::is('author') ? 'active' : '' }}">
+                        <a href="{{route('user')}}"> <i
                                 class="fa fa-group" style="width: 20%;"></i>Data User </a>
                     </li>
-                    <li>
-                        <a href="/postingan"> <i
+                    <li class="{{ Request::is('postingan') ? 'active' : '' }}">
+                        <a href="{{route('postingan')}}"> <i
                                 class="fa fa-book" style="width: 20%;"></i>Data Post </a>
                     </li>
-                    <li> 
-                        <a href="/ulasan"> <i
+                    <li class="{{ Request::is('ulasan') ? 'active' : '' }}"> 
+                        <a href="{{route('ulasan')}}"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>
                     </li>
                     {{-- <li>
                         <a href="/penghargaan"> <i
                                 class="fa fa-trophy" style="width: 20%;"></i>Data Penghargaan </a>
                     </li> --}}
-                    <li>
-                        <a href="/laporan"> <i
+                    <li class="{{ Request::is('laporan') ? 'active' : '' }}">
+                        <a href="{{route('laporan')}}"> <i
                                 class="fa fa-exclamation-triangle" style="width: 20%;"></i>Data Laporan </a>
                     </li>
-                    <li>
-                        <a href="/kategori"> <i
+                    <li class="{{ Request::is('kategori') ? 'active' : '' }}">
+                        <a href="{{route('kategori')}}"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Kategori </a>
                     </li>
                     

@@ -331,7 +331,6 @@
                                 <div class="post-content">
                                     <div class="post-meta d-flex">
                                         <div class="post-author-date-area d-flex">
-                                            <!-- Post Author -->
                                             <div class="post-author">
                                                 <a href="#">{{$item->nama}}</a>
                                             </div>
@@ -359,7 +358,7 @@
                                         <h4 class="post-headline"> {{$item->judul}} </h4>
                                     </a>
                                     <p>{{$item->deskripsi}}</p>
-                                    <a href="/tampil/{{$item->id}}" class="read-more">Lanjut Membaca...</a>
+                                    <a href="/tampil/{{$item->id}}" class="read-more">Mulai Baca...</a>
                                 </div>
                             </div>
                         </div>

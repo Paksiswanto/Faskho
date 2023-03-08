@@ -22,6 +22,7 @@ class UserController extends Controller
     $postingan=postingan::all();
     $laporan=laporan::all();
     $user=user::all();
+    $totalViews = Postingan::sum('views');
 
     $totalpostingan=postingan::count();
     $totallaporan=laporan::count();

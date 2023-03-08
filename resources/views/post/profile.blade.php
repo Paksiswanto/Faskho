@@ -28,7 +28,7 @@
                                                 style=" filter: blur(4px);
                                             -webkit-filter: blur(4px);">
                                             @if (Auth::user()->foto)
-                                            <img src="{{ asset('storage/' . Auth::user()->foto) }}" />
+                                            <img src="{{ asset('storage/' . Auth::user()->foto) }}" style="width: 100%" />
                                             @else
                                             <img src="{{ asset('poto.jpg') }}" />
                                             @endif
