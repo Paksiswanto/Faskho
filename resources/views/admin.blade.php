@@ -343,9 +343,9 @@
                     datasets: [{
                         label: 'Trend Views',
                         data: views,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                        backgroundColor: 'rgba(252,126,81)',
+                        borderColor: 'rgb(239,144,60)',
+                        borderWidth: 2
                     }]
                 },
                 options: {
