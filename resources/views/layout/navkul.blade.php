@@ -28,16 +28,18 @@
                                     <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="" style="width: 30px">
                                     @endif
                                     @endauth
+<<<<<<< Updated upstream
                                    
                                     </a>
                                  
                                    
                                         
+=======
+
+>>>>>>> Stashed changes
                                        @guest
                                        <img class="user-avatar rounded-circle" src="{{ asset('poto.jpg') }}"alt="User Avatar" style="width: 30px">
-                                       @endguest
-                                       
-                                       
+                                       @endguest 
                                         
                                   </svg>
                                

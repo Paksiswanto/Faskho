@@ -2,9 +2,11 @@
 <body>
 
     <!-- ****** Top Header Area Start ****** -->
-@include('layout.navkul')
+    @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
-<div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210430/ourlarge/pngtree-korean-food-cute-cartoon-doodle-png-image_3253417.jpg);">
+
+    <!-- ****** Breadcumb Area Start ****** -->
+    <div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210430/ourlarge/pngtree-korean-food-cute-cartoon-doodle-png-image_3253417.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">

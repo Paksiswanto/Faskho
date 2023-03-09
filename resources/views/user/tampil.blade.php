@@ -3,7 +3,7 @@
 <body>
     <!-- Background Pattern Swither -->
 
-    @include('layout.navpem')
+    @include('layout.navkul')
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
@@ -119,6 +119,7 @@
                                 <h4 class="mb-30"> Komentar</h4>
 
                                 @foreach ($komentars as $komentar)
+                                    <p>{{ $komentar->profil }}</p>
                                     <h4>{{ $komentar->nama }}</h4>
                                     <p>{{ $komentar->pesan }}</p>
                                     <img src="{{asset('storage'.$komentar->foto)}}" alt="">
