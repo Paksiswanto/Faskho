@@ -366,11 +366,15 @@
                                     @method('put')
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Username</label>
-                                        <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">
+                                        <input type="text" name="name" class="form-control @error('name')
+                                            is-invalid
+                                        @enderror" id="name" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">@error('name')
+                                            {{$message}}
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
+                                        <input type="text" name="email" readonly class="form-control" id="email" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
                                     </div>
         
                                     <div class="mb-3">

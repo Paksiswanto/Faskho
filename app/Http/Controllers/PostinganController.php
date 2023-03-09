@@ -153,8 +153,14 @@ class PostinganController extends Controller
         $artikel=postingan::all();
         return view('user.artikel',compact('artikel'));
     }
-    public function litindex()
+    public function litindex(Request $request)
     {
+        $keyword = $request->keyword;
+
+        $results = DB::table('postingans')
+           ->where('judul', 'LIKE', "%{$keyword}%")
+           ->get();
+
             $posts=postingan::all();
             $posts = DB::table('postingans')
             ->latest()
