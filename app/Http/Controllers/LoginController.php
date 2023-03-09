@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -27,11 +30,10 @@ class LoginController extends Controller
     }
 
     public function registeruser(Request $request){
-        //dd($request->all());
-         $request->validate([
-            'email' => 'required|unique:users|email',
-            'name' => 'required|unique:users'|'max:10',
-            'password'=>'required|min:8'
+        $validatedData = $request->validate([
+            'name' => 'required|max:10',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:8',
         ]);
         user::create([
             'name' => $request->name,
