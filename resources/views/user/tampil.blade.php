@@ -118,30 +118,24 @@
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
 
+                                
                                 @foreach ($komentars as $komentar)
-<<<<<<< Updated upstream
-                                    <p>{{ $komentar->profil }}</p>
-                                    <h4>{{ $komentar->nama }}</h4>
-                                    <p>{{ $komentar->pesan }}</p>
-                                    <img src="{{asset('storage'.$komentar->foto)}}" alt="">
-                                    <img src="{{asset('storage/'.$komentar->foto)}}" alt="">
-=======
-                                <div class="comment-author">
+
+                                <div class="comment-author" style="display: flex">
                                     @if (Auth::user()->foto)
                                     <img class="user-avatar rounded-circle" style="width: 45px" style="height: 45px" src="{{asset('storage/' . Auth::user()->foto)}}"
                                     alt="User Avatar">
                                     @else
                                     <img src="{{ asset('poto.jpg') }}" />
                                     @endif
+                                    <h5 class="mt-2" style="margin-left: 10px">{{ $komentar->nama }}</h5>
                                 </div>
-                           <h5>{{ $komentar->nama }}</h5>
-                            <p>{{ $komentar->email }}</p>
+                                <p style="margin-bottom: 4px">{{ $komentar->email }}</p>
                             
-                            <img src="{{('storage/'.$komentar->foto)}}" alt="">
+                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
                             
-                            <p>{{ $komentar->pesan }}</p>
-                                    
->>>>>>> Stashed changes
+                            <p style="font-size: 20px">{{ $komentar->pesan }}</p>
+                            
                                 @endforeach
                                     
                                 <!-- Leave A Comment -->
@@ -157,7 +151,7 @@
                                             
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="nama"
-                                                    id="contact-name" placeholder="Nama">
+                                                     id="contact-name" placeholder="Nama">
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control"

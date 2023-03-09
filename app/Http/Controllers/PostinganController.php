@@ -184,18 +184,15 @@ class PostinganController extends Controller
             'rating' => 'nullable|numeric|min:1|max:5',
         ]);
 
-        $data = $request->all();
-
+        $data = Komen::create($request->all());
+        
         $foto = $request->file('foto');
-        if ($foto) {
-            $fotoName = time() . '_' . $foto->getClientOriginalName();
-            $fotoPath = $foto->storeAs('public/komentar', $fotoName);
-            $data['foto'] = $fotoPath;
-        } else {
-            $fotoPath = null;
-        }
-
-        $komentar = Komen::create($data);
+        if($request->hasFile('foto')){
+                $request->file('foto')->move('storage/komentar/', $request->file('foto')->getClientOriginalName());
+                $data->foto = $request->file('foto')->getClientOriginalName();
+                $data->save();
+            }
+        
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
     }

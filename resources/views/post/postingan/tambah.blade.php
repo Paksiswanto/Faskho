@@ -202,12 +202,11 @@
       </div>
       <div class="modal-body">
  <h5>1. Faktual</h5>
-                                <p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
-
-                                    Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
-                                                                    <h5 class="card-title">2. Aktual</h5>
+<p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
+Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
+<h5 class="card-title">2. Aktual</h5>
 <p class="card-text">Aktual adalah istilah lain dari up to date, atau kejadian yang terkini. Sebuah peristiwa baru bisa menjadi berita kalau kejadiannya masih baru atau hangat. Buat apa menceritakan sesuatu yang sudah lama terjadi dan kemungkinan semua orang sudah tahu? Karena itu, dalam jurnalistik juga dikenal prinsip aktualitas.</p>
-                                                                    <h5 class="card-title">3. Tidak Memihak</h5>
+<h5 class="card-title">3. Tidak Memihak</h5>
 <p class="card-text">Peristiwa yang akan disajikan menjadi sebuah berita harus bersifat objektif alias tidak memihak. Misalnya, ketika melihat sebuah peristiwa tawuran antarpelajar, lalu Sobat SMP akan menyajikannya menjadi sebuah berita. Cobalah untuk menempatkan diri pada posisi yang netral, tidak boleh berpihak kepada salah satu kelompok pelajar yang tawuran tersebut.</p>
       </div>
       <div class="modal-footer">
