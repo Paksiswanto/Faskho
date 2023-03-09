@@ -137,7 +137,10 @@
 
                             <div class="mb-3">
                                 <h3>Deskripsi:</h3>
-                                <textarea name="deskripsi" value="{{old('deskripsi')}}" class="form-control @error('deskripsi')
+                                @php
+                                    
+                                @endphp
+                                <textarea name="deskripsi" id="my-textarea" style="white-space: nowrap;" value="{{old('deskripsi')}}" class="form-control @error('deskripsi')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 @error('deskripsi') 
@@ -227,6 +230,20 @@
         @push('scripts')
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
+<script>
+    // ambil elemen textarea
+let textarea = document.getElementById('my-textarea');
+
+// tambahkan event listener pada textarea
+textarea.addEventListener('input', function() {
+  // hapus whitespace pada nilai input
+  let value = this.value.trim();
+  
+  // update nilai textarea dengan nilai yang telah dihapus whitespace-nya
+  this.value = value;
+});
+
+</script>
 <script>
     const termsCheck = document.querySelector('#termsCheck');
     const submitBtn = document.querySelector('#submitBtn');
