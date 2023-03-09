@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -29,6 +30,7 @@ class ProfileController extends Controller
             // $filename = time() . '.' . $extention;
             // $file->move('fotouser/', $filename);
             // $data->foto = $filename;
+            Storage::delete('fotouser');$request->file('foto')->store('fotouser', 'public');
             $data->foto = $request->file('foto')->store('fotouser', 'public');
         }
         $data->save();

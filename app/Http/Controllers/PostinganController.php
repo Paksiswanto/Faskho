@@ -94,6 +94,7 @@ class PostinganController extends Controller
 
         ]);
         if ($request->hasFile('foto')) {
+            unlink(public_path('thumbnail/'.$data->foto));
             $request->file('foto')->move('thumbnail/', $request->file('foto')->getClientOriginalName());
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
