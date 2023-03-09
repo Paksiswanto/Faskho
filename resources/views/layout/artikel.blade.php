@@ -87,7 +87,7 @@
               </div>
               <div class="profile_info">
                 @if (Auth::user()->foto)
-                <img src="{{asset('storage/' . Auth::user()->foto)}}" alt="#">
+                <img src="{{asset('storage/' . Auth::user()->foto)}}" style="border-radius:50%;width:50px;height:50px" alt="#">
                 @else
                 <img src="{{ asset('poto.jpg') }}" />
                 @endif

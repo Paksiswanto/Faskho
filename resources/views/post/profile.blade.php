@@ -69,7 +69,7 @@
                                             -webkit-filter: blur(4px);">
                                             @if (Auth::user()->foto)
                                                 <img src="{{ asset('storage/' . Auth::user()->foto) }}"
-                                                    style="width: 100%" />
+                                                    style="table-border:50%"" />
                                             @else
                                                 <img src="{{ asset('poto.jpg') }}" />
                                             @endif
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="profile-picture">
                                             @if (Auth::user()->foto)
-                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}">
+                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}" style="table-border:50%">
                                             @else
                                                 <img src="{{ asset('poto.jpg') }}" />
                                             @endif

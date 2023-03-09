@@ -335,7 +335,7 @@
                                         <div class="profile_box_1">
                                             <div class="profile-cover-image">
                                                 @if (Auth::user()->foto)
-                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}" style="width: 100%" />
+                                                <img src="{{ asset('storage/' . Auth::user()->foto) }}" style="width: 100%;table-border:50%" />
                                                 @else
                                                 <img src="{{ asset('poto.jpg') }}" />
                                                 @endif

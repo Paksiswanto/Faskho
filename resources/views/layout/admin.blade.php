@@ -112,7 +112,7 @@
                             <img class="user-avatar rounded-circle" style="width: 45px" style="height: 45px" src="{{asset('storage/' . Auth::user()->foto)}}"
                                 alt="User Avatar">
                                 @else
-                            <img src="{{ asset('poto.jpg') }}" />
+                            <img src="{{ asset('poto.jpg') }}"  style="width: 45px;border-radius:50%" style="height: 45px" />
                             @endif
                         </a>
                         <div class="user-menu dropdown-menu">
