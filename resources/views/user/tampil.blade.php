@@ -119,13 +119,31 @@
                                 <h4 class="mb-30"> Komentar</h4>
 
                                 @foreach ($komentars as $komentar)
+<<<<<<< Updated upstream
                                     <p>{{ $komentar->profil }}</p>
                                     <h4>{{ $komentar->nama }}</h4>
                                     <p>{{ $komentar->pesan }}</p>
                                     <img src="{{asset('storage'.$komentar->foto)}}" alt="">
                                     <img src="{{asset('storage/'.$komentar->foto)}}" alt="">
+=======
+                                <div class="comment-author">
+                                    @if (Auth::user()->foto)
+                                    <img class="user-avatar rounded-circle" style="width: 45px" style="height: 45px" src="{{asset('storage/' . Auth::user()->foto)}}"
+                                    alt="User Avatar">
+                                    @else
+                                    <img src="{{ asset('poto.jpg') }}" />
+                                    @endif
+                                </div>
+                           <h5>{{ $komentar->nama }}</h5>
+                            <p>{{ $komentar->email }}</p>
+                            
+                            <img src="{{('storage/'.$komentar->foto)}}" alt="">
+                            
+                            <p>{{ $komentar->pesan }}</p>
+                                    
+>>>>>>> Stashed changes
                                 @endforeach
-
+                                    
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area section_padding_50 clearfix">
                                     <div class="comment-form">
@@ -136,22 +154,7 @@
 
                                             <input type="hidden" name="postingan_id"
                                                 value=" {{ $data->id }} ">
-                                            <div class="rate">
-
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="sangat bagus">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="bagus">4 stars</label>
-                                                <input type="radio" id="star3" name="rate"
-                                                    value="3" />
-                                                <label for="star3" title="cukup">3 stars</label>
-                                                <input type="radio" id="star2" name="rate"
-                                                    value="2" />
-                                                <label for="star2" title="buruk">2 stars</label>
-                                                <input type="radio" id="star1" name="rate"
-                                                    value="1" />
-                                                <label for="star1" title="sangat buruk">1 star</label>
-                                            </div>
+                                            
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="nama"
                                                     id="contact-name" placeholder="Nama">
