@@ -148,18 +148,19 @@ class PostinganController extends Controller
         return view('user.tampil', compact('data','komentars'   ));
     }
 
-    public function artikel()
+    public function artikel(Request $request)
     {
-        $artikel=postingan::all();
+        $keyword = $request->key;
+        $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
+            ->paginate(3);
+
         return view('user.artikel',compact('artikel'));
     }
     public function litindex(Request $request)
     {
         $keyword = $request->keyword;
 
-        $results = DB::table('postingans')
-           ->where('judul', 'LIKE', "%{$keyword}%")
-           ->get();
+        $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
 
             $posts=postingan::all();
             $posts = DB::table('postingans')

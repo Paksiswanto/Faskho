@@ -4,6 +4,77 @@
     <!-- ****** Top Header Area Start ****** -->
     @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
+<style>
+    .input-box {
+  //Remove "transform", this is just to show in Codepen thumbnail
+  transform: scale(1.35);
+  
+  position: relative;
+  height: 53px;
+  max-width: 50px;
+  width: 100%;
+  margin: 0 40px 0 25px;
+  border-radius: 10px;
+  box-shadow: 0 7px 20px -8px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  transition: all 0.6s cubic-bezier(0.58, 0, 0.5, 1);
+}
+.input-box.open {
+  max-width: 350px;
+}
+input {
+  position: relative;
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+}
+.input-box.open {
+  padding: 0 15px 0 65px;
+}
+.icon {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+.search-icon,.close-icon {
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  transition: all 0.6s cubic-bezier(0.58, 0, 0.12, 1);
+}
+.search-icon {
+  color: #5c77ff;
+  transform: translateY(-50%) rotate(90deg);
+}
+.input-box.open .search-icon {
+  transform: translateY(-50%) rotate(0);
+}
+.close-icon {
+  right: -38px;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.input-box.open .close-icon {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+</style>
 
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210430/ourlarge/pngtree-korean-food-cute-cartoon-doodle-png-image_3253417.jpg);">
@@ -17,7 +88,15 @@
             </div>
         </div>
     </div>
-
+    <div class="input-box open">
+        <form action="{{route('artikel')}}" method="get">
+        <input type="text" name="key" placeholder="Search...">
+        <span class="icon">
+          <i class="uil uil-search search-icon"></i>
+        </span>
+        <i class="uil uil-times close-icon"></i>
+    </form>
+      </div>
 <div class="breadcumb-nav">
         <div class="container">
             <div class="row">
@@ -319,4 +398,7 @@
     <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{asset('yummy-master/yummy-master/js/active.js') }}"></script>
+    <script>
+
+    </script>
 </body>

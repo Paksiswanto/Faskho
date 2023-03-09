@@ -120,6 +120,7 @@ Route::get('/penutup',[PostinganController::class,'penutup'])->name('penutup');
 
 //artikel
 Route::get('/artikel',[PostinganController::class,'artikel'])->name('artikel');
+Route::get('search',[PostinganController::class,'search'])->name('search');
 
 //profile
 
