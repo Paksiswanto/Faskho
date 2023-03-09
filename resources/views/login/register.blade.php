@@ -37,8 +37,8 @@
                                 <input  value="{{old('name')}}" id="username" type="text" class="form-control @error('name')
                                     is-invalid
                                 @enderror" name="name" placeholder="Username" required>@error('name')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
+                                <div class="alert alert-danger" role="alert">
+                                    {{$message}}
                                     </div>
                                 @enderror
                                 
@@ -52,8 +52,8 @@
                                 <input value="{{old('email')}}" id="email" type="email" class="form-control @error('email')
                                     is-invalid
                                 @enderror" name="email" placeholder="Email" required>@error('email')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
+                                <div class="alert alert-danger" role="alert">
+                                    {{$message}}
                                     </div>
                                 @enderror
 
@@ -69,8 +69,8 @@
                                     <input  id="password" type="password" class="form-control col-100 @error('password')
                                         is-invalid
                                     @enderror" name="password" placeholder="Password" required>@error('password')
-                                        <div class="invalid-feedback">
-                                            {{$message}}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$message}}
                                         </div>
                                     @enderror
                                     

@@ -369,7 +369,9 @@
                                         <input type="text" name="name" class="form-control @error('name')
                                             is-invalid
                                         @enderror" id="name" aria-describedby="emailHelp "  value="{{ Auth::user()->name }}">@error('name')
-                                            {{$message}}
+                                        <div class="alert alert-danger" role="alert">
+                                          {{$message}}
+                                          </div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">

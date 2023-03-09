@@ -23,12 +23,12 @@ class ProfileController extends Controller
     {
         //dd($request->all());
         $data = User::find($id);
-        $data->update($request->all());
         $validatedData = $request->validate([
             'name' => 'required|max:10',
             'email' => 'required|unique:users',
             'password' => 'required|min:8',
         ]);
+        $data->update($request->all());
         if ($request->hasFile('foto')) {
             // $file = $request->file('foto');
             // $extention = $file->getClientOriginalExtension( );
