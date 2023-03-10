@@ -24,7 +24,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>
                                     Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Artikel </li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('artikel')}}">Artikel </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{route($data->kategori->kategori)}}">{{$data->kategori->kategori}} </a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $data->judul }} </li>
                         </ol>
                     </nav>

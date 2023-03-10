@@ -71,7 +71,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">KulinerKu</a>
+                        <a href="/" class="yummy-logo">KulinerKu</a>
                     </div>
                 </div>
             </div>
@@ -83,11 +83,11 @@
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
-                                <li class="nav-item active">
+                                <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                                     <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
                                 </li>
                                 
-                                <li class="nav-item dropdown mt-0">
+                                <li class="nav-item dropdown mt-0 ">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
                                         <a href="/pembuka" class="dropdown-item">Makanan Pembuka</a>
@@ -95,12 +95,12 @@
                                         <a href="/penutup" class="dropdown-item">Makanan Penutup</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }}{{ Request::is('artikel') ? 'active' : '' }}">
                                     <a class="nav-link" href="artikel">Artikel</a>
                                 </li>
                                 @auth
                                 
-                                <li class="nav-item">
+                                <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
                                     <a class="nav-link" href="/kontak">Kontak</a>
                                 </li>
                                 @endauth

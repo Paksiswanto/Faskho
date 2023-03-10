@@ -90,7 +90,7 @@ input {
     </div>
     <div class="input-box open">
         <form action="{{route('artikel')}}" method="get">
-        <input type="text" name="key" placeholder="Search...">
+        <input type="text" name="key" value="{{old('key')}}" placeholder="Search...">
         <span class="icon">
           <i class="uil uil-search search-icon"></i>
         </span>
