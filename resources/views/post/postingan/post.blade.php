@@ -12,7 +12,7 @@
     <center>
         <div class="top-left">
             <div class="navbar-header">
-                <a class=" ml-5 mr-5" href="./"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
+                <a class=" ml-5 mr-5" href="/"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
             </div>
         </div>
         <div class="sidebar_close_icon d-lg-none">
@@ -26,7 +26,7 @@
 
 
         <li class="">
-            <a href="/posts" aria-expanded="false">
+            <a href="/posts/{{Auth::user()->id }}" aria-expanded="false">
                 <div class="icon_menu">
                     <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
                 </div>

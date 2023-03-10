@@ -39,7 +39,7 @@
                                 <div class="user-menu dropdown-menu" id="yummyDropdown">
                                     @auth
 
-                                    <a class="nav-link mr-2" href="/posts"><i class="fa fa-plus"></i>Tambah Artikel</a>
+                                    <a class="nav-link mr-2" href="/posts/{{ auth::user()->id }}"><i class="fa fa-plus"></i>Tambah Artikel</a>
                                     <a class="nav-link mr-2" href="/profile"><i class="fa fa-user"></i>Profil</a>
                                     @if (auth::user()->role=='admin')
                                         

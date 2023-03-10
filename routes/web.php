@@ -92,7 +92,7 @@ route::get('/tampilkandatatag/{id}',[TagController::class, 'tampilkandatatag'])-
 route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede')->middleware('auth');
 
 //postingan
-route::get('/posts',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
+route::get('/posts/{id}',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
 Route::get('/show/{id}',[PostinganController::class,'show'])->name('show')->middleware('auth');
 Route::get('/tampil/{id}',[PostinganController::class,'tampil'])->name('tampil');
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');

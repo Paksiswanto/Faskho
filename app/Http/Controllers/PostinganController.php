@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\kategori;
 use App\Models\Komen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PostinganController extends Controller
@@ -33,12 +34,19 @@ class PostinganController extends Controller
     
 
 
-    public function  posts(Request $request)
-    {
+    public function  posts(Request $request,$id)
+        {
         $keyword = $request->keyword;
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
-            ->paginate(5);
-        return view('post.postingan.post', compact('data'));
+            ;
+            
+               $data = Postingan::where('user_id', $id)->paginate(5);
+               $user = Auth::user();
+               if ($user->id != $id) {
+                   abort(403, 'Unauthorized action.');
+               }
+        return view('post.postingan.post',['data' => $data],compact('data'));
+
     }
     public function tambahpostingan()
     {
@@ -68,15 +76,19 @@ class PostinganController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route('posts')->with('success', 'data Berhasil Ditambahkan');
-    }
+        
+        return redirect()->route('posts',$data->user_id)->with('success', 'data Berhasil Ditambahkan');
+    }        
+
     public function tampilkandatapostingan($id)
     {
         $data = postingan::with('kategori')->find($id);
         $user_id = User::all();
         $dtkategori = kategori::all();
         $kt = postingan::with('kategori')->find($id);
-
+               if ($data->user_id !== Auth::id()) {
+                   abort(403, 'Unauthorized action.');
+               }
 
         // dd($data);
         return view('post.postingan.tampildatapost', compact('data', 'user_id','dtkategori','kt'));
@@ -99,7 +111,7 @@ class PostinganController extends Controller
             $data->foto = $request->file('foto')->getClientOriginalName();
             $data->save();
         }
-        return redirect()->route('posts')->with('success', 'data Berhasil Di Update');
+        return redirect()->route('posts',$data->user_id)->with('success', 'data Berhasil Di Update');
     }
     public function deletepostingan($id)
     {
@@ -115,6 +127,9 @@ class PostinganController extends Controller
     public function show($id)
     {
         $data = postingan::findOrFail($id);
+        if ($data->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
 
         return view('post.postingan.show', compact('data'));
     }

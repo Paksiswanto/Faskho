@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\laporan;
 use App\Models\postingan;
 use App\Models\User;
+use App\Models\Auth;
+
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -51,7 +53,6 @@ public function showTotalviews()
 
     $totalpostingan=postingan::count();
     $totalviews=postingan::sum('views');
-
 $postings = Postingan::all();
 $postings = Postingan::orderByDesc('views')->take(10)->get();
 
@@ -63,9 +64,8 @@ $postings = Postingan::orderByDesc('views')->take(10)->get();
                 'views' => $posting->views
             ];
         }
-        
 
-    return view('statistik', ['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
+    return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
 }
 
 

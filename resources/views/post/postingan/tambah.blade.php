@@ -24,7 +24,7 @@
 
 
             <li class="">
-                <a href="/posts" aria-expanded="false">
+                <a href="/posts/{{Auth::user()->id }}" aria-expanded="false">
                     <div class="icon_menu">
                         <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
                     </div>
