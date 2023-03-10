@@ -10,4 +10,10 @@ class Komen extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = 'komen';
+   
+    public function user()
+    {
+    return $this->belongsto(User::class);
+    }
+
 }

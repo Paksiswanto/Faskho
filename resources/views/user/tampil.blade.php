@@ -86,19 +86,7 @@
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
-                                            <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>
-                                                    10</a>
-                                            </div>
-                                            <!-- Post Comments -->
-                                            <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                    12</a>
-                                            </div>
-                                            <!-- Post Share -->
-                                            <div class="post-share">
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <a href="#">
@@ -122,22 +110,29 @@
                                 
                                 @foreach ($komentars as $komentar)
 
-                                <div class="comment-author" style="display: flex">
-                                    @if (Auth::user()->foto)
-                                    <img class="user-avatar rounded-circle" style="width: 45px" style="height: 45px" src="{{asset('storage/' . Auth::user()->foto)}}"
-                                    alt="User Avatar">
+                                <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
+                                <div class="comment-author mt-3 media mr-3" style="display: flex">
+                                    @if ($komentar->user->foto == null)
+                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-leaft:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
                                     @else
-                                    <img src="{{ asset('poto.jpg') }}" />
+                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-leaft:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
+                                    alt="User Avatar">
                                     @endif
-                                    <h5 class="mt-2" style="margin-left: 10px">{{ $komentar->nama }}</h5>
-                                </div>
-                                <p style="margin-bottom: 4px">{{ $komentar->email }}</p>
+                                    <div class="media-body ml-2">
+                                    <h5 style="margin-left: -3px">{{ $komentar->nama }}</h5>
+                                    <p style="margin-bottom: -10px">{{ $komentar->email }}</p>
                             
+                                </div>
+                            </div>
+                        </div>
+                              
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
                             
-                            <p style="font-size: 20px">{{ $komentar->pesan }}</p>
+                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
+                            
                             
                                 @endforeach
+                                <div style="border-bottom: 2px solid silver"></div>
                                     
                                 <!-- Leave A Comment -->
                                 <div class="leave-comment-area section_padding_50 clearfix">
@@ -146,9 +141,12 @@
 
                                         <form action="{{ route('komentar.store',['id'=>$data->id]) }}" method="post" enctype="multipart/form-data">
                                             @csrf
-
+                                            
                                             <input type="hidden" name="postingan_id"
                                                 value=" {{ $data->id }} ">
+
+                                                <input type="hidden" name="user_id"
+                                                value=" {{ Auth::user()->id }} ">
                                             
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="nama"
