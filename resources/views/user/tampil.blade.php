@@ -113,9 +113,9 @@
                                 <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
                                 <div class="comment-author mt-3 media mr-3" style="display: flex">
                                     @if ($komentar->user->foto == null)
-                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-leaft:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
+                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
                                     @else
-                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-leaft:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
+                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
                                     alt="User Avatar">
                                     @endif
                                     <div class="media-body ml-2">
@@ -126,8 +126,7 @@
                             </div>
                         </div>
                               
-                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
-                            
+                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
                             
                             
@@ -149,12 +148,12 @@
                                                 value=" {{ Auth::user()->id }} ">
                                             
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="nama"
-                                                     id="contact-name" placeholder="Nama">
+                                                <input type="hidden" class="form-control" name="nama"
+                                                     id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control"
-                                                    id="contact-email" placeholder="Email">
+                                                <input type="hidden" name="email" class="form-control"
+                                                    id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
                                             </div>
                                             <div class="form-group-append">
                                                 <input type="file" name="foto" class="form-control"
