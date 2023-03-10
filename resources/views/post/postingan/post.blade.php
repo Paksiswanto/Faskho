@@ -139,9 +139,9 @@
                         </div>
 
 
+                        <div>
                         @endforeach
 
-                        <div>
                             showing
                             {{ $data->firstitem() }}
                             to

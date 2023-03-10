@@ -88,6 +88,7 @@ input {
             </div>
         </div>
     </div>
+    <center>
     <div class="input-box open">
         <form action="{{route('artikel')}}" method="get">
         <input type="text" name="key" value="{{old('key')}}" placeholder="Search...">
@@ -97,6 +98,7 @@ input {
         <i class="uil uil-times close-icon"></i>
     </form>
       </div>
+    </center>
 <div class="breadcumb-nav">
         <div class="container">
             <div class="row">

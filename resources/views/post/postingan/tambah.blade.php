@@ -105,18 +105,18 @@
                     <div class="card-body--">
                         <form class="px-4" action="{{Route('insertdatapost')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-
+                        <div class="row">
                             <div class="mb-3">
                                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                
                             </div>
-
 
                             <div class="mb-3">
                                 <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
                             </div>
 
 
-                            <div class="mb-3">
+                            <div class="col-md-6 mb-2 w-50">
                                 <h3>Judul:</h3>
                                 <input type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
                                     is-invalid
@@ -126,17 +126,17 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-4">
-                                <h3>Tag:</h3>
-                                <input type="text" name="tag" class="form-control @error('tag')
+                            <div class="col-md-6 mb-3">
+                                <h3>Thumbnail:</h3>
+                                <input type="file" name="foto" class="form-control @error('foto')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('tag')}}" aria-describedby="emailHelp">@error('tag')
+                                @enderror" id="exampleInputEmail1" value="{{old('foto')}}" aria-describedby="emailHelp">@error('foto')
                                 {{$message}}
                                 @enderror
                             </div>
-
-                            <div class="mb-3">
-                                <h3>Deskripsi:</h3>
+                            
+                            <div class="col-md-6 mb-3 w-50">
+                                <h5>Deskripsi:</h5>
                                 @php
                                     
                                 @endphp
@@ -148,8 +148,8 @@
                                 @enderror </textarea>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Kategori:</label>
+                            <div class="col-md-6 mb-3 w-50">
+                                <h5>Kategori:</h5>
                                 <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
                                     <option selected>Pilih Kategori</option>
                                     @foreach ($dtkategori as $data)
@@ -158,11 +158,11 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <h3>Thumbnail:</h3>
-                                <input type="file" name="foto" class="form-control @error('foto')
+                            <div class="col-md-6 mb-2 w-50 ">
+                                <label for="exampleInputEmail1" class="form-label">Tag:</label>
+                                <input type="text" name="tag" class="form-control @error('tag')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('foto')}}" aria-describedby="emailHelp">@error('foto')
+                                @enderror" id="exampleInputEmail1" value="{{old('tag')}}" aria-describedby="emailHelp">@error('tag')
                                 {{$message}}
                                 @enderror
                             </div>
@@ -180,43 +180,61 @@
                                 <input type="checkbox" name="agree" id="termsCheck">
                                 <label for="agree">
                                     Saya menyetujui
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                                        Syarat & Ketentuan
-                                    </button> 
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Syarat dan Ketentuan</button>
                                     </label>
 
                                 @if($errors->has('agree'))
                                 <div class="invalid-feedback">{{ $errors->first('agree') }}</div>
                                 @endif
                             </div>
+                            
+                        </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Syarat & Ketentuan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
- <h5>1. Faktual</h5>
-<p class="card-text">WPeristiwa atau kejadian yang akan disampaikan sebagai berita harus bersifat faktual atau fakta. Apa itu fakta? Fakta adalah berdasarkan kenyataan atau mengandung kebenaran, bukan berdasarkan imajinasi atau khayalan.
-Saat membaca cerpen dan novel, memang membaca paparan mengenai sebuah peristiwa. Namun, itu tidak bisa dikategorikan sebagai berita karena sumber yang diceritakan berdasarkan imajinasi dan tidak mengandung kebenaran faktual.</p>
-<h5 class="card-title">2. Aktual</h5>
-<p class="card-text">Aktual adalah istilah lain dari up to date, atau kejadian yang terkini. Sebuah peristiwa baru bisa menjadi berita kalau kejadiannya masih baru atau hangat. Buat apa menceritakan sesuatu yang sudah lama terjadi dan kemungkinan semua orang sudah tahu? Karena itu, dalam jurnalistik juga dikenal prinsip aktualitas.</p>
-<h5 class="card-title">3. Tidak Memihak</h5>
-<p class="card-text">Peristiwa yang akan disajikan menjadi sebuah berita harus bersifat objektif alias tidak memihak. Misalnya, ketika melihat sebuah peristiwa tawuran antarpelajar, lalu Sobat SMP akan menyajikannya menjadi sebuah berita. Cobalah untuk menempatkan diri pada posisi yang netral, tidak boleh berpihak kepada salah satu kelompok pelajar yang tawuran tersebut.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Syarat & Ketentuan Pengguna KulinerKu</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="card-text">KulinerKu dengan ini menetapkan Syarat dan Ketentuan dalam pengaturan pemakaian situs www.kulinerku.com. Yang mendaftar atau menggunakan situs www.kulinerku.com, maka pengguna dianggap telah membaca dan menyetujui semua isi dalam Syarat dan Ketentuan. Apabila ada yang kurang jelas, dapat menghubungi kami di halaman kontak.</p>
+        <br>
+            <h5 class="card-title">Penggunaan KulinerKu</h5>
+        <p class="card-text">(1) Akses
+            untuk dapat menggunakan dan mengakses KulinerKu, pengguna diharuskan untuk berumur lebih dari 18 tahun. Apabila pengguna berumur kurang dari 18 tahun, maka tidak diijinkan untuk menggunakan dan mengakses KulinerKu.
+            <br>
+            (2) Dilarang untuk menulis dan/atau menjual ulang
+            <br>
+            (a) KulinerKu adalah produk untuk keperluan non-komersial. Pengguna tidak diijinkan untuk menggunakan KulinerKu untuk kegiatan bisnis, atau kegiatan apapun yang berhubungan dengan menghasilkan profit. Pengguna juga tidak diijinkan untuk mempromosikan kegiatan-kegiatan yang berhubungan dengan agama atau politik.
+            <br>
+            (b) Dilarang untuk melakukan penulisan ulang review-review yang di-post oleh Pengguna KulinerKu selain Pengguna itu sendiri.
+            <br>
+            (3) Melakukan post review, Hak Cipta
+            <br>
+            (a) Pengguna diwajibkan untuk melakukan registrasi untuk melakukan post review di KulinerKu..
+            <br>
+            (b) Apabila Pengguna melakukan registrasi di KulinerKu, Pengguna secara otomatis memberikan kuasa dan ijin kepada Perusahaan untuk dapat melakukan penulisan ulang, pendistribusian, sub-lisensi hal-hal yang Pengguna post di KulinerKu, termasuk di dalamnya adalah review.
+            <br>
+            (c) Pengguna menjamin kepada Perusahaan bahwa mereka memiliki hak-hak atas review yang mereka post. Pengguna juga menjamin bahwa review yang mereka post tidak melanggar hukum-hukum yang berlaku, hak-hak orang lain ataupun hak cipta pihak ketiga.
+            <br>
+            (d) Perusahaan atau pihak ketiga yang menerima sub-lisensi dari Perusahaan, dapat menggunakan review yang di-post oleh Pengguna KulinerKu dengan menggunakan isi dari konten-konten tersebut. Dalam hal ini, perlu diketahui bahwa ada kemungkinan terjadi sedikit perubahan-perubahan terhadap review untuk kenyamanan. Untuk kegiatan-kegiatan seperti ini, Perusahaan menjamin akan menampilkan akun Pengguna yang mem-post review tersebut.
+            <br>
+            (4) Kondisi untuk menggunakan PergiKuliner
+            Dengan menggunakan KulinerKu, Pengguna setuju dengan Syarat dan Ketentuan yang ditentukan.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          </div>
       </div>
     </div>
   </div>
-</div>
 
-                            <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Submit</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Posting</button>
                         </form>
                     </div>
                 </div>
