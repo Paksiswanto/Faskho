@@ -212,4 +212,33 @@ class PostinganController extends Controller
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
     }
+
+    public function showTotalviews($id)
+{
+    $postingan=postingan::all();
+    $user = Auth::user();
+
+    $totalpostingan=$user->postingans->count();
+    $totalviews=$user->postingans->sum('views');
+$postings = postingan::select('judul', 'views')
+->where('user_id', $user->id)
+->orderBy('views', 'DESC')
+->limit(5)
+->get();
+$user = Auth::user();
+if ($user->id != $id) {
+    abort(403, 'Unauthorized action.');
+}
+        $data = [];
+        
+        foreach ($postings as $posting) {
+            $data[] = [
+                'judul' => $posting->judul,
+                'views' => $posting->views
+            ];
+        }
+
+    return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
+}
+
 }

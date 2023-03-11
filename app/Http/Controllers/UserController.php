@@ -47,26 +47,7 @@ $postings = Postingan::orderByDesc('views')->take(10)->get();
     return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data]);
 }
 
-public function showTotalviews()
-{
-    $postingan=postingan::all();
 
-    $totalpostingan=postingan::count();
-    $totalviews=postingan::sum('views');
-$postings = Postingan::all();
-$postings = Postingan::orderByDesc('views')->take(10)->get();
-
-        $data = [];
-        
-        foreach ($postings as $posting) {
-            $data[] = [
-                'judul' => $posting->judul,
-                'views' => $posting->views
-            ];
-        }
-
-    return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
-}
 
 
 

@@ -127,7 +127,7 @@ Route::get('search',[PostinganController::class,'search'])->name('search');
 route::get('/profile',[ProfileController::class,'profile'])->name('profile')->middleware('auth');
 route::get('/tampillah/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
 route::put('/updatedpo/{id}',[ProfileController::class,'updatedpo'])->name('updatedpo')->middleware('auth');
-
+route::get('/statistik/{id}',[PostinganController::class,'showTotalviews'])->name('showTotalviews')->middleware('auth');
 route::get('/profilku/{id}',[ProfileController::class,'tampilprofile'])->name('tampilprofile')->middleware('auth');
 route::put('/updateprofile/{id}',[ProfileController::class,'updateprofile'])->name('updateprofile')->middleware('auth');
 
@@ -172,7 +172,6 @@ route::get('/deleted/{id}',[KategoriController::class, 'deleted'])->name('delete
 
 route::get('/author',[UserController::class,'index'])->name('user')->middleware('auth');
 route::get('/admin',[UserController::class,'showTotalUsers'])->name('showTotalUsers')->middleware('auth');
-route::get('/statistik',[UserController::class,'showTotalviews'])->name('showTotalviews')->middleware('auth');
 route::get('/deleteda/{id}',[UserController::class, 'deleteda'])->name('deleteda')->middleware('auth');
 
 
