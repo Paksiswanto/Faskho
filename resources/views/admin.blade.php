@@ -343,8 +343,20 @@
                     datasets: [{
                         label: 'Trend Views',
                         data: views,
-                        backgroundColor: 'rgba(252,126,81)',
-                        borderColor: 'rgb(239,144,60)',
+                        backgroundColor: [
+                'rgba(255, 99, 132, 0.2)', // warna untuk data pertama
+                'rgba(54, 162, 235, 0.2)', // warna untuk data kedua
+                'rgba(255, 206, 86, 0.2)', // warna untuk data ketiga
+                'rgba(75, 192, 192, 0.2)', // warna untuk data keempat
+                'rgba(153, 102, 255, 0.2)' // warna untuk data kelima
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)', // warna border untuk data pertama
+                'rgba(54, 162, 235, 1)', // warna border untuk data kedua
+                'rgba(255, 206, 86, 1)', // warna border untuk data ketiga
+                'rgba(75, 192, 192, 1)', // warna border untuk data keempat
+                'rgba(153, 102, 255, 1)' // warna border untuk data kelima
+            ],
                         borderWidth: 2
                     }]
                 },
