@@ -43,7 +43,8 @@ class PostinganController extends Controller
                $data = Postingan::where('user_id', $id)->paginate(5);
                $user = Auth::user();
                if ($user->id != $id) {
-                   abort(403, 'Unauthorized action.');
+                return view('error.403');
+
                }
         return view('post.postingan.post',['data' => $data],compact('data'));
 
@@ -226,7 +227,7 @@ $postings = postingan::select('judul', 'views')
 ->get();
 $user = Auth::user();
 if ($user->id != $id) {
-    abort(403, 'Unauthorized action.');
+    return view('error.403');
 }
         $data = [];
         
