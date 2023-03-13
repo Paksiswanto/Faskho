@@ -156,7 +156,6 @@ class PostinganController extends Controller
     public function tampil($id)
     {
         $data = postingan::findOrFail($id);
-        $data->increment('views');
         $komentars = Komen::where('postingan_id', $id)->get();
 
 
