@@ -136,21 +136,25 @@ class PostinganController extends Controller
     }
     public function pembuka()
     {
-        $pembuka = postingan::where('kategori_id', '=', '1')->get()
+        $pembuka = postingan::where('kategori_id', '=', '1')
+        ->paginate(6)
         ;
         return view('user.pembuka',compact('pembuka'));
     }
 
     public function utama()
     {
-        $utama=postingan::where('kategori_id', '=', '2')->get()
-        ;;
+        $utama=postingan::where('kategori_id', '=', '2')
+        ->paginate(6)
+        ;
         return view('user.utama',compact('utama'));
     }
 
     public function penutup()
     {
-        $penutup=postingan::where('kategori_id', '=', '3')->get();
+        $penutup=postingan::where('kategori_id', '=', '3') 
+        ->paginate(6)
+        ;
         return view('user.penutup',compact('penutup'));
     }
     //ini untuk tampil di halaman utama
@@ -223,7 +227,7 @@ class PostinganController extends Controller
 $postings = postingan::select('judul', 'views')
 ->where('user_id', $user->id)
 ->orderBy('views', 'DESC')
-->limit(5)
+->limit(25)
 ->get();
 $user = Auth::user();
 if ($user->id != $id) {
@@ -241,4 +245,8 @@ if ($user->id != $id) {
     return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
 }
 
+public function komenku($id)
+{   
+    
+}
 }

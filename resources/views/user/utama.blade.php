@@ -88,23 +88,23 @@
                 @endforeach
 
                 <!-- Single Post -->
-                <div class="col-12">
+                 <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
-                        <nav aria-label="#">
-                            <ul class="pagination">
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div class="page-status">
-                            <p>Page 1 of 60 results</p>
+                         <div>
+                    
+
+                            showing
+                            {{ $utama->firstitem() }}
+                            to
+                            {{ $utama->lastitem() }}
+                            of
+                            {{ $utama->total() }}
+                            entries
                         </div>
+                        <div class="pull-right">
+                            {{ $utama ->withQueryString()-> links() }}
+                        </div>
+                    
                     </div>
                 </div>
 
