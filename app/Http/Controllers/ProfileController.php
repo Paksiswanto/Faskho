@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -16,6 +17,12 @@ class ProfileController extends Controller
     public function tampilprofile($id){
         $data = User::find($id);
         $data=User::all();
+        $data = User::where('id', $id);
+        $user = Auth::user();
+        if ($user->id != $id) {
+         return view('error.403');
+
+        }
        // dd($data);
        return view('post.edit', compact('data'));
     }
