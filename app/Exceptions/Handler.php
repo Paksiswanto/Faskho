@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Throwable;
 use Psr\Log\LogLevel;
-use Illuminate\Database\QueryException;
 use Illuminate\Validation\UnauthorizedException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -57,12 +56,12 @@ class Handler extends ExceptionHandler
         return response()->view('error.404', [], 404);
     }
     if ($exception instanceof UnauthorizedHttpException) {
-        return response()->view('error.403', [], 403);
+        return response()->view('errors.403', [], 403);
     }
-    if ($exception instanceof QueryException) {
+    if ($exception instanceof \Illuminate\Database\QueryException) {
         if ($exception->errorInfo[1] == 2002) {
             // menampilkan pesan kesalahan jika terjadi koneksi error
-            return response()->view('error.500', [], 500);
+            return response()->view('errors.no_connection', [], 500);
         }
     }
 

@@ -96,10 +96,6 @@
                         <div class="white_card card_height_100mb_20">
                             <div class="white_card_header">
                                 <div class="single-post">
-                                    @php
-                                    // increment article views count
-                                    DB::table('postingans')->where('id', $data->id)->increment('views');
-                                    @endphp
                                     <h1>{{ $data->judul}}</h1>
                                     <p>Posted on: {{ $data->created_at->format('d F Y') }}</p>
                                     <p>Author: {{ Auth::user()->name}}</p>

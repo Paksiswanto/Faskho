@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\postingan;
+use App\Models\Like;
 use App\Models\User;
-use App\Models\kategori;
 use App\Models\Komen;
+use App\Models\kategori;
+use App\Models\postingan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostinganController extends Controller
 {
@@ -245,8 +246,14 @@ if ($user->id != $id) {
     return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
 }
 
-public function komenku($id)
-{   
-    
+
+    public function like(Komen $komen)
+    {
+        
+        $komen->like();
+        return back();
+        return redirect()->back();
+    }
 }
-}
+
+

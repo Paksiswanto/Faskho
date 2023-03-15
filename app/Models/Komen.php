@@ -15,5 +15,9 @@ class Komen extends Model
     {
     return $this->belongsto(User::class);
     }
-
+    public function like()
+    {
+        $this->likes++;
+        $this->save();
+    }
 }

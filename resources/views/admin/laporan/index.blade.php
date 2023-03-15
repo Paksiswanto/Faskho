@@ -20,6 +20,7 @@
                                         <th>Email</th>
                                         <th>Laporan</th>
                                         <th>Tanggal</th>
+                                        <th>judul</th>
 
                                         <th>Aksi</th>
                                     </tr>
@@ -34,6 +35,7 @@
                                             <td>{{ $row->nama }}</td>
                                             <td>{{ $row->email }}</td>
                                             <td>{{ $row->laporan }}</td>
+                                            <td>{{ $row->judul }}</td>
                                             <td>{{ $row->created_at->format('D M Y') }}</td>
                                             <td>
                                                 <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-user="{{ $row->user }}">Hapus</a>

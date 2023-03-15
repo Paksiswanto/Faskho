@@ -5,6 +5,40 @@
     @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
 <style>
+    .dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 2px;
+  background-color: #000;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu li {
+  padding: 10px;
+}
+
+.dropdown:hover .menu {
+  display: block;
+}
+
     .input-box {
   //Remove "transform", this is just to show in Codepen thumbnail
   transform: scale(1.35);
@@ -73,6 +107,22 @@ input {
   pointer-events: auto;
   transform: translateY(-50%) rotate(180deg);
 }
+.comment-form {
+  display: none;
+}
+
+#report-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 9999;
+}
+
+#report-form.show {
+  display: block;
+}
 
 </style>
 
@@ -129,6 +179,7 @@ input {
                         <div class="post-thumb">
                               <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:300px">
                         </div>
+                      
                         <!-- Post Content -->
                         <div class="post-content">
                             <div class="post-meta d-flex">
@@ -144,18 +195,51 @@ input {
                                 </div>
                                 <!-- Post Comment & Share Area -->
                                 <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                    <nav>
+                                        <div class="dropdown">
+                                          <div class="dot"></div>
+                                          <div class="dot"></div>
+                                          <div class="dot"></div>
+                                          <ul class="menu">
+                                            <li><button class="btn btn-primary" data-target="#modal-lapor" id="btn-lapor" data-id="{{ $data->id }}">Laporkan</button>
+                                               
+                                                  
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                </nav>
+                                <div class="modal fade" id="modal-lapor" tabindex="-1" role="dialog" aria-labelledby="modal-lapor-label">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="modal-lapor-label">Form Laporan</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form id="form-lapor" method="post" action="/insertdatalaporan">
+                                            @csrf
+                                            <div class="form-group">
+                                                <input type="hidden" name="nama" value="{{Auth::user()->name}}">
+                                                <input type="hidden" name="email" value="{{Auth::user()->email}}">
+                                                <input type="hidden" name="judul" value="{{$data->judul}}">
+                                              <label for="laporan">Laporan</label>
+                                              <textarea class="form-control" name="laporan" id="laporan" rows="3" required></textarea>
+                                            </div>
+                                            <input type="hidden" id="post-id">
+                                         <button class="btn btn-rounded btn-danger" type="submit">kirim</button>
+                                          </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                      </div>
                                     </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
+                                  </div>
+                                <form id="report-form">
+                                    <textarea id="report-text" name="message" placeholder="Laporkan masalah"></textarea>
+                                    <button type="submit">Laporkan</button>
+                                  </form>
                                 </div>
                             </div>
                             <a href="{{ route('tampil', $data->id) }}">
@@ -399,6 +483,25 @@ input {
     <script src="{{asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{asset('yummy-master/yummy-master/js/active.js') }}"></script>
+    <script>
+$(document).ready(function() {
+  // Menampilkan modal ketika tombol "Laporkan" ditekan
+  $('#btn-lapor').click(function() {
+    var postId = $(this).data('id');
+    $('#post-id').val(postId);
+    $('#modal-lapor').modal('show');
+  });
+  
+  // Mengirim data laporan menggunakan Ajax ketika form disubmit
+  $('#btn-kirim-laporan').click(function() {
+    var laporan = $('#laporan').val();
+    var postId = $('#post-id').val();
+
+  });
+});
+
+
+    </script>
     <script>
 
     </script>

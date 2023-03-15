@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\laporan;
+use App\Models\laporanar;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,22 @@ class LaporanController extends Controller
     public function insertlaporan(Request $request)
     {
         $data=laporan::create($request->all());
-        return redirect('/kontak');
+        return redirect()->back();
+    }
+
+    //laporanar
+    public function laporanar(Request $request,$id)
+    {
+        $data=laporanar::all();
+        $data=laporanar::create($request->all());
+        
+    }
+    public function indexar(Request $request)
+    {
+        $keyword = $request->keyword;
+        $data = laporanar::where('laporan', 'LIKE', '%'.$keyword.'%')
+                -> paginate(10);
+        return view('admin.laporanar.index',compact('data'));
     }
 }
 
