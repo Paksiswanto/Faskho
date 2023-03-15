@@ -194,6 +194,8 @@ input {
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
+                                @auth
+                                    
                                 <div class="post-comment-share-area d-flex">
                                     <nav>
                                         <div class="dropdown">
@@ -201,10 +203,10 @@ input {
                                           <div class="dot"></div>
                                           <div class="dot"></div>
                                           <ul class="menu">
-                                            <li><button class="btn btn-primary" data-target="#modal-lapor" id="btn-lapor" data-id="{{ $data->id }}">Laporkan</button>
-                                               
-                                                  
-                                            </li>
+                                              <li><button class="btn btn-primary" data-target="#modal-lapor" id="btn-lapor" data-id="{{ $data->id }}">Laporkan</button>
+                                                
+                                                
+                                              </li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -214,8 +216,8 @@ input {
                                         <div class="modal-header">
                                           <h5 class="modal-title" id="modal-lapor-label">Form Laporan</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
                                           <form id="form-lapor" method="post" action="/insertdatalaporan">
@@ -228,19 +230,20 @@ input {
                                               <textarea class="form-control" name="laporan" id="laporan" rows="3" required></textarea>
                                             </div>
                                             <input type="hidden" id="post-id">
-                                         <button class="btn btn-rounded btn-danger" type="submit">kirim</button>
-                                          </form>
+                                            <button class="btn btn-rounded btn-danger" type="submit">kirim</button>
+                                        </form>
                                         </div>
                                         <div class="modal-footer">
                                         </div>
-                                      </div>
                                     </div>
-                                  </div>
+                                    </div>
+                                </div>
                                 <form id="report-form">
                                     <textarea id="report-text" name="message" placeholder="Laporkan masalah"></textarea>
                                     <button type="submit">Laporkan</button>
                                   </form>
                                 </div>
+                                @endauth
                             </div>
                             <a href="{{ route('tampil', $data->id) }}">
                                 <h5 class="post-headline">{{$data->judul}}.</h5>
@@ -253,9 +256,9 @@ input {
                     <!-- Single Post -->
                 <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
-                         <div>
-                    
-
+                        <div>
+                            
+                            
                             showing
                             {{ $artikel->firstitem() }}
                             to
@@ -394,7 +397,7 @@ input {
         <!-- Instagram Item -->
         <div class="instagram_gallery_item">
             <!-- Instagram Thumb -->
-            <img src="img/instagram-img/2.jpg" alt="">
+            <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg')}}" alt="">
             <!-- Hover -->
             <div class="hover_overlay">
                 <div class="yummy-table">
