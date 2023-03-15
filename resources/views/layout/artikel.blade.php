@@ -71,17 +71,10 @@
               <i class="ti-menu"></i>
             </div>
             <div class="serach_field-area d-flex align-items-center">
-              <div class="search_inner">
-                <form action="#">
-                  <div class="search_field">
-                    <input type="text" placeholder="Telusuri Postingan">
-                  </div>
-                  <button type="submit"> <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/icon/icon_search.svg')}}" alt=""> </button>
-                </form>
-              </div>
+
               <span class="f_s_14 f_w_400 ml_25 white_text text_white">Apps</span>
             </div>
-            <div class="header_right d-flex justify-content-between align-items-center">
+            <div class="heauder_right d-flex justify-content-between align-items-center">
               <div class="header_notification_warp d-flex align-items-center">
               
               </div>

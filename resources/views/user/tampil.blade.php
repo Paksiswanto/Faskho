@@ -129,22 +129,7 @@
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
                             
-                            <div class="btn-group">
-                                <button class="btn btn-default" id="btn-balas">Balas</button>
-                            </div>
-                            <form action="{{route('balas',[$komentar->id])}}" style="margin-top: 10px;display:none;" id="balas" method="POST">
-                                @csrf
-                                <input type="hidden" name="postingan_id" value="{{$data->id}}">
-                                <input type="hidden" name="nama" value="{{auth::user()->name}}">
-                                <input type="hidden" name="email" value="{{auth::user()->email}}">
-                                <input type="hidden" name="user_id" value="{{auth::user()->id}}">
-                                <input type="hidden" name="pesan" value="{{$komentar->pesan}}">
-
-                                <input type="hidden" name="parent" value="0">
-                            <textarea name="balas" 
-                                class="form-control" id="balas" name="balas" rows="1"></textarea>
-                                <input type="submit"  class="btn btn-primary" value="Kirim">
-                            </form>
+                          
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
                                     

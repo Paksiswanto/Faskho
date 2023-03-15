@@ -1,8 +1,6 @@
 @extends('layout.artikel')
 @push('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 @endpush
 
 @section('content')
@@ -87,7 +85,7 @@
             <a href="./" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:25px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                     </svg>
 
@@ -97,7 +95,6 @@
         </li>
 
 </nav>
-
 
 <div class="main_content_iner ">
     <div class="container-fluid p-0 ">
@@ -110,61 +107,60 @@
                                 <h3></h3>
                             </div>
                         </div>
+                        @foreach ($data as $index=>$row )
 
-                        <div class="row mb-3">
 
-                            <div class="col-lg-3 col-md-6 ">
-                                <div class="card">
+                        <div class="card shadow-sm mb-5 bg-white rounded ">
+                            <div class="row">
+                                <div class="col-5" style="width: 340px;">
+                                    <div>
+                                        <img src="{{ asset('storage/komentar/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="...">
+                                    </div>
+                                </div>
+                                <div class="col-5 my-auto">
                                     <div class="card-body">
-                                        <div class="stat-widget-five">
-                                            <div class="stat-icon dib flat-color-4">
-                                                <i class="fa-solid fa-book" style="color:#eb8b1f"> </i>
-                                                <span>{{$totalpostingan}} Postingan</span>
-                                            </div>
-                                        </div>
+                                        <h5 class="card-title">Memberi Komentar di Postingan:</h5>
+
+
+                                        <p class="card-text">
+                                            {{ $row->pesan }}
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
+                                        <br>
+                                        <a href="{{ route('tampil', $row->postingan_id) }}" class="btn btn-primary">Lihat Artikel</a>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
 
-                    
-                            <div class="col-lg-3 col-md-6 ">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="stat-widget-five">
-                                            <div class="stat-icon dib flat-color-4">
-                                                <i class="fa-solid fa-eye" style="color:#eb8b1f"> </i>
-                                                <span>{{$totalviews}} Total Views</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
                             </div>
                         </div>
-                </div>                    
 
-                    <div class="row ">
-                        <div class="col">
-                            <div class="white_card mb_20">
-                                <div class="white_card_header">
-                                    <div class="box_header m-0">
-                                        <div class="main-title">
-                                            <h3 class="m-0">Artikel Yang Dibuat:</h3>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                                <div class="white_card_body" >
-                                        <canvas id="myChart"></canvas>
-                                </div>
-                            </div>
 
+                        <div>
+                        @endforeach
+
+                            showing
+                            {{ $data->firstitem() }}
+                            to
+                            {{ $data->lastitem() }}
+                            of
+                            {{ $data->total() }}
+                            entries
+                        </div>
+                        <div class="pull-right">
+                            {{ $data ->withQueryString()-> links() }}
                         </div>
                     </div>
-
                 </div>
+</div>
+</div>
+</div>
+</div>
             </div>
-        </div>
-    </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
 </div>
 @endsection
 
@@ -172,45 +168,37 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 </body>
-    <script>
-            var data = <?php echo json_encode($data); ?>;
-            
-            var labels = [];
-            var views = [];
-            
-            for (var i in data) {
-                labels.push(data[i].judul);
-                views.push(data[i].views);
-            }
-            
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'views',
-                        data: views,
-                        backgroundColor: '#eb8b1f',
-                        borderColor: 'transparent',
-                        borderWidth: 2,
-                        hoverBackgroundColor:"#eb8b1f",
-                        hoverBorderColor:"transparent"
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
+<Script>
+    $('.delete').click(function() {
+        var postinganid = $(this).attr('data-id');
+        var judul = $(this).attr('data-judul');
+        swal({
+                title: "Yakin Mau Hapus Data ?"
+                , text: "kamu akan menghapus postingan dengan judul " + judul + ""
+                , icon: "warning"
+                , buttons: true
+                , dangerMode: true
+            , })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/deletepostingan/" + postinganid + ""
+                    swal("Data Berhasil dihapus", {
+                        icon: "success"
+                    , });
+                } else {
+                    swal("Data tidak jadi dihapus");
                 }
             });
-        </script>
-    
+    })
+
+</script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+
+    @endif
+
+</script>
 
 @endpush

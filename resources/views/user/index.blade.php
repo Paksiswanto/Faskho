@@ -70,13 +70,7 @@
     @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
     <div class="search-container">
-        <form>
-          <div class="search-box">
-            <input type="text" name="keyword" placeholder="Search...">
-            <button type="submit"><span class="fas fa-search"></span>
-            </button>
-          </div>
-        </form>
+        
       </div>
       <br>
     <!-- ****** Welcome Post Area Start ****** -->

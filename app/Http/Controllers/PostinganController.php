@@ -37,11 +37,10 @@ class PostinganController extends Controller
 
     public function  posts(Request $request,$id)
         {
-        $keyword = $request->keyword;
-        $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
-            ;
-            
-               $data = Postingan::where('user_id', $id)->paginate(5);
+        $keyword = $request->key;
+        $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
+            $data = Postingan::where('user_id', $id)
+               ->paginate(5);
                $user = Auth::user();
                if ($user->id != $id) {
                 return view('error.403');
@@ -69,7 +68,6 @@ class PostinganController extends Controller
             'deskripsi' => 'required',
             'kategori_id' => 'required',
             'agree' => 'required',
-            'tag' => 'required'
 
         ]);
         $data = postingan::create($request->all());
@@ -101,7 +99,6 @@ class PostinganController extends Controller
         $data->update([
             'judul' => $request->judul,
             'konten' => $request->konten,
-            'tag' => $request->tag,
             'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
             'user_id' => $request->user_id
@@ -138,7 +135,7 @@ class PostinganController extends Controller
     public function pembuka()
     {
         $pembuka = postingan::where('kategori_id', '=', '1')
-        ->paginate(6)
+        ->paginate(1)
         ;
         return view('user.pembuka',compact('pembuka'));
     }
@@ -146,7 +143,7 @@ class PostinganController extends Controller
     public function utama()
     {
         $utama=postingan::where('kategori_id', '=', '2')
-        ->paginate(6)
+        ->paginate(1)
         ;
         return view('user.utama',compact('utama'));
     }
@@ -154,7 +151,7 @@ class PostinganController extends Controller
     public function penutup()
     {
         $penutup=postingan::where('kategori_id', '=', '3') 
-        ->paginate(6)
+        ->paginate(1)
         ;
         return view('user.penutup',compact('penutup'));
     }
@@ -261,6 +258,21 @@ if ($user->id != $id) {
         return back();
         return redirect()->back();
     }
+
+public function komenku($id)
+{   
+    
+    $data=komen::all();
+    $data = Komen::where('user_id', $id)
+    ->paginate(5);
+    $user = Auth::user();
+    if ($user->id != $id) {
+     return view('error.403');
+
+    }
+    return view('komenku',['data' => $data],compact('data'));
+}
+
 }
 
 

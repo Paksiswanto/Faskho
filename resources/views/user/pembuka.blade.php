@@ -59,21 +59,7 @@
                                         <a href="#">{{ $data->created_at->format('d F Y') }}</a>
                                     </div>
                                 </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <a href="{{ route('tampil', $data->id) }}">
                                 <h5 class="post-headline">{{$data->judul}}.</h5>

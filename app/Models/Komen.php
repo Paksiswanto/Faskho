@@ -15,9 +15,7 @@ class Komen extends Model
     {
     return $this->belongsto(User::class);
     }
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
 
     public function childs()
     {
@@ -26,15 +24,11 @@ class Komen extends Model
 
 
 
-=======
->>>>>>> Stashed changes
+
     public function like()
     {
         $this->likes++;
         $this->save();
     }
-<<<<<<< Updated upstream
-=======
->>>>>>> 513289258eea037ec030f3575f44356d9816b805
->>>>>>> Stashed changes
+
 }
