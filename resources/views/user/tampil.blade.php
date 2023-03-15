@@ -108,7 +108,7 @@
                                 <h4 class="mb-30"> Komentar</h4>
 
                                 
-                                @foreach ($komentars as $komentar)
+                                @foreach ($komentars->where('parent',0) as $komentar)
 
                                 <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
                                 <div class="comment-author mt-3 media mr-3" style="display: flex">
@@ -129,7 +129,22 @@
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
                             
-                            
+                            <div class="btn-group">
+                                <button class="btn btn-default" id="btn-balas">Balas</button>
+                            </div>
+                            <form action="{{route('balas',[$komentar->id])}}" style="margin-top: 10px;display:none;" id="balas" method="POST">
+                                @csrf
+                                <input type="hidden" name="postingan_id" value="{{$data->id}}">
+                                <input type="hidden" name="nama" value="{{auth::user()->name}}">
+                                <input type="hidden" name="email" value="{{auth::user()->email}}">
+                                <input type="hidden" name="user_id" value="{{auth::user()->id}}">
+                                <input type="hidden" name="pesan" value="{{$komentar->pesan}}">
+
+                                <input type="hidden" name="parent" value="0">
+                            <textarea name="balas" 
+                                class="form-control" id="balas" name="balas" rows="1"></textarea>
+                                <input type="submit"  class="btn btn-primary" value="Kirim">
+                            </form>
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
                                     
@@ -254,6 +269,7 @@
         </div>
         </div>
     </section>
+   
     <!-- ****** Single Blog Area End ****** -->
 
     <!-- ****** Instagram Area Start ****** -->
@@ -470,4 +486,14 @@
     <script src="{{ asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn-balas').click(function(){
+                $('#balas').toggle('slide');
+            });
+        });
+    </script>
+
+   
 </body>
+

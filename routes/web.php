@@ -105,6 +105,7 @@ route::get('/deleteps/{id}',[PostinganController::class, 'deleteps'])->name('del
 route::get('/komenku',[PostinganController::class, 'komenku'])->name('komenku')->middleware('auth');
 
 route::post('storeKomentar/{id}',[PostinganController::class, 'storeKomentar'])->name('komentar.store')->middleware('auth');
+route::post('/comments/{id}/balas',[PostinganController::class, 'balas'])->name('balas')->middleware('auth');
 
 //Komentar
 
