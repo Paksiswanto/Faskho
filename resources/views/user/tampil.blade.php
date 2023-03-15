@@ -134,9 +134,11 @@
                                 <div style="border-bottom: 2px solid silver"></div>
                                     
                                 <!-- Leave A Comment -->
+                                @auth
                                 <div class="leave-comment-area section_padding_50 clearfix">
                                     <div class="comment-form">
                                         <h4 class="mb-30">Tinggalkan Komentar</h4>
+    
 
                                         <form action="{{ route('komentar.store',['id'=>$data->id]) }}" method="post" enctype="multipart/form-data">
                                             @csrf
@@ -166,7 +168,7 @@
                                         </form>
                                     </div>
                                 </div>
-
+@endauth
                             </div>
                         </div>
                     </div>

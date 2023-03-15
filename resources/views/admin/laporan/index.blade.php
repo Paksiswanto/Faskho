@@ -19,8 +19,8 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Laporan</th>
-                                        <th>Tanggal</th>
                                         <th>judul</th>
+                                        <th>Tanggal</th>
 
                                         <th>Aksi</th>
                                     </tr>
