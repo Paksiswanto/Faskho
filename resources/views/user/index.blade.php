@@ -81,15 +81,6 @@
             <!-- Post Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-1.jpg')}}" alt="">
             <!-- Overlay Text -->
-            <div class="project_title">
-                <div class="post-date-commnents d-flex">
-                    <a href="#">Mei 19, 2017</a>
-                    <a href="#">5 Comment</a>
-                </div>
-                <a href="#">
-                    <h5>“I've Come and I’m Gone”: A Tribute to Istanbul’s Street</h5>
-                </a>
-            </div>
         </div>
 
         <!-- Single Slide -->
@@ -97,15 +88,6 @@
             <!-- Post Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-2.jpg')}}" alt="">
             <!-- Overlay Text -->
-            <div class="project_title">
-                <div class="post-date-commnents d-flex">
-                    <a href="#">Mei 19, 2017</a>
-                    <a href="#">5 Comment</a>
-                </div>
-                <a href="#">
-                    <h5>“I’ve Come and I’m Gone”: A Tribute to Istanbul’s Street</h5>
-                </a>
-            </div>
         </div>
 
         <!-- Single Slide -->
@@ -113,15 +95,6 @@
             <!-- Post Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-3.jpg')}}" alt="">
             <!-- Overlay Text -->
-            <div class="project_title">
-                <div class="post-date-commnents d-flex">
-                    <a href="#">Mei 19, 2017</a>
-                    <a href="#">5 Comment</a>
-                </div>
-                <a href="#">
-                    <h5>“I’ve Come and I’m Gone”: A Tribute to Istanbul’s Street</h5>
-                </a>
-            </div>
         </div>
 
         <!-- Single Slide -->
@@ -129,15 +102,6 @@
             <!-- Post Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-4.jpg')}}" alt="">
             <!-- Overlay Text -->
-            <div class="project_title">
-                <div class="post-date-commnents d-flex">
-                    <a href="#">Mei 19, 2017</a>
-                    <a href="#">5 Comment</a>
-                </div>
-                <a href="#">
-                    <h5>“I’ve Come and I’m Gone”: A Tribute to Istanbul’s Street</h5>
-                </a>
-            </div>
         </div>
 
         <!-- Single Slide -->
@@ -145,15 +109,6 @@
             <!-- Post Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/bg-img/slide-4.jpg')}}" alt="">
             <!-- Overlay Text -->
-            <div class="project_title">
-                <div class="post-date-commnents d-flex">
-                    <a href="#">Mei 19, 2017</a>
-                    <a href="#">5 Comment</a>
-                </div>
-                <a href="#">
-                    <h5>“I’ve Come and I’m Gone”: A Tribute to Istanbul’s Street</h5>
-                </a>
-            </div>
         </div>
 
     </section>
