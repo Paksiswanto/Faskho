@@ -17,9 +17,10 @@ return new class extends Migration
             $table->foreignId('komen_id')->nullable();
             $table->foreignId('postingan_id')->references('id')->on('postingans')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama');
+            $table->integer('parent')->default(0);
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('email');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('pesan');
             $table->timestamps();
         });

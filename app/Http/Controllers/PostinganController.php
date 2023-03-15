@@ -160,12 +160,13 @@ class PostinganController extends Controller
     }
     //ini untuk tampil di halaman utama
     public function tampil($id)
-    {
+    {   
         $data = postingan::findOrFail($id);
         $komentars = Komen::where('postingan_id', $id)->get();
+        $balas=komen::all();
 
 
-        return view('user.tampil', compact('data','komentars'   ));
+        return view('user.tampil', compact('data','komentars','balas'   ));
     }
 
     public function artikel(Request $request)
@@ -216,6 +217,12 @@ class PostinganController extends Controller
         
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
+    }
+
+    public function balas(Request $request){
+        // dd($request->all());
+        $komen=Komen::create($request->all());
+        return redirect()->back()->with('success','Komentar berhasil di tambahkan');
     }
 
     public function showTotalviews($id)
