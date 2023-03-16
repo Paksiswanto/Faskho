@@ -64,7 +64,7 @@ class PostinganController extends Controller
         $validatedata = $request->validate([
             'judul' => 'required',
             'konten' => 'required',
-            'foto' => 'required',
+            'foto' => 'required|mimes:png,jpg,jpeg,jfif',
             'deskripsi' => 'required',
             'kategori_id' => 'required',
             'agree' => 'required',

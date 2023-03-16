@@ -32,7 +32,7 @@ return [
         'string' => 'The :attribute field must be between :min and :max karakter.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute field confirmation does not match.',
+    'confirmed' => 'input :attribute tidak pas.',
     'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute field must be a valid date.',
     'date_equals' => 'The :attribute field must be a date equal to :date.',
@@ -94,7 +94,7 @@ return [
         'string' => ':attribute harus kurang atau sama dengan :max karakter.',
     ],
     'max_digits' => 'The :attribute field must not have more than :max digits.',
-    'mimes' => 'The :attribute field must be a file of type: :values.',
+    'mimes' => 'format :attribute harus: :values.',
     'mimetypes' => 'The :attribute field must be a file of type: :values.',
     'min' => [
         'array' => ':attribute membutuhkan minimal :min items.',

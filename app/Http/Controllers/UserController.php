@@ -7,6 +7,7 @@ use App\Models\laporan;
 use App\Models\postingan;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -43,8 +44,12 @@ $postings = Postingan::orderByDesc('views')->take(10)->get();
             ];
         }
         
-
-    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data]);
+        $pot=postingan::all();
+        $pot=DB::table('postingans')
+        ->orderBy('views','desc')
+        ->get()
+        ->take(10);
+    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data,'pot'=>$pot]);
 }
 
 

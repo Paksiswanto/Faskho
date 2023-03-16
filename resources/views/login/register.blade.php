@@ -74,6 +74,10 @@
                                         </div>
                                     @enderror
                                     
+                                    <div class="form-group">
+                                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    </div>
                                 </div>
                             
                             <div class="form-button">

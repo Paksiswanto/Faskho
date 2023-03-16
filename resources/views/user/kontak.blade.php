@@ -7,6 +7,16 @@
     
     <!-- ****** Header Area End ****** -->
     <!-- ****** Header Area End ****** -->
+    <style>
+        #kirimBtn {
+          background-color: blue;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      </style>
 @include('layout.navkul')
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210729/ourlarge/pngtree-delicious-korean-traditional-foods-doodle-png-image_3731697.jpg);">
@@ -75,19 +85,21 @@
                             <!-- Contact Form -->
                             <form action="/insertdatalaporan" method="post">
                                 @csrf
+                                @auth
                                 <div class="form-group">
                                     <input type="hidden" name="nama" value="{{Auth::user()->name}}" class="form-control" id="contact-name" placeholder="Nama">
                                 </div>
                                 <div class="form-group">
                                     <input type="hidden" name="email" value="{{Auth::user()->email}}" class="form-control" id="contact-email" placeholder="Email">
                                 </div>
+                                @endauth
                                 <!-- <div class="form-group">
                                     <input type="text" class="form-control" id="contact-website" placeholder="Website">
                                 </div> -->
                                 <div class="form-group">
                                     <textarea class="form-control" name="laporan" id="message" cols="30" rows="10" placeholder="Tulis Pernyataan anda"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-danger">Kirimkan</button>
+                                <button type="submit" id="kirimBtn">Kirimkan</button>
                             </form>
                         </div>
                     </div>
@@ -307,4 +319,15 @@
     <script src="js/google-map/map-active.js"></script>
     <!-- Active JS -->
     <script src="{{asset('yummy-master/yummy-master/js/active.js')}}"></script>
+    <script>
+        const kirimBtn = document.querySelector('#kirimBtn');
+        const isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
+      
+        kirimBtn.addEventListener('click', (event) => {
+          if (!isLoggedIn) {
+            event.preventDefault(); // Mencegah form dikirimkan
+            window.location.href = '/login'; // ubah "/login" dengan URL halaman login Anda
+          }
+        });
+      </script>
 </body>

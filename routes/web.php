@@ -30,6 +30,9 @@ use Illuminate\Foundation\Auth\User;
 //halaman Admin
 
 
+Route::get('/kontak', function () {
+    return view('user.kontak');
+});
 Route::get('/artikel', function () {
     return view('post.post');
 })->middleware('auth');
@@ -60,9 +63,6 @@ Route::get('penutup1', [KomenController::class, 'inpen'])->name('inpen');
 Route::get('/penutup', function () {
     return view('user.penutup');
 });
-Route::get('/kontak', function () {
-    return view('user.kontak');
-})->middleware('auth');
 
 Route::get('/terms', function () {
     return view('post.postingan.terms');

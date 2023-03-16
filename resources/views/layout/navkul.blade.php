@@ -98,12 +98,10 @@
                                 <li class="nav-item {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }}{{ Request::is('artikel') ? 'active' : '' }}">
                                     <a class="nav-link" href="artikel">Artikel</a>
                                 </li>
-                                @auth
                                 
                                 <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
                                     <a class="nav-link" href="/kontak">Kontak</a>
                                 </li>
-                                @endauth
                             </ul>
                         </div>
                     </nav>

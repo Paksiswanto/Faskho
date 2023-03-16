@@ -33,7 +33,7 @@ class LoginController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:10',
             'email' => 'required|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
         ]);
         user::create([
             'name' => $request->name,
