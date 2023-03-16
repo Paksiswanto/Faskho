@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Komen;
 use App\Models\kategori;
 use App\Models\postingan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -73,9 +74,11 @@ class PostinganController extends Controller
 
         ]);
         $data = postingan::create($request->all());
+
         if ($request->hasFile('foto')) {
-            $request->file('foto')->move('thumbnail/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move('thumbnail/', $imageName);
+            $data->foto = $imageName;
             $data->save();
         }
         
@@ -108,8 +111,9 @@ class PostinganController extends Controller
         ]);
         if ($request->hasFile('foto')) {
             unlink(public_path('thumbnail/'.$data->foto));
-            $request->file('foto')->move('thumbnail/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('foto')->getClientOriginalExtension();
+            $request->file('foto')->move('thumbnail/', $imageName);
+            $data->foto = $imageName;
             $data->save();
         }
         return redirect()->route('posts',$data->user_id)->with('success', 'data Berhasil Di Update');

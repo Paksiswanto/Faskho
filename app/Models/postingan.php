@@ -26,4 +26,5 @@ class postingan extends Model
         return $this->hasMany(trend::class);
     }
 
+   
 }

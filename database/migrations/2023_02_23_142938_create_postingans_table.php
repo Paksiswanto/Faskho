@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('judul');
             $table->longText('konten');
-            $table->string('foto');
+            $table->string('foto')->onDelete('cascade');
             $table->string('agree');
             $table->string('deskripsi');
             $table->integer('views')->default(0);
