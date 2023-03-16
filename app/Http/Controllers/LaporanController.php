@@ -31,14 +31,14 @@ class LaporanController extends Controller
     //laporanar
     public function laporanar(Request $request,$id)
     {
-        $data=laporanar::all();
-        $data=laporanar::create($request->all());
+        $data=laporan::all();
+        $data=laporan::create($request->all());
         
     }
     public function indexar(Request $request)
     {
         $keyword = $request->keyword;
-        $data = laporanar::where('laporan', 'LIKE', '%'.$keyword.'%')
+        $data = laporan::where('laporan', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
         return view('admin.laporanar.index',compact('data'));
     }

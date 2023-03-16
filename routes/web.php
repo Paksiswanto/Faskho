@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostinganController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
@@ -95,6 +96,7 @@ route::get('/deletede/{id}',[TagController::class, 'deletede'])->name('deletede'
 route::get('/posts/{id}',[PostinganController::class,'posts'])->name('posts')->middleware('auth');
 Route::get('/show/{id}',[PostinganController::class,'show'])->name('show')->middleware('auth');
 Route::get('/tampil/{id}',[PostinganController::class,'tampil'])->name('tampil');
+Route::get('/like/{id}',[PostinganController::class,'tampil'])->name('tampil');
 route::get('/tambahpostingan',[PostinganController::class,'tambahpostingan'])->name('tambahpostingan')->middleware('auth');
 route::post('/insertdatapost',[PostinganController::class,'insertdatapost'])->name('insertdatapost')->middleware('auth');
 route::get('/tampilkandatapostingan/{id}',[PostinganController::class,'tampilkandatapostingan'])->name('tampilkandatapostingan')->middleware('auth');
@@ -107,6 +109,7 @@ route::post('storeKomentar/{id}',[PostinganController::class, 'storeKomentar'])-
 route::post('/comments/{id}/balas',[PostinganController::class, 'balas'])->name('balas')->middleware('auth');
 
 //Komentar
+Route::get('/like/{id}',[Likecontroller::class,'like']);
 
 Route::resource('comments', App\Http\Controllers\CommentController::class);
 

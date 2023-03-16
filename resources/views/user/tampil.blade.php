@@ -1,5 +1,5 @@
 @include('layout.headuser')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <body>
     <!-- Background Pattern Swither -->
 
@@ -128,8 +128,14 @@
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
+<<<<<<< Updated upstream
                             
                           
+=======
+                              <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
+                               
+                              
+>>>>>>> Stashed changes
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
                                     

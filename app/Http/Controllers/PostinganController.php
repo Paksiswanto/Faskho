@@ -20,7 +20,9 @@ class PostinganController extends Controller
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();
-        return view('admin.postingan.index', compact('data', 'datauser', 'datakategori'));
+    
+
+        return view('admin.postingan.index', compact('data', 'datauser', 'datakategori',));
     }
 
     public function deletepost($id)
@@ -156,14 +158,16 @@ class PostinganController extends Controller
         return view('user.penutup',compact('penutup'));
     }
     //ini untuk tampil di halaman utama
-    public function tampil($id)
+    public function tampil(Request $request,$id)
     {   
-        $data = postingan::findOrFail($id);
+        
         $komentars = Komen::where('postingan_id', $id)->get();
+        $like= Komen::where('komen_id',$request->komen_id)->count();
+        $data = postingan::findOrFail($id);
         $balas=komen::all();
-
-
-        return view('user.tampil', compact('data','komentars','balas'   ));
+        $totallike= like::where('komen_id')->count();
+        
+        return view('user.tampil', compact('data','komentars','balas','totallike' ));
     }
 
     public function artikel(Request $request)
@@ -251,12 +255,10 @@ if ($user->id != $id) {
 }
 
 
-    public function like(Komen $komen)
+    public function like()
     {
-        
-        $komen->like();
-        return back();
-        return redirect()->back();
+       
+    return redirect('tampil',compact('totallike'));
     }
 
 public function komenku($id)

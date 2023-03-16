@@ -15,16 +15,22 @@ class Komen extends Model
     {
     return $this->belongsto(User::class);
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     public function childs()
     {
         return $this->hasMany(komen::class,'parent');
     }
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
     public function like()
     {
         $this->likes++;
