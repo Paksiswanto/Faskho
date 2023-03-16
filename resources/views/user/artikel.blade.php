@@ -141,7 +141,7 @@ input {
     <center>
     <div class="input-box open">
         <form action="{{route('artikel')}}" method="get">
-        <input type="text" name="key" value="{{old('key')}}" placeholder="Search...">
+        <input type="text" name="keyword" value="{{Request::get('keyword')}}" placeholder="Search...">
         <span class="icon">
           <i class="uil uil-search search-icon"></i>
         </span>
