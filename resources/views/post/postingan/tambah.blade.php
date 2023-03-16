@@ -1,5 +1,21 @@
 @extends('layout.artikel')
+@push('css')
+ <style>
+  #submitBtn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
 
+  #submitBtn[disabled] {
+    background-color: red;
+    cursor: not-allowed;
+  }
+    
+</style>
+@endpush
 
 @section('content')
 
@@ -224,7 +240,7 @@
     </div>
   </div>
 
-                            <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Posting</button>
+                            <button type="submit" id="submitBtn" disabled >Posting</button>
                         </form>
                     </div>
                 </div>
@@ -252,20 +268,20 @@ textarea.addEventListener('input', function() {
 
 </script>
 <script>
-    const termsCheck = document.querySelector('#termsCheck');
-    const submitBtn = document.querySelector('#submitBtn');
+  const termsCheck = document.querySelector('#termsCheck');
+  const submitBtn = document.querySelector('#submitBtn');
 
-    // Memeriksa checkbox setiap kali diperbarui
-    termsCheck.addEventListener('change', function() {
-        if (this.checked) {
-            // Checkbox dicentang, aktifkan tombol submit
-            submitBtn.removeAttribute('disabled');
-        } else {
-            // Checkbox tidak dicentang, nonaktifkan tombol submit
-            submitBtn.setAttribute('disabled', true);
-        }
-    });
-
+  // Memeriksa checkbox setiap kali diperbarui
+  termsCheck.addEventListener('change', function() {
+    if (this.checked) {
+      // Checkbox dicentang, aktifkan tombol submit
+      submitBtn.removeAttribute('disabled');
+    } else {
+      // Checkbox tidak dicentang, nonaktifkan tombol submit
+      submitBtn.setAttribute('disabled', true);
+    }
+  });
 </script>
+
 
 @endpush

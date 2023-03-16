@@ -126,6 +126,14 @@ input {
 
 </style>
 
+<style>
+img.square {
+  width:400px;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
+
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://png.pngtree.com/png-clipart/20210430/ourlarge/pngtree-korean-food-cute-cartoon-doodle-png-image_3253417.jpg);">
         <div class="container h-100">
@@ -177,7 +185,7 @@ input {
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                              <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:300px">
+                              <img src="{{ asset('thumbnail/'.$data->foto) }}" class="square" >
                         </div>
                       
                         <!-- Post Content -->

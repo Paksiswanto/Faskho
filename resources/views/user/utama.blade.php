@@ -6,6 +6,13 @@
     <!-- ****** Top Header Area Start ****** -->
    @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
+<style>
+img.square {
+  width:400px;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
 
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://images.tokopedia.net/blog-tokopedia-com/uploads/2020/05/desain-banner-makanan-featured.jpg);">
@@ -48,7 +55,8 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                            <img src="{{ asset('thumbnail/'.$data->foto) }}" style="width:100%;">                        </div>
+                            <img src="{{ asset('thumbnail/'.$data->foto) }}" class="square">                        
+                            </div>
                         <!-- Post Content -->
                         <div class="post-content">
                             <div class="post-meta d-flex">
