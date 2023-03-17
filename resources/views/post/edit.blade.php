@@ -385,9 +385,8 @@
                                     </div>
         
                                     <div class="mb-3">
-                                      <input type="file" name="foto" value="{{Auth::user()->foto}}">
+                                      <input type="file" name="foto" id="foto">
                                     </div>
-        
                                 <button type="submit" class="btn btn-primary">update data</button>
                                 </form>
                             </div>

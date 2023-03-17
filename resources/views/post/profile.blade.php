@@ -90,9 +90,11 @@
                                                 {{ Auth::user()->deskripsi }}
                                             </p>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
+                            <center>
                             <div>
 
                                 <a href="/profilku/{{ Auth::user()->id }}"><button class="btn first p-3" style="margin-left: -400px;margin-bottom:10%">Edit Profil</button></a>
@@ -136,10 +138,13 @@
                                     }
                                 </style>
                             </div>
+                            </center>
                         </div>
                     </div>
+                </div>  
                 </div>
-
+                </div>
+                </div>
 
 
                 </body>

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 class ProfileController extends Controller
 {
     public function profile()
@@ -29,32 +29,39 @@ class ProfileController extends Controller
     public function updateprofile(Request $request, $id)
     {
         //dd($request->all());
-        $data = User::find($id);
-        $data->update($request->all());
-        if ($request->hasFile('foto')) {
-            // $file = $request->file('foto');
-            // $extention = $file->getClientOriginalExtension( );
-            // $filename = time() . '.' . $extention;
-            // $file->move('fotouser/', $filename);
-            // $data->foto = $filename;
-            Storage::delete('fotouser');$request->file('foto')->store('fotouser', 'public');
-            $data->foto = $request->file('foto')->store('fotouser', 'public');
-        }
-        $data->save();
-        // Storage::disk('public')->put('foto',  $request ->file('foto'));
-        return redirect()->route('profile')->with('sukses', 'Data Berhasil Di Perbarui');
+        $user = User::find($id);
+        if($request->hasFile('foto')){
+            $data = DB::table('users')->where('id',$id)->get();
+            foreach($data as $datas){
+            $foto = $datas->foto;
+            Storage::delete('public/'.$foto);
+            }
+
+            $foto = Storage::disk('public')->put('fotouser',$request->file('foto'));
+            $data=([
+                'foto'=>$foto,
+            ]);
+            $user->update($data);
+            return redirect()->route('profile');
     }
-    // public function updateprofile(Request $request,$id){
-    //     $data = User::find($id);
-    //     $data->update([
-    //         'name' =>$request->name,
-    //         'email' =>$request->email,
-    //         'deskripsi' =>$request->deskripsi
-    //     ]);
-    //     if ($request->hasFile('avatar')) {
-    //         $data->avatar = $request->file('avatar')->store('foto', 'public');
-    //     }
-    //     $data->save();
-    // return redirect()->route('profile')->with('success','data Berhasil Di Update');
-    // }
+    
 }
+}
+
+// $toko = Toko::find($id);
+
+//         if($request->hasFile('logo')){
+//             $data = DB::table('tokos')->where('id',$id)->get();
+//             foreach($data as $datas){
+//             $logos = $datas->logo;
+//             Storage::delete('public/'.$logos);
+//             }
+
+//             $logo = Storage::disk('public')->put('logotoko',$request->file('logo'));
+//             $data=([
+//                 'nama_toko'=>$request->nama_toko,
+//                 'link_website'=>$request->link_website,
+//                 'logo'=>$logo,
+//             ]);
+//             $toko->update($data);
+//             return redirect()->route('toko');
