@@ -128,11 +128,15 @@
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
+<<<<<<< Updated upstream
                             
                           
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
                                
                               
+=======
+                              <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
+>>>>>>> Stashed changes
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
                                     
