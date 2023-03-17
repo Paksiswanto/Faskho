@@ -1,5 +1,6 @@
 @include('layout.headuser')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
 <body>
     <!-- Background Pattern Swither -->
 
@@ -24,8 +25,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>
                                     Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('artikel')}}">Artikel </a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="{{route($data->kategori->kategori)}}">{{$data->kategori->kategori}} </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route('artikel') }}">Artikel </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route($data->kategori->kategori) }}">{{ $data->kategori->kategori }} </a>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $data->judul }} </li>
                         </ol>
                     </nav>
@@ -86,7 +90,7 @@
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
-                                           
+
                                         </div>
                                     </div>
                                     <a href="#">
@@ -127,51 +131,48 @@
                         </div>
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
-                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
-                            
-                          
+                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
-                               
-                              
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
-                                    
+
                                 <!-- Leave A Comment -->
                                 @auth
-                                <div class="leave-comment-area section_padding_50 clearfix">
-                                    <div class="comment-form">
-                                        <h4 class="mb-30">Tinggalkan Komentar</h4>
-    
+                                    <div class="leave-comment-area section_padding_50 clearfix">
+                                        <div class="comment-form">
+                                            <h4 class="mb-30">Tinggalkan Komentar</h4>
 
-                                        <form action="{{ route('komentar.store',['id'=>$data->id]) }}" method="post" enctype="multipart/form-data">
-                                            @csrf
-                                            
-                                            <input type="hidden" name="postingan_id"
-                                                value=" {{ $data->id }} ">
 
-                                                <input type="hidden" name="user_id"
-                                                value=" {{ Auth::user()->id }} ">
-                                            
-                                            <div class="form-group">
-                                                <input type="hidden" class="form-control" name="nama"
-                                                     id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="hidden" name="email" class="form-control"
-                                                    id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
-                                            </div>
-                                            <div class="form-group-append">
-                                                <input type="file" name="foto" class="form-control"
-                                                    id="contact-foto" placeholder="upload foto">
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" name="pesan" id="message" cols="30" rows="10" placeholder="Pesan"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn contact-btn">Posting Komentar</button>
-                                        </form>
+                                            <form action="{{ route('komentar.store', ['id' => $data->id]) }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+
+                                                <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
+
+                                                <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
+
+                                                <div class="form-group">
+                                                    <input type="hidden" class="form-control" name="nama"
+                                                        id="contact-name" value="{{ Auth::user()->name }}"
+                                                        placeholder="Nama">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="hidden" name="email" class="form-control"
+                                                        id="contact-email" value="{{ Auth::user()->email }}"
+                                                        placeholder="Email">
+                                                </div>
+                                                <div class="form-group-append">
+                                                    <input type="file" name="foto" class="form-control"
+                                                        id="contact-foto" placeholder="upload foto">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="pesan" id="message" cols="30" rows="10" placeholder="Pesan"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn contact-btn">Posting Komentar</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-@endauth
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -257,7 +258,7 @@
         </div>
         </div>
     </section>
-   
+
     <!-- ****** Single Blog Area End ****** -->
 
     <!-- ****** Instagram Area Start ****** -->
@@ -475,13 +476,12 @@
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script>
-        $(document).ready(function(){
-            $('#btn-balas').click(function(){
+        $(document).ready(function() {
+            $('#btn-balas').click(function() {
                 $('#balas').toggle('slide');
             });
         });
     </script>
 
-   
-</body>
 
+</body>

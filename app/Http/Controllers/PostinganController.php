@@ -176,7 +176,7 @@ class PostinganController extends Controller
 
     public function artikel(Request $request)
     {
-        $keyword = $request->key;
+        $keyword = $request->keyword;
         $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
             ->paginate(3);
 
@@ -187,6 +187,7 @@ class PostinganController extends Controller
         $keyword = $request->keyword;
 
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
+        $randomData = DB::table('postingans')->inrandomOrder()->take(2)->get(); 
 
             $posts=postingan::all();
             $posts = DB::table('postingans')
@@ -199,7 +200,12 @@ class PostinganController extends Controller
             ->orderBy('views','desc')
             ->get()
             ->take(10);
-        return view('user.index',compact('posts','data'));
+            $trend=postingan::all();
+            $trend=DB::table('postingans')
+            ->orderBy('views','desc')
+            ->get()
+            ->take(1);
+        return view('user.index',compact('posts','data','trend','randomData'));
     }
      public function storeKomentar(Request $request, $id)
     {
