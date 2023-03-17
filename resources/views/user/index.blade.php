@@ -51,6 +51,29 @@
 }
 
     </style>
+    <style>
+        img.square {
+          width:800px;
+          height: 600px;
+          object-fit: cover;
+        }
+        </style>
+
+    <style>
+    img.myuu {
+      width:400px;
+      height: 200px;
+      object-fit: cover;
+    }
+    </style>
+
+    <style>
+        img.pyuu {
+          width:100px;
+          height: 350px;
+          object-fit: cover;
+        }
+        </style>
 
     <!-- Responsive CSS -->
     <link href="{{asset('yummy-master/yummy-master/css/responsive/responsive.css')}}" rel="stylesheet">
@@ -130,7 +153,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset('thumbnail/'.$item->foto)}}" alt="">
+                                    <img src="{{asset('thumbnail/'.$item->foto)}}" class="square" >
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -167,7 +190,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset('thumbnail/'.$item->foto)}}" alt="">
+                                    <img src="{{asset('thumbnail/'.$item->foto)}}" class="myuu" >
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -220,7 +243,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/'.$item->foto) }}" style="width: 100%">
+                                    <img src="{{ asset('thumbnail/'.$item->foto) }}" style="width: 100%" class="pyuu">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -236,17 +259,7 @@
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
-                                            <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                            </div>
-                                            <!-- Post Comments -->
-                                            <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                            </div>
-                                            <!-- Post Share -->
-                                            <div class="post-share">
-                                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <a href="#">
