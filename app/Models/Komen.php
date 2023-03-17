@@ -21,7 +21,6 @@ class Komen extends Model
     {
         return $this->hasMany(komen::class,'parent');
     }
-
     public function like()
     {
         $this->likes++;

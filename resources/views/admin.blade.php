@@ -1,6 +1,8 @@
 @extends('layout.admin')
 
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
  @extends('layout.sidebar')
    <div class="content">
             <!-- Animated -->
@@ -257,51 +259,46 @@
         @section('footer')
        
         <script>
-            var data = <?php echo json_encode($data); ?>;
-            
-            var labels = [];
-            var views = [];
-            
-            for (var i in data) {
-                labels.push(data[i].judul);
-                views.push(data[i].views);
-            }
-            
             var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Trend Views',
-                        data: views,
-                        backgroundColor: [
-                'rgba(255, 99, 132, 0.2)', // warna untuk data pertama
-                'rgba(54, 162, 235, 0.2)', // warna untuk data kedua
-                'rgba(255, 206, 86, 0.2)', // warna untuk data ketiga
-                'rgba(75, 192, 192, 0.2)', // warna untuk data keempat
-                'rgba(153, 102, 255, 0.2)' // warna untuk data kelima
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)', // warna border untuk data pertama
-                'rgba(54, 162, 235, 1)', // warna border untuk data kedua
-                'rgba(255, 206, 86, 1)', // warna border untuk data ketiga
-                'rgba(75, 192, 192, 1)', // warna border untuk data keempat
-                'rgba(153, 102, 255, 1)' // warna border untuk data kelima
-            ],
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
+
+var data = @json($data);
+
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: data.categories,
+        datasets: [{
+            label: 'Category',
+            data: data.counts,
+            backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#4BC0C0',
+                '#9966FF',
+                '#2ecc71',
+                '#f1c40f',
+                '#e74c3c',
+                '#95a5a6',
+                '#34495e'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        responsive: true,
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var dataset = data.datasets[tooltipItem.datasetIndex];
+                            var label = data.labels[tooltipItem.index];
+                            var value = dataset.data[tooltipItem.index];
+                            return label + ": " + value + "%";
+                        }
                     }
                 }
-            });
+    }
+});
         </script>
     
     @endsection
