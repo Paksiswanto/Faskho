@@ -218,6 +218,10 @@ class PostinganController extends Controller
         ]);
 
         $data = Komen::create($request->all());
+        // $data = Komen::create([
+        //     'postingan_id' => $request->postingan_id,
+
+        // ]);
         
         $foto = $request->file('foto');
         if($request->hasFile('foto')){
@@ -228,12 +232,6 @@ class PostinganController extends Controller
         
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
-    }
-
-    public function balas(Request $request){
-        // dd($request->all());
-        $komen=Komen::create($request->all());
-        return redirect()->back()->with('success','Komentar berhasil di tambahkan');
     }
 
     public function showTotalviews($id)

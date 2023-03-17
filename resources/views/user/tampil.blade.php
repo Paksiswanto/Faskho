@@ -131,8 +131,71 @@
                         </div>
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
+<<<<<<< Updated upstream
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
+=======
+                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
+                            
+                          
+                              <a href="/like/{{$komentar->id}}"class="text-danger mr-3"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
+                               
+                              <div class="btn-group">
+                                <button class="btn btn-default" id="btn-balas">Balas</button>
+                              </div>
+                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" id="balas" method="post" enctype="multipart/form-data">
+                                @csrf
+                                
+                                <input type="hidden" name="postingan_id"
+                                    value=" {{ $data->id }} ">
+
+                                    <input type="hidden" name="user_id"
+                                    value=" {{ Auth::user()->id }} ">
+                                
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="nama"
+                                         id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="email" class="form-control"
+                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+                                </div>
+                                <div class="form-group-append">
+                                    <input type="hidden" name="parent" value="{{$komentar->id}}"
+                                        id="contact-foto" placeholder="upload foto">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="pesan" id="balas" cols="30" rows="10" placeholder="balas" >
+                                </div>
+                                <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
+                            </form>
+
+                              @foreach ($komentar->childs as $child)
+                              <div class="">
+                                
+                                    <div class="comment-author mt-3 mb-3 media mr-3" style="display: flex">
+                                        @if ($komentar->user->foto == null)
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
+                                        @else
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
+                                        alt="User Avatar">
+                                        @endif
+                                        <div class="media-body ml-2">
+                                        <h5 style="margin-left: -3px">{{ $child->nama }}</h5>
+                                        <p style="margin-bottom: -10px">{{ $child->pesan }}</p>
+                                
+                                </div>
+                            </div>
+                                </div>
+                              @endforeach
+                              
+                            {{-- <input type="hidden" name="parent" value="{{$komentar->id}}">
+                            <input type="text" name="pesan" class="form-control mt-3 mb-3" placeholder="Balas Komentar" id=""> --}}
+                            {{-- <input type="submit" class="is-btn header-element" value="Balas">
+                             --}}
+        
+                              
+>>>>>>> Stashed changes
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
 
@@ -243,10 +306,10 @@
                             <h6>Newsletter</h6>
                         </div>
                         <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.
-                        </p>
-                        <div class="newsletter-form">
+                            <div class="newsletter-form">
                             <form action="#" method="post">
                                 <input type="email" name="newsletter-email" id="email"
+                        </p>
                                     placeholder="Your email">
                                 <button type="submit"><i class="fa fa-paper-plane-o"
                                         aria-hidden="true"></i></button>
@@ -482,6 +545,11 @@
             });
         });
     </script>
+<<<<<<< Updated upstream
 
+=======
+   
+</body>
+>>>>>>> Stashed changes
 
 </body>
