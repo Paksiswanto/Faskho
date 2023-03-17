@@ -42,26 +42,9 @@ class ProfileController extends Controller
                 'foto'=>$foto,
             ]);
             $user->update($data);
-            return redirect()->route('profile');
     }
-    
+    return redirect()->route('profile');
+
 }
 }
 
-// $toko = Toko::find($id);
-
-//         if($request->hasFile('logo')){
-//             $data = DB::table('tokos')->where('id',$id)->get();
-//             foreach($data as $datas){
-//             $logos = $datas->logo;
-//             Storage::delete('public/'.$logos);
-//             }
-
-//             $logo = Storage::disk('public')->put('logotoko',$request->file('logo'));
-//             $data=([
-//                 'nama_toko'=>$request->nama_toko,
-//                 'link_website'=>$request->link_website,
-//                 'logo'=>$logo,
-//             ]);
-//             $toko->update($data);
-//             return redirect()->route('toko');
