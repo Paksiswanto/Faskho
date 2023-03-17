@@ -36,6 +36,19 @@ $postings = Postingan::all();
 $postings = Postingan::orderByDesc('views')->take(10)->get();
 
         $data = [];
+        $posts = postingan::selectRaw('kategori_id, COUNT(*) as count')
+        ->groupBy('kategori_id')
+        ->get();
+
+$data = [];
+$total = $posts->sum('count');
+
+
+foreach ($posts as $post) {
+$data['categories'][] = $post->kategori->kategori;
+$data['counts'][] = round(($post->count / $total) * 100, 2);
+}
+
         
         foreach ($postings as $posting) {
             $data[] = [
@@ -79,4 +92,31 @@ $postings = Postingan::orderByDesc('views')->take(10)->get();
         // Storage::disk('public')->put('foto',  $request ->file('foto'));
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
+    public function banUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Akun berhasil dibanned!');
+    }
+
+    public function checkUser($id)
+    {
+        $user = User::find($id);
+
+        if ($user->trashed()) {
+            return 'Akun telah dihapus';
+        } else {
+            return 'Akun masih aktif';
+        }
+    }
+
+    public function unbanUser($id)
+    {
+        $user = User::withTrashed()->where('id', $id)->first();
+        $user->restore();
+
+        return redirect()->back()->with('success', 'Akun berhasil diunban!');
+    }
 }
+
