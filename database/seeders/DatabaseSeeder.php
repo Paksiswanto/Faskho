@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
     //     public function run()
     {
         \App\Models\User::factory(10)->create();
-         \App\Models\User::factory()->create([
-            'name' => 'kuryu',
+         \App\Models\User::factory()->create(
+           [ 'name' => 'kuryu',
             'email' => 'unitedkuryu@gmail.com',
             'password' => bcrypt('123456789'),
             'role'=> 'admin'
@@ -43,7 +43,16 @@ class DatabaseSeeder extends Seeder
         foreach ($kategori as $user) {
             DB::table('kategoris')->insert($user);
         }
-        
+        $user=[
+                ['name' => 'Nova',
+                'email'=>'kulinerku@gmail.com',
+                'password'=>bcrypt('semarmendem'),
+                'role'=>'admin'
+        ]
+        ];
+        foreach ($user as $user){
+            DB::table('users')->insert($user);
+        }
         
     }
 }

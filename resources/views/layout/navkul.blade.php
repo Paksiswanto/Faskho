@@ -96,7 +96,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }}{{ Request::is('artikel') ? 'active' : '' }}">
-                                    <a class="nav-link" href="artikel">Artikel</a>
+                                    <a class="nav-link" href="{{Route('artikel')}}">Artikel</a>
                                 </li>
                                 
                                 <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}">
