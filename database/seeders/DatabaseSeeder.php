@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\kategori;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
            [ 'name' => 'kuryu',
             'email' => 'unitedkuryu@gmail.com',
             'password' => bcrypt('123456789'),
+            'created_at'=>now(),
             'role'=> 'admin'
          ]);
          $kategori = [
@@ -47,7 +49,8 @@ class DatabaseSeeder extends Seeder
                 ['name' => 'Nova',
                 'email'=>'kulinerku@gmail.com',
                 'password'=>bcrypt('semarmendem'),
-                'role'=>'admin'
+                'role'=>'admin',
+                'created_at'=>now(),
         ]
         ];
         foreach ($user as $user){

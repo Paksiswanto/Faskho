@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('deskripsi')->nullable();
             $table->string('foto')->nullable();
+            $table->boolean('is_banned')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

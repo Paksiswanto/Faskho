@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
     if ($exception instanceof \Illuminate\Database\QueryException) {
         if ($exception->errorInfo[1] == 2002) {
             // menampilkan pesan kesalahan jika terjadi koneksi error
-            return response()->view('errors.no_connection', [], 500);
+            return response()->view('error.500', [], 500);
         }
     }
 

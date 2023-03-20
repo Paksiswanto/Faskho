@@ -30,35 +30,34 @@
                                 </div>
                             </div>
                             <thead>
-                                <tr>
+                                <tr align="center">
                                     <th>#</th>
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Password</th>
-                                    <th>status</th>
                                     <th>tanggal</th>
+                                    <th>Banned</th>
 
-                                    <th>Aksi</th>
+                                    <th colspan="2">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $index=>$row )
+                                @foreach ($bannedUsers as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->name}}</td>
                                     <td>{{ $row->email}}</td>
                                     <td>{{ $row->password}}</td>
-                                    @if ($row->is_banned == true)
-                                    <td>banned</td>
-                                    @else
-                                    <td>aktif</td>
-                                    @endif
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
+                                    <td>banned</td>
                                     <td>
-                                        <a href="/ban/{{ $row->id }}" class="btn btn-danger delete">Ban</a>
+                                        <a href="/deleteda/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
+                                    </td>
+                                    <td>
+                                        <a href="/unban/{{ $row->id }}" class="btn btn-primary">Unban</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -176,6 +175,5 @@
     toastr.success("{{ Session::get('success') }}")
 
     @endif
-
 
 </script>

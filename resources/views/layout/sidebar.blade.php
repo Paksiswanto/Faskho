@@ -42,6 +42,10 @@
                         <a href="{{route('kategori')}}"> <i
                                 class="fa fa-tags" style="width: 20%;"></i>Data Kategori </a>
                     </li>
+                    <li class="{{ Request::is('ban') ? 'active' : '' }}">
+                        <a href="{{route('ban')}}"> <i
+                                class="fa fa-ban" style="width: 20%;"></i>Data Banned User </a>
+                    </li>
                     
                     <li>
                         <a href="/trend"> <i

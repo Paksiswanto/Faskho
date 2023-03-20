@@ -8,6 +8,7 @@ use App\Models\postingan;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Yoeunes\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -15,6 +16,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
+        
         $data = User::where('name', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
                 
@@ -92,31 +94,31 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
         // Storage::disk('public')->put('foto',  $request ->file('foto'));
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
-    public function banUser($id)
+
+
+    public function unbannedUser($id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect()->back()->with('success', 'Akun berhasil dibanned!');
+        $user = User::findOrFail($id);
+        $user->unbanned();
+        Toastr::success('Pengguna berhasil di unbanned.', 'Success');
+    
+        return redirect()->back();
     }
+    public function bannedUser($id)
+{
+    $user = User::findOrFail($id);
+    $user->banned();
+    Toastr::success('Pengguna berhasil dibanned.', 'Success');
 
-    public function checkUser($id)
-    {
-        $user = User::find($id);
-
-        if ($user->trashed()) {
-            return 'Akun telah dihapus';
-        } else {
-            return 'Akun masih aktif';
-        }
-    }
-
-    public function unbanUser($id)
-    {
-        $user = User::withTrashed()->where('id', $id)->first();
-        $user->restore();
-
-        return redirect()->back()->with('success', 'Akun berhasil diunban!');
-    }
+    return redirect()->back();
+}
+public function ban(Request $request)
+{
+    $keyword = $request->keyword;
+    $bannedUsers = User::where('is_banned', true)->get();
+    $data = User::where('name', 'LIKE', '%'.$keyword.'%')
+            -> paginate(10);
+    return view('admin.user.ban', compact('bannedUsers','data'));
+}
 }
 

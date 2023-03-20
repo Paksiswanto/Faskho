@@ -22,7 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'deskripsi',
-        'foto'
+        'foto',
+        'is_banned',
     ];
 
     /**
@@ -47,6 +48,27 @@ class User extends Authenticatable
     {
         return $this->hasMany(postingan::class,'user_id','id');
     }
-    
+    protected $attributes = [
+        'is_banned' => false,
+    ];
+    public function banned()
+    {
+        $this->is_banned = true;
+        $this->save();
+    }
+      /**
+     * Unbanned the user.
+     *
+     * @return void
+     */
+    public function unbanned()
+    {
+        $this->is_banned = false;
+        $this->save();
+    }
+    public function getIsbannedfAttribute($value)
+{
+    return $value ? 'Banned' : 'Aktif';
+}
 
 }

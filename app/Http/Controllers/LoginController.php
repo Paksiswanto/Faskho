@@ -16,6 +16,17 @@ class LoginController extends Controller
         }
 
     public function loginproses(Request $request){
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+    
+        // Menambahkan pengecekan status banned pada pengguna
+        $user = User::where('email', $credentials['email'])->first();
+        if ($user && $user->is_banned) {
+            return back()->withErrors(['error' => 'Maaf Akun Anda telah dibanned.']);
+        }
+    
         if(Auth::attempt($request->only('email','password'))){
             return redirect('/');
         }

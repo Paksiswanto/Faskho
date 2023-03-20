@@ -38,6 +38,7 @@
             </div>
         </div>
        
+       
             <div class="form-holder my-auto ">
                 <div class="form-content">
                     <div class="form-items">
@@ -47,6 +48,15 @@
                             <br>
                             Belum punya akun?Registrasi dahulu!!!
                         </p>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <p style="font-family: Lucida Sans;">{{ $error }}</p>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <div class="page-links">
                             <a href="/login" class="active">Login</a>
                             <a href="/register">Register</a>

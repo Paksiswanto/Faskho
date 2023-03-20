@@ -153,7 +153,10 @@ Route::middleware('admin')->group(function () {
 
     route::get('/author', [UserController::class, 'index'])->name('user');
     route::get('/admin', [UserController::class, 'showTotalUsers'])->name('showTotalUsers');
+    route::get('/ban', [UserController::class, 'ban'])->name('ban');
     route::get('/deleteda/{id}', [UserController::class, 'deleteda'])->name('deleteda');
+    route::get('/ban/{id}', [UserController::class, 'bannedUSer'])->name('bannnedUser');
+    route::get('/unban/{id}', [UserController::class, 'unbannedUser'])->name('unbannedUser');
 
 
     //laporan
