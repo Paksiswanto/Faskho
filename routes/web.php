@@ -13,6 +13,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TempatController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
 use App\Models\postingan;
 use App\Http\Controllers\TrendController;
 use Illuminate\Foundation\Auth\User;
@@ -65,6 +68,10 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
 route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForm'])->name('forgot.password');
+Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('forgot.password.mail');
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'showForm'])->name('reset.password.form');
+Route::post('reset-password',  [ResetPasswordController::class, 'updatepassword'])->name('update.password');
 //postingan Controller
 
 Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');

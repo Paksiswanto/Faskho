@@ -66,7 +66,8 @@
                             <input class="form-control" type="email" name="email" placeholder="Email" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button>
+                                <button id="submit" type="submit" class="ibtn mr-5">Login</button>
+                                <a href="/forgot-password">Lupa Password?</a>
                             </div>
                         </form>
                     </div>
