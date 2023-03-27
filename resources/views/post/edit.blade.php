@@ -380,11 +380,6 @@
                                     </div>
         
                                     <div class="mb-3">
-                                        <label for="deskripsi" class="form-label">deskripsi</label>
-                                        <input type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="emailHelp"  value="{{ Auth::user()->deskripsi }}">
-                                    </div>
-        
-                                    <div class="mb-3">
                                       <input type="file" name="foto" id="foto">
                                     </div>
                                 <button type="submit" class="btn btn-primary">update data</button>

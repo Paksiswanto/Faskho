@@ -10,6 +10,7 @@ use App\Models\postingan;
 use App\Models\DeletedPost;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Yoeunes\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -224,6 +225,7 @@ class PostinganController extends Controller
         ]);
 
         $data = Komen::create($request->all());
+        
         // $data = Komen::create([
         //     'postingan_id' => $request->postingan_id,
 
@@ -301,6 +303,25 @@ public function hapus($id)
     $data->delete();
     return redirect()->back()->with('success,Data berhasil di hapus');
 }
+
+
+public function deletekomenku($id)
+    {
+        $data = Komen::find($id);
+        $foto=$data->foto;
+        $data->delete();
+        unlink(public_path('storage/komentar/'.$foto));
+
+        
+    //     $data = Komen::find($id);
+    //     $data->delete();
+    //     Storage::delete('storage/komentar'.$foto);
+    //     $cookie_name = "article_deleted";
+    //     $cookie_value = true;
+    //     $cookie_expire = time() + (60 * 60 * 24); // cookie akan berlaku selama 1 hari
+    //     setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
+            return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
+        }
+
+
 }
-
-

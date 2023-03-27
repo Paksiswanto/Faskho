@@ -12,6 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   
 
   <link rel="stylesheet" href="{{ asset ('user/demo.dashboardpack.com/sales-html/css/bootstrap1.min.css') }}" />
@@ -78,6 +79,7 @@
               <div class="header_notification_warp d-flex align-items-center">
               
               </div>
+              
               <div class="profile_info">
                 @if (Auth::user()->foto)
                 <img src="{{asset('storage/' . Auth::user()->foto)}}" style="border-radius:50%;width:50px;height:50px" alt="#">
@@ -91,8 +93,9 @@
                   </div>
                   <div class="profile_info_details">
                     <!-- Button trigger modal -->
-                    <a href="/profile">Profil</a>
-                    <a href="/logout">Keluar</a>
+                    <a class="nav-link mr-2" href="/profile"><i class="fa-solid fa-user fa-beat" style="width: 8%;margin-right:5%"></i>Profil</a>
+                    <a class="nav-link mr-2" href="/profile"><i class="fa-solid fa-bell fa-beat" style="width: 8%;margin-right:5%"></i>Notifikasi</a>
+                    <a class="nav-link mr-2" href="/keluar"><i class="fa-solid fa-right-from-bracket fa-beat" style="width: 8%;margin-right:5%"></i>Keluar</a>
                   </div>
                 </div>
               </div>

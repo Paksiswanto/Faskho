@@ -131,15 +131,9 @@
                         </div>
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
-<<<<<<< Updated upstream
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
-=======
-                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>
-                            
-                          
-                              <a href="/like/{{$komentar->id}}"class="text-danger mr-3"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
-                               
+
                               <div class="btn-group">
                                 <button class="btn btn-default" id="btn-balas">Balas</button>
                               </div>
@@ -194,8 +188,6 @@
                             {{-- <input type="submit" class="is-btn header-element" value="Balas">
                              --}}
         
-                              
->>>>>>> Stashed changes
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
 
@@ -308,9 +300,9 @@
                         <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.
                             <div class="newsletter-form">
                             <form action="#" method="post">
-                                <input type="email" name="newsletter-email" id="email"
+                                <input type="email" name="newsletter-email" id="email">
                         </p>
-                                    placeholder="Your email">
+                                   <placeholder="Your email">
                                 <button type="submit"><i class="fa fa-paper-plane-o"
                                         aria-hidden="true"></i></button>
                             </form>

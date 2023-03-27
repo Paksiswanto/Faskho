@@ -117,6 +117,7 @@ Route::middleware('auth')->group( function(){
     route::get('/deletepostingan/{id}', [PostinganController::class, 'deletepostingan'])->name('deletepostingan');
     route::get('/deleteps/{id}', [PostinganController::class, 'deleteps'])->name('deleteps');
     route::get('/komenku/{id}', [PostinganController::class, 'komenku'])->name('komenku');
+    route::get('/deletekomenku/{id}', [PostinganController::class, 'deletekomenku'])->name('deletekomenku');
     route::post('storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
     route::post('/comments/{id}/balas', [PostinganController::class, 'balas'])->name('balas');
     Route::get('/show/{id}', [PostinganController::class, 'show'])->name('show');

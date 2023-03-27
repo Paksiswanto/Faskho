@@ -171,23 +171,23 @@
 </body>
 <Script>
     $('.delete').click(function() {
-        var postinganid = $(this).attr('data-id');
+        var komenid = $(this).attr('data-id');
         var judul = $(this).attr('data-judul');
         swal({
-                title: "Yakin Mau Hapus Data ?"
-                , text: "kamu akan menghapus postingan dengan judul " + judul + ""
+                title: "Yakin Mau Hapus Komentar ?"
+                , text: ""
                 , icon: "warning"
                 , buttons: true
                 , dangerMode: true
             , })
             .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/deletepostingan/" + postinganid + ""
-                    swal("Data Berhasil dihapus", {
+                    window.location = "/deletekomenku/" + komenid + ""
+                    swal("Komentar Berhasil dihapus", {
                         icon: "success"
                     , });
                 } else {
-                    swal("Data tidak jadi dihapus");
+                    swal("Komentar tidak jadi dihapus");
                 }
             });
     })
