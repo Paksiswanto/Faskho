@@ -35,7 +35,7 @@ class PostinganController extends Controller
         $deletedPost = new DeletedPost();
         $deletedPost->user_id = $data->user_id;
         $deletedPost->judul = $data->judul;
-        $deletedPost->content = 'telah kami hapus karena melanggar aturan komunitas';
+        $deletedPost->content = 'telah admin hapus karena melanggar aturan komunitas';
         $deletedPost->save();
         $data->delete();
         return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
