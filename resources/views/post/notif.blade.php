@@ -1,8 +1,5 @@
 @extends('layout.artikel')
 @push('css')
-<style>
-
-</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
@@ -13,7 +10,6 @@
     <br>
     <br>
     <center>
-        
         <div class="top-left">
             <div class="navbar-header">
                 <a class=" ml-5 mr-5" href="/"><img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 80px"></a>
@@ -111,32 +107,23 @@
                                 <h3></h3>
                             </div>
                         </div>
-                        @foreach ($data as $index=>$row )
-
-
+                        @foreach ($data as $row )
                         <div class="card shadow-sm mb-5 bg-white rounded ">
                             <div class="row">
-                                <div class="col-5" style="width: 340px;">
-                                    <div>
-                                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="...">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-5 my-auto">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $row->judul }}</h5>
-
-
+                                        <h5 class="card-title">Pemberitahuan</h5>
                                         <p class="card-text">
-                                            {{ $row->deskripsi }}
+                                            postingan anda yang berjuadul {{$row->judul}},{{$row->content}}
                                         </p>
-                                        <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
+                                        <p class="card-text"><small class="text-muted">{{ $row->created_at }}</small></p>
                                         <br>
-                                        <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
+                               
 
                                 <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
                             </div>
@@ -146,17 +133,9 @@
                         <div>
                         @endforeach
 
-                            showing
-                            {{ $data->firstitem() }}
-                            to
-                            {{ $data->lastitem() }}
-                            of
-                            {{ $data->total() }}
-                            entries
+    
                         </div>
-                        <div class="pull-right">
-                            {{ $data ->withQueryString()-> links() }}
-                        </div>
+                       
                     </div>
                 </div>
 </div>
@@ -187,7 +166,7 @@
             , })
             .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/deletepostingan/" + postinganid + ""
+                    window.location = "/hapus/" + postinganid + ""
                     swal("Data Berhasil dihapus", {
                         icon: "success"
                     , });

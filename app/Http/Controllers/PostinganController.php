@@ -7,9 +7,11 @@ use App\Models\User;
 use App\Models\Komen;
 use App\Models\kategori;
 use App\Models\postingan;
+use App\Models\DeletedPost;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Yoeunes\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 
 class PostinganController extends Controller
@@ -29,10 +31,12 @@ class PostinganController extends Controller
     public function deletepost($id)
     {
         $data = postingan::find($id);
+        $deletedPost = new DeletedPost();
+        $deletedPost->user_id = $data->user_id;
+        $deletedPost->judul = $data->judul;
+        $deletedPost->content = 'telah kami hapus karena melanggar aturan komunitas';
+        $deletedPost->save();
         $data->delete();
-        
-         // set cookie untuk notifikasi popup
-         setcookie("article_deleted", "true", time() + (86400 * 30), "/posts"); // berlaku selama 30 hari
         return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
     }
     
@@ -41,6 +45,7 @@ class PostinganController extends Controller
     public function  posts(Request $request,$id)
         {
         $keyword = $request->key;
+        $notif = DeletedPost::where('user_id',$id)->count();
         $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
             $data = Postingan::where('user_id', $id)
                ->paginate(5);
@@ -49,7 +54,8 @@ class PostinganController extends Controller
                 return view('error.403');
 
                }
-        return view('post.postingan.post',['data' => $data],compact('data'));
+              
+        return view('post.postingan.post',['data' => $data,'notif'=>$notif],compact('data','notif'));
 
     }
     public function tambahpostingan()
@@ -141,7 +147,7 @@ class PostinganController extends Controller
     public function pembuka()
     {
         $pembuka = postingan::where('kategori_id', '=', '1')
-        ->paginate(1)
+        ->paginate(9)
         ;
         return view('user.pembuka',compact('pembuka'));
     }
@@ -149,7 +155,7 @@ class PostinganController extends Controller
     public function utama()
     {
         $utama=postingan::where('kategori_id', '=', '2')
-        ->paginate(1)
+        ->paginate(9)
         ;
         return view('user.utama',compact('utama'));
     }
@@ -157,7 +163,7 @@ class PostinganController extends Controller
     public function penutup()
     {
         $penutup=postingan::where('kategori_id', '=', '3') 
-        ->paginate(1)
+        ->paginate(9)
         ;
         return view('user.penutup',compact('penutup'));
     }
@@ -282,7 +288,19 @@ public function komenku($id)
     }
     return view('komenku',['data' => $data],compact('data'));
 }
+public function notif($id)
+{
+    $data = DB::table('deleted_posts')->where('user_id', '=', $id)
+    ->get();
 
+    return view('post.notif',compact('data'));
+}
+public function hapus($id)
+{
+    $data=DeletedPost::find($id);
+    $data->delete();
+    return redirect()->back()->with('success,Data berhasil di hapus');
+}
 }
 
 

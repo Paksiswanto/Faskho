@@ -66,7 +66,7 @@
         </li>
 
         <li class="">
-            <a href="./" aria-expanded="false">
+            <a href="/" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -99,7 +99,7 @@
                                     <h1>{{ $data->judul}}</h1>
                                     <p>Posted on: {{ $data->created_at->format('d F Y') }}</p>
                                     <p>Author: {{ Auth::user()->name}}</p>
-                                    <p>Author: {{ $data->kategori->kategori}}</p>
+                                    <p>Kategori {{ $data->kategori->kategori}}</p>
 
                                     <hr>
                                     <div>{!! $data->konten !!}</div>

@@ -56,7 +56,7 @@
                                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
+                                                    <a href = "/deletepost/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -155,28 +155,4 @@
 @push('scripts')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
-<Script>
-  $('.delete').click( function(){
-    var postinganid = $(this).attr('data-id');
-    var judul      = $(this).attr('data-judul');
-     swal({
-                title: "Yakin Mau Hapus Data ?",
-                text: "kamu akan menghapus postingan dengan judul "+judul+"",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-              })
-              .then((willDelete) => {
-                if (willDelete) {
-                  window.location = "/deletepostingan/"+postinganid+""
-                  swal("Data Berhasil dihapus", {
-                    icon: "success",
-                  });
-                } else {
-                  swal("Data tidak jadi dihapus");
-                }
-              });
-  })
-
-  </script>
 @endpush

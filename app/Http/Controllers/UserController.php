@@ -115,9 +115,9 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
 public function ban(Request $request)
 {
     $keyword = $request->keyword;
-    $bannedUsers = User::where('is_banned', true)->get();
     $data = User::where('name', 'LIKE', '%'.$keyword.'%')
-            -> paginate(10);
+    -> paginate(10);
+    $bannedUsers = User::where('is_banned', true)->get();
     return view('admin.user.ban', compact('bannedUsers','data'));
 }
 }

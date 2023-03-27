@@ -75,7 +75,7 @@ Route::post('reset-password',  [ResetPasswordController::class, 'updatepassword'
 //postingan Controller
 
 Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');
-route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');
+
 Route::get('/tampil/{id}', [PostinganController::class, 'tampil'])->name('tampil');
 Route::get('/like/{id}', [PostinganController::class, 'tampil'])->name('tampil');
 
@@ -96,8 +96,9 @@ Route::resource('comments', App\Http\Controllers\CommentController::class);
 
 // USER
 Route::middleware('auth')->group( function(){
-
+    
     //profile
+    route::post('/insertdataulasan', [UlasanController::class, 'insertdataulasan'])->name('insertdataulasan');
     route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     route::get('/tampillah/{id}', [ProfileController::class, 'tampilprofile'])->name('tampilprofile');
     route::put('/updatedpo/{id}', [ProfileController::class, 'updatedpo'])->name('updatedpo');
@@ -105,13 +106,15 @@ Route::middleware('auth')->group( function(){
     route::put('/updateprofile/{id}', [ProfileController::class, 'updateprofile'])->name('updateprofile');
 
     //postingan
+    route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');
+    route::get('/notif/{id}', [PostinganController::class, 'notif'])->name('notif');
+    route::get('/hapus/{id}', [PostinganController::class, 'hapus'])->name('hapus');
     route::get('/statistik/{id}', [PostinganController::class, 'showTotalviews'])->name('showTotalviews');
     route::get('/tambahpostingan', [PostinganController::class, 'tambahpostingan'])->name('tambahpostingan');
     route::post('/insertdatapost', [PostinganController::class, 'insertdatapost'])->name('insertdatapost');
     route::get('/tampilkandatapostingan/{id}', [PostinganController::class, 'tampilkandatapostingan'])->name('tampilkandatapostingan');
     route::post('/updt/{id}', [PostinganController::class, 'updt'])->name('updt');
     route::get('/deletepostingan/{id}', [PostinganController::class, 'deletepostingan'])->name('deletepostingan');
-    route::get('/deletepost/{id}', [PostinganController::class, 'deletepost'])->name('deletepost');
     route::get('/deleteps/{id}', [PostinganController::class, 'deleteps'])->name('deleteps');
     route::get('/komenku/{id}', [PostinganController::class, 'komenku'])->name('komenku');
     route::post('storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
@@ -121,6 +124,7 @@ Route::middleware('auth')->group( function(){
 });
 Route::middleware('admin')->group(function () {
 
+    route::get('/deletepost/{id}', [PostinganController::class, 'deletepost'])->name('deletepost');
     //Trend
     Route::get('/trend', [TrendController::class, 'index'])->name('trend');
     route::get('/tambahtrend', [TrendController::class, 'tambahtrend'])->name('tambahtrend');
@@ -142,7 +146,6 @@ Route::middleware('admin')->group(function () {
 
     route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan');
     route::get('/tambahulasan', [UlasanController::class, 'tambahulasan'])->name('tambahulasan');
-    route::post('/insertdataulasan', [UlasanController::class, 'insertdataulasan'])->name('insertdataulasan');
     route::get('/tampilkandataulasan/{id}', [UlasanController::class, 'tampilkandataulasan'])->name('tampilkandataulasan');
     route::post('/updatedata/{id}', [UlasanController::class, 'updatedata'])->name('updatedata');;
     route::get('/deletedata/{id}', [UlasanController::class, 'deletedata'])->name('deletedata');;

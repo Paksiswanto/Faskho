@@ -7,6 +7,8 @@ use App\Models\postingan;
 use App\Models\ulasan;
 
 use Illuminate\Http\Request;
+use Yoeunes\Toastr\Facades\Toastr;
+use Yoeunes\Toastr\Toastr as ToastrToastr;
 
 class UlasanController extends Controller
 {
@@ -24,13 +26,9 @@ class UlasanController extends Controller
     
     public function insertdataulasan(request $request){
         //dd($request->all());
-        $validatedata=$request->validate([
-            'nama'=>'required',
-            'komentar'=>'required'
-        ]);
     $data = ulasan::create($request->all());
-    
-    return redirect()->route('ulasan')->with('success','data Berhasil Ditambahkan');
+    Toastr::success('Ulasan Berhasil dikirim');
+    return redirect()->back();
     }
     public function tampilkandataulasan($id){
         $data = ulasan::find($id);

@@ -83,7 +83,7 @@
                         <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
                             <h2 class="contact-form-title mb-30">Jika Anda Memiliki Pertanyaan Hubungi Saya Sekarang!!</h2>
                             <!-- Contact Form -->
-                            <form action="/insertdatalaporan" method="post">
+                            <form action="/insertdataulasan" method="post">
                                 @csrf
                                 @auth
                                 <div class="form-group">
