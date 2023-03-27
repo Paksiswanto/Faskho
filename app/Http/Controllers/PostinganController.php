@@ -177,8 +177,13 @@ class PostinganController extends Controller
         $data = postingan::findOrFail($id);
         $balas=komen::all();
         $totallike= like::where('komen_id')->count();
+        $trend=postingan::all();
+        $trend=DB::table('postingans')
+        ->orderBy('views','desc')
+        ->get()
+        ->take(10);
         
-        return view('user.tampil', compact('data','komentars','balas','totallike' ));
+        return view('user.tampil', compact('data','komentars','balas','totallike','trend' ));
     }
 
     public function artikel(Request $request)

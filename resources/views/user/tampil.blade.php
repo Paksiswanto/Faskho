@@ -239,57 +239,20 @@
                             <h6>Postingan Populer</h6>
                         </div>
                         <!-- Single Popular Post -->
+                        @foreach ($trend as $data)
+                            
                         <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
+                            <img src="{{ asset('thumbnail/' . $data->foto) }}" style="width:50%;height:50%" alt="">
                             <div class="post-content">
                                 <a href="#">
-                                    <h6>Makanan enak di England</h6>
+                                    <a href="/tampil/{{$data->id}}"><h3>{{$data->judul}}</h3></a>
+                                    <p style="font-size: 15pt">{{$data->deskripsi}}</p>
                                 </a>
-                                <p>Selasa, Oktober 3, 2017</p>
+                                <p>{{$data->created_at}}</p>
                             </div>
                         </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>8 Makanan Terlezat Di jakarta</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Tempat kuliner Terbaik</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Harrogate's top 10 makanan penutup terenak</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Makanan Termurah di Oxford</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                    </div>
-
+                        @endforeach
+                       
 
 
                     <!-- Single Widget Area -->
