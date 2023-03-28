@@ -135,7 +135,7 @@ img.square {
             <div class="form">
               <i class="fa fa-search"></i>
               <form action="{{route('artikel')}}" method="get">
-              <input type="text" class="form-control form-input" name="key" value="{{Request::get('key')}}" placeholder="Cari...">
+              <input type="text" class="form-control form-input" name="key" value="{{Request::get('key')}}" placeholder="Search anything...">
             </form>
             </div>
           </div>
