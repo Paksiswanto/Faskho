@@ -1,7 +1,11 @@
 @extends('layout.artikel')
 @push('css')
 <style>
-
+img.nova {
+          width:325px;
+          height: 300px;
+          object-fit: cover;
+        }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
@@ -118,7 +122,7 @@
                             <div class="row">
                                 <div class="col-5" style="width: 340px;">
                                     <div>
-                                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="...">
+                                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="nova">
                                     </div>
                                 </div>
                                 <div class="col-5 my-auto">

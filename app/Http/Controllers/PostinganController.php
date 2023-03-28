@@ -188,7 +188,7 @@ class PostinganController extends Controller
 
     public function artikel(Request $request)
     {
-        $keyword = $request->keyword;
+        $keyword = $request->key;
         $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
             ->paginate(3);
 
