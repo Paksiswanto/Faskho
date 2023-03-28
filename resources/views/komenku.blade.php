@@ -82,7 +82,7 @@
         </li>
 
         <li class="">
-            <a href="./" aria-expanded="false">
+            <a href="{{ route('litindex') }}" aria-expanded="false">
                 <div class="icon_menu">
                     <!-- <i class="fa fa-book"></i> -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:25px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
