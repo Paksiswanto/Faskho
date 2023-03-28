@@ -1,6 +1,5 @@
 @include('layout.headuser')
 
-
 <body>
     <!-- Background Pattern Swither -->
 
@@ -134,10 +133,11 @@
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
 
-                              <div class="btn-group">
-                                <button class="btn btn-default btn-balas" id="">Balas</button>
+                              <div class="balaskomen" data-id="balas-{{$komentar->id}}">
+                                {{-- @dd($komentar->id) --}}
+                                <button class="btn btn-default btn-balas">Balas</button>
                               </div>
-                              <form class="balas" action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" method="post" enctype="multipart/form-data">
+                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <input type="hidden" name="postingan_id"
@@ -490,11 +490,13 @@
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            $('.btn-balas').click(function() {
-                $('.balas').toggle('slide');
-            });
-        });
+               $(document).ready(function () {
+            $('.balaskomen').click(function () {
+                var id = $(this).data('id');
+                console.log(id)
+                $('#'+id).toggle('slide')
+            })
+        })
     </script>
 <<<<<<< Updated upstream
 
