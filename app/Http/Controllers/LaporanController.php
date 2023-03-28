@@ -25,7 +25,7 @@ class LaporanController extends Controller
     public function insertlaporan(Request $request)
     {
         $data=laporan::create($request->all());
-        return redirect()->back();
+        return redirect()->back()->with('success','Laporan berhasil di kirim');
     }
 
     //laporanar

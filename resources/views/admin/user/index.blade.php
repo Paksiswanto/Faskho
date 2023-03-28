@@ -58,7 +58,11 @@
                                     @endif
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
-                                        <a href="/ban/{{ $row->id }}" class="btn btn-danger delete">Ban</a>
+                                        @if ($row->is_banned == true)
+                                        <a href="/ban/{{ $row->id }}"><button disabled class="btn btn-danger p-2">Ban</button></a>
+                                            @else
+                                        <a href="/ban/{{ $row->id }}"><button class="btn btn-danger p-2">Ban</button></a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

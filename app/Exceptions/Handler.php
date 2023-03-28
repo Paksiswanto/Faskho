@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
         return response()->view('error.404', [], 404);
     }
     if ($exception instanceof UnauthorizedHttpException) {
-        return response()->view('errors.403', [], 403);
+        return response()->view('error.403', [], 403);
     }
     if ($exception instanceof \Illuminate\Database\QueryException) {
         if ($exception->errorInfo[1] == 2002) {

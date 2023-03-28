@@ -115,7 +115,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Pemberitahuan</h5>
                                         <p class="card-text">
-                                            postingan anda yang berjudul {{$row->judul}}, {{$row->content}}
+                                            postingan anda yang berjudul "{{$row->judul}}", {{$row->content}}
                                         </p>
                                         <p class="card-text"><small class="text-muted">{{ $row->created_at }}</small></p>
                                         <br>
@@ -159,7 +159,7 @@
         var judul = $(this).attr('data-judul');
         swal({
                 title: "Yakin Mau Hapus Data ?"
-                , text: "kamu akan menghapus postingan dengan judul " + judul + ""
+                , text: ""
                 , icon: "warning"
                 , buttons: true
                 , dangerMode: true
