@@ -6,14 +6,6 @@
 
     @include('layout.navkul')
     <!-- ****** Breadcumb Area Start ****** -->
-
-    <style>
-        img.pum {
-          width:800px;
-          height: 500px;
-          object-fit: cover;
-        }
-        </style>
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -79,7 +71,7 @@
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="pum">
+                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" style="width: 100%">
 
                                 </div>
                                 <!-- Post Content -->
@@ -142,11 +134,10 @@
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
                               <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
 
-                              <div class="balaskomen" data-id="balas-{{$komentar->id}}">
-                                {{-- @dd($komentar->id) --}}
-                                <button class="btn btn-default btn-balas">Balas</button>
+                              <div class="btn-group">
+                                <button class="btn btn-default btn-balas" id="">Balas</button>
                               </div>
-                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
+                              <form class="balas" action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" method="post" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <input type="hidden" name="postingan_id"
@@ -168,7 +159,7 @@
                                         id="contact-foto" placeholder="upload foto">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="pesan" id="balas" cols="30" rows="10" placeholder="balas" >
+                                    <input class="form-control " id="balas" name="pesan"  cols="30" rows="10" placeholder="balas" >
                                 </div>
                                 <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
                             </form>
@@ -186,16 +177,12 @@
                                         <div class="media-body ml-2">
                                         <h5 style="margin-left: -3px">{{ $child->nama }}</h5>
                                         <p style="margin-bottom: -10px">{{ $child->pesan }}</p>
-                                
                                 </div>
                             </div>
                                 </div>
                               @endforeach
                               
-                            {{-- <input type="hidden" name="parent" value="{{$komentar->id}}">
-                            <input type="text" name="pesan" class="form-control mt-3 mb-3" placeholder="Balas Komentar" id=""> --}}
-                            {{-- <input type="submit" class="is-btn header-element" value="Balas">
-                             --}}
+
         
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
@@ -248,57 +235,20 @@
                             <h6>Postingan Populer</h6>
                         </div>
                         <!-- Single Popular Post -->
+                        @foreach ($trend as $data)
+                            
                         <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/1.jpg') }}" alt="">
+                            <img src="{{ asset('thumbnail/' . $data->foto) }}" style="width:50%;height:50%" alt="">
                             <div class="post-content">
                                 <a href="#">
-                                    <h6>Makanan enak di England</h6>
+                                    <a href="/tampil/{{$data->id}}"><h3>{{$data->judul}}</h3></a>
+                                    <p style="font-size: 15pt">{{$data->deskripsi}}</p>
                                 </a>
-                                <p>Selasa, Oktober 3, 2017</p>
+                                <p>{{$data->created_at}}</p>
                             </div>
                         </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/2.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>8 Makanan Terlezat Di jakarta</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/3.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Tempat kuliner Terbaik</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/4.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Harrogate's top 10 makanan penutup terenak</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="{{ asset('yummy-master/yummy-master/img/sidebar-img/5.jpg') }}" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Makanan Termurah di Oxford</h6>
-                                </a>
-                                <p>Selasa, Oktober 3, 2017</p>
-                            </div>
-                        </div>
-                    </div>
-
+                        @endforeach
+                       
 
 
                     <!-- Single Widget Area -->
@@ -539,23 +489,18 @@
     <script src="{{ asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('.btn-balas').click(function() {
                 $('.balas').toggle('slide');
             });
         });
-    </script> --}}
-    <script>
-        $(document).ready(function () {
-            $('.balaskomen').click(function () {
-                var id = $(this).data('id');
-                console.log(id)
-                $('#'+id).toggle('slide')
-            })
-        })
     </script>
+<<<<<<< Updated upstream
 
+=======
    
 </body>
+>>>>>>> Stashed changes
 
+</body>
