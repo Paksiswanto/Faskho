@@ -98,7 +98,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Top 10 Artikel Terbaik: </h4>
+                                    <h4 class="box-title">Top Artikel Terbaik: </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">

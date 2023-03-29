@@ -74,6 +74,13 @@
           object-fit: cover;
         }
         </style>
+         <style>
+        img.pia {
+          width:300px;
+          height: 150px;
+          object-fit: cover;
+        }
+        </style>
 
     <!-- Responsive CSS -->
     <link href="{{asset('yummy-master/yummy-master/css/responsive/responsive.css')}}" rel="stylesheet">
@@ -293,7 +300,7 @@
                             @foreach ($data as $item )
                         
                             <div class="single-populer-post d-flex">
-                                <img src="{{ asset('thumbnail/'.$item->foto) }}" alt="">
+                                <img src="{{ asset('thumbnail/'.$item->foto) }}" class="pia">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6> {{$item->judul}} </h6>

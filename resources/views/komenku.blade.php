@@ -114,7 +114,7 @@
                             <div class="row">
                                 <div class="col-5" style="width: 340px;">
                                     <div>
-                                        <img src="{{ asset('storage/komentar/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="...">
+                                        <img src="{{ asset('storage/komentar/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="">
                                     </div>
                                 </div>
                                 <div class="col-5 my-auto">

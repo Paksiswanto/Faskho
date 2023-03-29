@@ -4,6 +4,20 @@
     <!-- Background Pattern Swither -->
 
     @include('layout.navkul')
+    <style>
+img.nov {
+  width:800px;
+  height: 500px;
+  object-fit: cover;
+}
+</style>
+<style>
+img.nova {
+  width:400px;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
@@ -70,7 +84,7 @@
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" style="width: 100%">
+                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->
@@ -101,11 +115,7 @@
                             </div>
 
                             <!-- Tags Area -->
-                            <div class="tags-area">
-                                <a href="#">kuliner</a>
-                                <a href="#">makananpembuka</a>
-                                <a href="#">asia</a>
-                            </div>
+                         
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
@@ -131,7 +141,7 @@
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
-                              <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a>
+                              {{-- <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a> --}}
 
                               <div class="balaskomen" data-id="balas-{{$komentar->id}}">
                                 {{-- @dd($komentar->id) --}}
@@ -168,11 +178,10 @@
                               <div class="">
                                 
                                     <div class="comment-author mt-3 mb-3 media mr-3" style="display: flex">
-                                        @if ($komentar->user->foto == null)
+                                        @if ($child->user->foto == null)
                                         <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
                                         @else
-                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
-                                        alt="User Avatar">
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{asset('storage/' . $child->user->foto)}}" alt="User Avatar">
                                         @endif
                                         <div class="media-body ml-2">
                                         <h5 style="margin-left: -3px">{{ $child->nama }}</h5>
@@ -223,6 +232,8 @@
                                             </form>
                                         </div>
                                     </div>
+                                    @else
+                                           <center>     <p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
                                 @endauth
                             </div>
                         </div>
@@ -238,7 +249,7 @@
                         @foreach ($trend as $data)
                             
                         <div class="single-populer-post d-flex">
-                            <img src="{{ asset('thumbnail/' . $data->foto) }}" style="width:50%;height:50%" alt="">
+                            <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nova">
                             <div class="post-content">
                                 <a href="#">
                                     <a href="/tampil/{{$data->id}}"><h3>{{$data->judul}}</h3></a>

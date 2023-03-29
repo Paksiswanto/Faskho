@@ -128,11 +128,13 @@ class PostinganController extends Controller
     public function deletepostingan($id)
     {
         $data = postingan::find($id);
+            // Hapus file foto dari server
+    if (file_exists(public_path('thumbnail/'.$data->foto))) {
+        unlink(public_path('thumbnail/'.$data->foto));
+    }
+
         $data->delete();
-        $cookie_name = "article_deleted";
-        $cookie_value = true;
-        $cookie_expire = time() + (60 * 60 * 24); // cookie akan berlaku selama 1 hari
-        setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
+
             return redirect()->back()->with('success', 'Post berhasil dihapus.');
         }
         //ini untuk pratinjau
@@ -190,7 +192,7 @@ class PostinganController extends Controller
     {
         $keyword = $request->key;
         $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
-            ->paginate(3);
+            ->paginate(9);
 
         return view('user.artikel',compact('artikel'));
     }

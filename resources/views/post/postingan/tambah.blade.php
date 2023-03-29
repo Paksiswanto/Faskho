@@ -1,19 +1,19 @@
 @extends('layout.artikel')
 @push('css')
- <style>
-  #submitBtn {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
+<style>
+    #submitBtn {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
 
-  #submitBtn[disabled] {
-    background-color: red;
-    cursor: not-allowed;
-  }
-    
+    #submitBtn[disabled] {
+        background-color: red;
+        cursor: not-allowed;
+    }
+
 </style>
 @endpush
 
@@ -96,7 +96,7 @@
             </li>
 
             <li class="">
-                <a href={{ route('litindex') }}" aria-expanded="false">
+                <a href="{{ route('litindex') }}" aria-expanded="false">
                     <div class="icon_menu">
                         <!-- <i class="fa fa-book"></i> -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="color: red; width:20px;" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -121,126 +121,132 @@
                     <div class="card-body--">
                         <form class="px-4" action="{{Route('insertdatapost')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                        <div class="row">
-                            <div class="mb-3">
-                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                
-                            </div>
+                            <div class="row">
+                                <div class="mb-3">
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
-                            <div class="mb-3">
-                                <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
-                            </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
+                                </div>
 
 
-                            <div class="col-md-6 mb-2 w-50">
-                                <h3>Judul:</h3>
-                                <input type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
+                                <div class="col-md-6 mb-2 w-50">
+                                    <h3>Judul:</h3>
+                                    <input type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                @error('judul')
-                                {{$message}}
-                                @enderror
-                            </div>
+                                    @error('judul')
+                                    {{$message}}
+                                    @enderror
+                                </div>
 
-                            <div class="col-md-6 mb-3">
-                                <h3>Thumbnail:</h3>
-                                <input type="file" name="foto" class="form-control @error('foto')
+                                <div class="col-md-6 mb-3">
+                                    <h3>Thumbnail:</h3>
+                                    <input type="file" name="foto" class="form-control @error('foto')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" value="{{old('foto')}}" aria-describedby="emailHelp">@error('foto')
-                                {{$message}}
-                                @enderror
-                            </div>
-                            
-                            <div class="col-md-6 mb-3 w-50">
-                                <h5>Deskripsi:</h5>
-                                <textarea   name="deskripsi"  value="{{old('deskripsi')}}" class="form-control @error('deskripsi')
+                                    {{$message}}
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mb-3 w-50">
+                                    <h5>Deskripsi:</h5>
+                                    <textarea name="deskripsi" class="form-control @error('deskripsi')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                @error('deskripsi') 
+                                @enderror" id="exampleInputEmail1" value="{{old('deskripsi')}}" aria-describedby="emailHelp"> @error('deskripsi') 
                                 {{$message}}
                                 @enderror </textarea>
-                            </div>
+                                </div>
+                                {{-- <div class="col-md-6 mb-3 w-50">
+                                    <h5>Deskripsi:</h5>
+                                    <textarea name="deskripsi" class="form-control @error('deskripsi')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{old('deskripsi')}}" aria-describedby="emailHelp">@error('deskripsi')
+                                {{$message}}
+                                @enderror</textarea>
+                                </div> --}}
+                                <div class="col-md-6 mb-3 w-50">
+                                    <h5>Kategori:</h5>
+                                    <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
+                                        <option selected>Pilih Kategori</option>
+                                        @foreach ($dtkategori as $data)
+                                        <option value="{{ $data->id }}">{{ $data->kategori }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                            <div class="col-md-6 mb-3 w-50">
-                                <h5>Kategori:</h5>
-                                <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
-                                    <option selected>Pilih Kategori</option>
-                                    @foreach ($dtkategori as $data)
-                                    <option value="{{ $data->id }}">{{ $data->kategori }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
-                            
 
-                            <div class="mb-3">
-                                <h3>Konten:</h3>
-                                <textarea name="konten" id="summernote" class="form-control @error('konten')
+                                <div class="mb-3">
+                                    <h3>Konten:</h3>
+                                    <textarea name="konten" id="summernote" class="form-control @error('konten')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" value="{{old('konten')}}" aria-describedby="emailHelp">@error('konten')
                                 {{$message}}
                                 @enderror</textarea>
-                            </div>
+                                </div>
 
-                            <div class="form-group">
-                                <input type="checkbox" name="agree" id="termsCheck">
-                                <label for="agree">
-                                    Saya menyetujui
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Syarat dan Ketentuan</button>
+                                <div class="form-group">
+                                    <input type="checkbox" name="agree" id="termsCheck">
+                                    <label for="agree">
+                                        Saya menyetujui
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Syarat dan Ketentuan</button>
                                     </label>
 
-                                @if($errors->has('agree'))
-                                <div class="invalid-feedback">{{ $errors->first('agree') }}</div>
-                                @endif
+                                    @if($errors->has('agree'))
+                                    <div class="invalid-feedback">{{ $errors->first('agree') }}</div>
+                                    @endif
+                                </div>
+
                             </div>
-                            
-                        </div>
 
-<!-- Modal -->
+                            <!-- Modal -->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Syarat & Ketentuan Pengguna KulinerKu</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p class="card-text">KulinerKu dengan ini menetapkan Syarat dan Ketentuan dalam pengaturan pemakaian situs www.kulinerku.com. Yang mendaftar atau menggunakan situs www.kulinerku.com, maka pengguna dianggap telah membaca dan menyetujui semua isi dalam Syarat dan Ketentuan. Apabila ada yang kurang jelas, dapat menghubungi kami di halaman kontak.</p>
-        <br>
-            <h5 class="card-title">Penggunaan KulinerKu</h5>
-        <p class="card-text">(1) Akses
-            untuk dapat menggunakan dan mengakses KulinerKu, pengguna diharuskan untuk berumur lebih dari 18 tahun. Apabila pengguna berumur kurang dari 18 tahun, maka tidak diijinkan untuk menggunakan dan mengakses KulinerKu.
-            <br>
-            (2) Dilarang untuk menulis dan/atau menjual ulang
-            <br>
-            (a) KulinerKu adalah produk untuk keperluan non-komersial. Pengguna tidak diijinkan untuk menggunakan KulinerKu untuk kegiatan bisnis, atau kegiatan apapun yang berhubungan dengan menghasilkan profit. Pengguna juga tidak diijinkan untuk mempromosikan kegiatan-kegiatan yang berhubungan dengan agama atau politik.
-            <br>
-            (b) Dilarang untuk melakukan penulisan ulang review-review yang di-post oleh Pengguna KulinerKu selain Pengguna itu sendiri.
-            <br>
-            (3) Melakukan post review, Hak Cipta
-            <br>
-            (a) Pengguna diwajibkan untuk melakukan registrasi untuk melakukan post review di KulinerKu..
-            <br>
-            (b) Apabila Pengguna melakukan registrasi di KulinerKu, Pengguna secara otomatis memberikan kuasa dan ijin kepada Perusahaan untuk dapat melakukan penulisan ulang, pendistribusian, sub-lisensi hal-hal yang Pengguna post di KulinerKu, termasuk di dalamnya adalah review.
-            <br>
-            (c) Pengguna menjamin kepada Perusahaan bahwa mereka memiliki hak-hak atas review yang mereka post. Pengguna juga menjamin bahwa review yang mereka post tidak melanggar hukum-hukum yang berlaku, hak-hak orang lain ataupun hak cipta pihak ketiga.
-            <br>
-            (d) Perusahaan atau pihak ketiga yang menerima sub-lisensi dari Perusahaan, dapat menggunakan review yang di-post oleh Pengguna KulinerKu dengan menggunakan isi dari konten-konten tersebut. Dalam hal ini, perlu diketahui bahwa ada kemungkinan terjadi sedikit perubahan-perubahan terhadap review untuk kenyamanan. Untuk kegiatan-kegiatan seperti ini, Perusahaan menjamin akan menampilkan akun Pengguna yang mem-post review tersebut.
-            <br>
-            (4) Kondisi untuk menggunakan PergiKuliner
-            Dengan menggunakan KulinerKu, Pengguna setuju dengan Syarat dan Ketentuan yang ditentukan.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-          </div>
-      </div>
-    </div>
-  </div>
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Syarat & Ketentuan Pengguna KulinerKu</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="card-text">KulinerKu dengan ini menetapkan Syarat dan Ketentuan dalam pengaturan pemakaian situs www.kulinerku.com. Yang mendaftar atau menggunakan situs www.kulinerku.com, maka pengguna dianggap telah membaca dan menyetujui semua isi dalam Syarat dan Ketentuan. Apabila ada yang kurang jelas, dapat menghubungi kami di halaman kontak.</p>
+                                            <br>
+                                            <h5 class="card-title">Penggunaan KulinerKu</h5>
+                                            <p class="card-text">(1) Akses
+                                                untuk dapat menggunakan dan mengakses KulinerKu, pengguna diharuskan untuk berumur lebih dari 18 tahun. Apabila pengguna berumur kurang dari 18 tahun, maka tidak diijinkan untuk menggunakan dan mengakses KulinerKu.
+                                                <br>
+                                                (2) Dilarang untuk menulis dan/atau menjual ulang
+                                                <br>
+                                                (a) KulinerKu adalah produk untuk keperluan non-komersial. Pengguna tidak diijinkan untuk menggunakan KulinerKu untuk kegiatan bisnis, atau kegiatan apapun yang berhubungan dengan menghasilkan profit. Pengguna juga tidak diijinkan untuk mempromosikan kegiatan-kegiatan yang berhubungan dengan agama atau politik.
+                                                <br>
+                                                (b) Dilarang untuk melakukan penulisan ulang review-review yang di-post oleh Pengguna KulinerKu selain Pengguna itu sendiri.
+                                                <br>
+                                                (3) Melakukan post review, Hak Cipta
+                                                <br>
+                                                (a) Pengguna diwajibkan untuk melakukan registrasi untuk melakukan post review di KulinerKu..
+                                                <br>
+                                                (b) Apabila Pengguna melakukan registrasi di KulinerKu, Pengguna secara otomatis memberikan kuasa dan ijin kepada Perusahaan untuk dapat melakukan penulisan ulang, pendistribusian, sub-lisensi hal-hal yang Pengguna post di KulinerKu, termasuk di dalamnya adalah review.
+                                                <br>
+                                                (c) Pengguna menjamin kepada Perusahaan bahwa mereka memiliki hak-hak atas review yang mereka post. Pengguna juga menjamin bahwa review yang mereka post tidak melanggar hukum-hukum yang berlaku, hak-hak orang lain ataupun hak cipta pihak ketiga.
+                                                <br>
+                                                (d) Perusahaan atau pihak ketiga yang menerima sub-lisensi dari Perusahaan, dapat menggunakan review yang di-post oleh Pengguna KulinerKu dengan menggunakan isi dari konten-konten tersebut. Dalam hal ini, perlu diketahui bahwa ada kemungkinan terjadi sedikit perubahan-perubahan terhadap review untuk kenyamanan. Untuk kegiatan-kegiatan seperti ini, Perusahaan menjamin akan menampilkan akun Pengguna yang mem-post review tersebut.
+                                                <br>
+                                                (4) Kondisi untuk menggunakan PergiKuliner
+                                                Dengan menggunakan KulinerKu, Pengguna setuju dengan Syarat dan Ketentuan yang ditentukan.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <button type="submit" id="submitBtn" disabled >Posting</button>
+                            <button type="submit" id="submitBtn" disabled>Posting</button>
                         </form>
                     </div>
                 </div>
@@ -255,19 +261,20 @@
 </body>
 
 <script>
-  const termsCheck = document.querySelector('#termsCheck');
-  const submitBtn = document.querySelector('#submitBtn');
+    const termsCheck = document.querySelector('#termsCheck');
+    const submitBtn = document.querySelector('#submitBtn');
 
-  // Memeriksa checkbox setiap kali diperbarui
-  termsCheck.addEventListener('change', function() {
-    if (this.checked) {
-      // Checkbox dicentang, aktifkan tombol submit
-      submitBtn.removeAttribute('disabled');
-    } else {
-      // Checkbox tidak dicentang, nonaktifkan tombol submit
-      submitBtn.setAttribute('disabled', true);
-    }
-  });
+    // Memeriksa checkbox setiap kali diperbarui
+    termsCheck.addEventListener('change', function() {
+        if (this.checked) {
+            // Checkbox dicentang, aktifkan tombol submit
+            submitBtn.removeAttribute('disabled');
+        } else {
+            // Checkbox tidak dicentang, nonaktifkan tombol submit
+            submitBtn.setAttribute('disabled', true);
+        }
+    });
+
 </script>
 
 

@@ -38,7 +38,7 @@
                                             <td>{{ $row->judul }}</td>
                                             <td>{{ $row->created_at->format('D M Y') }}</td>
                                             <td>
-                                                <a href = "#"  class="btn btn-danger delete" data-id="{{ $row->id }}" data-user="{{ $row->user }}">Hapus</a>
+                                        <a href="/deletedp/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -85,27 +85,5 @@
     @push('scripts')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
-<Script>
-  $('.delete').click( function(){
-    var postinganid = $(this).attr('data-id');
-     swal({
-                title: "Yakin Mau Hapus Data ?",
-                text: "kamu akan menghapus ulasan  "+postinganid+"",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-              })
-              .then((willDelete) => {
-                if (willDelete) {
-                  window.location = "/deletedp/"+postinganid+""
-                  swal("Data Berhasil dihapus", {
-                    icon: "success",
-                  });
-                } else {
-                  swal("Data tidak jadi dihapus");
-                }
-              });
-  })
 
-  </script>
 @endpush

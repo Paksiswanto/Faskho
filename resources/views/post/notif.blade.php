@@ -125,7 +125,7 @@
                             <div class="card-footer">
                                
 
-                                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
+                                <a href="/hapus/{{ $row->id }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
                             </div>
                         </div>
 

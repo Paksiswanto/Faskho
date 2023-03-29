@@ -125,8 +125,7 @@
                                 <h5>Deskripsi:</h5>
                                 <textarea  name="deskripsi"  value="{{$data ->deskripsi}}" class="form-control @error('deskripsi')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                @error('deskripsi') 
+                                @enderror" id="exampleInputEmail1" aria-describedby="emailHelp"> @error('deskripsi') 
                                 {{$message}}
                                 @enderror {{$data ->deskripsi}}</textarea>
                             </div>
