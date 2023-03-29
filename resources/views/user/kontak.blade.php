@@ -97,7 +97,7 @@
                                     <input type="text" class="form-control" id="contact-website" placeholder="Website">
                                 </div> -->
                                 <div class="form-group">
-                                    <textarea class="form-control" name="laporan" id="message" cols="30" rows="10" placeholder="Tulis Pernyataan anda"></textarea>
+                                    <textarea required class="form-control" name="laporan" id="message" cols="30" rows="10" placeholder="Tulis Pernyataan anda"></textarea>
                                 </div>
                                 <button type="submit" id="kirimBtn">Kirimkan</button>
                             </form>

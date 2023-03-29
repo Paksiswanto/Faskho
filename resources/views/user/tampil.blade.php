@@ -140,9 +140,18 @@ img.nova {
                         </div>
                               
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
-                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>     
-                              {{-- <a href="/like/{{$komentar->id}}"class="text-danger"><i class ="fas fa-heart"></i>  <span>{{$totallike++}} like</span></a> --}}
+                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>   
+                            <div style="display: inline-block">
+                            
 
+                            @if ($komentar->like)
+                            <a href="/like/{{$komentar->id}}"class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i> <p style="display: inline">  {{ $komentar->like->count() }}</p></a>
+                            @else
+                            <a href="/like/{{$komentar->id}}"class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i> like <p> 0</p></a> 
+                              @endif
+                           <a href="#" class="like-komentar">
+                      </a>
+                    </div>  
                               <div class="balaskomen" data-id="balas-{{$komentar->id}}">
                                 {{-- @dd($komentar->id) --}}
                                 <button class="btn btn-default btn-balas">Balas</button>
@@ -296,7 +305,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -304,7 +321,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -312,7 +337,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/3.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -320,7 +353,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/4.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -328,7 +369,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/5.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -336,7 +385,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/6.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -344,7 +401,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Instagram Item -->
@@ -352,7 +417,15 @@ value=" {{ Auth::user()->id }} ">
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
-          
+            <div class="hover_overlay">
+                <div class="yummy-table">
+                    <div class="yummy-table-cell">
+                        <div class="follow-me text-center">
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -439,7 +512,7 @@ value=" {{ Auth::user()->id }} ">
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script>
-       
+        
                $(document).ready(function () {
             $('.balaskomen').click(function () {
                 var id = $(this).data('id');

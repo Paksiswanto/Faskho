@@ -13,7 +13,8 @@ class LikeController extends Controller
         $like = Like::where('komen_id', $komen_id)->where('user_id', auth()->user()->id)->first();
 
         if ($like){
-            return "like ada";
+            $like->delete();
+            return back();
         } else {
             Like::create([
                 'user_id' => Auth::user()->id,
