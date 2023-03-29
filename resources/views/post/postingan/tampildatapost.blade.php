@@ -134,9 +134,9 @@
                                 <h5>Kategori:</h5>
                                 <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
                                     <option disabled value>Pilih Kategori</option>
-                                    <option value="{{ $kt->kategori_id }}">{{ $kt->kategori->kategori }}</option>
+                                   
                                     @foreach ($dtkategori as $kt)
-                                    <option value="{{ $kt->id }}">{{ $kt->kategori }}</option>
+                                    <option value="{{ $kt->id }}"  {{ ($kt->id==$data->kategori_id)? "selected" : "" }}>{{ $kt->kategori }}</option>
                                     @endforeach
                                 </select>
                             </div>

@@ -134,7 +134,7 @@
 
                                 <div class="col-md-6 mb-2 w-50">
                                     <h3>Judul:</h3>
-                                    <input type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
+                                    <input  style="width:100%"type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     @error('judul')

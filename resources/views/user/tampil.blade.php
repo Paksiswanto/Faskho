@@ -152,18 +152,20 @@ img.nova {
                                 
                                 <input type="hidden" name="postingan_id"
                                     value=" {{ $data->id }} ">
+@auth
+    
+<input type="hidden" name="user_id"
+value=" {{ Auth::user()->id }} ">
 
-                                    <input type="hidden" name="user_id"
-                                    value=" {{ Auth::user()->id }} ">
-                                
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="nama"
-                                         id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="email" class="form-control"
-                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
-                                </div>
+<div class="form-group">
+    <input type="hidden" class="form-control" name="nama"
+    id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+</div>
+<div class="form-group">
+    <input type="hidden" name="email" class="form-control"
+    id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+</div>
+@endauth
                                 <div class="form-group-append">
                                     <input type="hidden" name="parent" value="{{$komentar->id}}"
                                         id="contact-foto" placeholder="upload foto">
@@ -294,15 +296,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -310,15 +304,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -326,15 +312,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/3.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -342,15 +320,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/4.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -358,15 +328,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/5.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -374,15 +336,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/6.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -390,15 +344,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
         <!-- Instagram Item -->
@@ -406,15 +352,7 @@ img.nova {
             <!-- Instagram Thumb -->
             <img src="{{ asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
 
     </div>
@@ -501,6 +439,7 @@ img.nova {
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script>
+       
                $(document).ready(function () {
             $('.balaskomen').click(function () {
                 var id = $(this).data('id');

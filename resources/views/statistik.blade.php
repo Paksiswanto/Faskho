@@ -113,7 +113,7 @@
 
                         <div class="row mb-3">
 
-                            <div class="col-lg-3 col-md-6 ">
+                            <div class="col-6 ">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="stat-widget-five">
@@ -127,7 +127,7 @@
                             </div>
 
                     
-                            <div class="col-lg-3 col-md-6 ">
+                            <div class="col-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="stat-widget-five">
