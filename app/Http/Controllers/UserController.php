@@ -17,7 +17,9 @@ class UserController extends Controller
     {
         $keyword = $request->keyword;
         
-        $data = User::where('name', 'LIKE', '%'.$keyword.'%')
+        $data = User::where('is_banned',false)
+        ->where('role','user')
+        ->where('name', 'LIKE', '%'.$keyword.'%')
                 -> paginate(10);
                 
         return view('admin.user.index',compact('data'));
@@ -64,6 +66,8 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
         ->orderBy('views','desc')
         ->get()
         ->take(10);
+
+
     return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data,'pot'=>$pot]);
 }
 
@@ -115,10 +119,12 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
 public function ban(Request $request)
 {
     $keyword = $request->keyword;
-    $data = User::where('name', 'LIKE', '%'.$keyword.'%')
+   
+    $data = User::where('is_banned',true)
+    ->where('name', 'LIKE', '%'.$keyword.'%')
     -> paginate(10);
-    $bannedUsers = User::where('is_banned', true)->get();
-    return view('admin.user.ban', compact('bannedUsers','data'));
+    return view('admin.user.ban', compact('data'));
 }
+
 }
 

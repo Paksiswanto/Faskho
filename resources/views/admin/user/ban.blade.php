@@ -34,7 +34,6 @@
                                     <th>#</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>tanggal</th>
                                     <th>Banned</th>
 
@@ -45,12 +44,11 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($bannedUsers as $index=>$row )
+                                @foreach ($data as $index=>$row )
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->name}}</td>
                                     <td>{{ $row->email}}</td>
-                                    <td>{{ $row->password}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>banned</td>
                                     <td>

@@ -34,7 +34,6 @@
                                     <th>#</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Password</th>
                                     <th>status</th>
                                     <th>tanggal</th>
 
@@ -50,7 +49,6 @@
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->name}}</td>
                                     <td>{{ $row->email}}</td>
-                                    <td>{{ $row->password}}</td>
                                     @if ($row->is_banned == true)
                                     <td>banned</td>
                                     @else

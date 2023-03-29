@@ -70,7 +70,7 @@ class PostinganController extends Controller
 
     public function insertdatapost(request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $validatedata = $request->validate([
             'judul' => 'required',
             'konten' => 'required',

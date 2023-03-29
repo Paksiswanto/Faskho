@@ -122,16 +122,6 @@
                         <form class="px-4" action="{{Route('insertdatapost')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="mb-3">
-                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="hidden" name="nama" value="{{ auth()->user()->name }}">
-                                </div>
-
-
                                 <div class="col-md-6 mb-2 w-50">
                                     <h3>Judul:</h3>
                                     <input  style="width:100%"type="text" name="judul" value="{{old('judul')}}" class="form-control @error('judul')
@@ -186,6 +176,9 @@
                                 @enderror" id="exampleInputEmail1" value="{{old('konten')}}" aria-describedby="emailHelp">@error('konten')
                                 {{$message}}
                                 @enderror</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                 </div>
 
                                 <div class="form-group">

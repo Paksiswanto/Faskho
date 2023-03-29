@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\postingan;
 
 class User extends Authenticatable
 {
@@ -44,9 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function postingans()
+    public function postingan()
     {
-        return $this->hasMany(postingan::class,'user_id','id');
+        return $this->hasMany(postingan::class);
     }
     protected $attributes = [
         'is_banned' => false,
