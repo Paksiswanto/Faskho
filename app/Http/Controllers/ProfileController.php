@@ -28,8 +28,17 @@ class ProfileController extends Controller
     }
     public function updateprofile(Request $request, $id)
     {
-        //dd($request->all());
+        $validatedata = $request->validate([
+            'name' => 'required|max:10',
+            'foto' => 'mimes:png,jpg,jpeg,jfif',
+
+        ]);
+        //dd($requ
         $user = User::find($id);
+        $user->update([
+            'name' => $request->name,
+
+        ]);
         if($request->hasFile('foto')){
             $data = DB::table('users')->where('id',$id)->get();
             foreach($data as $datas){
