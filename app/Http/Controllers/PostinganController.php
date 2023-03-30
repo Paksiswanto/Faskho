@@ -201,11 +201,14 @@ class PostinganController extends Controller
         $keyword = $request->keyword;
 
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
-        $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')->where('users.is_banned', '=', 0)->inrandomOrder()->take(2)->get(); 
+        $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')            ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
+        ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
+        ->where('users.is_banned', '=', 0)->inrandomOrder()->take(2)->get(); 
 
             
             $posts = DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
             ->where('users.is_banned', '=', 0)
             ->orderBy('postingans.created_at','desc')
             ->get()
@@ -214,6 +217,7 @@ class PostinganController extends Controller
            
             $data=DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->select('postingans.id','postingans.thumbnail','postingans.views','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
             ->where('users.is_banned', '=', 0)
             ->orderBy('postingans.views','desc')
             ->get()
@@ -221,6 +225,7 @@ class PostinganController extends Controller
            
             $trend=DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
             ->where('users.is_banned', '=', 0)
             ->orderBy('views','desc')
             ->get()
