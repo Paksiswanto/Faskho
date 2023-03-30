@@ -201,21 +201,24 @@ class PostinganController extends Controller
         $keyword = $request->keyword;
 
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
-        $randomData = DB::table('postingans')->inrandomOrder()->take(2)->get(); 
+        $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')->inrandomOrder()->take(2)->get(); 
 
-            $posts=postingan::all();
+            
             $posts = DB::table('postingans')
-            ->latest()
+            ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->orderBy('postingans.created_at','desc')
             ->get()
             ->take(5);
             
-            $data=postingan::all();
+           
             $data=DB::table('postingans')
-            ->orderBy('views','desc')
+            ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->orderBy('postingans.views','desc')
             ->get()
             ->take(10);
-            $trend=postingan::all();
+           
             $trend=DB::table('postingans')
+            ->join('users', 'postingans.user_id', '=', 'users.id')
             ->orderBy('views','desc')
             ->get()
             ->take(1);

@@ -35,7 +35,10 @@ class UserController extends Controller
     $totallaporan=laporan::count();
     $totalUsers = User::count();
     
-   
+    $counts = Postingan::join('users', 'postingans.user_id', '=', 'users.id')
+    ->groupBy('users.name') // memasukkan kolom users.name ke dalam GROUP BY
+    ->selectRaw('users.name, count(*) as total')
+    ->get();
 $postings = Postingan::all();
 $postings = Postingan::orderByDesc('views')->take(10)->get();
 
@@ -63,12 +66,13 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
         
         $pot=postingan::all();
         $pot=DB::table('postingans')
+        ->join('users', 'postingans.user_id', '=', 'users.id')
         ->orderBy('views','desc')
         ->get()
         ->take(10);
 
 
-    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data,'pot'=>$pot]);
+    return view('admin', ['totalUsers' => $totalUsers,'totalpostingan'=>$totalpostingan,'totallaporan'=>$totallaporan,'data'=>$data,'pot'=>$pot,'counts'=>$counts]);
 }
 
 
@@ -77,10 +81,18 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
 
     public function deleteda($id){
         $data = User::find($id);
+        $post=postingan::all();
+        $post = postingan::where('user_id',$id)->get();
+        foreach ($post as $post) {
+            if (file_exists(public_path('thumbnail/'.$post->foto))) {
+                unlink(public_path('thumbnail/'.$post->foto));
+            }
+        $post->delete();
         $data->delete();
         return redirect()->route('user')->with('success','data Berhasil Di Hapus');
     
     }
+}
     public function updateprofile(Request $request, $id)
     {
         //dd($request->all());

@@ -378,6 +378,10 @@
                                         <label for="email" class="form-label">Email</label>
                                         <input type="text" name="email" readonly class="form-control" id="email" aria-describedby="emailHelp"  value="{{ Auth::user()->email }}">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="hidden" name="password" readonly class="form-control" id="email" aria-describedby="emailHelp"  value="{{ Auth::user()->password }}">
+                                    </div>
         
                                     <div class="mb-3">
                                       <input type="file" name="foto" id="foto">

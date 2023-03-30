@@ -91,7 +91,7 @@
                     </div><!-- /# column -->
                 </div>
                 <!--  /Traffic -->
-                <div class="clearfix"></div>
+                <div class="clearfix">
                 <!-- Orders -->
                 <div class="orders">
                     <div class="row">
@@ -107,6 +107,7 @@
                                                 <tr>
                                                     <th class="serial">#</th>
                                                     <th>judul</th>
+                                                    <th>thumbnail</th>
                                                     <th>penulis</th>
                                                     <th>views</th>
                                                 </tr>
@@ -115,8 +116,9 @@
                                                 @foreach ( $pot as $post )
                                                 <tr>
                                                     <td class="serial">{{$loop->iteration}}</td>
-                                                    <td> {{$post->judul}} </td>
-                                                    <td>  <span class="name">{{$post->nama}}</span> </td>
+                                                    <td> <img src="{{ asset('thumbnail/'.$post->foto) }}" class="pia"></td>
+                                                    <td> <a href="/tampil/{{ $post->id }}">{{$post->judul}}</a> </td>
+                                                    <td>  <span class="name">{{$post->name}}</span> </td>
                                                     <td><span class="count">{{$post->views}}</span></td>
                                                    
                                                 </tr>
@@ -127,7 +129,38 @@
                                     </div> <!-- /.table-stats -->
                                 </div>
                             </div> <!-- /.card -->
-                        </div>  <!-- /.col-lg-8 -->
+                        </div> 
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="box-title">Top User dengan kontribusi terbanyak: </h4>
+                                </div>
+                                <div class="card-body--">
+                                    <div class="table-stats order-table ov-h">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th class="serial">#</th>
+                                                    <th>Nama</th>
+                                                    <th>Jumlah artikel</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($counts as $count)
+                                                <tr>
+                                                    <td class="serial">{{$loop->iteration}}</td>
+                                                    <td>{{ $count->name }}</td>
+                                                    <td>{{ $count->total }}</td>
+                                                </tr>
+                                                @endforeach
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- /.table-stats -->
+                                </div>
+                            </div> <!-- /.card -->
+                        </div> <!-- /.col-lg-8 -->
  <!-- /.col-md-4 -->
                     </div>
                 </div>
