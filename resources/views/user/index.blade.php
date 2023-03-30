@@ -160,7 +160,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset('thumbnail/'.$item->foto)}}" class="square" >
+                                    <img src="{{asset('thumbnail/'.$item->thumbnail)}}" class="square" >
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -197,7 +197,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{asset('thumbnail/'.$item->foto)}}" class="myuu" >
+                                    <img src="{{asset('thumbnail/'.$item->thumbnail)}}" class="myuu" >
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -250,7 +250,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/'.$item->foto) }}" style="width: 100%" class="pyuu">
+                                    <img src="{{ asset('thumbnail/'.$item->thumbnail) }}" style="width: 100%" class="pyuu">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -300,7 +300,7 @@
                             @foreach ($data as $item )
                         
                             <div class="single-populer-post d-flex">
-                                <img src="{{ asset('thumbnail/'.$item->foto) }}" class="pia">
+                                <img src="{{ asset('thumbnail/'.$item->thumbnail) }}" class="pia">
                                 <div class="post-content">
                                     <a href="#">
                                         <h6> {{$item->judul}} </h6>

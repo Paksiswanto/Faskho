@@ -134,9 +134,9 @@
 
                                 <div class="col-md-6 mb-3">
                                     <h3>Thumbnail:</h3>
-                                    <input type="file" name="foto" class="form-control @error('foto')
+                                    <input type="file" name="thumbnail" class="form-control @error('thumbnail')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('foto')}}" aria-describedby="emailHelp">@error('foto')
+                                @enderror" id="exampleInputEmail1" value="{{old('thumbnail')}}" aria-describedby="emailHelp">@error('thumbnail')
                                     {{$message}}
                                     @enderror
                                 </div>
