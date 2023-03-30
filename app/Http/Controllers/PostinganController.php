@@ -265,7 +265,7 @@ class PostinganController extends Controller
 $postings = postingan::select('judul', 'views')
 ->where('user_id', $user->id)
 ->orderBy('views', 'DESC')
-->limit(25)
+->take(6)
 ->get();
 $user = Auth::user();
 if ($user->id != $id) {
@@ -279,7 +279,8 @@ if ($user->id != $id) {
                 'views' => $posting->views
             ];
         }
-
+        $data = array_reverse($data);
+        $data = array_slice($data, 0, 6);
     return view('statistik',['totalpostingan'=>$totalpostingan,'totalviews'=>$totalviews,'data'=>$data]);
 }
 
