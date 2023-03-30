@@ -51,7 +51,7 @@ img.square {
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                              <img src="{{ asset('thumbnail/'.$data->foto) }}" class="square">
+                              <img src="{{ asset('thumbnail/'.$data->thumbnail) }}" class="square">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">

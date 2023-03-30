@@ -117,8 +117,8 @@
 
                              <div class="col-md-6 mb-2 w-50">
                                 <h3>Thumbnail:</h3>
-                                <input type="file" name="foto"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data ->foto }}">
-                                <img src="{{ asset('thumbnail/'.$data->foto) }}" alt="" style="width: 130px;">
+                                <input type="file" name="thumbnail"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data ->thumbnail }}">
+                                <img src="{{ asset('thumbnail/'.$data->thumbnail) }}" alt="" style="width: 130px;">
                             </div>
 
                              <div class="col-md-6 mb-3 w-50">

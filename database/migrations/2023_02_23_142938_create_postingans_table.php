@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('postingans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nama');
             $table->string('judul');
             $table->longText('konten');
-            $table->string('foto')->onDelete('cascade');
+            $table->string('thumbnail')->onDelete('cascade');
             $table->string('agree');
             $table->string('deskripsi');
             $table->integer('views')->default(0);

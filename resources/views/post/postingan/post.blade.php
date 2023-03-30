@@ -122,7 +122,7 @@ img.nova {
                             <div class="row">
                                 <div class="col-5" style="width: 340px;">
                                     <div>
-                                        <img src="{{ asset('thumbnail/'.$row->foto) }}" class="nova">
+                                        <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" class="nova">
                                     </div>
                                 </div>
                                 <div class="col-5 my-auto">

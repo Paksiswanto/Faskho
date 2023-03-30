@@ -19,7 +19,7 @@ img.nova {
 }
 </style>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -84,7 +84,7 @@ img.nova {
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
+                                    <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->
@@ -260,7 +260,7 @@ value=" {{ Auth::user()->id }} ">
                         @foreach ($trend as $data)
                             
                         <div class="single-populer-post d-flex">
-                            <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nova">
+                            <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nova">
                             <div class="post-content">
                                 <a href="#">
                                     <a href="/tampil/{{$data->id}}"><h3>{{$data->judul}}</h3></a>

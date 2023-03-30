@@ -74,7 +74,7 @@ class PostinganController extends Controller
         $validatedata = $request->validate([
             'judul' => 'required',
             'konten' => 'required',
-            'foto' => 'required|mimes:png,jpg,jpeg,jfif',
+            'thumbnail' => 'required|mimes:png,jpg,jpeg,jfif',
             'deskripsi' => 'required',
             'kategori_id' => 'required',
             'agree' => 'required',
@@ -82,10 +82,10 @@ class PostinganController extends Controller
         ]);
         $data = postingan::create($request->all());
 
-        if ($request->hasFile('foto')) {
-            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('foto')->getClientOriginalExtension();
-            $request->file('foto')->move('thumbnail/', $imageName);
-            $data->foto = $imageName;
+        if ($request->hasFile('thumbnail')) {
+            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+            $request->file('thumbnail')->move('thumbnail/', $imageName);
+            $data->thumbnail = $imageName;
             $data->save();
         }
         
@@ -116,11 +116,11 @@ class PostinganController extends Controller
             'user_id' => $request->user_id
 
         ]);
-        if ($request->hasFile('foto')) {
-            unlink(public_path('thumbnail/'.$data->foto));
-            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('foto')->getClientOriginalExtension();
-            $request->file('foto')->move('thumbnail/', $imageName);
-            $data->foto = $imageName;
+        if ($request->hasFile('thumbnail')) {
+            unlink(public_path('thumbnail/'.$data->thumbnail));
+            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+            $request->file('thumbnail')->move('thumbnail/', $imageName);
+            $data->thumbnail = $imageName;
             $data->save();
         }
         return redirect()->route('posts',$data->user_id)->with('success', 'data Berhasil Di Update');
@@ -129,8 +129,8 @@ class PostinganController extends Controller
     {
         $data = postingan::find($id);
             // Hapus file foto dari server
-    if (file_exists(public_path('thumbnail/'.$data->foto))) {
-        unlink(public_path('thumbnail/'.$data->foto));
+    if (file_exists(public_path('thumbnail/'.$data->thumbnail))) {
+        unlink(public_path('thumbnail/'.$data->thumbnail));
     }
 
         $data->delete();
