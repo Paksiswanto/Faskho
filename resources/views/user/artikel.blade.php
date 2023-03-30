@@ -149,7 +149,7 @@ img.square {
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Artikel</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('artikel') }}">artikel</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -196,7 +196,7 @@ img.square {
                                           <div class="dot"></div>
                                           <div class="dot"></div>
                                           <ul class="menu">
-                                              <li><button class="btn btn-primary" data-target="#modal-lapor" id="btn-lapor" data-id="{{ $data->id }}">Laporkan</button>
+                                              <li><button class="btn btn-primary btn-lapor" data-target="#modal-lapor" data-id="{{ $data->id }}">Laporkan</button>
                                                 
                                                 
                                               </li>
@@ -280,15 +280,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -296,15 +288,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -312,15 +296,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/3.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -328,15 +304,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/4.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -344,15 +312,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/5.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -360,15 +320,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/6.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -376,15 +328,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/1.jpg') }}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Instagram Item -->
@@ -392,15 +336,7 @@ img.square {
             <!-- Instagram Thumb -->
             <img src="{{asset('yummy-master/yummy-master/img/instagram-img/2.jpg')}}" alt="">
             <!-- Hover -->
-            <div class="hover_overlay">
-                <div class="yummy-table">
-                    <div class="yummy-table-cell">
-                        <div class="follow-me text-center">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Follow me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
     </div>
@@ -482,7 +418,7 @@ img.square {
     <script>
 $(document).ready(function() {
   // Menampilkan modal ketika tombol "Laporkan" ditekan
-  $('#btn-lapor').click(function() {
+  $('.btn-lapor').click(function() {
     var postId = $(this).data('id');
     $('#post-id').val(postId);
     $('#modal-lapor').modal('show');

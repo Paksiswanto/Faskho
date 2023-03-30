@@ -87,15 +87,15 @@
                                     <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
                                 </li>
                                 
-                                <li class="nav-item dropdown mt-0 ">
+                                <li class="nav-item dropdown mt-0  {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }} ">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
-                                        <a href="/pembuka" class="dropdown-item">Makanan Pembuka</a>
-                                        <a href="/utama" class="dropdown-item">Makanan Utama</a>
-                                        <a href="/penutup" class="dropdown-item">Makanan Penutup</a>
+                                        <a href="/pembuka" class="dropdown-item {{ Request::is('pembuka') ? 'active' : '' }}">Makanan Pembuka</a>
+                                        <a href="/utama" class="dropdown-item {{ Request::is('utama') ? 'active' : '' }}">Makanan Utama</a>
+                                        <a href="/penutup" class="dropdown-item {{ Request::is('penutup') ? 'active' : '' }}">Makanan Penutup</a>
                                     </div>
                                 </li>
-                                <li class="nav-item {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }}{{ Request::is('artikel') ? 'active' : '' }}">
+                                <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{Route('artikel')}}">Artikel</a>
                                 </li>
                                 
