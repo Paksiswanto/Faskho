@@ -201,11 +201,12 @@ class PostinganController extends Controller
         $keyword = $request->keyword;
 
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
-        $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')->inrandomOrder()->take(2)->get(); 
+        $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')->where('users.is_banned', '=', 0)->inrandomOrder()->take(2)->get(); 
 
             
             $posts = DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->where('users.is_banned', '=', 0)
             ->orderBy('postingans.created_at','desc')
             ->get()
             ->take(5);
@@ -213,12 +214,14 @@ class PostinganController extends Controller
            
             $data=DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->where('users.is_banned', '=', 0)
             ->orderBy('postingans.views','desc')
             ->get()
             ->take(10);
            
             $trend=DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
+            ->where('users.is_banned', '=', 0)
             ->orderBy('views','desc')
             ->get()
             ->take(1);
@@ -257,8 +260,8 @@ class PostinganController extends Controller
     $postingan=postingan::all();
     $user = Auth::user();
 
-    $totalpostingan=$user->postingans->count();
-    $totalviews=$user->postingans->sum('views');
+    $totalpostingan=postingan::where('user_id',$id)->count();
+    $totalviews=postingan::where('user_id',$id)->sum('views');
 $postings = postingan::select('judul', 'views')
 ->where('user_id', $user->id)
 ->orderBy('views', 'DESC')
