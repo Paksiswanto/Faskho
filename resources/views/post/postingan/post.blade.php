@@ -32,15 +32,19 @@ img.nova {
     <br>
     <ul id="sidebar_menu">
 
-
-        <li class="">
-            <a href="/posts/{{Auth::user()->id }}" aria-expanded="false">
-                <div class="icon_menu">
-                    <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
-                </div>
-                <span>Postingan</span>
-            </a>
-        </li>
+<li class=" {{ Request::is('posts') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }} ">
+    <a class="has-arrow" href="#" aria-expanded="false">
+        <div class="icon_menu">
+            <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
+        </div>
+        <span>Postingan</span>
+    </a>
+    <ul>
+    <li class="{{ Request::is('posts') ? 'active' : '' }}"><a href="/posts/{{Auth::user()->id }}">posts</a></li>
+        <li><a href="#">basreng</a></li>
+        <li><a href="#">makaroni</a></li>
+    </ul>
+</li>
 
 
 
@@ -208,6 +212,15 @@ img.nova {
 
     @endif
 
+</script>
+
+<script>
+$(document).ready(function() {
+    var url = window.location.href;
+    $('#sidebar_menu a').filter(function() {
+        return this.href == url;
+    }).closest('li').addClass('active');
+});
 </script>
 
 @endpush
