@@ -21,6 +21,8 @@ class PostinganController extends Controller
     {
         $keyword = $request->keyword;
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
+            ->where('status', 'belum diterima')
+            ->orderBy('updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();
@@ -28,6 +30,50 @@ class PostinganController extends Controller
 
         return view('admin.postingan.index', compact('data', 'datauser', 'datakategori',));
     }
+
+    public function terima(Request $request)
+    {
+        $keyword = $request->keyword;
+        $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
+            ->where('status', 'diterima')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
+        $datauser = User::all();
+        $datakategori = kategori::all();
+
+        return view('admin.terima.index', compact('data', 'datauser', 'datakategori',));
+    }
+    public function diterima($id){
+        $data = postingan::find($id);
+        $data->update([
+            'status' => 'diterima'
+        ]
+        );
+        return redirect()->route('terima')->with('sukses','Data Berhasil Di Perbarui');
+
+  }
+
+    public function tolak(Request $request)
+    {
+        $keyword = $request->keyword;
+        $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
+            ->where('status', 'ditolak')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
+        $datauser = User::all();
+        $datakategori = kategori::all();
+
+        return view('admin.tolak.index', compact('data', 'datauser', 'datakategori',));
+    }
+    public function ditolak($id){
+        $data = postingan::find($id);
+        $data->update([
+            'status' => 'ditolak'
+        ]
+        );
+        return redirect()->route('tolak')->with('sukses','Data Berhasil Di Perbarui');
+
+  }
 
     public function deletepost($id)
     {

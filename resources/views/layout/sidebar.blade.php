@@ -24,7 +24,15 @@
                     </li>
                     <li class="{{ Request::is('postingan') ? 'active' : '' }}">
                         <a href="{{route('postingan')}}"> <i
-                                class="fa fa-book" style="width: 20%;"></i>Data Post </a>
+                                class="fa fa-book" style="width: 20%;"></i>Data Postingan </a>
+                    </li>
+                    <li class="{{ Request::is('postingan') ? 'active' : '' }}">
+                        <a href="{{route('terima')}}"> <i
+                                class="fa fa-book" style="width: 20%;"></i>Data Diterima </a>
+                    </li>
+                    <li class="{{ Request::is('postingan') ? 'active' : '' }}">
+                        <a href="{{route('tolak')}}"> <i
+                                class="fa fa-book" style="width: 20%;"></i>Data Ditolak </a>
                     </li>
                     <li class="{{ Request::is('ulasan') ? 'active' : '' }}"> 
                         <a href="{{route('ulasan')}}"> <i

@@ -60,6 +60,12 @@ Route::get('/terms', function () {
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     route::get('/postingan', [PostinganController::class, 'postingan'])->name('postingan');
 });
+//diterima
+Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
+Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
+Route::get('/tolak', [PostinganController::class, 'tolak'])->name('tolak');
+Route::get('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
+
 
 //login
 

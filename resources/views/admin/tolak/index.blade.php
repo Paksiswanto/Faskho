@@ -15,7 +15,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title">Data postingan</strong>
+                                    <strong class="card-title">Data postingan Ditolak</strong>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-striped table-bordered">
@@ -36,7 +36,7 @@
                                                 <th>judul</th>
                                                 <th>Kategori</th>
                                                 <th>Thumbnail</th>
-                                                <th>Aksi</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -54,8 +54,7 @@
                                                     <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href = "/diterima/{{$row->id}}"  class="btn btn-primary delete">Diterima</a>
-                                                    <a href = "/ditolak/{{$row->id}}"  class="btn btn-danger delete">Ditolak</a>
+                                                    <a href = "/deletepost/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
                                                 </td>
                                             </tr>
                                             @endforeach
