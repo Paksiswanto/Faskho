@@ -1,24 +1,25 @@
 <?php
 
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\KomenController;
-use App\Http\Controllers\LaporanController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UlasanController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PostinganController;
-use App\Http\Controllers\LikeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\TagController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\TempatController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\ResetPasswordController;
-
+use App\Models\kategori;
 use App\Models\postingan;
-use App\Http\Controllers\TrendController;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KomenController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TrendController;
+use App\Http\Controllers\TempatController;
+use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriController;
+
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PostinganController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,8 @@ use Illuminate\Foundation\Auth\User;
 
 
 Route::get('/kontak', function () {
-    return view('user.kontak');
+    $kat = kategori::all();
+    return view('user.kontak',compact('kat'));
 });
 Route::get('/artikel', function () {
     return view('post.post');
@@ -78,6 +80,7 @@ Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');
 
 Route::get('/tampil/{id}', [PostinganController::class, 'tampil'])->name('tampil');
 Route::get('/like/{id}', [PostinganController::class, 'tampil'])->name('tampil');
+Route::get('/kategori/{id}',[PostinganController::class,'kategori'])->name('kategori');
 
 Route::get('/pembuka', [PostinganController::class, 'pembuka'])->name('pembuka');
 //utama
