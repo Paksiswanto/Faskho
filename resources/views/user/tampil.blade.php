@@ -40,8 +40,8 @@ img.nova {
                                     Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a
                                     href="{{ route('artikel') }}">Artikel </a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a
-                                    href="{{ route($data->kategori->kategori) }}">{{ $data->kategori->kategori }} </a>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                    <a href="/kategori/{{ $data->kategori_id }}">{{ $data->kategori->kategori }} </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $data->judul }} </li>
                         </ol>
@@ -521,11 +521,8 @@ value=" {{ Auth::user()->id }} ">
             })
         })
     </script>
-<<<<<<< Updated upstream
 
-=======
    
 </body>
->>>>>>> Stashed changes
 
 </body>

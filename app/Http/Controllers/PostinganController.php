@@ -219,7 +219,7 @@ class PostinganController extends Controller
     //ini untuk tampil di halaman utama
     public function tampil(Request $request,$id)
     {   
-        
+        $kat = kategori::all();
         $komentars = Komen::where('postingan_id', $id)->get();
         $like= Komen::where('komen_id',$request->komen_id)->count();
         $data = postingan::findOrFail($id);
@@ -231,21 +231,22 @@ class PostinganController extends Controller
         ->get()
         ->take(10);
         
-        return view('user.tampil', compact('data','komentars','balas','totallike','trend' ));
+        return view('user.tampil', compact('data','komentars','balas','totallike','trend','kat' ));
     }
 
     public function artikel(Request $request)
     {
         $keyword = $request->key;
+        $kat = kategori::all();
         $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
             ->paginate(9);
 
-        return view('user.artikel',compact('artikel'));
+        return view('user.artikel',compact('artikel','kat'));
     }
     public function litindex(Request $request)
     {
         $keyword = $request->keyword;
-
+        $kat = kategori::all();
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
         $randomData = DB::table('postingans')->join('users', 'postingans.user_id', '=', 'users.id')            ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
         ->select('postingans.id','postingans.thumbnail','users.name','postingans.created_at','postingans.judul','postingans.deskripsi')
@@ -276,7 +277,7 @@ class PostinganController extends Controller
             ->orderBy('views','desc')
             ->get()
             ->take(1);
-        return view('user.index',compact('posts','data','trend','randomData'));
+        return view('user.index',compact('posts','data','trend','randomData','kat'));
     }
      public function storeKomentar(Request $request, $id)
     {
@@ -388,5 +389,13 @@ public function deletekomenku($id)
             return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
         }
 
+        public function kategori($id)
+        {
+            $kat = kategori::all();
+            $kategori = kategori::where('id',$id)->get()->first();
+            
+            $data = postingan::where('kategori_id',$id)->paginate(9);
+            return view('user.kategori',compact('kategori','data','kat'));
+        }
 
 }

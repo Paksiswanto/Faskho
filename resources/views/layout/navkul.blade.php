@@ -87,12 +87,12 @@
                                     <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
                                 </li>
                                 
-                                <li class="nav-item dropdown mt-0  {{ Request::is('pembuka') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }} ">
+                                <li class="nav-item dropdown mt-0 ">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
-                                        <a href="/pembuka" class="dropdown-item {{ Request::is('pembuka') ? 'active' : '' }}">Makanan Pembuka</a>
-                                        <a href="/utama" class="dropdown-item {{ Request::is('utama') ? 'active' : '' }}">Makanan Utama</a>
-                                        <a href="/penutup" class="dropdown-item {{ Request::is('penutup') ? 'active' : '' }}">Makanan Penutup</a>
+                                        @foreach ($kat as $row )
+                                        <a href="/kategori/{{ $row->id }}" class="dropdown-item">{{ $row->kategori }}</a>
+                                        @endforeach
                                     </div>
                                 </li>
                                 <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">

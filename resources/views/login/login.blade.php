@@ -17,14 +17,7 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('yummy-master/yummy-master/loginku/brandio.io/envato/iofrm/html/css/iofrm-theme5.css') }}">
     <style>
-        #wrapper {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 960px;
-            /* sesuaikan dengan lebar konten Anda */
-        }
+
     </style>
 </head>
 
@@ -32,14 +25,14 @@
     <br>
     <br>
     <div class="row">
-        <div class="img-holder">
+        <div class="img-holder" style="width:40%">
             <div class="info-holder my-auto" >
                 <img src="{{asset('yummy-master/yummy-master/img/IMG_20230301_090831.png')}}" alt="" style="width: 300px">
             </div>
         </div>
        
        
-            <div class="form-holder my-auto ">
+            <div class="form-holder my-auto " style="60%">
                 <div class="form-content">
                     <div class="form-items">
                         <h3>Form Login</h3>
