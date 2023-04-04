@@ -21,6 +21,8 @@ class PostinganController extends Controller
     {
         $keyword = $request->keyword;
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
+        ->join('users', 'postingans.user_id', '=', 'users.id')
+        ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
             ->where('status', 'pending')
             ->orderBy('updated_at', 'desc')
             ->paginate(10);
@@ -35,8 +37,10 @@ class PostinganController extends Controller
     {
         $keyword = $request->keyword;
         $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
-            ->where('status', 'diterima')
-            ->orderBy('updated_at', 'desc')
+        ->join('users', 'postingans.user_id', '=', 'users.id')
+        ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
+            ->where('postingans.status', 'diterima')
+            ->orderBy('postingans.updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();

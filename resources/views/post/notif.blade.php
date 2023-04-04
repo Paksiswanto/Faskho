@@ -120,23 +120,25 @@
                                 </div>
                             </div>
                             @if (count($notifications) > 0)
-                                <ul>
-                                    @foreach ($notifications as $notification)
-                                        <div class="notification {{ $notification->read_at ? 'read' : 'unread' }}">
+                            <ul>
+                                @foreach ($notifications as $notification)
+                                <div class="card">
+                                        <div class="notification {{ $notification->read_at ? 'read' : 'unread' }} ">
                                             <li>
-                                                {{ $notification->content }}
+                                                <p class="mt-2" style="font-size: 100%;font-family:sans-serif">{{ $notification->content }}</p>
                                                 <span
-                                                    class="pull-right">{{ $notification->created_at->diffForHumans() }}</span>
+                                                    class="pull-right ma">{{ $notification->created_at->diffForHumans() }}</span>
                                             </li>
                                             @if (!$notification->read_at)
                                                 <form action="{{ route('notifications.markAsRead', $notification->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit">Mark as read</button>
+                                                    <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Mark as read</button>
                                                 </form>
                                             @endif
                                         </div>
+                                    </div>
                                     @endforeach
                                 </ul>
                             @else

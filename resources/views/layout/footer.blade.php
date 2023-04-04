@@ -39,7 +39,7 @@
                 <div class="footer-content">
                     <!-- Logo Area Start -->
                     <div class="footer-logo-area text-center">
-                        <a href="index.html" class="yummy-logo">KulinerKu</a>
+                        <a href="/" class="yummy-logo">KulinerKu</a>
                     </div>
                     <!-- Menu Area Start -->
                 </div>
@@ -52,7 +52,7 @@
             <div class="col-12">
                 <!-- Copywrite Text -->
                 <div class="copy_right_text text-center">
-                    <p>KELOMPOK NOVA<i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Hummasoft</a></p>
+                    <p><a href="" target="">KELOMPOK NOVA</a><i class="fa fa-heart-o" aria-hidden="true"></i> by Hummasoft</p>
                 </div>
             </div>
         </div>
