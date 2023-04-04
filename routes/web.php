@@ -83,10 +83,11 @@ Route::post('reset-password',  [ResetPasswordController::class, 'updatepassword'
 //postingan Controller
 
 Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');
+Route::put('/notifications/{id}/read', [PostinganController::class, 'markAsRead'])->name('notifications.markAsRead');
 
 Route::get('/tampil/{id}', [PostinganController::class, 'tampil'])->name('tampil');
 Route::get('/like/{id}', [PostinganController::class, 'tampil'])->name('tampil');
-Route::get('/kategori/{id}',[PostinganController::class,'kategori'])->name('kategori');
+Route::get('/kategori/{id}',[PostinganController::class,'kategori2'])->name('kategori2');
 
 Route::get('/pembuka', [PostinganController::class, 'pembuka'])->name('pembuka');
 //utama

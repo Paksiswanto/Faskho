@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('thumbnail')->onDelete('cascade');
             $table->string('agree');
             $table->string('deskripsi');
-            $table->string('status')->default('belum diterima');
+            $table->string('status')->default('pending');
             $table->integer('views')->default(0);
             $table->timestamps();
             $table->foreignId('kategori_id')->references('id')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
