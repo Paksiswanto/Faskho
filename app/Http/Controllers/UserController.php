@@ -36,8 +36,8 @@ class UserController extends Controller
     $totalUsers = User::count();
     
     $counts = Postingan::join('users', 'postingans.user_id', '=', 'users.id')
-    ->groupBy('users.name') // memasukkan kolom users.name ke dalam GROUP BY
-    ->selectRaw('users.name, count(*) as total')
+    ->groupBy('users.email') // memasukkan kolom users.name ke dalam GROUP BY
+    ->selectRaw('users.email, count(*) as total')
     ->get();
 $postings = Postingan::all();
 $postings = Postingan::orderByDesc('views')->take(10)->get();

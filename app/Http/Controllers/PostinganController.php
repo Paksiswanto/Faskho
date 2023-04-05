@@ -23,8 +23,8 @@ class PostinganController extends Controller
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
-            ->where('status', 'pending')
-            ->orderBy('updated_at', 'desc')
+            ->where('postingans.status', 'pending')
+            ->orderBy('postingans.updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();

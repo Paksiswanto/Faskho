@@ -48,7 +48,7 @@
                                                 <th scope="row">{{ $index +$data->firstitem()}}</th>
                                                 <td>{{ $row->name}}</td>
                                                 <td>{{ $row->judul}}</td>
-                                                <td>{{ $row->kategori }}</td>
+                                                <td>{{ $row->kategori->kategori }}</td>
 
                                                 <td>
                                                     <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" alt="" style="width: 130px;;">
@@ -56,6 +56,7 @@
                                                 <td>
                                                     <a href = "/diterima/{{$row->id}}"  class="btn btn-primary delete">Diterima</a>
                                                     <a href = "/ditolak/{{$row->id}}"  class="btn btn-danger delete">Ditolak</a>
+                                                    <a href = "/lihat/{{$row->id}}"  class="btn btn-success">Lihat Selengkapnya</a>
                                                 </td>
                                             </tr>
                                             @endforeach
