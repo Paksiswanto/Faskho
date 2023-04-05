@@ -46,12 +46,12 @@
                                             @foreach ($data as $index=>$row )
                                             <tr>
                                                 <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                                <td>{{ $row->nama}}</td>
+                                                <td>{{ $row->name}}</td>
                                                 <td>{{ $row->judul}}</td>
                                                 <td>{{ $row->kategori->kategori }}</td>
 
                                                 <td>
-                                                    <img src="{{ asset('thumbnail/'.$row->foto) }}" alt="" style="width: 130px;;">
+                                                    <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
                                                     <a href = "/deletepost/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>

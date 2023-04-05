@@ -84,30 +84,31 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
         $post=postingan::all();
         $post = postingan::where('user_id',$id)->get();
         foreach ($post as $post) {
-            if (file_exists(public_path('thumbnail/'.$post->foto))) {
-                unlink(public_path('thumbnail/'.$post->foto));
+            if (file_exists(public_path('thumbnail/'.$post->thumbnail))) {
+                unlink(public_path('thumbnail/'.$post->thumbnail));
             }
         $post->delete();
-        $data->delete();
-        return redirect()->route('user')->with('success','data Berhasil Di Hapus');
-    
+        
     }
+    $data->delete();
+    // return redirect()->route('user')->with('success','data Berhasil Di Hapus');
+    return response()->json();
 }
     public function updateprofile(Request $request, $id)
     {
         //dd($request->all());
         $data = User::find($id);
         $data->update($request->all());
-        if ($request->hasFile('foto')) {
-            // $file = $request->file('foto');
+        if ($request->hasFile('thumbnail')) {
+            // $file = $request->file('thumbnail');
             // $extention = $file->getClientOriginalExtension( );
             // $filename = time() . '.' . $extention;
-            // $file->move('fotouser/', $filename);
-            // $data->foto = $filename;
-            $data->foto = $request->file('foto')->store('fotouser', 'public');
+            // $file->move('thumbnailuser/', $filename);
+            // $data->thumbnail = $filename;
+            $data->thumbnail = $request->file('thumbnail')->store('thumbnailuser', 'public');
         }
         $data->save();
-        // Storage::disk('public')->put('foto',  $request ->file('foto'));
+        // Storage::disk('public')->put('thumbnail',  $request ->file('thumbnail'));
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
 
@@ -124,6 +125,9 @@ $data['counts'][] = round(($post->count / $total) * 100, 2);
 {
     $user = User::findOrFail($id);
     $user->banned();
+    $post = postingan::all();
+    $post = postingan::where('user_id',$id)->update(['status'=>'pending']);
+
     Toastr::success('Pengguna berhasil dibanned.', 'Success');
 
     return redirect()->back();

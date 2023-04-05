@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('content');
             $table->string('judul');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }

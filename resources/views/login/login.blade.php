@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Mirrored from brandio.io/envato/iofrm/html/login5.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Feb 2023 02:42:31 GMT -->
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,6 +61,7 @@
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn mr-5">Login</button>
                                 <a href="/forgot-password">Lupa Password?</a>
+                                <a href="/hubungi"><i class="fa-solid fa-headset" style="margin-top:96%;margin-left:40%"><b> Hubungi Kami</b></i></a>
                             </div>
                         </form>
                     </div>
