@@ -30,7 +30,7 @@
                                             </div>
                                         </div>
                                         <thead>
-                                            <tr>
+                                            <tr align="center">
                                                 <th>#</th>
                                                 <th>Username</th>
                                                 <th>judul</th>
@@ -44,7 +44,7 @@
                                             $no = 1;
                                             @endphp
                                             @foreach ($data as $index=>$row )
-                                            <tr>
+                                            <tr align="center">
                                                 <th scope="row">{{ $index +$data->firstitem()}}</th>
                                                 <td>{{ $row->name}}</td>
                                                 <td>{{ $row->judul}}</td>
@@ -54,9 +54,33 @@
                                                     <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href = "/diterima/{{$row->id}}"  class="btn btn-primary delete">Diterima</a>
-                                                    <a href = "/ditolak/{{$row->id}}"  class="btn btn-danger delete">Ditolak</a>
-                                                    <a href = "/lihat/{{$row->id}}"  class="btn btn-success">Lihat Selengkapnya</a>
+                                                    <a href = "/diterima/{{$row->id}}"  class="btn btn-primary delete">Terima</a>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                                        Tolak
+                                                      </button>
+                                                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="exampleModalLabel">Kirim Alasan Ke User</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                              <form action="/ditolak/{{ $row->id }}" method="post">
+                                                                @csrf
+                                                                <textarea name="pesan" id="" cols="53" rows="5"></textarea>
+                                                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                                            </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                 <a href = "/lihat/{{$row->id}}"  class="btn btn-success">Lihat Selengkapnya</a>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -131,6 +155,7 @@
 </div>
 
 </div> --}}
+
 @endsection
 <!-- Optional JavaScript; choose one of the two! -->
 

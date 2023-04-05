@@ -62,11 +62,7 @@ Route::get('/terms', function () {
 Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     route::get('/postingan', [PostinganController::class, 'postingan'])->name('postingan');
 });
-//diterima
-Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
-Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
-Route::get('/tolak', [PostinganController::class, 'tolak'])->name('tolak');
-Route::get('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
+
 
 
 //login
@@ -136,6 +132,11 @@ Route::middleware('auth')->group( function(){
 Route::middleware('admin')->group(function () {
 
     route::get('/deletepost/{id}', [PostinganController::class, 'deletepost'])->name('deletepost');
+    //diterima
+    Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
+    Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
+    Route::get('/tolak', [PostinganController::class, 'tolak'])->name('tolak');
+    Route::post('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
     //Trend
     Route::get('/trend', [TrendController::class, 'index'])->name('trend');
     route::get('/tambahtrend', [TrendController::class, 'tambahtrend'])->name('tambahtrend');

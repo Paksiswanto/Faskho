@@ -209,7 +209,7 @@
                                             </div>
                                             <!-- Post Date -->
                                             <div class="post-date">
-                                                <a href="#">{{$item->created_at}}</a>
+                                                <a href="#">{{$item->created_at->diffForHumans()}}</a>
                                             </div>
                                         </div>
                                         <!-- Post Comment & Share Area -->

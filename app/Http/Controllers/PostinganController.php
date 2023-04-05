@@ -70,7 +70,7 @@ class PostinganController extends Controller
 
     //     return view('admin.tolak.index', compact('data', 'datauser', 'datakategori',));
     // }
-    public function ditolak($id)
+    public function ditolak(Request $request,$id)
     {
         $data = postingan::find($id);
         $data->update(
@@ -78,6 +78,13 @@ class PostinganController extends Controller
                 'status' => 'ditolak'
             ]
         );
+        $data = postingan::find($id);
+        $deletedPost = new DeletedPost();
+        $deletedPost->user_id = $data->user_id;
+        $deletedPost->judul = $data->judul;
+        $deletedPost->content ="postigan anda kami tolak karena ". $request->pesan;
+        $deletedPost->save();
+        
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
 
@@ -101,6 +108,7 @@ class PostinganController extends Controller
         $notif = DeletedPost::where('user_id', $id)->count();
         $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
         $data = Postingan::where('user_id', $id)
+            ->where('status','=','diterima')
             ->paginate(5);
         $user = Auth::user();
         if ($user->id != $id) {
@@ -163,6 +171,7 @@ class PostinganController extends Controller
             'konten' => $request->konten,
             'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
+            'status'=>'pending',
             'user_id' => $request->user_id
 
         ]);
