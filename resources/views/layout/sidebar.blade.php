@@ -34,6 +34,7 @@
                         <a href="{{route('tolak')}}"> <i
                                 class="fa fa-book" style="width: 20%;"></i>Data Ditolak </a>
                     </li>
+                    
                     <li class="{{ Request::is('ulasan') ? 'active' : '' }}"> 
                         <a href="{{route('ulasan')}}"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>

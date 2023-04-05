@@ -19,7 +19,7 @@ class KategoriController extends Controller
         return view('admin.kategori.tambah',compact('data'));
     }
     public function insertdatakategori(request $request){
-    $data = kategori::create($request->all());
+    $data = kategori::create($request->all());  
     
     return redirect()->route('kategori')->with('success','data Berhasil Ditambahkan');
     }

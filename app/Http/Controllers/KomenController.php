@@ -46,4 +46,5 @@ class KomenController extends Controller
         return redirect()->route('inut');
         return redirect()->route('inpen');
         }
+        
 }

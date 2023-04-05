@@ -18,8 +18,25 @@ img.nova {
   object-fit: cover;
 }
 </style>
+<style>
+    #like-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#like-button .fa-heart {
+  color: gray;
+}
+
+#like-button.liked .fa-heart {
+  color: red;
+}
+    </style>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -84,7 +101,7 @@ img.nova {
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nov">
+                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->
@@ -120,7 +137,6 @@ img.nova {
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
 
-                                
                                 @foreach ($komentars->where('parent',0) as $komentar)
 
                                 <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
@@ -142,15 +158,10 @@ img.nova {
                             <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
                             <p style="font-size: 20px" >{{ $komentar->pesan }}</p>   
                             <div style="display: inline-block">
+                         
+                            <a href="/like/{{$komentar->id}}"class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i> <p style="display: inline;color:#e40707">  {{ $komentar->like->count() }}</p></i> like </i></a>
                             
-
-                            @if ($komentar->like)
-                            <a href="/like/{{$komentar->id}}"class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i> <p style="display: inline">  {{ $komentar->like->count() }}</p></a>
-                            @else
-                            <a href="/like/{{$komentar->id}}"class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i> like <p> 0</p></a> 
-                              @endif
-                           <a href="#" class="like-komentar">
-                      </a>
+                           
                     </div>  
                               <div class="balaskomen" data-id="balas-{{$komentar->id}}">
                                 {{-- @dd($komentar->id) --}}
@@ -161,20 +172,18 @@ img.nova {
                                 
                                 <input type="hidden" name="postingan_id"
                                     value=" {{ $data->id }} ">
-@auth
-    
-<input type="hidden" name="user_id"
-value=" {{ Auth::user()->id }} ">
-
-<div class="form-group">
-    <input type="hidden" class="form-control" name="nama"
-    id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
-</div>
-<div class="form-group">
-    <input type="hidden" name="email" class="form-control"
-    id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
-</div>
-@endauth
+                                @auth
+                                <input type="hidden" name="user_id"
+                                value=" {{ Auth::user()->id }} ">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="nama"
+                                        id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="email" class="form-control"
+                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+                                </div>
+                                @endauth
                                 <div class="form-group-append">
                                     <input type="hidden" name="parent" value="{{$komentar->id}}"
                                         id="contact-foto" placeholder="upload foto">
@@ -200,10 +209,7 @@ value=" {{ Auth::user()->id }} ">
                                 </div>
                             </div>
                                 </div>
-                              @endforeach
-                              
-
-        
+                              @endforeach        
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
 
@@ -244,7 +250,7 @@ value=" {{ Auth::user()->id }} ">
                                         </div>
                                     </div>
                                     @else
-                                           <center>     <p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
+                                           <center><p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
                                 @endauth
                             </div>
                         </div>
@@ -522,7 +528,13 @@ value=" {{ Auth::user()->id }} ">
         })
     </script>
 
-   
-</body>
+<script>
+    const likeButton = document.getElementById('like-button');
 
+likeButton.addEventListener('click', function() {
+  likeButton.classList.toggle('liked');
+});
+  </script>
+</body>
+</body>
 </body>
