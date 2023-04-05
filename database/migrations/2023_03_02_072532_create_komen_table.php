@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('email');
             $table->string('foto')->nullable();
-            $table->string('pesan');
+            $table->longText('pesan');
             $table->timestamps();
         });
 
