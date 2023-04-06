@@ -147,20 +147,18 @@ img.nova {
                                 <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
                                 <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
-
-                                
-                                <div class="mt-2">
-                                    <p style="font-width: bold;">                                                
-                                        @if ($row->judul <= now())
-                                            <span class="badge bg-warning text-white">Expired</span>
-                                        @elseif ($row->status == 'pending')
-                                            <span class="badge bg-warning text-dark">Menunggu</span>
-                                        @elseif ($row->status == 'ditolak')
-                                            <span class="badge bg-danger text-white">Ditolak</span>
-                                        @else
-                                            <span class="badge bg-success text-white">Diterima</span>
-                                        @endif</p>
-                                </div>
+                                <p style="font-width: bold;">                                                
+                                    @if ($row->judul <= now())
+                                        <span class="badge bg-warning text-white">Expired</span>
+                                    @elseif ($row->status == 'pending')
+                                        <span class="badge bg-warning text-dark">Menunggu</span>
+                                    @elseif ($row->status == 'ditolak')
+                                        <span class="badge bg-danger text-white">Ditolak</span>
+                                    @else
+                                        <span class="badge bg-success text-white">Diterima</span>
+                                    @endif</p>
+                            </div>
+                        </div>
                             </div>
                         </div>
 
@@ -181,8 +179,6 @@ img.nova {
                         </div>
                     </div>
                 </div>
-                <td>
-                </td>
 </div>
 </div>
 </div>

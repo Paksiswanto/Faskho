@@ -41,8 +41,8 @@ img.nova {
     </a>
     <ul>
     <li class="{{ Request::is('pending') ? 'active' : '' }}"><a href="/pending/{{Auth::user()->id }}">pending</a></li>
-    <li><a href="/posts/{{Auth::user()->id}}">Diterima</a></li>
-    <li><a href="/tolak/{{Auth::user()->id}}">Ditolak</a></li>
+        <li><a href="/posts/{{Auth::user()->id}}">Diterima</a></li>
+        <li><a href="/tolak/{{Auth::user()->id}}">Ditolak</a></li>
     </ul>
 </li>
 
@@ -149,8 +149,7 @@ img.nova {
                                 <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
 
                                 
-                                <div class="mt-2">
-                                    <p style="font-width: bold;">                                                
+                                 <p style="font-width: bold;">                                                
                                         @if ($row->judul <= now())
                                             <span class="badge bg-warning text-white">Expired</span>
                                         @elseif ($row->status == 'pending')
@@ -181,8 +180,6 @@ img.nova {
                         </div>
                     </div>
                 </div>
-                <td>
-                </td>
 </div>
 </div>
 </div>

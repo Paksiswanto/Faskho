@@ -597,6 +597,7 @@ img.nova {
 likeButton.addEventListener('click', function() {
   likeButton.classList.toggle('liked');
 });
+
   </script>
 </body>
 </body>

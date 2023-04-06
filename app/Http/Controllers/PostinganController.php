@@ -33,6 +33,23 @@ class PostinganController extends Controller
         return view('admin.postingan.index', compact('data', 'datauser', 'datakategori',));
     }
 
+    public function  pending(Request $request, $id)
+    {
+        $keyword = $request->key;
+        $notif = DeletedPost::where('user_id', $id)->count();
+        $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
+        $data = Postingan::where('user_id', $id)
+        ->where('status', 'pending')
+            ->paginate(5);
+        $user = Auth::user();
+        if ($user->id != $id) {
+            return view('error.403');
+        }
+
+        return view('post.postingan.pending', ['data' => $data, 'notif' => $notif], compact('data', 'notif'));
+    }
+    
+
     public function terima(Request $request)
     {
         $keyword = $request->keyword;
@@ -45,7 +62,7 @@ class PostinganController extends Controller
         $datauser = User::all();
         $datakategori = kategori::all();
 
-        return view('admin.terima.index', compact('data', 'datauser', 'datakategori',));
+        return view('post.terima.index', compact('data', 'datauser', 'datakategori',));
     }
     public function diterima($id)
     {
@@ -58,18 +75,25 @@ class PostinganController extends Controller
         return redirect()->route('terima')->with('sukses', 'Data Berhasil Di Perbarui');
     }
 
-    // public function tolak(Request $request)
-    // {
-    //     $keyword = $request->keyword;
-    //     $data = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
-    //         ->where('status', 'ditolak')
-    //         ->orderBy('updated_at', 'desc')
-    //         ->paginate(10);
-    //     $datauser = User::all();
-    //     $datakategori = kategori::all();
+    public function tolak(Request $request,$id)
+    {
+        $keyword = $request->key;
+        $notif = DeletedPost::where('user_id', $id)->count();
+        $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
+        $data = Postingan::where('user_id', $id)
+        ->where('status', 'ditolak')
+            ->paginate(5);
+        $user = Auth::user();
+        if ($user->id != $id) {
+            return view('error.403');
+        }
 
-    //     return view('admin.tolak.index', compact('data', 'datauser', 'datakategori',));
-    // }
+
+        return view('post.postingan.post', ['data' => $data, 'notif' => $notif], compact('data', 'notif'));
+    }
+    
+
+      
     public function ditolak(Request $request,$id)
     {
         $data = postingan::find($id);
