@@ -148,7 +148,7 @@
                                     @endforeach
                                 </ul>
                             @else
-                                <p style="margin:15% 25% 15% 45%">Tidak ada notifikasi</p>
+                                <p style="margin:15% 25% 15% 45%;color:darkgrey" >Tidak ada notifikasi</p>
                             @endif
                         </div>
 
