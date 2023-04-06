@@ -119,6 +119,8 @@
                                     <h3></h3>
                                 </div>
                             </div>
+                           
+                            
                             @if (count($notifications) > 0)
                             <ul>
                                 @foreach ($notifications as $notification)
@@ -127,8 +129,12 @@
                                             <li>
                                                 <p class="mt-2" style="font-size: 100%;font-family:sans-serif">{{ $notification->content }}</p>
                                                 <span
-                                                    class="pull-right ma">{{ $notification->created_at->diffForHumans() }}</span>
+                                                    class="pull-right ma">{{ $notification->created_at }}</span>
                                             </li>
+                                            <span class="badge badge-danger">
+                               
+                                                
+                                            </span>
                                             @if (!$notification->read_at)
                                                 <form action="{{ route('notifications.markAsRead', $notification->id) }}"
                                                     method="POST">
@@ -142,7 +148,7 @@
                                     @endforeach
                                 </ul>
                             @else
-                                <p>Tidak ada notifikasi</p>
+                                <p style="margin:15% 25% 15% 45%">Tidak ada notifikasi</p>
                             @endif
                         </div>
 

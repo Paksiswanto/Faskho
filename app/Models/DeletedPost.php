@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DeletedPost extends Model
 {
@@ -14,5 +15,8 @@ class DeletedPost extends Model
     DeletedPost::markAsRead($id);
     return redirect()->back();
 }
-
+public function getCreatedAtAttribute($value)
+{
+    return Carbon::createFromFormat('Y-m-d H:i:s', $value);
+}
 }
