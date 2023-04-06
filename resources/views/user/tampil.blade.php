@@ -7,6 +7,35 @@
 
     @include('layout.navkul')
     <style>
+img.nov {
+  width:800px;
+  height: 500px;
+  object-fit: cover;
+}
+</style>
+<style>
+img.nova {
+  width:400px;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
+<style>
+    #like-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#like-button .fa-heart {
+  color: gray;
+}
+
+#like-button.liked .fa-heart {
+  color: red;
+}
         img.nov {
             width: 800px;
             height: 500px;
@@ -23,7 +52,7 @@
 
     </style>
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -84,7 +113,7 @@
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nov">
+                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->
@@ -120,7 +149,6 @@
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
 
-
                                 @foreach ($komentars->where('parent',0) as $komentar)
 
                                 <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
@@ -153,6 +181,41 @@
                                     <a href="#" class="like-komentar">
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                              
+                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
+                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>   
+                            <div style="display: inline-block">
+                         
+                            <a href="/like/{{$komentar->id}}"class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i> <p style="display: inline;color:#e40707">  {{ $komentar->like->count() }}</p></i> like </i></a>
+                            
+                           
+                    </div>  
+                              <div class="balaskomen" data-id="balas-{{$komentar->id}}">
+                                {{-- @dd($komentar->id) --}}
+                                <button class="btn btn-default btn-balas">Balas</button>
+                              </div>
+                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                
+                                <input type="hidden" name="postingan_id"
+                                    value=" {{ $data->id }} ">
+                                @auth
+                                <input type="hidden" name="user_id"
+                                value=" {{ Auth::user()->id }} ">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="nama"
+                                        id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="email" class="form-control"
+                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+                                </div>
+                                @endauth
+                                <div class="form-group-append">
+                                    <input type="hidden" name="parent" value="{{$komentar->id}}"
+                                        id="contact-foto" placeholder="upload foto">
                                 <div class="balaskomen" data-id="balas-{{$komentar->id}}">
                                     {{-- @dd($komentar->id) --}}
                                     <button class="btn btn-default btn-balas">Balas</button>
@@ -196,9 +259,10 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                                </div>
+                              @endforeach        
                                 @endforeach
-
-
 
                                 @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
@@ -230,6 +294,8 @@
                                             <button type="submit" class="btn contact-btn">Posting Komentar</button>
                                         </form>
                                     </div>
+                                    @else
+                                           <center><p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
                                 </div>
                                 @else
                                 <center>
@@ -523,7 +589,16 @@
 
     </script>
 
+<script>
+    const likeButton = document.getElementById('like-button');
 
 </body>
 
+likeButton.addEventListener('click', function() {
+  likeButton.classList.toggle('liked');
+});
+
+  </script>
+</body>
+</body>
 </body>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class kategori extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = []; 
     protected $dates = ['created_at'];
 
     public function postingan()

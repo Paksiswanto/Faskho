@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('kategori_id')->references('id')->on('kategoris')->onUpdate('cascade')->onDelete('cascade');
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.

@@ -6,7 +6,7 @@
     <!-- ****** Header Area End ****** -->
 <style>
 img.square {
-  width:400px;
+  width:400px; 
   height: 200px;
   object-fit: cover;
 }
@@ -232,7 +232,7 @@ img.square {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </footer>
     <!-- ****** Footer Menu Area End ****** -->
 

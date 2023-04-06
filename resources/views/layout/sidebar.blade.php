@@ -30,6 +30,7 @@
                         <a href="{{route('terima')}}"> <i
                                 class="fa fa-book" style="width: 20%;"></i>Data Postingan </a>
                     </li>
+                    
                     <li class="{{ Request::is('ulasan') ? 'active' : '' }}"> 
                         <a href="{{route('ulasan')}}"> <i
                                 class="fa fa-comments" style="width: 20%;"></i>Data Ulasan </a>

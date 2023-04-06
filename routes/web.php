@@ -63,6 +63,11 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     route::get('/postingan', [PostinganController::class, 'postingan'])->name('postingan');
 });
 
+//diterima
+Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
+Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
+Route::get('/tolak/{id}', [PostinganController::class, 'tolak'])->name('tolak');
+Route::get('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
 
 
 //login
@@ -127,6 +132,7 @@ Route::middleware('auth')->group( function(){
     route::post('storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
     route::post('/comments/{id}/balas', [PostinganController::class, 'balas'])->name('balas');
     Route::get('/show/{id}', [PostinganController::class, 'show'])->name('show');
+    route::get('/pending/{id}', [PostinganController::class, 'pending'])->name('pending');
     
 });
 Route::middleware('admin')->group(function () {
