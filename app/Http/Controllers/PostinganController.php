@@ -23,8 +23,8 @@ class PostinganController extends Controller
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%')
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
-            ->where('status', 'pending')
-            ->orderBy('updated_at', 'desc')
+            ->where('postingans.status', 'pending')
+            ->orderBy('postingans.updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
         $datakategori = kategori::all();
@@ -70,7 +70,7 @@ class PostinganController extends Controller
 
     //     return view('admin.tolak.index', compact('data', 'datauser', 'datakategori',));
     // }
-    public function ditolak($id)
+    public function ditolak(Request $request,$id)
     {
         $data = postingan::find($id);
         $data->update(
@@ -78,6 +78,13 @@ class PostinganController extends Controller
                 'status' => 'ditolak'
             ]
         );
+        $data = postingan::find($id);
+        $deletedPost = new DeletedPost();
+        $deletedPost->user_id = $data->user_id;
+        $deletedPost->judul = $data->judul;
+        $deletedPost->content ="postigan anda kami tolak karena ". $request->pesan;
+        $deletedPost->save();
+        
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
     }
 
@@ -93,14 +100,13 @@ class PostinganController extends Controller
         return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
     }
 
-
-
     public function  posts(Request $request, $id)
     {
         $keyword = $request->key;
         $notif = DeletedPost::where('user_id', $id)->count();
         $data = Postingan::where('judul', 'like', '%' . $keyword . '%');
         $data = Postingan::where('user_id', $id)
+            ->where('status','=','diterima')
             ->paginate(5);
         $user = Auth::user();
         if ($user->id != $id) {
@@ -163,6 +169,7 @@ class PostinganController extends Controller
             'konten' => $request->konten,
             'deskripsi' => $request->deskripsi,
             'kategori_id' => $request->kategori_id,
+            'status'=>'pending',
             'user_id' => $request->user_id
 
         ]);
@@ -342,7 +349,6 @@ class PostinganController extends Controller
         return view('statistik', ['totalpostingan' => $totalpostingan, 'totalviews' => $totalviews, 'data' => $data]);
     }
 
-
     public function like()
     {
 
@@ -373,7 +379,6 @@ class PostinganController extends Controller
         $data->delete();
         return redirect()->back()->with('success,Data berhasil di hapus');
     }
-
 
     public function deletekomenku($id)
     {

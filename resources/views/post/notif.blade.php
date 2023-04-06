@@ -122,7 +122,7 @@
                             @if (count($notifications) > 0)
                             <ul>
                                 @foreach ($notifications as $notification)
-                                <div class="card">
+                                <div class="card mb-3">
                                         <div class="notification {{ $notification->read_at ? 'read' : 'unread' }} ">
                                             <li>
                                                 <p class="mt-2" style="font-size: 100%;font-family:sans-serif">{{ $notification->content }}</p>

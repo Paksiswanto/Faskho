@@ -21,8 +21,9 @@
                     <div class="card-body">
                     <div style="border-bottom:2px solid silver;">
                     <h5><strong>Anda mendapatkan pesan dari {{ $row->email }}</strong></p>
-                        <p> Berupa {{ $row->laporan }}</p>
+                        <p> {{ $row->laporan }}</p>
                     </div>
+                    <a href="/deletedata/{{ $row->id }}"><button class="btn btn-danger">hapus</button></a>
                         <div>
                         </div>
                         

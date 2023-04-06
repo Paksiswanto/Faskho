@@ -116,8 +116,8 @@
                                                 @foreach ( $pot as $post )
                                                 <tr>
                                                     <td class="serial">{{$loop->iteration}}</td>
-                                                    <td> <img src="{{ asset('thumbnail/'.$post->foto) }}" class="pia"></td>
                                                     <td> <a href="/tampil/{{ $post->id }}">{{$post->judul}}</a> </td>
+                                                    <td> <img src="{{ asset('thumbnail/'.$post->thumbnail) }}" class="pia"></td>
                                                     <td>  <span class="name">{{$post->name}}</span> </td>
                                                     <td><span class="count">{{$post->views}}</span></td>
                                                    
@@ -139,18 +139,18 @@
                                     <div class="table-stats order-table ov-h">
                                         <table class="table ">
                                             <thead>
-                                                <tr>
+                                                <tr align="center">
                                                     <th class="serial">#</th>
-                                                    <th>Nama</th>
+                                                    <th>Email</th>
                                                     <th>Jumlah artikel</th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($counts as $count)
-                                                <tr>
+                                                <tr align="center">
                                                     <td class="serial">{{$loop->iteration}}</td>
-                                                    <td>{{ $count->name }}</td>
+                                                    <td>{{ $count->email }}</td>
                                                     <td>{{ $count->total }}</td>
                                                 </tr>
                                                 @endforeach

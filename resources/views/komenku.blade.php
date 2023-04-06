@@ -112,18 +112,13 @@
 
                         <div class="card shadow-sm mb-5 bg-white rounded ">
                             <div class="row">
-                                <div class="col-5" style="width: 340px;">
-                                    <div>
-                                        <img src="{{ asset('storage/komentar/'.$row->foto) }}" class="img-fluid rounded-start" style="width: 100%; margin-left: -12px;" alt="">
-                                    </div>
-                                </div>
                                 <div class="col-5 my-auto">
                                     <div class="card-body">
                                         <h5 class="card-title">Memberi Komentar di Postingan:</h5>
 
 
                                         <p class="card-text">
-                                            {{ $row->pesan }}
+                                            {!! $row->pesan!!}
                                         </p>
                                         <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
                                         <br>
