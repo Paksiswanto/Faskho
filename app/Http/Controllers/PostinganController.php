@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Yoeunes\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 class PostinganController extends Controller
 {
@@ -45,8 +47,15 @@ class PostinganController extends Controller
         if ($user->id != $id) {
             return view('error.403');
         }
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
 
-        return view('post.postingan.pending', ['data' => $data, 'notif' => $notif], compact('data', 'notif'));
+$unreadCount = count($notifications);
+
+        return view('post.postingan.pending', ['data' => $data, 'notif' => $notif], compact('data', 'notif','unreadCount'));
     }
     
 
@@ -62,7 +71,7 @@ class PostinganController extends Controller
         $datauser = User::all();
         $datakategori = kategori::all();
 
-        return view('post.terima.index', compact('data', 'datauser', 'datakategori',));
+        return view('admin.terima.index', compact('data', 'datauser', 'datakategori',));
     }
     public function diterima($id)
     {
@@ -88,8 +97,15 @@ class PostinganController extends Controller
             return view('error.403');
         }
 
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
 
-        return view('post.postingan.post', ['data' => $data, 'notif' => $notif], compact('data', 'notif'));
+$unreadCount = count($notifications);
+
+        return view('post.postingan.post', ['data' => $data, 'notif' => $notif], compact('data', 'notif','unreadCount'));
     }
     
 
@@ -136,16 +152,27 @@ class PostinganController extends Controller
         if ($user->id != $id) {
             return view('error.403');
         }
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
 
-        return view('post.postingan.post', ['data' => $data, 'notif' => $notif], compact('data', 'notif'));
+$unreadCount = count($notifications);
+
+        return view('post.postingan.post', ['data' => $data, 'notif' => $notif], compact('data', 'notif','unreadCount'));
     }
     public function tambahpostingan()
     {
         $datauser = User::all();
         $dtkategori = kategori::all();
         $data = postingan::all();
-
-        return view('post.postingan.tambah', compact('datauser', 'dtkategori'));
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('post.postingan.tambah', compact('datauser', 'dtkategori','unreadCount'));
     }
 
     public function insertdatapost(request $request)
@@ -168,8 +195,13 @@ class PostinganController extends Controller
             $data->thumbnail = $imageName;
             $data->save();
         }
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
 
-        return redirect()->route('posts', $data->user_id)->with('success', 'data Berhasil Ditambahkan');
+$unreadCount = count($notifications);
+        return redirect()->route('pending', $data->user_id)->with('success', 'data Berhasil Ditambahkan',compact('unreadCount'));
     }
 
     public function tampilkandatapostingan($id)
@@ -181,9 +213,16 @@ class PostinganController extends Controller
         if ($data->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+
+$unreadCount = count($notifications);
 
         // dd($data);
-        return view('post.postingan.tampildatapost', compact('data', 'user_id', 'dtkategori', 'kt'));
+        return view('post.postingan.tampildatapost', compact('data', 'user_id', 'dtkategori', 'kt','unreadCount'));
     }
     public function updt(Request $request, $id)
     {
@@ -349,9 +388,10 @@ class PostinganController extends Controller
         $postingan = postingan::all();
         $user = Auth::user();
 
-        $totalpostingan = postingan::where('user_id', $id)->count();
+        $totalpostingan = postingan::where('user_id', $id)->where('status','diterima')->count();
         $totalviews = postingan::where('user_id', $id)->sum('views');
         $postings = postingan::select('judul', 'views')
+            ->where('status','diterima')
             ->where('user_id', $user->id)
             ->orderBy('views', 'DESC')
             ->take(6)
@@ -370,7 +410,13 @@ class PostinganController extends Controller
         }
         $data = array_reverse($data);
         $data = array_slice($data, 0, 6);
-        return view('statistik', ['totalpostingan' => $totalpostingan, 'totalviews' => $totalviews, 'data' => $data]);
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('statistik', ['totalpostingan' => $totalpostingan, 'totalviews' => $totalviews, 'data' => $data,'unreadCount'=>$unreadCount]);
     }
 
     public function like()
@@ -389,13 +435,24 @@ class PostinganController extends Controller
         if ($user->id != $id) {
             return view('error.403');
         }
-        return view('komenku', ['data' => $data], compact('data'));
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('komenku', ['data' => $data], compact('data','unreadCount'));
     }
     public function notif($id)
     {
         $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
 
-        return view('post.notif', compact('notifications'));
+$unreadCount = count($notifications);
+        return view('post.notif', compact('notifications','unreadCount'));
     }
     public function hapus($id)
     {
