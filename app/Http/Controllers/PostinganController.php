@@ -100,8 +100,6 @@ class PostinganController extends Controller
         return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
     }
 
-
-
     public function  posts(Request $request, $id)
     {
         $keyword = $request->key;
@@ -351,7 +349,6 @@ class PostinganController extends Controller
         return view('statistik', ['totalpostingan' => $totalpostingan, 'totalviews' => $totalviews, 'data' => $data]);
     }
 
-
     public function like()
     {
 
@@ -382,7 +379,6 @@ class PostinganController extends Controller
         $data->delete();
         return redirect()->back()->with('success,Data berhasil di hapus');
     }
-
 
     public function deletekomenku($id)
     {
