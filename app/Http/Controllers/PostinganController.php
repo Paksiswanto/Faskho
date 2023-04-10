@@ -301,7 +301,7 @@ $unreadCount = count($notifications);
             ->orderBy('views', 'desc')
             ->get()
             ->take(10);
-
+        // dd($kat,$komentars,$like,$data,$balas,$totallike,$trend);
         return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat'));
     }
 
