@@ -298,6 +298,14 @@ $unreadCount = count($notifications);
             ->paginate(9);
         return view('user.penutup', compact('penutup'));
     }
+
+    public function lainnya()
+    {
+        $data=postingan::where('kategori_id', '=', '4');
+        $kat = kategori::query()->paginate();
+        $kategori = kategori::all();
+        return view('user.lainnya', compact( 'kat','kategori','data'));
+    }
     //ini untuk tampil di halaman utama
     public function tampil(Request $request, $id)
     {
