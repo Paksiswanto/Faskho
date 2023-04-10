@@ -27,8 +27,13 @@ class DeleteOldData extends Command
      */
     public function handle()
     {
-        $days = 7;
-        $posts = DeletedPost::where('read_at', '<', now()->subDays($days))->get();
+        $days = 30;
+        $days1=7;
+        $posts = DeletedPost::where(function ($query) use ($days1) {
+            $query->where('read_at', '<', now()->subDays($days1));
+        })->orWhere(function ($query) use ($days) {
+            $query->where('created_at', '<', now()->subDays($days));
+        })->get();
         foreach ($posts as $post) {
             $post->delete();
         }

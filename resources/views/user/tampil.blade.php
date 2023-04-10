@@ -101,7 +101,7 @@ img.nova {
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
+                                    <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->

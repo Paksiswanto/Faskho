@@ -83,10 +83,14 @@
               
               <div class="profile_info">
                 @if (Auth::user()->foto)
-                <img src="{{asset('storage/' . Auth::user()->foto)}}" style="border-radius:50%;width:50px;height:50px" alt="#">
+                    <img src="{{asset('storage/' . Auth::user()->foto)}}" style="border-radius:50%;width:50px;height:50px" alt="#">
+                  
                 @else
-                <img src="{{ asset('poto.jpg') }}" />
+                    <img src="{{ asset('poto.jpg') }}" />
                 @endif
+                @if ($unreadCount > 0)
+                          <span class="badge badge-danger">{{ $unreadCount }}</span>
+                      @endif
                 <div class="profile_info_iner">
                   <div class="profile_author_name">
                     <p>Penulis </p>

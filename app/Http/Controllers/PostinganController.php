@@ -261,11 +261,17 @@ $unreadCount = count($notifications);
     public function show($id)
     {
         $data = postingan::findOrFail($id);
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+        ->where('user_id', Auth::id())
+        ->whereNull('read_at')
+        ->get();
+        
+        $unreadCount = count($notifications);
         if ($data->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-
-        return view('post.postingan.show', compact('data'));
+        return view('post.postingan.show', compact('data','unreadCount'));
     }
     public function pembuka()
     {
