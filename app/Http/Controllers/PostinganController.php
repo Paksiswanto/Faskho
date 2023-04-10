@@ -271,7 +271,12 @@ $unreadCount = count($notifications);
         if ($data->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-        return view('post.postingan.show', compact('data','unreadCount'));
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);        return view('post.postingan.show', compact('data','unreadCount','unreadCount'));
     }
     public function pembuka()
     {
@@ -315,9 +320,14 @@ $unreadCount = count($notifications);
     {
         $keyword = $request->key;
         $kat = kategori::all();
-        $artikel = postingan::where('judul', 'LIKE', '%' . $keyword . '%')
-            ->paginate(9);
-
+        $artikel = DB::table('postingans')
+        ->join('users', 'postingans.user_id', '=', 'users.id')
+        ->select('postingans.id', 'postingans.thumbnail', 'postingans.views', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
+        ->where('users.is_banned', '=', 0)
+        ->where('postingans.status','=','diterima')
+        ->orderBy('postingans.views', 'desc')
+        ->paginate(9);
+        
         return view('user.artikel', compact('artikel', 'kat'));
     }
     public function litindex(Request $request)
@@ -498,6 +508,14 @@ $unreadCount = count($notifications);
     $notification = DB::table('deleted_posts')->where('id', $id)->update(['read_at' => now()]);
     Toastr::success('berhasil');
     return redirect()->back();
+}
+
+public function lihat($id)
+{
+    $data = postingan::findOrFail($id);
+        
+
+    return view('admin.postingan.lihat', compact('data'));
 }
 
 }

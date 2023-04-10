@@ -1,41 +1,46 @@
 @include('layout.headuser')
 
 <body>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <!-- Background Pattern Swither -->
 
     @include('layout.navkul')
     <style>
-img.nov {
-  width:800px;
-  height: 500px;
-  object-fit: cover;
-}
-</style>
-<style>
-img.nova {
-  width:400px;
-  height: 200px;
-  object-fit: cover;
-}
-</style>
-<style>
-    #like-button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
+        img.nov {
+            width: 800px;
+            height: 500px;
+            object-fit: cover;
+        }
 
-#like-button .fa-heart {
-  color: gray;
-}
-
-#like-button.liked .fa-heart {
-  color: red;
-}
     </style>
-    <!-- ** Breadcumb Area Start ** -->
+    <style>
+        img.nova {
+            width: 400px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    </style>
+    <style>
+        #like-button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        #like-button .fa-heart {
+            color: gray;
+        }
+
+        #like-button.liked .fa-heart {
+            color: red;
+        }
+
+    </style>
+    <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -140,59 +145,55 @@ img.nova {
                                 @foreach ($komentars->where('parent',0) as $komentar)
 
                                 <div class="mt-2" style="border-top: 2px solid silver;margin-bottom:20px;">
-                                <div class="comment-author mt-3 media mr-3" style="display: flex">
-                                    @if ($komentar->user->foto == null)
-                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
-                                    @else
-                                    <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}"
-                                    alt="User Avatar">
-                                    @endif
-                                    <div class="media-body ml-2">
-                                    <h5 style="margin-left: -3px">{{ $komentar->nama }}</h5>
-                                    <p style="margin-bottom: -10px">{{ $komentar->email }}</p>
-                            
+                                    <div class="comment-author mt-3 media mr-3" style="display: flex">
+                                        @if ($komentar->user->foto == null)
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}" alt="User Avatar" />
+                                        @else
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}" alt="User Avatar">
+                                        @endif
+                                        <div class="media-body ml-2">
+                                            <h5 style="margin-left: -3px">{{ $komentar->nama }}</h5>
+                                            <p style="margin-bottom: -10px">{{ $komentar->email }}</p>
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                              
-                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
-                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>   
-                            <div style="display: inline-block">
-                         
-                            <a href="/like/{{$komentar->id}}"class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i> <p style="display: inline;color:#e40707">  {{ $komentar->like->count() }}</p></i> like </i></a>
-                            
-                           
-                    </div>  
-                              <div class="balaskomen" data-id="balas-{{$komentar->id}}">
-                                {{-- @dd($komentar->id) --}}
-                                <button class="btn btn-default btn-balas">Balas</button>
-                              </div>
-                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                
-                                <input type="hidden" name="postingan_id"
-                                    value=" {{ $data->id }} ">
-                                @auth
-                                <input type="hidden" name="user_id"
-                                value=" {{ Auth::user()->id }} ">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="nama"
-                                        id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+
+                                <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
+                                <p style="font-size: 20px">{!! $komentar->pesan!!}</p>
+                                <div style="display: inline-block">
+
+                                    <a href="/like/{{$komentar->id}}" class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i>
+                                        <p style="display: inline;color:#e40707"> {{ $komentar->like->count() }}</p></i> like </i>
+                                    </a>
+
+
                                 </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="email" class="form-control"
-                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+                                <div class="balaskomen" data-id="balas-{{$komentar->id}}">
+                                    {{-- @dd($komentar->id) --}}
+                                    <button class="btn btn-default btn-balas">Balas</button>
                                 </div>
-                                @endauth
-                                <div class="form-group-append">
-                                    <input type="hidden" name="parent" value="{{$komentar->id}}"
-                                        id="contact-foto" placeholder="upload foto">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control " id="balas" name="pesan"  cols="30" rows="10" placeholder="balas" >
-                                </div>
-                                <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
-                            </form>
+                                <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+
+                                    <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
+                                    @auth
+                                    <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="nama" id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" name="email" class="form-control" id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
+                                    </div>
+                                    @endauth
+                                    <div class="form-group-append">
+                                        <input type="hidden" name="parent" value="{{$komentar->id}}" id="contact-foto" placeholder="upload foto">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control " id="balas" name="pesan" cols="30" rows="10" placeholder="balas">
+                                    </div>
+                                    <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
+                                </form>
 
                               @foreach ($komentar->childs as $child)
                               <div class="">
@@ -209,8 +210,11 @@ img.nova {
                                 </div>
                             </div>
                                 </div>
+                            </div>
+                                </div>
                               @endforeach        
                                 @endforeach
+
                                 <div style="border-bottom: 2px solid silver"></div>
 
                                 <!-- Leave A Comment -->
@@ -228,29 +232,24 @@ img.nova {
 
                                                 <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
 
-                                                <div class="form-group">
-                                                    <input type="hidden" class="form-control" name="nama"
-                                                        id="contact-name" value="{{ Auth::user()->name }}"
-                                                        placeholder="Nama">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="hidden" name="email" class="form-control"
-                                                        id="contact-email" value="{{ Auth::user()->email }}"
-                                                        placeholder="Email">
-                                                </div>
-                                                <div class="form-group-append">
-                                                    <input type="file" name="foto" class="form-control"
-                                                        id="contact-foto" placeholder="upload foto">
-                                                </div>
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="pesan" id="message" cols="30" rows="10" placeholder="Pesan"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn contact-btn">Posting Komentar</button>
-                                            </form>
-                                        </div>
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" name="nama" id="contact-name" value="{{ Auth::user()->name }}" placeholder="Nama">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="hidden" name="email" class="form-control" id="contact-email" value="{{ Auth::user()->email }}" placeholder="Email">
+                                            </div>
+                                           
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="pesan" id="summernote" cols="30" rows="10" placeholder="Pesan"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn contact-btn">Posting Komentar</button>
+                                        </form>
                                     </div>
-                                    @else
-                                           <center><p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
+                                </div>
+                                @else
+                                <center>
+                                    <p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p>
+                                </center>
                                 @endauth
                             </div>
                         </div>
@@ -517,22 +516,41 @@ img.nova {
     <script src="{{ asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
+    <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.js') }}"></script>
+
     <script>
-        
-               $(document).ready(function () {
-            $('.balaskomen').click(function () {
+        $(document).ready(function() {
+            $('.balaskomen').click(function() {
                 var id = $(this).data('id');
                 console.log(id)
-                $('#'+id).toggle('slide')
+                $('#' + id).toggle('slide')
             })
         })
+
     </script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Tulis komentar anda'
+            , tabsize: 2
+            , height: 120
+            , toolbar: [
+                ['style', ['style']]
+                , ['font', ['bold', 'underline', 'clear']]
+                , ['color', ['color']]
+                , ['para', ['ul', 'ol', 'paragraph']]
+                , ['insert', ['link', 'picture']]
+                , ['view', ['codeview', 'help']]
+            ]
+        });
 
-<script>
-    const likeButton = document.getElementById('like-button');
+    </script>
+    
 
-likeButton.addEventListener('click', function() {
-  likeButton.classList.toggle('liked');
-});
+    <script>
+        const likeButton = document.getElementById('like-button');
 
-  </script>
+        likeButton.addEventListener('click', function() {
+            likeButton.classList.toggle('liked');
+        });
+
+    </script>

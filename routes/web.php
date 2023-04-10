@@ -193,5 +193,8 @@ Route::middleware('admin')->group(function () {
     route::post('/insertdatalaporan', [LaporanController::class, 'insertlaporan'])->name('save');
     route::get('/deletedp/{id}', [LaporanController::class, 'deletedp'])->name('deletedp');
 
+    //Pratinjau Dibagian Admin
+
+    Route::get('/lihat/{id}', [PostinganController::class, 'lihat'])->name('lihat');
 
 });
