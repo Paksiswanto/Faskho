@@ -40,8 +40,8 @@
         }
 
     </style>
-    <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
+    <!-- ** Breadcumb Area Start ** -->
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -129,7 +129,7 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h3 class="post-headline">{{ $data->judul }}</h3>
+                                        <h1 class="post-headline">{{ $data->judul }}</h1>
                                     </a>
                                     <hr>
                                     <div>{!! $data->konten !!}</div>
@@ -210,8 +210,7 @@
                                 </div>
                             </div>
                                 </div>
-                            </div>
-                                </div>
+
                               @endforeach        
                                 @endforeach
 

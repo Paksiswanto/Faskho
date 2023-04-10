@@ -98,7 +98,7 @@
                   </div>
                   <div class="profile_info_details">
                     <!-- Button trigger modal -->
-                    <a class="nav-link mr-2" href="/profile"><i class="fa-solid fa-user fa-beat" style="width: 8%;margin-right:5%"></i>Profil</a>
+                    <a class="nav-link mr-2" href="/profile/{{ Auth::user()->id }}"><i class="fa-solid fa-user fa-beat" style="width: 8%;margin-right:5%"></i>Profil</a>
                     <a class="nav-link mr-2" href="/notif/{{auth::user()->id}}">
                       <i class="fa-solid fa-bell fa-beat" style="width: 8%;margin-right:5%"></i>
                       Notifikasi
@@ -106,7 +106,7 @@
                           <span class="badge badge-danger">{{ $unreadCount }}</span>
                       @endif
                   </a>
-                  <a class="nav-link mr-2" href="/keluar"><i class="fa-solid fa-right-from-bracket fa-beat" style="width: 8%;margin-right:5%"></i>Keluar</a>
+                  <a class="nav-link mr-2" href="/"><i class="fa-solid fa-right-from-bracket fa-beat" style="width: 8%;margin-right:5%"></i>Keluar</a>
                   </div>
                 </div>
               </div>

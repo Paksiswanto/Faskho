@@ -40,7 +40,7 @@
                                     @auth
 
                                     <a class="nav-link mr-2" href="/posts/{{ auth::user()->id }}"><i class="fa fa-plus"></i>Tambah Artikel</a>
-                                    <a class="nav-link mr-2" href="/profile"><i class="fa fa-user"></i>Profil</a>
+                                    <a class="nav-link mr-2"  href="/profile/{{ Auth::user()->id }}"><i class="fa fa-user"></i>Profil</a>
                                     @if (auth::user()->role=='admin')
                                         
                                     <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>

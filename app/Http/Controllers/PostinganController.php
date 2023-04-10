@@ -26,6 +26,7 @@ class PostinganController extends Controller
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
             ->where('postingans.status', 'pending')
+            ->where('users.is_banned',false)
             ->orderBy('postingans.updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
@@ -276,7 +277,8 @@ $unreadCount = count($notifications);
     ->where('user_id', Auth::id())
     ->whereNull('read_at')
     ->get();
-    $unreadCount = count($notifications);        return view('post.postingan.show', compact('data','unreadCount','unreadCount'));
+    $unreadCount = count($notifications);  
+          return view('post.postingan.show', compact('data','unreadCount','unreadCount'));
     }
     public function pembuka()
     {
@@ -317,9 +319,13 @@ $unreadCount = count($notifications);
         $totallike = like::where('komen_id')->count();
         $trend = postingan::all();
         $trend = DB::table('postingans')
-            ->orderBy('views', 'desc')
-            ->get()
-            ->take(10);
+        ->join('users', 'postingans.user_id', '=', 'users.id')
+        ->select('postingans.id', 'postingans.thumbnail', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
+        ->where('users.is_banned', '=', 0)
+        ->where('postingans.status','=','diterima')
+        ->orderBy('views', 'desc')
+        ->get()
+        ->take(10);
         // dd($kat,$komentars,$like,$data,$balas,$totallike,$trend);
         return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat'));
     }

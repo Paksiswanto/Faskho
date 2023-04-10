@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\DeletedPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
+
 class ProfileController extends Controller
 {
-    public function profile()
+    public function profile($id)
     {
         $data=User::all();
-        return view('post.profile',['data'=>$data]);
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+
+$unreadCount = count($notifications);
+        return view('post.profile',['data'=>$data,'unreadCount'=>$unreadCount]);
     }
     public function tampilprofile($id){
         $data = User::find($id);
@@ -23,8 +32,15 @@ class ProfileController extends Controller
          return view('error.403');
 
         }
+        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+
+$unreadCount = count($notifications);
        // dd($data);
-       return view('post.edit', compact('data'));
+       return view('post.edit', compact('data','unreadCount'));
     }
     public function updateprofile(Request $request, $id)
     {
@@ -52,7 +68,8 @@ class ProfileController extends Controller
             ]);
             $user->update($data);
     }
-    return redirect()->route('profile');
+    
+    return redirect()->route('profile',$user->id);
 
 }
 }
