@@ -138,19 +138,25 @@
                                                       <span class="pull-right">{{ $notification->created_at }}</span>
                                                     </div>
                                                     <div style="flex: 1;">
-                                                      <img style="width: 100%; max-width: 150px; height: auto;"
+                                                        @if ($notification->foto != null)
+                                                        <img style="width: 100%; max-width: 150px; height: auto;"
                                                         src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
+                                                        
+                                                        @endif
+                                                     
                                                     </div>
                                                   </li>
                                                 </span> --}}
 
 
                                                 
-                                <div class="card" style="width: 50rem;margin:4%">
+                                <div class="card" style="width: 50rem;margin-top:4%">
                                     <div class="card-body">
                                         <div style="flex: 1;">
-                                          <img style="width: 100%; max-width: 150px; height: auto; margin:top;"
-                                            src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
+                                            @if ( $notification->foto != null)    
+                                            <img style="width: 100%; max-width: 150px; height: auto; margin:top;"
+                                              src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
+                                            @endif
                                         </div>
                                         <h5 class="card-title" style=""> {!! $notification->content !!}                                        </h5>
                                         <p class="card-text">{{ $notification->created_at }}</p>
@@ -162,7 +168,12 @@
                                       method="POST">
                                       @csrf
                                       @method('PUT')
+                                      @if ( $notification->post_id == null)
+                                      <button type="submit" class="btn btn-primary p-1 mb-2">Telah Dibaca</button>
+                                      @else
                                       <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Telah Dibaca</button>
+                                      <a href="/tampil/{{ $notification->post_id }}"><button class="btn btn-success p-1">Lihat</button></a>
+                                      @endif
                                     </form>
                                     @endif
                                 </div>

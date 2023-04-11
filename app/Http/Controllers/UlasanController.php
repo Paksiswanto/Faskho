@@ -27,8 +27,7 @@ class UlasanController extends Controller
     public function insertdataulasan(request $request){
         //dd($request->all());
     $data = ulasan::create($request->all());
-    Toastr::success('Ulasan Berhasil dikirim');
-    return redirect()->back();
+    return redirect()->back()->with('success','Ulasan Dikirim, terimakasih atas ulasan anda');
     }
     public function tampilkandataulasan($id){
         $data = ulasan::find($id);

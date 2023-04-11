@@ -340,6 +340,7 @@ $unreadCount = count($notifications);
         $keyword = $request->key;
         $kat = kategori::all();
         $artikel = DB::table('postingans')
+        ->where('judul', 'LIKE', '%' . $keyword . '%')
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail', 'postingans.views', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
         ->where('users.is_banned', '=', 0)
