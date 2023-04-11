@@ -125,6 +125,7 @@ $unreadCount = count($notifications);
         $deletedPost->judul = $data->judul;
         $deletedPost->content ="postigan anda kami tolak karena ". $request->pesan;
         $deletedPost->foto=$data->thumbnail;
+        $deletedPost->post_id=$data->id;
         $deletedPost->save();
         
         return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
@@ -404,6 +405,7 @@ $unreadCount = count($notifications);
         $deletedPost->user_id=$post->user_id;
         $deletedPost->content ="Anda Mendapatkan Komentar Dari <h6>".$request->nama."</h6> Pada Postingan <b>".$post->judul."</b>.berupa: ".$request->pesan;
         $deletedPost->foto=$post->thumbnail;
+        $deletedPost->post_id=$id;
         $deletedPost->save();
         // $data = Komen::create([
         //     'postingan_id' => $request->postingan_id,

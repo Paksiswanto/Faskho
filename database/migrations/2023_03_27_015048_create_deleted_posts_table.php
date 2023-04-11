@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamp('read_at')->nullable();
             $table->string('foto');
+            $table->foreignId('post_id')->references('id')->on('postingans')->onDelete('cascade')->onUpdate('cascade')->nullable();
             $table->timestamps();
         });
     }

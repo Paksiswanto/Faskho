@@ -141,6 +141,7 @@
                                             <thead>
                                                 <tr align="center">
                                                     <th class="serial">#</th>
+                                                    <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Jumlah artikel</th>
 
@@ -150,6 +151,7 @@
                                                 @foreach($counts as $count)
                                                 <tr align="center">
                                                     <td class="serial">{{$loop->iteration}}</td>
+                                                    <td>{{ $count->name }}</td>
                                                     <td>{{ $count->email }}</td>
                                                     <td>{{ $count->total }}</td>
                                                 </tr>

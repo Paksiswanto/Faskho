@@ -31,11 +31,12 @@ class UserController extends Controller
         $user = user::all();
         $totalViews = Postingan::sum('views');
 
-        $totalpostingan = postingan::count();
+        $totalpostingan = postingan::where('status','diterima')->count();
         $totallaporan = laporan::count();
-        $totalUsers = User::count();
+        $totalUsers = User::where('role','user')->count();
 
-        $counts = Postingan::join('users', 'postingans.user_id', '=', 'users.id')
+        $counts = Postingan::where('status','diterima')
+            ->join('users', 'postingans.user_id', '=', 'users.id')
             ->groupBy('users.email') // memasukkan kolom users.name ke dalam GROUP BY
             ->selectRaw('users.email, count(*) as total')
             ->get();
@@ -43,7 +44,8 @@ class UserController extends Controller
         $postings = Postingan::orderByDesc('views')->take(10)->get();
 
         $data = [];
-        $posts = postingan::selectRaw('kategori_id, COUNT(*) as count')
+        $posts = postingan::where('status','diterima')
+            ->selectRaw('kategori_id, COUNT(*) as count')
             ->groupBy('kategori_id')
             ->get();
 
@@ -66,8 +68,10 @@ class UserController extends Controller
 
         $pot = postingan::all();
         $pot = DB::table('postingans')
+            ->where('status','diterima')
             ->join('users', 'postingans.user_id', '=', 'users.id')
-            ->orderBy('views', 'desc')
+            ->select('postingans.id', 'postingans.thumbnail', 'postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi', 'postingans.views')
+            ->orderBy('postingans.views', 'desc')
             ->get()
             ->take(10);
 

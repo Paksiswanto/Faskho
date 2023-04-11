@@ -52,10 +52,10 @@
                                 class="fa fa-ban" style="width: 20%;"></i>Data Banned User </a>
                     </li>
                     
-                    <li>
+                    {{-- <li>
                         <a href="/trend"> <i
                                 class="fa fa-bar-chart" style="width: 20%;"></i>Data Trend </a>
-                    </li>
+                    </li> --}}
                     <br>
                     <li>
                         <a href="/"> 
