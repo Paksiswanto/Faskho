@@ -1,4 +1,4 @@
-    <!-- ****** Top Header Area Start ****** -->
+<!-- ****** Top Header Area Start ****** -->
 <div class="top_header_area">
         <div class="container">
             <div class="row">
@@ -40,7 +40,7 @@
                                     @auth
 
                                     <a class="nav-link mr-2" href="/posts/{{ auth::user()->id }}"><i class="fa fa-plus"></i>Tambah Artikel</a>
-                                    <a class="nav-link mr-2"  href="/profile/{{ Auth::user()->id }}"><i class="fa fa-user"></i>Profil</a>
+                                    <a class="nav-link mr-2" href="/profile"><i class="fa fa-user"></i>Profil</a>
                                     @if (auth::user()->role=='admin')
                                         
                                     <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
@@ -90,10 +90,10 @@
                                 <li class="nav-item dropdown mt-0 ">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
                                     <div class="dropdown-menu">
-                                        <a class="nav-link" href="/pembuka">Pembuka</a>
-                                        <a class="nav-link" href="/utama">Utama
-                                        <a class="nav-link" href="/penutup">Penutup</a></a>
-                                            <a class="nav-link" href="/lainnya">Lainnya...</a>
+                                        @foreach ($kat as $row )
+                                        <a href="/kategori/{{ $row->id }}" class="dropdown-item">{{ $row->kategori }}</a>
+                                        @endforeach
+                                            <a class="nav-link" href="#">Lainnya...</a>
                                     </div>
                                 </li>
                                 <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">

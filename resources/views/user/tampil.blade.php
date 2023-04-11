@@ -7,35 +7,6 @@
 
     @include('layout.navkul')
     <style>
-img.nov {
-  width:800px;
-  height: 500px;
-  object-fit: cover;
-}
-</style>
-<style>
-img.nova {
-  width:400px;
-  height: 200px;
-  object-fit: cover;
-}
-</style>
-<style>
-    #like-button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#like-button .fa-heart {
-  color: gray;
-}
-
-#like-button.liked .fa-heart {
-  color: red;
-}
         img.nov {
             width: 800px;
             height: 500px;
@@ -51,8 +22,26 @@ img.nova {
         }
 
     </style>
-    <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->foto) }});">
+    <style>
+        #like-button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        #like-button .fa-heart {
+            color: gray;
+        }
+
+        #like-button.liked .fa-heart {
+            color: red;
+        }
+
+    </style>
+    <!-- ** Breadcumb Area Start ** -->
+    <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -71,9 +60,10 @@ img.nova {
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>
                                     Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('artikel') }}">Artikel </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route('artikel') }}">Artikel </a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a href="/kategori/{{ $data->kategori_id }}">{{ $data->kategori->kategori }} </a>
+                                    <a href="/kategori/{{ $data->kategori_id }}">{{ $data->kategori->kategori }} </a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $data->judul }} </li>
                         </ol>
@@ -82,9 +72,9 @@ img.nova {
             </div>
         </div>
     </div>
-    <!-- ****** Breadcumb Area End ****** -->
+    <!-- ** Breadcumb Area End ** -->
 
-    <!-- ****** Single Blog Area Start ****** -->
+    <!-- ** Single Blog Area Start ** -->
     <section class="single_blog_area section_padding_80">
         <div class="container">
             <div class="row justify-content-center">
@@ -96,9 +86,12 @@ img.nova {
                             <div class="single-post-share-info mt-100">
                                 <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#" class="googleplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#" class="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#" class="googleplus"><i class="fa fa-google-plus"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="pinterest"><i class="fa fa-pinterest"
+                                        aria-hidden="true"></i></a>
                             </div>
                         </div>
 
@@ -106,14 +99,14 @@ img.nova {
                         <div class="col-10 col-sm-11">
                             <div class="single-post">
                                 @php
-                                // increment article views count
-                                DB::table('postingans')
-                                ->where('id', $data->id)
-                                ->increment('views');
+                                    // increment article views count
+                                    DB::table('postingans')
+                                        ->where('id', $data->id)
+                                        ->increment('views');
                                 @endphp
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="{{ asset('thumbnail/' . $data->foto) }}" class="nov">
+                                    <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nov">
 
                                 </div>
                                 <!-- Post Content -->
@@ -136,7 +129,7 @@ img.nova {
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h3 class="post-headline">{{ $data->judul }}</h3>
+                                        <h1 class="post-headline">{{ $data->judul }}</h1>
                                     </a>
                                     <hr>
                                     <div>{!! $data->konten !!}</div>
@@ -144,7 +137,7 @@ img.nova {
                             </div>
 
                             <!-- Tags Area -->
-
+                         
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
                                 <h4 class="mb-30"> Komentar</h4>
@@ -167,55 +160,15 @@ img.nova {
                                 </div>
 
                                 <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
-                                <p style="font-size: 20px">{!! $komentar->pesan !!}</p>
+                                <p style="font-size: 20px">{!! $komentar->pesan!!}</p>
                                 <div style="display: inline-block">
 
+                                    <a href="/like/{{$komentar->id}}" class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i>
+                                        <p style="display: inline;color:#e40707"> {{ $komentar->like->count() }}</p></i> like </i>
+                                    </a>
 
-                                    @if ($komentar->like)
-                                    <a href="/like/{{$komentar->id}}" class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i>
-                                        <p style="display: inline"> {{ $komentar->like->count() }}</p>
-                                    </a>
-                                    @else
-                                    <a href="/like/{{$komentar->id}}" class="text-danger"><i class="fa-solid fa-heart" style="color: #e40707;"></i> like <p> 0</p></a>
-                                    @endif
-                                    <a href="#" class="like-komentar">
-                                    </a>
+
                                 </div>
-                            </div>
-                        </div>
-                              
-                            <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px"> 
-                            <p style="font-size: 20px" >{{ $komentar->pesan }}</p>   
-                            <div style="display: inline-block">
-                         
-                            <a href="/like/{{$komentar->id}}"class="text-danger"><button id="like-button"><i class="fa fa-heart"></i></button></i> <p style="display: inline;color:#e40707">  {{ $komentar->like->count() }}</p></i> like </i></a>
-                            
-                           
-                    </div>  
-                              <div class="balaskomen" data-id="balas-{{$komentar->id}}">
-                                {{-- @dd($komentar->id) --}}
-                                <button class="btn btn-default btn-balas">Balas</button>
-                              </div>
-                              <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                
-                                <input type="hidden" name="postingan_id"
-                                    value=" {{ $data->id }} ">
-                                @auth
-                                <input type="hidden" name="user_id"
-                                value=" {{ Auth::user()->id }} ">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="nama"
-                                        id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" name="email" class="form-control"
-                                        id="contact-email" value="{{Auth::user()->email}}" placeholder="Email">
-                                </div>
-                                @endauth
-                                <div class="form-group-append">
-                                    <input type="hidden" name="parent" value="{{$komentar->id}}"
-                                        id="contact-foto" placeholder="upload foto">
                                 <div class="balaskomen" data-id="balas-{{$komentar->id}}">
                                     {{-- @dd($komentar->id) --}}
                                     <button class="btn btn-default btn-balas">Balas</button>
@@ -225,9 +178,7 @@ img.nova {
 
                                     <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
                                     @auth
-
                                     <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
-
                                     <div class="form-group">
                                         <input type="hidden" class="form-control" name="nama" id="contact-name" value="{{Auth::user()->name}}" placeholder="Nama">
                                     </div>
@@ -244,42 +195,41 @@ img.nova {
                                     <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
                                 </form>
 
-                                @foreach ($komentar->childs as $child)
-                                <div class="">
-
+                              @foreach ($komentar->childs as $child)
+                              <div class="">
+                                
                                     <div class="comment-author mt-3 mb-3 media mr-3" style="display: flex">
                                         @if ($child->user->foto == null)
-                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}" alt="User Avatar" />
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}"alt="User Avatar" />
                                         @else
                                         <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{asset('storage/' . $child->user->foto)}}" alt="User Avatar">
                                         @endif
                                         <div class="media-body ml-2">
-                                            <h5 style="margin-left: -3px">{{ $child->nama }}</h5>
-                                            <p style="margin-bottom: -10px">{{ $child->pesan }}</p>
-                                        </div>
-                                    </div>
+                                        <h5 style="margin-left: -3px">{{ $child->nama }}</h5>
+                                        <p style="margin-bottom: -10px">{{ $child->pesan }}</p>
                                 </div>
                             </div>
                                 </div>
+
                               @endforeach        
                                 @endforeach
 
-                                @endforeach
                                 <div style="border-bottom: 2px solid silver"></div>
 
                                 <!-- Leave A Comment -->
                                 @auth
-                                <div class="leave-comment-area section_padding_50 clearfix">
-                                    <div class="comment-form">
-                                        <h4 class="mb-30">Tinggalkan Komentar</h4>
+                                    <div class="leave-comment-area section_padding_50 clearfix">
+                                        <div class="comment-form">
+                                            <h4 class="mb-30">Tinggalkan Komentar</h4>
 
 
-                                        <form action="{{ route('komentar.store', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data">
-                                            @csrf
+                                            <form action="{{ route('komentar.store', ['id' => $data->id]) }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
 
-                                            <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
+                                                <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
 
-                                            <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
+                                                <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
 
                                             <div class="form-group">
                                                 <input type="hidden" class="form-control" name="nama" id="contact-name" value="{{ Auth::user()->name }}" placeholder="Nama">
@@ -287,15 +237,13 @@ img.nova {
                                             <div class="form-group">
                                                 <input type="hidden" name="email" class="form-control" id="contact-email" value="{{ Auth::user()->email }}" placeholder="Email">
                                             </div>
-                                            
+                                           
                                             <div class="form-group">
                                                 <textarea class="form-control" name="pesan" id="summernote" cols="30" rows="10" placeholder="Pesan"></textarea>
                                             </div>
                                             <button type="submit" class="btn contact-btn">Posting Komentar</button>
                                         </form>
                                     </div>
-                                    @else
-                                           <center><p style="font-size:22px">Silahkan <a href="{{ route ('login') }}">Login</a> Terlebih Dahulu.</p></center>
                                 </div>
                                 @else
                                 <center>
@@ -314,36 +262,35 @@ img.nova {
                         </div>
                         <!-- Single Popular Post -->
                         @foreach ($trend as $data)
-
+                            
                         <div class="single-populer-post d-flex">
                             <img src="{{ asset('thumbnail/' . $data->thumbnail) }}" class="nova">
                             <div class="post-content">
                                 <a href="#">
-                                    <a href="/tampil/{{$data->id}}">
-                                        <h3>{{$data->judul}}</h3>
-                                    </a>
+                                    <a href="/tampil/{{$data->id}}"><h3>{{$data->judul}}</h3></a>
                                     <p style="font-size: 15pt">{{$data->deskripsi}}</p>
                                 </a>
                                 <p>{{$data->created_at}}</p>
                             </div>
                         </div>
                         @endforeach
+                       
 
 
-
-                        <!-- Single Widget Area -->
-                        <div class="single-widget-area newsletter-widget mt-5">
-                            <div class="widget-title text-center">
-                                <h6>Newsletter</h6>
-                            </div>
-                            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.
-                                <div class="newsletter-form">
-                                    <form action="#" method="post">
-                                        <input type="email" name="newsletter-email" id="email">
-                            </p>
-                            <placeholder="Your email">
-                                <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                </form>
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area newsletter-widget mt-5">
+                        <div class="widget-title text-center">
+                            <h6>Newsletter</h6>
+                        </div>
+                        <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.
+                            <div class="newsletter-form">
+                            <form action="#" method="post">
+                                <input type="email" name="newsletter-email" id="email">
+                        </p>
+                                   <placeholder="Your email">
+                                <button type="submit"><i class="fa fa-paper-plane-o"
+                                        aria-hidden="true"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -352,9 +299,9 @@ img.nova {
         </div>
     </section>
 
-    <!-- ****** Single Blog Area End ****** -->
+    <!-- ** Single Blog Area End ** -->
 
-    <!-- ****** Instagram Area Start ****** -->
+    <!-- ** Instagram Area Start ** -->
     <div class="instargram_area owl-carousel section_padding_100_0 clearfix" id="portfolio">
 
         <!-- Instagram Item -->
@@ -486,43 +433,49 @@ img.nova {
         </div>
 
     </div>
-    <!-- ****** Our Creative Portfolio Area End ****** -->
+    <!-- ** Our Creative Portfolio Area End ** -->
 
-    <!-- ****** Footer Social Icon Area Start ****** -->
+    <!-- ** Footer Social Icon Area Start ** -->
     <div class="social_icon_area clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="footer-social-area d-flex">
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>facebook</span></a>
+                            <a href="#"><i class="fa fa-facebook"
+                                    aria-hidden="true"></i><span>facebook</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+                            <a href="#"><i class="fa fa-twitter"
+                                    aria-hidden="true"></i><span>Twitter</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>GOOGLE+</span></a>
+                            <a href="#"><i class="fa fa-google-plus"
+                                    aria-hidden="true"></i><span>GOOGLE+</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
+                            <a href="#"><i class="fa fa-linkedin-square"
+                                    aria-hidden="true"></i><span>linkedin</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                            <a href="#"><i class="fa fa-instagram"
+                                    aria-hidden="true"></i><span>Instagram</span></a>
                         </div>
                         <div class="single-icon">
                             <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i><span>VIMEO</span></a>
                         </div>
                         <div class="single-icon">
-                            <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i><span>YOUTUBE</span></a>
+                            <a href="#"><i class="fa fa-youtube-play"
+                                    aria-hidden="true"></i><span>YOUTUBE</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ****** Footer Social Icon Area End ****** -->
+    <!-- ** Footer Social Icon Area End ** -->
 
-    <!-- ****** Footer Menu Area Start ****** -->
+    <!-- ** Footer Menu Area Start ** -->
     <footer class="footer_area">
         <div class="container">
             <div class="row">
@@ -543,13 +496,14 @@ img.nova {
                 <div class="col-12">
                     <!-- Copywrite Text -->
                     <div class="copy_right_text text-center">
-                        <p>KELOMPOK NOVA <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Hummasoft</a></p>
+                        <p>KELOMPOK NOVA <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href=""
+                                target="_blank">Hummasoft</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- ****** Footer Menu Area End ****** -->
+    <!-- ** Footer Menu Area End ** -->
 
     <!-- Jquery-2.2.4 js -->
     <script src="{{ asset('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js') }}"></script>
@@ -562,6 +516,17 @@ img.nova {
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.balaskomen').click(function() {
+                var id = $(this).data('id');
+                console.log(id)
+                $('#' + id).toggle('slide')
+            })
+        })
+
+    </script>
     <script>
         $('#summernote').summernote({
             placeholder: 'Tulis komentar anda'
@@ -578,27 +543,13 @@ img.nova {
         });
 
     </script>
+    
+
     <script>
-        $(document).ready(function() {
-            $('.balaskomen').click(function() {
-                var id = $(this).data('id');
-                console.log(id)
-                $('#' + id).toggle('slide')
-            })
-        })
+        const likeButton = document.getElementById('like-button');
+
+        likeButton.addEventListener('click', function() {
+            likeButton.classList.toggle('liked');
+        });
 
     </script>
-
-<script>
-    const likeButton = document.getElementById('like-button');
-
-</body>
-
-likeButton.addEventListener('click', function() {
-  likeButton.classList.toggle('liked');
-});
-
-  </script>
-</body>
-</body>
-</body>

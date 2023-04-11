@@ -179,11 +179,11 @@ img.square {
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="#">By {{$data->users->name }}</a>
+                                        <a href="#">By {{$data->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
-                                        <a href="#">{{ $data->created_at->format('d F Y') }}</a>
+                                        <a href="#">{{ $data->created_at }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->

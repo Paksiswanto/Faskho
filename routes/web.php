@@ -37,7 +37,7 @@ use App\Http\Controllers\ForgotPasswordController;
 
 Route::get('/kontak', function () {
     $kat = kategori::all();
-    return view('user.kontak',compact('kat'));
+    return view('user.kontak', compact('kat'));
 });
 Route::get('/artikel', function () {
     return view('post.post');
@@ -63,11 +63,7 @@ Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
     route::get('/postingan', [PostinganController::class, 'postingan'])->name('postingan');
 });
 
-//diterima
-Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
-Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
-Route::get('/tolak/{id}', [PostinganController::class, 'tolak'])->name('tolak');
-Route::get('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
+
 
 
 //login
@@ -88,41 +84,43 @@ Route::post('/inserthubungii',[UlasanController::class, 'inserthubungii'])->name
 //postingan Controller
 
 Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');
-Route::put('/notifications/{id}/read', [PostinganController::class, 'markAsRead'])->name('notifications.markAsRead');
+
+
+
 
 Route::get('/tampil/{id}', [PostinganController::class, 'tampil'])->name('tampil');
 Route::get('/like/{id}', [PostinganController::class, 'tampil'])->name('tampil');
-Route::get('/kategori/{id}',[PostinganController::class,'kategori2'])->name('kategori2');
+Route::get('/kategori/{id}', [PostinganController::class, 'kategori2'])->name('kategori2');
 
 Route::get('/pembuka', [PostinganController::class, 'pembuka'])->name('pembuka');
 //utama
 Route::get('/utama', [PostinganController::class, 'utama'])->name('utama');
 //penutup
 Route::get('/penutup', [PostinganController::class, 'penutup'])->name('penutup');
+//lainnya
+Route::get('/lainnya', [PostinganController::class, 'lainnya'])->name('lainnya');
 //artikel
 Route::get('/artikel', [PostinganController::class, 'artikel'])->name('artikel');
 Route::get('search', [PostinganController::class, 'search'])->name('search');
 
 //end PostinganController
 
-//Komentar
-Route::get('/like/{id}', [Likecontroller::class, 'like']);
-Route::resource('comments', App\Http\Controllers\CommentController::class);
 
 // USER
-Route::middleware('auth')->group( function(){
-    
+Route::middleware('auth')->group(function () {
+    //Komentar
+    Route::get('/like/{id}', [Likecontroller::class, 'like']);
+    Route::resource('comments', App\Http\Controllers\CommentController::class);
+
     //profile
     route::post('/insertdataulasan', [UlasanController::class, 'insertdataulasan'])->name('insertdataulasan');
-    route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    route::get('/profile/{id}', [ProfileController::class, 'profile'])->name('profile');
     route::get('/tampillah/{id}', [ProfileController::class, 'tampilprofile'])->name('tampilprofile');
     route::put('/updatedpo/{id}', [ProfileController::class, 'updatedpo'])->name('updatedpo');
     route::get('/profilku/{id}', [ProfileController::class, 'tampilprofile'])->name('tampilprofile');
     route::put('/updateprofile/{id}', [ProfileController::class, 'updateprofile'])->name('updateprofile');
 
     //postingan
-    route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');
-    route::get('/notif/{id}', [PostinganController::class, 'notif'])->name('notif');
     route::get('/hapus/{id}', [PostinganController::class, 'hapus'])->name('hapus');
     route::get('/statistik/{id}', [PostinganController::class, 'showTotalviews'])->name('showTotalviews');
     route::get('/tambahpostingan', [PostinganController::class, 'tambahpostingan'])->name('tambahpostingan');
@@ -136,8 +134,15 @@ Route::middleware('auth')->group( function(){
     route::post('storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
     route::post('/comments/{id}/balas', [PostinganController::class, 'balas'])->name('balas');
     Route::get('/show/{id}', [PostinganController::class, 'show'])->name('show');
-    route::get('/pending/{id}', [PostinganController::class, 'pending'])->name('pending');
     
+    //Notif
+    Route::put('/notifications/{id}/read', [PostinganController::class, 'markAsRead'])->name('notifications.markAsRead');
+    route::get('/notif/{id}', [PostinganController::class, 'notif'])->name('notif');
+    
+    //tolak,terima dan pending
+    route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');
+    route::get('/pending/{id}', [PostinganController::class, 'pending'])->name('pending');
+    Route::get('/tolak/{id}', [PostinganController::class, 'tolak'])->name('tolak');
 });
 Route::middleware('admin')->group(function () {
 
@@ -197,5 +202,7 @@ Route::middleware('admin')->group(function () {
     route::post('/insertdatalaporan', [LaporanController::class, 'insertlaporan'])->name('save');
     route::get('/deletedp/{id}', [LaporanController::class, 'deletedp'])->name('deletedp');
 
+    //Pratinjau Dibagian Admin
 
+    Route::get('/lihat/{id}', [PostinganController::class, 'lihat'])->name('lihat');
 });
