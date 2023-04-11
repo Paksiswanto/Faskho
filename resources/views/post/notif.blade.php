@@ -6,7 +6,11 @@
 @endpush
 
 @section('content')
-
+<style>
+    h6{
+        display: inline;
+    }
+</style>
 
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
         <br>
@@ -119,36 +123,46 @@
                                     <h3></h3>
                                 </div>
                             </div>
-                           
-                            
+
+
                             @if (count($notifications) > 0)
-                            <ul>
-                                @foreach ($notifications as $notification)
-                                <div class="card mb-3">
-                                        <div class="notification {{ $notification->read_at ? 'read' : 'unread' }} ">
-                                            <li>
-                                                <p class="mt-2" style="font-size: 100%;font-family:sans-serif">{{ $notification->content }}</p>
-                                                <span
-                                                    class="pull-right ma">{{ $notification->created_at }}</span>
-                                            </li>
-                                            <span class="badge badge-danger">
-                               
-                                                
-                                            </span>
-                                            @if (!$notification->read_at)
-                                                <form action="{{ route('notifications.markAsRead', $notification->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Mark as read</button>
-                                                </form>
-                                            @endif
+                                <ul>
+                                    @foreach ($notifications as $notification)
+                                        <div class="card mb-3">
+                                            <div class="notification {{ $notification->read_at ? 'read' : 'unread' }}">
+                                                <li style="display: flex; justify-content: space-between;">
+                                                    <div style="">
+                                                      <p class="mt-2" style="font-size: 100%; font-family: sans-serif; text-align: right;display:inline;">
+                                                        {!! $notification->content !!}
+                                                      </p>
+                                                      <span class="pull-right">{{ $notification->created_at }}</span>
+                                                    </div>
+                                                    <div style="flex: 1;">
+                                                      <img style="width: 100%; max-width: 150px; height: auto;"
+                                                        src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
+                                                    </div>
+                                                  </li>
+                                                  
+                                                <span class="badge badge-danger">
+
+
+                                                </span>
+                                                @if (!$notification->read_at)
+                                                    <form
+                                                        action="{{ route('notifications.markAsRead', $notification->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Mark as
+                                                            read</button>
+                                                    </form>
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </ul>
                             @else
-                                <p style="margin:15% 25% 15% 45%;color:darkgrey" >Tidak ada notifikasi</p>
+                                <p style="margin:15% 25% 15% 45%;color:darkgrey">Tidak ada notifikasi</p>
                             @endif
                         </div>
 
