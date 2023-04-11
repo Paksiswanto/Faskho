@@ -150,9 +150,11 @@
                                     <h5>Deskripsi:</h5>
                                     <textarea name="deskripsi" class="form-control @error('deskripsi')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('deskripsi')}}" aria-describedby="emailHelp"> @error('deskripsi') 
+                                @enderror" id="exampleInputEmail1" value="{{old('deskripsi')}}" > {{ old('deskripsi') }}
+                                 </textarea>
+                                 @error('deskripsi') 
                                 {{$message}}
-                                @enderror </textarea>
+                                 @enderror
                                 </div>
                                 {{-- <div class="col-md-6 mb-3 w-50">
                                     <h5>Deskripsi:</h5>
@@ -162,15 +164,20 @@
                                 {{$message}}
                                 @enderror</textarea>
                                 </div> --}}
-                                <div class="col-md-6 mb-3 w-50">
-                                    <h5>Kategori:</h5>
-                                    <select class="form-select" name="kategori_id" id="kategori_id" aria-label="Default select example">
-                                        <option selected>Pilih Kategori</option>
-                                        @foreach ($dtkategori as $data)
-                                        <option value="{{ $data->id }}">{{ $data->kategori }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                               <div class="col-md-6 mb-3 w-50">
+    <h5>Kategori:</h5>
+    <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id" id="kategori_id" aria-label="Default select example">
+        <option value="">Pilih Kategori</option>
+        @foreach ($dtkategori as $data)
+        <option value="{{ $data->id }}" {{ old('kategori_id') == $data->id ? 'selected' : '' }}>{{ $data->kategori }}</option>
+        @endforeach
+    </select>
+    @if ($errors->has('kategori_id'))
+        <div class="invalid-feedback">
+            {{ $errors->first('kategori_id') }}
+        </div>
+    @endif
+</div>
 
 
 
@@ -178,9 +185,11 @@
                                     <h3>Konten:</h3>
                                     <textarea name="konten" id="summernote" class="form-control @error('konten')
                                     is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('konten')}}" aria-describedby="emailHelp">@error('konten')
+                                @enderror" id="exampleInputEmail1" value="{{old('konten')}}">{{ old('konten') }}
+                                   </textarea>
+                                   @error('konten')
                                 {{$message}}
-                                @enderror</textarea>
+                                  @enderror
                                 </div>
                                 <div class="mb-3">
                                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
