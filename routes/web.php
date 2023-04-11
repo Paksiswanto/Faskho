@@ -81,6 +81,10 @@ Route::get('forgot-password', [ForgotPasswordController::class, 'showForm'])->na
 Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('forgot.password.mail');
 Route::get('reset-password/{token}', [ResetPasswordController::class, 'showForm'])->name('reset.password.form');
 Route::post('reset-password',  [ResetPasswordController::class, 'updatepassword'])->name('update.password');
+Route::get('/dataulasan', [UlasanController::class, 'dataulasan'])->name('dataulasan');
+Route::get('/hubungi', [UlasanController::class, 'hubungi'])->name('hubungi');
+Route::post('/inserthubungii',[UlasanController::class, 'inserthubungii'])->name('inserthubungii');
+
 //postingan Controller
 
 Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');

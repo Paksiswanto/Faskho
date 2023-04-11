@@ -66,6 +66,33 @@ public function show($id)
 
     return view('user.single1', compact('post', 'comments'));
 }
+public function hubungi(Request $request)
+    {
+        $keyword =  $request->keyword;
+        // dd($keyword);
+        $data = ulasan::where('nama','LIKE','%'.$keyword.'%')->get();
+        return view('login.hubungi',compact('data'));
+    }
+    public function inserthubungii(Request $request)
+    { 
+        ulasan::create([
+            'nama' => $request->nama, 
+            'email' => $request->email,
+            'laporan' => $request->laporan
+        ]);
+        return redirect()->back()->with('success', 'Anda berhasil mengirimkan pesan!');;
+    }
+    public function dataulasan()   
+    {
+        $data = ulasan::all();
+        return view('user.dataulasan', compact('data'));
+    }
+    public function deletehubungi($id){ 
+        $data = ulasan::find($id);
+        $data->delete();
+        return back() ->with('success', 'Data Behasil Di Hapus!');
+    }
+
 
 
 }

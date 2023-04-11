@@ -46,6 +46,7 @@
                             <ul>
                                 @foreach ($errors->all() as $error)
                                     <p style="font-family: Lucida Sans;">{{ $error }}</p>
+                                    <a href="/hubungi"><i class="fa-solid fa-headset" style="margin-top:2%;margin-left:20%"><b>      Hubungi   Kami  !!</b></i></a>
                                 @endforeach
                             </ul>
                         </div>
@@ -61,7 +62,7 @@
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn mr-5">Login</button>
                                 <a href="/forgot-password">Lupa Password?</a>
-                                <a href="/hubungi"><i class="fa-solid fa-headset" style="margin-top:96%;margin-left:40%"><b> Hubungi Kami</b></i></a>
+
                             </div>
                         </form>
                     </div>

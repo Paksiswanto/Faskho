@@ -24,7 +24,7 @@ class LoginController extends Controller
         // Menambahkan pengecekan status banned pada pengguna
         $user = User::where('email', $credentials['email'])->first();
         if ($user && $user->is_banned) {
-            return back()->withErrors(['error' => 'Maaf Akun Anda telah dibanned.']);
+            return back()->withErrors(['error' => 'Maaf Akun Anda telah diblokir.']);
         }
     
         if(Auth::attempt($request->only('email','password'))){
@@ -32,7 +32,7 @@ class LoginController extends Controller
         }
         
         return redirect('login');
-    }
+    } 
     public function register()
     {
         return view ('login.register', [
