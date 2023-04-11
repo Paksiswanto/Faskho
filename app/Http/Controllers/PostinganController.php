@@ -302,10 +302,13 @@ $unreadCount = count($notifications);
         return view('user.penutup', compact('penutup'));
     }
 
-    public function lainnya()
+    public function lainnya(Request $request)
     {
+        $cari =$request->cari;
         $data=postingan::where('kategori_id', '=', '4');
-        $kat = kategori::query()->paginate();
+        $kat = kategori::query()
+        ->where('kategori', 'LIKE', '%'.$cari.'%')
+        ->paginate();
         $kategori = kategori::all();
         return view('user.lainnya', compact( 'kat','kategori','data'));
     }
@@ -502,15 +505,6 @@ $unreadCount = count($notifications);
         $foto = $data->foto;
         $data->delete();
         unlink(public_path('storage/komentar/' . $foto));
-
-
-        //     $data = Komen::find($id);
-        //     $data->delete();
-        //     Storage::delete('storage/komentar'.$foto);
-        //     $cookie_name = "article_deleted";
-        //     $cookie_value = true;
-        //     $cookie_expire = time() + (60 * 60 * 24); // cookie akan berlaku selama 1 hari
-        //     setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
         return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
     }
 

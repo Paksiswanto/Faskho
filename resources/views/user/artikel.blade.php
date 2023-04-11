@@ -129,20 +129,8 @@ img.square {
         </div>
     </div>
     
-    <div class="container">
-        <div class="row height d-flex justify-content-center align-items-center">
-          <div class="col-md-6">
-            <div class="form">
-              <i class="fa fa-search"></i>
-              <form action="{{route('artikel')}}" method="get">
-              <input type="text" class="form-control form-input" name="key" value="{{Request::get('key')}}" placeholder="Search anything...">
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-<div class="breadcumb-nav">
+    
+    <div class="breadcumb-nav">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -157,6 +145,18 @@ img.square {
         </div>
     </div>
     <!-- ****** Breadcumb Area End ****** -->
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+          <div class="col-md-6">
+            <div class="form">
+              <i class="fa fa-search"></i>
+              <form action="{{route('artikel')}}" method="get">
+              <input type="text" class="form-control form-input" name="key" value="{{Request::get('key')}}" placeholder="Cari...">
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- ****** Archive Area Start ****** -->
     <section class="archive-area section_padding_80">
