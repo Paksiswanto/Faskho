@@ -111,7 +111,6 @@
             </li>
 
     </nav>
-
     <div class="main_content_iner ">
         <div class="container-fluid p-0 ">
             <div class="row ">
@@ -128,13 +127,14 @@
                             @if (count($notifications) > 0)
                                 <ul>
                                     @foreach ($notifications as $notification)
-                                        <div class="card mb-3">
+                                        {{-- <div class="card mb-3">
                                             <div class="notification {{ $notification->read_at ? 'read' : 'unread' }}">
                                                 <li style="display: flex; justify-content: space-between;">
                                                     <div style="">
                                                       <p class="mt-2" style="font-size: 100%; font-family: sans-serif; text-align: right;display:inline;">
                                                         {!! $notification->content !!}
                                                       </p>
+                                                      <br>
                                                       <span class="pull-right">{{ $notification->created_at }}</span>
                                                     </div>
                                                     <div style="flex: 1;">
@@ -142,21 +142,31 @@
                                                         src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
                                                     </div>
                                                   </li>
-                                                  
-                                                <span class="badge badge-danger">
+                                                </span> --}}
 
 
-                                                </span>
-                                                @if (!$notification->read_at)
-                                                    <form
-                                                        action="{{ route('notifications.markAsRead', $notification->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Mark as
-                                                            read</button>
-                                                    </form>
-                                                @endif
+                                                
+                                <div class="card" style="width: 50rem;margin:4%">
+                                    <div class="card-body">
+                                        <div style="flex: 1;">
+                                          <img style="width: 100%; max-width: 150px; height: auto; margin:top;"
+                                            src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
+                                        </div>
+                                        <h5 class="card-title" style=""> {!! $notification->content !!}                                        </h5>
+                                        <p class="card-text">{{ $notification->created_at }}</p>
+                                        <br>
+                                      
+                                      @if (!$notification->read_at)
+                                      <form
+                                      action="{{ route('notifications.markAsRead', $notification->id) }}"
+                                      method="POST">
+                                      @csrf
+                                      @method('PUT')
+                                      <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Telah Dibaca</button>
+                                    </form>
+                                    @endif
+                                </div>
+                              </div>
                                             </div>
                                         </div>
                                     @endforeach

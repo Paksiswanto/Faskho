@@ -504,9 +504,7 @@ $unreadCount = count($notifications);
     public function deletekomenku($id)
     {
         $data = Komen::find($id);
-        $foto = $data->foto;
         $data->delete();
-        unlink(public_path('storage/komentar/' . $foto));
         return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
     }
 
