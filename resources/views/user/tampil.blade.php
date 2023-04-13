@@ -137,7 +137,7 @@
 
                             <!-- Comment Area Start -->
                             <div class="comment_area section_padding_50 clearfix">
-                                <h4 class="mb-30"> Komentar</h4>
+                                <h4 class="mb-30">{{ $komenhi }} Komentar</h4>
 
                                 @foreach ($komentars->where('parent',0) as $komentar)
 
@@ -146,15 +146,15 @@
                                         @if ($komentar->user->foto == null)
                                         <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{ asset('poto.jpg') }}" alt="User Avatar" />
                                         @else
-                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%" style="height: 45px" src="{{asset('storage/' . $komentar->user->foto)}}" alt="User Avatar">
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:-7%; height: 45px; border-radius: 50%;" src="{{asset('storage/' . $komentar->user->foto)}}" alt="User Avatar">
                                         @endif
                                         <div class="media-body ml-2">
                                             <h5 style="margin-left: -3px">{{ $komentar->nama }}</h5>
                                             <p style="margin-bottom: -10px">{{ $komentar->email }}</p>
-
                                         </div>
                                     </div>
                                 </div>
+                                
 
                                 <img src="{{asset('storage/komentar/'.$komentar->foto)}}" alt="" style="width: 200px">
                                 <p style="font-size: 20px">{!! $komentar->pesan!!}</p>
@@ -209,7 +209,7 @@
                                         @if ($child->user->foto == null)
                                         <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}" alt="User Avatar" />
                                         @else
-                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{asset('storage/' . $child->user->foto)}}" alt="User Avatar">
+                                        <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%; height: 45px; border-radius: 50%;" src="{{asset('storage/' . $komentar->user->foto)}}" alt="User Avatar">
                                         @endif
                                         <div class="media-body ml-2">
                                             <h5 style="margin-left: -3px">{{ $child->nama }}</h5>

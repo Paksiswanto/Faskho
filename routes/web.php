@@ -142,13 +142,14 @@ Route::middleware('auth')->group(function () {
     route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');
     route::get('/pending/{id}', [PostinganController::class, 'pending'])->name('pending');
     Route::get('/tolak/{id}', [PostinganController::class, 'tolak'])->name('tolak');
+    route::post('/insertdatalaporan', [LaporanController::class, 'insertlaporan'])->name('save');
 });
 Route::middleware('admin')->group(function () {
 
     route::get('/deletepost/{id}', [PostinganController::class, 'deletepost'])->name('deletepost');
     //diterima
     Route::get('/terima', [PostinganController::class, 'terima'])->name('terima');
-    Route::get('/diterima/{id}', [PostinganController::class, 'diterima'])->name('diterima');
+    Route::post('/diterima', [PostinganController::class, 'diterima'])->name('diterima');
     Route::get('/tolak', [PostinganController::class, 'tolak'])->name('tolak');
     Route::post('/ditolak/{id}', [PostinganController::class, 'ditolak'])->name('ditolak');
     //Trend
@@ -198,7 +199,6 @@ Route::middleware('admin')->group(function () {
     //laporan
 
     route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
-    route::post('/insertdatalaporan', [LaporanController::class, 'insertlaporan'])->name('save');
     route::get('/deletedp/{id}', [LaporanController::class, 'deletedp'])->name('deletedp');
 
     //Pratinjau Dibagian Admin

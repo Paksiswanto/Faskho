@@ -46,7 +46,7 @@ $unreadCount = count($notifications);
     {
         $validatedata = $request->validate([
             'name' => 'required|max:10',
-            'foto' => 'mimes:png,jpg,jpeg,jfif',
+            'foto' => 'mimes:png,jpg,jpeg,jfif|image',
 
         ]);
         //dd($requ

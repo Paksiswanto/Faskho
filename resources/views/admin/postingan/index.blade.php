@@ -28,9 +28,19 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class="col-sm-6">
+                                                <div class="ml-2">
+                                                    <button class="btn btn-primary mb-3" id="select-all-btn">pilih semua</button>
+                                                    <button class="btn btn-primary mb-3" id="cancel-select-all-btn">Batal pilih semua</button>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <form action="/diterima" method="post" style="margin-top: 10px"id="form">
+                                            @csrf
+                                            <button onclick="document.getELemenById('form').submit()" class="btn btn-primary mb-1 p-1" type="submit">Terima Postingan</button>
                                         <thead>
                                             <tr align="center">
+                                                <th>pilih</th>
                                                 <th>#</th>
                                                 <th>Username</th>
                                                 <th>judul</th>
@@ -45,6 +55,7 @@
                                             @endphp
                                             @foreach ($data as $index=>$row )
                                             <tr align="center">
+                                                <th><input type="checkbox" name="myCheckbox[]" id="select-all-btn"value="{{ $row->id }}"></th>
                                                 <th scope="row">{{ $index +$data->firstitem()}}</th>
                                                 <td>{{ $row->name}}</td>
                                                 <td>{{ $row->judul}}</td>
@@ -100,6 +111,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
 
 
                         </div>
@@ -179,5 +191,22 @@
 </script>
 @push('scripts')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        document.getElementById("cancel-select-all-btn").addEventListener("click", function() {
+            var checkboxes = document.querySelectorAll("input[type=checkbox]");
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById("select-all-btn").addEventListener("click", function() {
+            var checkboxes = document.querySelectorAll("input[type=checkbox]");
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        });
+    </script>
 </body>
 @endpush

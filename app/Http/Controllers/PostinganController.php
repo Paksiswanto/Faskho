@@ -74,15 +74,18 @@ $unreadCount = count($notifications);
 
         return view('admin.terima.index', compact('data', 'datauser', 'datakategori',));
     }
-    public function diterima($id)
+    public function diterima(Request $request)
     {
-        $data = postingan::find($id);
-        $data->update(
-            [
-                'status' => 'diterima'
-            ]
-        );
-        return redirect()->route('terima')->with('sukses', 'Data Berhasil Di Perbarui');
+        if ($request->has('myCheckbox')) {
+            foreach ($request->myCheckbox as $row) {
+                postingan::find($row)->update([
+                    'status' => 'diterima'
+                ]);
+            }
+            return redirect('terima')->with('success', 'Promo Berhasil Diterima');
+        } else {
+            return redirect()->back()->with('error', 'Tidak ada promo yang dipilih');
+        }
     }
 
     public function tolak(Request $request,$id)
@@ -331,8 +334,10 @@ $unreadCount = count($notifications);
         ->orderBy('views', 'desc')
         ->get()
         ->take(10);
+        $komenhi=Komen::where('postingan_id',$id)->count();
+    
         // dd($kat,$komentars,$like,$data,$balas,$totallike,$trend);
-        return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat'));
+        return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat','komenhi'));
     }
 
     public function artikel(Request $request)
@@ -408,7 +413,15 @@ $unreadCount = count($notifications);
         $deletedPost->foto=$post->thumbnail;
         $deletedPost->post_id=$id;
         $deletedPost->save();
-       
+        if ($data->parent != 0) {
+            // Ambil induk komentar dari database
+            $induk = Komen::find($data->parent);
+            $data = Komen::where('id',$induk);
+            dd($data);
+        } else {
+            // data adalah induk komentar
+            $induk = $data;
+        }
 
         $foto = $request->file('foto');
         if ($request->hasFile('foto')) {
