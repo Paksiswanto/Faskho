@@ -6,11 +6,11 @@
 @endpush
 
 @section('content')
-<style>
-    h6{
-        display: inline;
-    }
-</style>
+    <style>
+        h6 {
+            display: inline;
+        }
+    </style>
 
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
         <br>
@@ -127,77 +127,58 @@
                             @if (count($notifications) > 0)
                                 <ul>
                                     @foreach ($notifications as $notification)
-                                        {{-- <div class="card mb-3">
-                                            <div class="notification {{ $notification->read_at ? 'read' : 'unread' }}">
-                                                <li style="display: flex; justify-content: space-between;">
-                                                    <div style="">
-                                                      <p class="mt-2" style="font-size: 100%; font-family: sans-serif; text-align: right;display:inline;">
-                                                        {!! $notification->content !!}
-                                                      </p>
-                                                      <br>
-                                                      <span class="pull-right">{{ $notification->created_at }}</span>
-                                                    </div>
-                                                    <div style="flex: 1;">
-                                                        @if ($notification->foto != null)
+                                        <div class="card mb-2 mx-auto my-auto" style="width: 80rem;">
+                                            <div class="card-body">
+                                                <div style="flex: 1;">
+                                                    @if ($notification->foto != null)
                                                         <img style="width: 100%; max-width: 150px; height: auto;"
-                                                        src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
-                                                        
+                                                            src="{{ asset('thumbnail/' . $notification->foto) }}"
+                                                            class="nova float-right">
+                                                    @endif
+                                                </div>
+                                                <h5 class="card-title" style=""> {!! $notification->content !!} </h5>
+                                                <p class="card-text">{{ $notification->created_at }}</p>
+                                                <br>
+
+                                                @if (!$notification->read_at)
+                                                    <form
+                                                        action="{{ route('notifications.markAsRead', $notification->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        @if ($notification->post_id == null)
+                                                            <button type="submit" class="btn btn-primary p-1 mb-2">Telah
+                                                                Dibaca</button>
+                                                        @else
+                                                            <button type="submit"
+                                                                class="btn btn-primary mt-2 p-1 mb-2">Telah Dibaca</button>
+                                                            <button class="btn btn-success p-1"> <a
+                                                                    href="/tampil/{{ $notification->post_id }}"
+                                                                    style="text-decoration: none;color:white">Lihat</a></button>
                                                         @endif
-                                                     
-                                                    </div>
-                                                  </li>
-                                                </span> --}}
-
-
-                                                
-                                <div class="card" style="width: 50rem;margin-top:4%">
-                                    <div class="card-body">
-                                        <div style="flex: 1;">
-                                            @if ( $notification->foto != null)    
-                                            <img style="width: 100%; max-width: 150px; height: auto; margin:top;"
-                                              src="{{ asset('thumbnail/' . $notification->foto) }}" class="nova float-right">
-                                            @endif
-                                        </div>
-                                        <h5 class="card-title" style=""> {!! $notification->content !!}                                        </h5>
-                                        <p class="card-text">{{ $notification->created_at }}</p>
-                                        <br>
-                                      
-                                      @if (!$notification->read_at)
-                                      <form
-                                      action="{{ route('notifications.markAsRead', $notification->id) }}"
-                                      method="POST">
-                                      @csrf
-                                      @method('PUT')
-                                      @if ( $notification->post_id == null)
-                                      <button type="submit" class="btn btn-primary p-1 mb-2">Telah Dibaca</button>
-                                      @else
-                                      <button type="submit" class="btn btn-primary mt-2 p-1 mb-2">Telah Dibaca</button>
-                                      <a href="/tampil/{{ $notification->post_id }}"><button class="btn btn-success p-1">Lihat</button></a>
-                                      @endif
-                                    </form>
-                                    @endif
-                                </div>
-                              </div>
+                                                    </form>
+                                                @endif
                                             </div>
                                         </div>
-                                    @endforeach
-                                </ul>
-                            @else
-                                <p style="margin:15% 25% 15% 45%;color:darkgrey">Tidak ada notifikasi</p>
-                            @endif
-                        </div>
-
-
-                        <div>
-
-
-
-                        </div>
-
-                    </div>
+                     
+                    @endforeach
+                    </ul>
+                @else
+                    <p style="margin:15% 25% 15% 45%;color:darkgrey">Tidak ada notifikasi</p>
+                    @endif
                 </div>
+
+
+                <div>
+
+
+
+                </div>
+
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>

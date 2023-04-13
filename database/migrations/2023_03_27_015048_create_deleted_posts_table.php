@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('deleted_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->longText('content');
             $table->unsignedBigInteger('post_id')->nullable();
             $table->string('judul')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

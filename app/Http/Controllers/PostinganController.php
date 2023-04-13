@@ -123,7 +123,7 @@ $unreadCount = count($notifications);
         $deletedPost = new DeletedPost();
         $deletedPost->user_id = $data->user_id;
         $deletedPost->judul = $data->judul;
-        $deletedPost->content ="postigan anda kami tolak karena ". $request->pesan;
+        $deletedPost->content ="postigan anda judul ".$data->judul." kami tolak karena ". $request->pesan;
         $deletedPost->foto=$data->thumbnail;
         $deletedPost->post_id=$data->id;
         $deletedPost->save();
@@ -520,8 +520,8 @@ $unreadCount = count($notifications);
     public function markAsRead($id)
 {
     $notification = DB::table('deleted_posts')->where('id', $id)->update(['read_at' => now()]);
-    Toastr::success('berhasil');
-    return redirect()->back();
+    
+    return redirect()->back()->with('success','Berhasil');
 }
 
 public function lihat($id)
