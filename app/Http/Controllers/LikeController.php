@@ -8,20 +8,34 @@ use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    public function like($komen_id)
-    {
-        $like = Like::where('komen_id', $komen_id)->where('user_id', auth()->user()->id)->first();
+   public function like($id)
+{
+    $like = Like::where('komen_id', $id)->where('user_id',auth()->user()->id)->first();
 
-        if ($like){
-            $like->delete();
-            return back();
-        } else {
-            Like::create([
-                'user_id' => Auth::user()->id,
-                'komen_id' => $komen_id
-            ]);
-            return back();
-        }
+    if ($like) {
+        $like->delete();
+        $liked = false;
+    } else {
+        Like::create([
+            'user_id' => Auth::user()->id,
+            'komen_id' => $id
+        ]);
+        $liked = true;
     }
+
+    // Mengembalikan jumlah like untuk ditampilkan di tampilan
+    $like_count = Like::where('komen_id', $id)->count();
+
+    if (request()->ajax()) {
+        return response()->json([
+            'liked' => $liked,
+            'like_count' => $like_count,
+        ]);
+    } else {
+        return redirect()->route('tampil', $id);
+    }
+}
+
+
     
 }

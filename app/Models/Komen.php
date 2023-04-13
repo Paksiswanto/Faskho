@@ -15,9 +15,10 @@ class Komen extends Model
     {
     return $this->belongsto(User::class);
     }
+   
     public function like()
     {
-        return $this->hasMany(like::class); 
+        return $this->hasMany(Like::class);
     }
 
     public function childs()

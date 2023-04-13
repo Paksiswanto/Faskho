@@ -71,5 +71,13 @@ class User extends Authenticatable
 {
     return $value ? 'Banned' : 'Aktif';
 }
+public function komen()
+{
+    return $this->hasMany(Komen::class);
+}
 
+public function like()
+{
+    return $this->hasMany(Like::class);
+}
 }

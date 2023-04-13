@@ -89,7 +89,7 @@ Route::get('/', [PostinganController::class, 'litindex'])->name('litindex');
 
 
 Route::get('/tampil/{id}', [PostinganController::class, 'tampil'])->name('tampil');
-Route::get('/like/{id}', [PostinganController::class, 'tampil'])->name('tampil');
+Route::get('/like/{id}', [LikeController::class, 'like'])->name('like');
 Route::get('/kategori/{id}', [PostinganController::class, 'kategori2'])->name('kategori2');
 
 Route::get('/pembuka', [PostinganController::class, 'pembuka'])->name('pembuka');
@@ -109,7 +109,6 @@ Route::get('search', [PostinganController::class, 'search'])->name('search');
 // USER
 Route::middleware('auth')->group(function () {
     //Komentar
-    Route::get('/like/{id}', [Likecontroller::class, 'like']);
     Route::resource('comments', App\Http\Controllers\CommentController::class);
 
     //profile
@@ -131,7 +130,7 @@ Route::middleware('auth')->group(function () {
     route::get('/deleteps/{id}', [PostinganController::class, 'deleteps'])->name('deleteps');
     route::get('/komenku/{id}', [PostinganController::class, 'komenku'])->name('komenku');
     route::get('/deletekomenku/{id}', [PostinganController::class, 'deletekomenku'])->name('deletekomenku');
-    route::post('storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
+    route::post('/storeKomentar/{id}', [PostinganController::class, 'storeKomentar'])->name('komentar.store');
     route::post('/comments/{id}/balas', [PostinganController::class, 'balas'])->name('balas');
     Route::get('/show/{id}', [PostinganController::class, 'show'])->name('show');
     
