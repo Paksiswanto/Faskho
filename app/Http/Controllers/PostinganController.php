@@ -413,16 +413,22 @@ $unreadCount = count($notifications);
         $deletedPost->foto=$post->thumbnail;
         $deletedPost->post_id=$id;
         $deletedPost->save();
+
         if ($data->parent != 0) {
             // Ambil induk komentar dari database
             $induk = Komen::find($data->parent);
-            $data = Komen::where('id',$induk);
-            dd($data);
-        } else {
-            // data adalah induk komentar
-            $induk = $data;
-        }
+            $data = Komen::where('id',$induk)->get();
+            $post=postingan::find($id);
 
+            $deletedPost = new DeletedPost();
+            $deletedPost->user_id=$post->user_id;
+            $deletedPost->content ="Anda Mendapatkan Balasan Dari <h6>".$request->nama."</h6> Pada Komentar <b>".$post->judul."</b>.berupa: ".$request->pesan;
+            $deletedPost->foto=$post->thumbnail;
+            $deletedPost->post_id=$post->id;
+            $deletedPost->save();
+            
+        
+        }
         $foto = $request->file('foto');
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('storage/komentar/', $request->file('foto')->getClientOriginalName());
