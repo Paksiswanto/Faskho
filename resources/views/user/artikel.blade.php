@@ -239,7 +239,7 @@ img.square {
                                 @endauth
                             </div>
                             <a href="{{ route('tampil', $data->id) }}">
-                                <h5 class="post-headline">{{$data->judul}}.</h5>
+                                <h5 class="post-headline">{{$data->judul}}</h5>
                             </a>
                         </div>
                     </div>

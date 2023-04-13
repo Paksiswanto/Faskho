@@ -42,6 +42,7 @@
 
     </style>
     <!-- ** Breadcumb Area Start ** -->
+    
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">

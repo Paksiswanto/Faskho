@@ -60,12 +60,12 @@
                                                 <td>{{ $row->name}}</td>
                                                 <td>{{ $row->judul}}</td>
                                                 <td>{{ $row->kategori->kategori }}</td>
-
+                                                
+                                            </form>
                                                 <td>
                                                     <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <a href = "/diterima/{{$row->id}}"  class="btn btn-primary delete">Terima</a>
                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                                                         Tolak
                                                       </button>
@@ -111,7 +111,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
 
 
                         </div>

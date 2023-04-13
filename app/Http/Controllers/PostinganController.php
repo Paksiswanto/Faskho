@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Like;
 use App\Models\User;
 use App\Models\Komen;
@@ -10,11 +11,11 @@ use App\Models\postingan;
 use App\Models\DeletedPost;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Yoeunes\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 
 class PostinganController extends Controller
@@ -82,9 +83,9 @@ $unreadCount = count($notifications);
                     'status' => 'diterima'
                 ]);
             }
-            return redirect('terima')->with('success', 'Promo Berhasil Diterima');
+            return redirect('terima')->with('success', 'Postingan Berhasil Diterima');
         } else {
-            return redirect()->back()->with('error', 'Tidak ada promo yang dipilih');
+            return redirect()->back()->with('error', 'Tidak ada postingan yang dipilih');
         }
     }
 
@@ -398,13 +399,23 @@ $unreadCount = count($notifications);
     }
     public function storeKomentar(Request $request, $id)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nama' => 'required',
             'email' => 'required|email',
-            'pesan' => 'required',
+            'pesan' => ['required', 'not_regex:/\b(kontol|memek|anjing|asu|kirek|jorok|jelek)\b/i'],
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'rating' => 'nullable|numeric|min:1|max:5',
+        ], [
+            'pesan.not_regex' => 'Komentar mengandung kata-kata tidak sopan',
         ]);
+        
+        if ($validator->fails()) {
+            Toastr::error($validator->errors()->first(), 'Error');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        // validation passed, continue with your code
+        
         $post=postingan::find($id);
         $data = Komen::create($request->all());
         $deletedPost = new DeletedPost();
@@ -413,6 +424,7 @@ $unreadCount = count($notifications);
         $deletedPost->foto=$post->thumbnail;
         $deletedPost->post_id=$id;
         $deletedPost->save();
+
 
         if ($data->parent != 0) {
             // Ambil induk komentar dari database
@@ -437,7 +449,7 @@ $unreadCount = count($notifications);
         }
 
 
-        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
+        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan','error','komentar');
     }
 
     public function showTotalviews($id)
