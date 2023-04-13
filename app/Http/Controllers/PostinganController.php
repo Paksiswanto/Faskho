@@ -408,10 +408,7 @@ $unreadCount = count($notifications);
         $deletedPost->foto=$post->thumbnail;
         $deletedPost->post_id=$id;
         $deletedPost->save();
-        // $data = Komen::create([
-        //     'postingan_id' => $request->postingan_id,
-
-        // ]);
+       
 
         $foto = $request->file('foto');
         if ($request->hasFile('foto')) {
