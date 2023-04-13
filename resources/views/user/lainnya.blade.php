@@ -114,9 +114,26 @@
       height: 200px;
       object-fit: cover;
     }
-    </style>    `   `
+    </style>
+    
+    <style>
+        button {
+        background-color: #ff971a; /* warna latar belakang */
+    border: none; /* menghapus garis tepi */
+    color: white; /* warna teks */
+    padding: 15px 30px; /* jarak antara teks dan tepi tombol */
+    text-align: center; /* teks di tengah */
+    text-decoration: none; /* menghapus dekorasi link */
+    display: inline-block; /* menampilkan tombol sebagai blok inline */
+    font-size: 17px; /* ukuran teks */
+    margin: 4px 2px; /* jarak antara tombol */
+    cursor: pointer; /* menampilkan cursor ketika di hover */
+    border-radius: 15px; /* membuat sudut bulat pada tombol */
+    width: 180px;
+}
+    </style>`   `
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg);">
+    <div class="breadcumb-area" style="background-image: url(https://i.pinimg.com/564x/41/ce/59/41ce5913da0f0f31bb97b405b43e8872.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -142,7 +159,7 @@
             </div>
         </div>
     </div>
-
+<br>
     <div class="container">
         <div class="row height d-flex justify-content-center align-items-center">
           <div class="col-md-6">
@@ -167,7 +184,7 @@
                         <!-- Post Thumb -->
                         <!-- Post Content -->
                         <div class="post-content">
-                            <a href="/kategori/{{ $row->id }}" class="dropdown-item">{{ $row->kategori }}</a>
+                        <a href="/kategori/{{ $row->id }}" class="dropdown-item"><button>{{ $row->kategori }}</button></a>
                                 
                         </div>
                     </div>
