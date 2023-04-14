@@ -132,7 +132,7 @@
                                                 <div style="flex: 1;">
                                                     @if ($notification->foto != null)
                                                         <img style="width: 100%; max-width: 150px; height: auto;"
-                                                            src="{{ asset('thumbnail/' . $notification->foto) }}"
+                                                            src="{{ asset('thumbnail/' . $notification->foto    ) }}"
                                                             class="nova float-right">
                                                     @endif
                                                 </div>

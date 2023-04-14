@@ -31,13 +31,15 @@
                                             <div class="col-sm-6">
                                                 <div class="ml-2">
                                                     <button class="btn btn-primary mb-3" id="select-all-btn">pilih semua</button>
-                                                    <button class="btn btn-primary mb-3" id="cancel-select-all-btn">Batal pilih semua</button>
+                                                    <button class="btn btn-warning mb-3" id="cancel-select-all-btn">Batal pilih semua</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <form action="/diterima" method="post" style="margin-top: 10px"id="form">
+                                        <form action="{{ route('diterima') }}" method="post" style="margin-top: 10px" id="form">
                                             @csrf
-                                            <button onclick="document.getELemenById('form').submit()" class="btn btn-primary mb-1 p-1" type="submit">Terima Postingan</button>
+                                            <button onclick="document.getElementById('form').submit()" class="btn btn-primary mb-1 p-1" type="button">Terima Postingan</button>
+                                        
+                                        
                                         <thead>
                                             <tr align="center">
                                                 <th>pilih</th>
@@ -61,36 +63,34 @@
                                                 <td>{{ $row->judul}}</td>
                                                 <td>{{ $row->kategori->kategori }}</td>
                                                 
-                                            </form>
                                                 <td>
                                                     <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" alt="" style="width: 130px;;">
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                                        Tolak
-                                                      </button>
-                                                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                          <div class="modal-content">
-                                                            <div class="modal-header">
-                                                              <h5 class="modal-title" id="exampleModalLabel">Kirim Alasan Ke User</h5>
-                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                              </button>
+                                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal-{{ $row->id }}">
+                                                            Tolak Promo
+                                                        </button>
+                                                        <div class="modal fade" id="exampleModal-{{ $row->id }}" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content" enctype="multiple/form-data">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Tinggalkan Pesan Ditolak Untuk User</h5>                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <textarea name="pesan" id="pesan{{ $row->id }}" cols="50%" rows="5" required></textarea>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="button" data-id="{{ $row->id }}"
+                                                                            class="btn btn-tolak-promo btn-success">Kirim</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="modal-body">
-                                                              <form action="/ditolak/{{ $row->id }}" method="post">
-                                                                @csrf
-                                                                <textarea name="pesan" id="" cols="53" rows="5"></textarea>
-                                                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                                                            </form>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                          </div>
                                                         </div>
-                                                      </div>
+                                                        
                                                  <a href = "/lihat/{{$row->id}}"  class="btn btn-success">Lihat Selengkapnya</a>
                                                 </td>
                                             </tr>
@@ -98,6 +98,7 @@
                                         </tbody>
                                     </table>
                                     <div>
+                                    </form>
                                         showing
                                         {{ $data->firstitem() }}
                                         to
@@ -207,5 +208,29 @@
             }
         });
     </script>
+
+<script>
+    $('.btn-tolak-promo').click(function() {
+        console.log('p')
+        var id = $(this).data('id')
+        var pesan = $('#pesan' + id).val()
+        $.ajax({
+            type: 'POST',
+            url: '/ditolak/' + id,
+            data: {
+                _token: '{{ csrf_token() }}',
+                pesan: pesan
+            },
+            success: function(response) {   
+                toastr.success('postingan telah ditolak')
+                location.reload()
+            },
+            error: function(response) {
+                alert('Gagal Menolak postingan')
+            },
+        })
+    })
+    </script>
+    
 </body>
 @endpush

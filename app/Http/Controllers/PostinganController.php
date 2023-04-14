@@ -68,6 +68,7 @@ $unreadCount = count($notifications);
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail','postingans.kategori_id', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
             ->where('postingans.status', 'diterima')
+            ->where('users.is_banned', false)
             ->orderBy('postingans.updated_at', 'desc')
             ->paginate(10);
         $datauser = User::all();
@@ -79,7 +80,7 @@ $unreadCount = count($notifications);
     {
         if ($request->has('myCheckbox')) {
             foreach ($request->myCheckbox as $row) {
-                postingan::find($row)->update([
+                postingan::where('id',$row)->update([
                     'status' => 'diterima'
                 ]);
             }
@@ -132,8 +133,8 @@ $unreadCount = count($notifications);
         $deletedPost->post_id=$data->id;
         $deletedPost->save();
         
-        return redirect()->back()->with('sukses', 'Data Berhasil Di Perbarui');
-    }
+        return response()->json(['success' => 'Berhasil Menolak'],200);
+        }
 
     public function deletepost($id)
     {
@@ -402,7 +403,7 @@ $unreadCount = count($notifications);
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
             'email' => 'required|email',
-            'pesan' => ['required', 'not_regex:/\b(kontol|memek|anjing|asu|kirek|jorok|jelek)\b/i'],
+            'pesan' => ['required', 'not_regex:/\b(kontol|memek|anjing|asu|kirek)\b/i'],
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'rating' => 'nullable|numeric|min:1|max:5',
         ], [
@@ -410,12 +411,10 @@ $unreadCount = count($notifications);
         ]);
         
         if ($validator->fails()) {
-            Toastr::error($validator->errors()->first(), 'Error');
+            Toastr::warning($validator->errors()->first(), 'Warning');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        
-        // validation passed, continue with your code
-        
+                
         $post=postingan::find($id);
         $data = Komen::create($request->all());
         $deletedPost = new DeletedPost();
