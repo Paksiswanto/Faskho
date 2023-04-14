@@ -312,16 +312,16 @@ $unreadCount = count($notifications);
     {
         $cari =$request->cari;
         $data=postingan::where('kategori_id', '=', '4');
-        $kat = kategori::query()
+        $kat = kategori::all()->take(3);
+        $kategori = kategori::query()
         ->where('kategori', 'LIKE', '%'.$cari.'%')
         ->paginate();
-        $kategori = kategori::all();
         return view('user.lainnya', compact( 'kat','kategori','data'));
     }
     //ini untuk tampil di halaman utama
     public function tampil(Request $request, $id)
     {
-        $kat = kategori::all();
+        $kat = kategori::all()->take(3);
         $komentars = Komen::where('postingan_id', $id)->get();
         $like = Komen::where('komen_id', $request->komen_id)->count();
         $data = postingan::findOrFail($id);
@@ -345,7 +345,7 @@ $unreadCount = count($notifications);
     public function artikel(Request $request)
     {
         $keyword = $request->key;
-        $kat = kategori::all();
+        $kat = kategori::all()->take(3);
         $artikel = DB::table('postingans')
         ->where('judul', 'LIKE', '%' . $keyword . '%')
         ->join('users', 'postingans.user_id', '=', 'users.id')
@@ -360,7 +360,7 @@ $unreadCount = count($notifications);
     public function litindex(Request $request)
     {
         $keyword = $request->keyword;
-        $kat = kategori::all();
+        $kat = kategori::all()->take(3);
         $data = postingan::with('kategori')->where('judul', 'LIKE', '%' . $keyword . '%');
         $randomData = DB::table('postingans')
             ->join('users', 'postingans.user_id', '=', 'users.id')
@@ -538,7 +538,7 @@ $unreadCount = count($notifications);
 
     public function kategori2($id)
     {
-        $kat = kategori::all();
+        $kat = kategori::all()->take(3);
         $kategori = kategori::where('id', $id)->get()->first();
 
         $data = postingan::where('kategori_id', $id)->paginate(9);

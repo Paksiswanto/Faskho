@@ -75,6 +75,7 @@
                     </div>
                 </div>
             </div>
+              
 
             <div class="row">
                 <div class="col-12">
@@ -83,19 +84,22 @@
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
+                                
                                 <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                                     <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
-                                </li>
+                                </li> 
+                              
                                 
-                                <li class="nav-item dropdown mt-0 ">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kategori</a>
-                                    <div class="dropdown-menu">
-                                        <a class="nav-link" href="/pembuka">Pembuka</a>
-                                        <a class="nav-link" href="/utama">Utama
-                                        <a class="nav-link" href="/penutup">Penutup</a></a>
-                                            <a class="nav-link" href="/lainnya">Lainnya...</a>
-                                    </div>
+                                <li class="nav-item dropdown {{ Request::is('kategori') ? 'active' : '' }}">
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="yummyDropdown" role="button" onclick="toggleDropdown()" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">kategori<span class="sr-only">Toggle Dropdown</span></a>
+                                    <ul class="dropdown-menu" aria-labelledby="yummyDropdown">
+                                        @foreach ( $kat as $kat )
+                                        <a class="nav-link" href="/kategori/{{ $kat->id }}">{{ $kat->kategori }}</a>
+                                        @endforeach
+                                        <a class="nav-link" href="/lainnya">Lainnya...</a>
+                                    </ul>
                                 </li>
+                                    
                                 <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{Route('artikel')}}">Artikel</a>
                                 </li>
@@ -109,6 +113,10 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
+
     </header>
     
     

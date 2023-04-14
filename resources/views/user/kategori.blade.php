@@ -2,7 +2,7 @@
 <body>
 
     <!-- ****** Top Header Area Start ****** -->
-   @include('layout.navkul')
+    @include('layout.navkul')
     <!-- ****** Header Area End ****** -->
 <style>
 img.square {
