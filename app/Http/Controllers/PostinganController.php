@@ -78,6 +78,7 @@ $unreadCount = count($notifications);
     }
     public function diterima(Request $request)
     {
+        dd($request->myCheckbox);
         if ($request->has('myCheckbox')) {
             foreach ($request->myCheckbox as $row) {
                 postingan::where('id',$row)->update([
@@ -541,7 +542,12 @@ $unreadCount = count($notifications);
         $kat = kategori::all()->take(3);
         $kategori = kategori::where('id', $id)->get()->first();
 
-        $data = postingan::where('kategori_id', $id)->paginate(9);
+        $data = DB::table('postingans')
+        ->join('users', 'postingans.user_id', '=', 'users.id')
+        ->select('postingans.id', 'postingans.thumbnail', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
+        ->where('postingans.status','=','diterima')
+        ->where('users.is_banned', '=', 0)
+        ->paginate(9);
         return view('user.kategori', compact('kategori', 'data', 'kat'));
     }
     public function markAsRead($id)
