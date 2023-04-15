@@ -37,7 +37,7 @@ img.nova {
         <div class="icon_menu">
             <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
         </div>
-        <span>Postingan</span>
+        <span style="color: #eb8b1f;">Postingan</span>
     </a>
     <ul>
     <li class="{{ Request::is('pending') ? 'active' : '' }}"><a href="/pending/{{Auth::user()->id }}">pending</a></li>

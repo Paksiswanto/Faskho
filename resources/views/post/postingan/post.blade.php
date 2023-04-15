@@ -32,15 +32,15 @@ img.nova {
     <br>
     <ul id="sidebar_menu">
 
-<li class=" {{ Request::is('posts') ? 'active' : '' }}{{ Request::is('penutup') ? 'active' : '' }}{{ Request::is('utama') ? 'active' : '' }} ">
-    <a class="has-arrow" href="#" aria-expanded="false">
+<li class="mm-active ">
+    <a class="has-arrow active" href="#" aria-expanded="false">
         <div class="icon_menu">
             <img src="{{ asset ('user/demo.dashboardpack.com/sales-html/img/menu-icon/dashboard.svg') }}" alt="">
         </div>
-        <span>Postingan</span>
+        <span  style="color: #eb8b1f;">Postingan</span>
     </a>
     <ul>
-    <li class="{{ Request::is('pending') ? 'active' : '' }}"><a href="/pending/{{Auth::user()->id }}">pending</a></li>
+    <li ><a href="/pending/{{Auth::user()->id }}">pending</a></li>
     <li><a href="/posts/{{Auth::user()->id}}">Diterima</a></li>
     <li><a href="/tolak/{{Auth::user()->id}}">Ditolak</a></li>
     </ul>
