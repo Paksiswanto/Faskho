@@ -565,4 +565,11 @@ public function lihat($id)
     return view('admin.postingan.lihat', compact('data'));
 }
 
+    public function markAllAsRead()
+    {
+        $user = Auth::user();
+        DB::table('deleted_posts')->where('user_id', $user->id)->update(['read_at' => now()]);
+        return redirect()->back()->with('success','Notifikasi Telah dibaca semua');
+    }
 }
+

@@ -137,6 +137,8 @@ Route::middleware('auth')->group(function () {
     //Notif
     Route::put('/notifications/{id}/read', [PostinganController::class, 'markAsRead'])->name('notifications.markAsRead');
     route::get('/notif/{id}', [PostinganController::class, 'notif'])->name('notif');
+    Route::put('/notifications/mark-as-read', [PostinganController::class, 'markAllAsRead'])->name('notifications.markAllAsRead');
+
     
     //tolak,terima dan pending
     route::get('/posts/{id}', [PostinganController::class, 'posts'])->name('posts');

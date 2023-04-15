@@ -125,6 +125,14 @@
 
 
                             @if (count($notifications) > 0)
+                            @if (count($notifications) > 3)
+                            <form action="{{ route('notifications.markAllAsRead') }}" method="POST">
+                                @csrf
+                                @method('put')
+                                <button type="submit" class="btn btn-primary mb-2" style="margin-left: 5%">Baca Semua</button>
+                            </form>
+                            @endif
+                           
                                 <ul>
                                     @foreach ($notifications as $notification)
                                         <div class="card mb-2 mx-auto my-auto" style="width: 80rem;">
@@ -143,7 +151,8 @@
                                                 @if (!$notification->read_at)
                                                     <form
                                                         action="{{ route('notifications.markAsRead', $notification->id) }}"
-                                                        method="POST">
+                                                        method="POST"
+                                                        style="display:inline">
                                                         @csrf
                                                         @method('PUT')
                                                         @if ($notification->post_id == null)
@@ -151,16 +160,16 @@
                                                                 Dibaca</button>
                                                         @else
                                                             <button type="submit"
-                                                                class="btn btn-primary mt-2 p-1 mb-2">Telah Dibaca</button>
-                                                            <button class="btn btn-success p-1"> <a
-                                                                    href="/tampil/{{ $notification->post_id }}"
-                                                                    style="text-decoration: none;color:white">Lihat</a></button>
-                                                        @endif
+                                                                class="btn btn-primary mt-2 p-1 mb-2" style="display:inline">Telah Dibaca</button>
                                                     </form>
+                                                    <button class="btn btn-success p-1" style="display:inline" > <a
+                                                        href="/tampil/{{ $notification->post_id }}"
+                                                        style="text-decoration: none;color:white;display:inline">Lihat</a></button>
+                                                @endif
                                                 @endif
                                             </div>
                                         </div>
-                     
+                                  
                     @endforeach
                     </ul>
                 @else
@@ -221,5 +230,17 @@
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
         @endif
+    </script>
+    <script>
+        document.getElementById('markAllAsRead').addEventListener('click', function() {
+            axios.put('{{ route('notifications.markAllAsRead') }}')
+                .then(function(response) {
+                    // muat ulang halaman jika berhasil menandai semua notifikasi sebagai telah dibaca
+                    window.location.reload();
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        });
     </script>
 @endpush
