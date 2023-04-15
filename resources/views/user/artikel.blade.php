@@ -183,7 +183,7 @@ img.square {
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
-                                        <a href="#">{{ $data->created_at }}</a>
+                                        <a href="#">{{ date('D-M-Y',strtotime($data->created_at)) }}</a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->

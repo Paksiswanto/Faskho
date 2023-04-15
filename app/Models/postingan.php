@@ -9,6 +9,8 @@ class postingan extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $dates = ['created_at'];
+
     public function users()
     {
         return $this->belongsTo(user::class,'user_id','id');

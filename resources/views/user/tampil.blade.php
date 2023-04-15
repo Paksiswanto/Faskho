@@ -279,7 +279,7 @@
                                     </a>
                                     <p style="font-size: 15pt">{{$data->deskripsi}}</p>
                                 </a>
-                                <p>{{$data->created_at}}</p>
+                                <p>{{ date('D-M-Y',strtotime($data->created_at)) }}</p>
                             </div>
                         </div>
                         @endforeach
@@ -287,20 +287,7 @@
 
 
                         <!-- Single Widget Area -->
-                        <div class="single-widget-area newsletter-widget mt-5">
-                            <div class="widget-title text-center">
-                                <h6>Newsletter</h6>
-                            </div>
-                            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.
-                                <div class="newsletter-form">
-                                    <form action="#" method="post">
-                                        <input type="email" name="newsletter-email" id="email">
-                            </p>
-                            <placeholder="Your email">
-                                <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                </form>
-                        </div>
-                    </div>
+                       
                 </div>
             </div>
         </div>
