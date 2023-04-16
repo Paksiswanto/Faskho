@@ -257,7 +257,7 @@ $unreadCount = count($notifications);
             $data->thumbnail = $imageName;
             $data->save();
         }
-        return redirect()->route('posts', $data->user_id)->with('success', 'data Berhasil Di Update');
+        return redirect()->route('pending', $data->user_id)->with('success', 'data Berhasil Di Update');
     }
     public function deletepostingan($id)
     {
