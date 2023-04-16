@@ -15,6 +15,7 @@ use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\TermsConditionController;
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
@@ -212,4 +213,10 @@ Route::middleware('admin')->group(function () {
     Route::get('/lihat/{id}', [PostinganController::class, 'lihat'])->name('lihat');
     route::get('/info-pribadi',[UserController::class,'pribadi'])->name('pribadi');
     Route::put('updata',[UserController::class,'updata']);
+
+    //Syarat Dan Ketentuan Dari Admin
+    Route::get('/terms-and-conditions', [TermsConditionController::class,'index'])->name('syarat-dan-ketentuan');
+    Route::post('/terms-and-conditions', [TermsConditionController::class,'update'])->name('syarat-dan-ketentuan.update');
+    
+
 });

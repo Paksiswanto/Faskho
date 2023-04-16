@@ -221,30 +221,11 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="card-text">KulinerKu dengan ini menetapkan Syarat dan Ketentuan dalam pengaturan pemakaian situs www.kulinerku.com. Yang mendaftar atau menggunakan situs www.kulinerku.com, maka pengguna dianggap telah membaca dan menyetujui semua isi dalam Syarat dan Ketentuan. Apabila ada yang kurang jelas, dapat menghubungi kami di halaman kontak.</p>
                                             <br>
-                                            <h5 class="card-title">Penggunaan KulinerKu</h5>
-                                            <p class="card-text">(1) Akses
-                                                untuk dapat menggunakan dan mengakses KulinerKu, pengguna diharuskan untuk berumur lebih dari 18 tahun. Apabila pengguna berumur kurang dari 18 tahun, maka tidak diijinkan untuk menggunakan dan mengakses KulinerKu.
-                                                <br>
-                                                (2) Dilarang untuk menulis dan/atau menjual ulang
-                                                <br>
-                                                (a) KulinerKu adalah produk untuk keperluan non-komersial. Pengguna tidak diijinkan untuk menggunakan KulinerKu untuk kegiatan bisnis, atau kegiatan apapun yang berhubungan dengan menghasilkan profit. Pengguna juga tidak diijinkan untuk mempromosikan kegiatan-kegiatan yang berhubungan dengan agama atau politik.
-                                                <br>
-                                                (b) Dilarang untuk melakukan penulisan ulang review-review yang di-post oleh Pengguna KulinerKu selain Pengguna itu sendiri.
-                                                <br>
-                                                (3) Melakukan post review, Hak Cipta
-                                                <br>
-                                                (a) Pengguna diwajibkan untuk melakukan registrasi untuk melakukan post review di KulinerKu..
-                                                <br>
-                                                (b) Apabila Pengguna melakukan registrasi di KulinerKu, Pengguna secara otomatis memberikan kuasa dan ijin kepada Perusahaan untuk dapat melakukan penulisan ulang, pendistribusian, sub-lisensi hal-hal yang Pengguna post di KulinerKu, termasuk di dalamnya adalah review.
-                                                <br>
-                                                (c) Pengguna menjamin kepada Perusahaan bahwa mereka memiliki hak-hak atas review yang mereka post. Pengguna juga menjamin bahwa review yang mereka post tidak melanggar hukum-hukum yang berlaku, hak-hak orang lain ataupun hak cipta pihak ketiga.
-                                                <br>
-                                                (d) Perusahaan atau pihak ketiga yang menerima sub-lisensi dari Perusahaan, dapat menggunakan review yang di-post oleh Pengguna KulinerKu dengan menggunakan isi dari konten-konten tersebut. Dalam hal ini, perlu diketahui bahwa ada kemungkinan terjadi sedikit perubahan-perubahan terhadap review untuk kenyamanan. Untuk kegiatan-kegiatan seperti ini, Perusahaan menjamin akan menampilkan akun Pengguna yang mem-post review tersebut.
-                                                <br>
-                                                (4) Kondisi untuk menggunakan PergiKuliner
-                                                Dengan menggunakan KulinerKu, Pengguna setuju dengan Syarat dan Ketentuan yang ditentukan.</p>
+                                            <h5 class="card-title">Penggunaan KulinerKu :6</h5>
+                                            @foreach ( $termsAndConditions as $data )
+                                                 <p class="card-text">{!! $data->isi !!}</p>
+                                            @endforeach
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

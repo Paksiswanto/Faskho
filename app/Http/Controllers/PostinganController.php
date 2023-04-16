@@ -7,6 +7,7 @@ use App\Models\Like;
 use App\Models\User;
 use App\Models\Komen;
 use App\Models\kategori;
+use App\Models\TermsCondition;
 use App\Models\postingan;
 use App\Models\DeletedPost;
 use Illuminate\Support\Str;
@@ -177,6 +178,7 @@ $unreadCount = count($notifications);
     public function tambahpostingan()
     {
         $datauser = User::all();
+        $termsAndConditions = TermsCondition::all();
         $dtkategori = kategori::all();
         $data = postingan::all();
         $notifications = DB::table('deleted_posts')
@@ -184,7 +186,7 @@ $unreadCount = count($notifications);
     ->whereNull('read_at')
     ->get();
     $unreadCount = count($notifications);
-        return view('post.postingan.tambah', compact('datauser', 'dtkategori','unreadCount'));
+        return view('post.postingan.tambah', compact('datauser', 'dtkategori','unreadCount','termsAndConditions'));
     }
 
     public function insertdatapost(request $request)

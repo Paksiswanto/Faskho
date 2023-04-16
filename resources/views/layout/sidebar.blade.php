@@ -51,6 +51,12 @@
                     </a>
                 </li>
                 <br>
+                 <li class="{{ Request::is('terms-and-conditions') ? 'active' : '' }}">
+                    <a href="{{ route('syarat-dan-ketentuan') }}"> <i class="fa fa-pencil-square-o" style="width: 20%;"></i>Syarat Dan Ketentuan
+                    </a>
+                </li>
+                <br>
+
                 <li>
                     <a href="/">
                         <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" fill="none"
