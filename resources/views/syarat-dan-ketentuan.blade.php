@@ -101,15 +101,7 @@
 @endsection
 @push('scripts')
 <!-- Optional JavaScript; choose one of the two! -->
- <script src="{{ asset('yummy-master/yummy-master/js/jquery/jquery-2.2.4.min.js') }}"></script>
-    <!-- Popper js -->
-    <script src="{{ asset('yummy-master/yummy-master/js/bootstrap/popper.min.js') }}"></script>
-    <!-- Bootstrap-4 js -->
-    <script src="{{ asset('yummy-master/yummy-master/js/bootstrap/bootstrap.min.js') }}"></script>
-    <!-- All Plugins JS -->
-    <script src="{{ asset('yummy-master/yummy-master/js/others/plugins.js') }}"></script>
-    <!-- Active JS -->
-    <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
+ 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -117,11 +109,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.js') }}"></script>
 
-<!-- Option 2: Separate Popper and Bootstrap JS -->
-<!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    -->
+
 </body>
 <Script>
     $('.delete').click(function() {
