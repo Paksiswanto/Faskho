@@ -56,7 +56,17 @@ class DatabaseSeeder extends Seeder
         foreach ($user as $user){
             DB::table('users')->insert($user);
         }
-        
+        $info=[
+            ['kota' => 'malang',
+            'email'=>'kulinerku@gmail.com',
+            'no'=>'0987654321',
+            'alamat'=>'Jl.Soekarno Hatta No.40, Malang, Jawa Timur',
+            'created_at'=>now(),
+    ]
+    ];
+    foreach ($info as $info){
+        DB::table('infos')->insert($info);
+    }
     }
 }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Info;
 use App\Models\User;
 use App\Models\laporan;
 use App\Models\postingan;
@@ -145,4 +146,21 @@ class UserController extends Controller
             ->paginate(10);
         return view('admin.user.ban', compact('data'));
     }
+    public function pribadi(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        $data = Info::query()
+        ->where('kota', 'LIKE', '%' . $keyword . '%')
+        ->paginate(10);
+       return view('admin.pribadi.index',compact('data'));
+    }
+    public function updata(Request $request)
+    {
+        Info::query()->update(['kota' => $request->kota, 
+                              'no' => $request->no,
+                            'alamat'=>$request->alamat,
+                        'email'=>$request->email]);
+        return redirect()->back()->with('success','Data berhasil di edit');
+}
 }

@@ -537,17 +537,20 @@ $unreadCount = count($notifications);
         return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
     }
 
-    public function kategori2($id)
+    public function kategori2(Request $request,$id)
     {
         $kat = kategori::all()->take(3);
-        $kategori = kategori::where('id', $id)->get()->first();
+        $kategori = Kategori::find($id);
+        $keyword = $request->keyword;
 
-        $data = DB::table('postingans')
+        $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
+        ->where('kategori_id',$id)
         ->join('users', 'postingans.user_id', '=', 'users.id')
         ->select('postingans.id', 'postingans.thumbnail', 'users.name', 'postingans.created_at', 'postingans.judul', 'postingans.deskripsi')
         ->where('postingans.status','=','diterima')
         ->where('users.is_banned', '=', 0)
         ->paginate(9);
+        $firstPost = $data->firstItem();
         return view('user.kategori', compact('kategori', 'data', 'kat'));
     }
     public function markAsRead($id)

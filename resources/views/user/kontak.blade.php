@@ -56,6 +56,8 @@
                     </div>
                 </div>
             </div> --}}
+@foreach ($info as $row )
+    
 
             <!-- Contact Info Area Start -->
             <div class="contact-info-area section_padding_80_50">
@@ -64,14 +66,14 @@
                     <!-- Single Contact Info -->
                     <div class="col-12 ml-auto">
                         <div class="single-contact-info mb-30 text-center wow fadeInUp" data-wow-delay="0.3s">
-                            <h4>Malang</h4>
-                            <p>Jl.Soekarno Hatta No.40, Malang, Jatim<br> Email: kulinerku@gmail.com <br> Telepon: 0987654321</p>
+                            <h4>{{ $row->kota }}</h4>
+                            <p>{{ $row->alamat }}<br> Email: {{ $row->email }} <br> Telepon: {{ $row->no }}</p>
                         </div>
                     </div>
                     <!-- Single Contact Info -->
                 </div>
             </div>
-
+            @endforeach
             <!-- Contact Form  -->
             <div class="contact-form-area">
                 <div class="row">

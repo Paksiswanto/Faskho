@@ -20,6 +20,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Models\Info;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,8 @@ use App\Http\Controllers\ForgotPasswordController;
 
 Route::get('/kontak', function () {
     $kat = kategori::all();
-    return view('user.kontak', compact('kat'));
+    $info = Info::all();
+    return view('user.kontak', compact('kat','info'));
 });
 Route::get('/artikel', function () {
     return view('post.post');
@@ -207,4 +209,6 @@ Route::middleware('admin')->group(function () {
     //Pratinjau Dibagian Admin
 
     Route::get('/lihat/{id}', [PostinganController::class, 'lihat'])->name('lihat');
+    route::get('/info-pribadi',[UserController::class,'pribadi'])->name('pribadi');
+    Route::put('updata',[UserController::class,'updata']);
 });

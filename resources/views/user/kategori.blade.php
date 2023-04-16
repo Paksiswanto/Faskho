@@ -47,13 +47,13 @@ img.square {
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row">
-                @foreach ($data as $data )
+                @foreach ($data as $row )
                 <!-- Single Post -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                              <img src="{{ asset('thumbnail/'.$data->thumbnail) }}" class="square">
+                              <img src="{{ asset('thumbnail/'.$row->thumbnail) }}" class="square">
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
@@ -61,17 +61,17 @@ img.square {
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="#">By {{$data->name }}</a>
+                                        <a href="#">By {{$row->name }}</a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
-                                        <a href="#">{{ $data->created_at }}</a>
+                                        <a href="#">{{ $row->created_at }}</a>
                                     </div>
                                 </div>
                                 
                             </div>
-                            <a href="{{ route('tampil', $data->id) }}">
-                                <h5 class="post-headline">{{$data->judul}}.</h5>
+                            <a href="{{ route('tampil', $row->id) }}">
+                                <h5 class="post-headline">{{$row->judul}}.</h5>
                             </a>
                         </div>
                     </div>
@@ -82,7 +82,9 @@ img.square {
                 <!-- Single Post -->
                 <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
-                         {{-- <div>
+                         <div>
+                    
+
                             showing
                             {{ $data->firstitem() }}
                             to
@@ -90,13 +92,14 @@ img.square {
                             of
                             {{ $data->total() }}
                             entries
-                        </div> --}}
-                        {{-- <div class="pull-right">
+                        </div>
+                        <div class="pull-right">
                             {{ $data ->withQueryString()-> links() }}
-                        </div> --}}
+                        </div>
                     
                     </div>
                 </div>
+
 
             </div>
         </div>

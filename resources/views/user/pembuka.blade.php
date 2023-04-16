@@ -78,26 +78,7 @@ img.square {
                 @endforeach
 
                 <!-- Single Post -->
-                <div class="col-12">
-                    <div class="pagination-area d-sm-flex mt-15">
-                         <div>
-                    
-
-                            showing
-                            {{ $pembuka->firstitem() }}
-                            to
-                            {{ $pembuka->lastitem() }}
-                            of
-                            {{ $pembuka->total() }}
-                            entries
-                        </div>
-                        <div class="pull-right">
-                            {{ $pembuka ->withQueryString()-> links() }}
-                        </div>
-                    
-                    </div>
-                </div>
-
+               
             </div>
         </div>
     </section>
