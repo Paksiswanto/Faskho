@@ -78,7 +78,7 @@ $unreadCount = count($notifications);
     }
     public function diterima(Request $request)
     {
-        dd($request->myCheckbox);
+        ($request->myCheckbox);
         if ($request->has('myCheckbox')) {
             foreach ($request->myCheckbox as $row) {
                 postingan::where('id',$row)->update([
@@ -140,6 +140,9 @@ $unreadCount = count($notifications);
     public function deletepost($id)
     {
         $data = postingan::find($id);
+        if (file_exists(public_path('thumbnail/' . $data->thumbnail))) {
+            unlink(public_path('thumbnail/' . $data->thumbnail));
+        }
         $deletedPost = new DeletedPost();
         $deletedPost->user_id = $data->user_id;
         $deletedPost->judul = $data->judul;
