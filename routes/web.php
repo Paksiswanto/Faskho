@@ -203,7 +203,8 @@ Route::middleware('admin')->group(function () {
     //laporan
 
     route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
-    route::get('/laporan/{id}',[LaporanController::class,'balas'])->name('create.laporan');
+    route::post('/laporan/{id}', [LaporanController::class, 'balas'])->name('laporan.create');
+   
     route::get('/deletedp/{id}', [LaporanController::class, 'deletedp'])->name('deletedp');
 
     //Pratinjau Dibagian Admin

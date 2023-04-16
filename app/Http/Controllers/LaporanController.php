@@ -45,6 +45,17 @@ class LaporanController extends Controller
                 $info = User::find($data->email);
         return view('admin.laporanar.index',compact('data'));
     }
+    public function balas(Request $request, $id)
+    {
+        $user=laporan::find($id);
+        $deletedPost = new DeletedPost();
+        $user = User::where('email', $user->email)->first();
+        $deletedPost->user_id=$user->id;
+        $deletedPost->content ="Anda Mendapatkan Balasan Dari <h6>".$request->nama."</h6> Pada Laporan <b>".$user->judul."</b>.berupa: ".$request->pesan;
+        $deletedPost->save();
+        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
+    }
+
 }
 
 
