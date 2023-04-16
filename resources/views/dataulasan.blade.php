@@ -29,31 +29,68 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Pesan</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
+
+                                        {{-- <section class="archive-area section_padding_80">
+                                            <div class="container">
+                                                <div class="row">
+                                                    @foreach ($data as $index=>$row )
+                                                <div class="card" style="width: 18rem;">
+                                                    <div class="card-body">
+                                                    <!-- Single Post -->
+                                                    <div class="col-12 col-md-6 col-lg-4">
+                                                       
+                                                            <!-- Post Thumb -->
+                                                            <!-- Post Content -->
+                                                            <div class="post-content">
+                                                                <div class="post-meta d-flex">
+                                                                    <div class="post-author-date-area d-flex">
+                                                                        <!-- Post Author -->
+                                                                        <h5 class="card-title"> {{ $row->nama}}</h5>
+                                                                        <!-- Post Date -->
+                                                                        <h6 class="card-subtitle mb-2 text-muted">{{ $row->email}}</h6>
+                                                                        <p class="card-text">{{ $row->laporan }}</p>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <a href = "/deletedata/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                                </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </section> --}}
+                                        <section class="archive-area section_padding_80">
+                                            <div class="container">
+                                                <div class="row">
+                                                    @foreach ($data as $index=>$row )
+                                                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">{{ $row->nama}}</h4>
+                                                                    <h6 class="card-subtitle mb-2 text-muted">{{ $row->email}}</h6>
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <p class="card-text">{{ $row->laporan }}</p>
+                                                                        <a href = "/deletedata/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </section>
+                                        
+                                        
+
                                         <tbody>
-                                            
+                                            {{--                                             
                                             @php
                                             $no = 1;
-                                            @endphp
-                                            @foreach ($data as $index=>$row )
-                                            <tr>
-                                                <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                                <td>{{ $row->nama}}</td>
-                                                <td>{{ $row->email}}</td>
-                                                <td>{{ $row->laporan }}</td>
-                                                <td>
-                                                    <a href = "/deletedata/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
+                                            @endphp --}}
+                                            
                                         </tbody>
                                     </table>
                                     <div>
