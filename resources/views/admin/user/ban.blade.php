@@ -35,8 +35,6 @@
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>tanggal</th>
-                                    <th>Banned</th>
-
                                     <th colspan="2">Aksi</th>
                                 </tr>
                             </thead>
@@ -46,14 +44,13 @@
                                 @endphp
                                 @foreach ($data as $index=>$row )
                                 
-                                <tr>
+                                <tr align="center">
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->name}}</td>
                                     <td>{{ $row->email}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
-                                    <td>banned</td>
                                     <td>
-                                        <td><a href="#" class="delete" data-id="{{ $row->id }}">Delete</a></td>
+                                        <a href="/deleteda/{{ $row->id }}" class="btn btn-danger" data-id="{{ $row->id }}">Delete</a>
                                     </td>
                                     <td>
                                         <a href="/unban/{{ $row->id }}" class="btn btn-primary">Unban</a>
@@ -176,20 +173,3 @@
     @endif
 
 </script>
-<script src="js/jquery.js"></script>
-    <script>
-      $(".delete").on("click", function(event){
-    event.preventDefault();
-    var id = $(this).attr("data-id");
-    $.ajax({ 
-        url: "{{ route('deleteda', [':id']) }}".replace(':id', id),
-        data: {"id": id, "_token": "{{ csrf_token() }}"},
-        type: 'post',
-        success: function(result){
-            location.reload();
-        }
-    });
-});
-
-
-    </script>

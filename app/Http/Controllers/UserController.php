@@ -97,7 +97,7 @@ class UserController extends Controller
         }
         $data->delete();
         // return redirect()->route('user')->with('success','data Berhasil Di Hapus');
-        return response()->json();
+        return redirect()->back()->with('success','user bserhasil dihapus');
     }
     public function updateprofile(Request $request, $id)
     {
