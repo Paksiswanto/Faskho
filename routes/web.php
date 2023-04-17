@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Info;
 use App\Models\kategori;
 use App\Models\postingan;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\LikeController;
@@ -13,15 +16,14 @@ use App\Http\Controllers\TrendController;
 use App\Http\Controllers\TempatController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\LaporanController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\TermsConditionController;
-
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Models\Info;
+use App\Http\Controllers\TermsConditionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,12 @@ use App\Models\Info;
 Route::get('/kontak', function () {
     $kat = kategori::all();
     $info = Info::all();
-    return view('user.kontak', compact('kat','info'));
+    $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+    return view('user.kontak', compact('kat','info','unreadCount'));
 });
 Route::get('/artikel', function () {
     return view('post.post');

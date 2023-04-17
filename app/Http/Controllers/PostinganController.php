@@ -322,7 +322,13 @@ $unreadCount = count($notifications);
         $kategori = kategori::query()
         ->where('kategori', 'LIKE', '%'.$cari.'%')
         ->paginate();
-        return view('user.lainnya', compact( 'kat','kategori','data'));
+
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('user.lainnya', compact( 'kat','kategori','data','unreadCount'));
     }
     //ini untuk tampil di halaman utama
     public function tampil(Request $request, $id)
@@ -343,9 +349,14 @@ $unreadCount = count($notifications);
         ->get()
         ->take(10);
         $komenhi=Komen::where('postingan_id',$id)->count();
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
     
         // dd($kat,$komentars,$like,$data,$balas,$totallike,$trend);
-        return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat','komenhi'));
+        return view('user.tampil', compact('data', 'komentars', 'balas', 'totallike', 'trend', 'kat','komenhi','unreadCount'));
     }
 
     public function artikel(Request $request)
@@ -360,8 +371,14 @@ $unreadCount = count($notifications);
         ->where('postingans.status','=','diterima')
         ->orderBy('postingans.views', 'desc')
         ->paginate(9);
+
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
         
-        return view('user.artikel', compact('artikel', 'kat'));
+        return view('user.artikel', compact('artikel', 'kat','unreadCount'));
     }
     public function litindex(Request $request)
     {
@@ -402,7 +419,13 @@ $unreadCount = count($notifications);
             ->orderBy('views', 'desc')
             ->get()
             ->take(1);
-        return view('user.index', compact('posts', 'data', 'trend', 'randomData', 'kat'));
+
+            $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('user.index', compact('posts', 'data', 'trend', 'randomData', 'kat','unreadCount'));
     }
     public function storeKomentar(Request $request, $id)
     {
@@ -556,7 +579,12 @@ $unreadCount = count($notifications);
         ->where('users.is_banned', '=', 0)
         ->paginate(9);
         $firstPost = $data->firstItem();
-        return view('user.kategori', compact('kategori', 'data', 'kat'));
+        $notifications = DB::table('deleted_posts')
+    ->where('user_id', Auth::id())
+    ->whereNull('read_at')
+    ->get();
+    $unreadCount = count($notifications);
+        return view('user.kategori', compact('kategori', 'data', 'kat','unreadCount'));
     }
     public function markAsRead($id)
 {
