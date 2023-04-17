@@ -234,7 +234,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" id="submitBtn" disabled>Posting</button>
+                            <button class="mb-2" type="submit" id="submitBtn" disabled>Posting</button>
                         </form>
                     </div>
                 </div>

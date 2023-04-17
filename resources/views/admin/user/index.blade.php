@@ -3,6 +3,8 @@
 
 @section('content')
 
+<script src="{{ asset('sweetalert2.all.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('sweetalert2.min.css') }}">
 
 <div class="content">
     <div class="animated fadeIn">
@@ -59,8 +61,23 @@
                                         @if ($row->is_banned == true)
                                         <a href="/ban/{{ $row->id }}"><button disabled class="btn btn-danger p-2">Ban</button></a>
                                             @else
-                                        <a href="/ban/{{ $row->id }}"><button class="btn btn-danger p-2">Ban</button></a>
-                                        @endif
+                                            <a href="/ban/{{ $row->id }}">
+                                                <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
+                                                  swal({ title: 'Apakah kamu yakin ingin Banned pengguna ini?', 
+                                                         icon: 'warning', 
+                                                         buttons: ['Batal', 'Ya'], 
+                                                         dangerMode: true, })
+                                                  .then((willBan) => { if (willBan) { 
+                                                    document.getElementById('ban-form').submit();
+                                                  } else { swal('Pengguna tidak dibanned'); } });">
+                                                  Ban
+                                                </button>
+                                              </a>
+                                              <form id="ban-form" action="/ban/{{ $row->id }}" method="get" style="display: none;">
+                                                @csrf
+                                                
+                                              </form>
+                                  @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -143,6 +160,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
@@ -150,29 +168,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     -->
 </body>
-<Script>
-    $('.delete').click(function() {
-        var nama = $(this).attr('data-id');
-        swal({
-                title: "Yakin Mau Hapus Data ?"
-                , text: "kamu akan menghapus data Ulasan dengan " + nama + ""
-                , icon: "warning"
-                , buttons: true
-                , dangerMode: true
-            , })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/deletedata/" + nama + ""
-                    swal("Data Berhasil dihapus", {
-                        icon: "success"
-                    , });
-                } else {
-                    swal("Data tidak jadi dihapus");
-                }
-            });
-    })
-
+<script>
+    function confirmBan(id) {
+        Swal.fire({
+            title: 'Anda yakin ingin melarang pengguna ini?',
+            text: 'Tindakan ini tidak dapat dibatalkan',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, melarang pengguna!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/ban/" + id;
+            }
+        })
+    }
 </script>
+
 <script>
     @if(Session::has('success'))
     toastr.success("{{ Session::get('success') }}")

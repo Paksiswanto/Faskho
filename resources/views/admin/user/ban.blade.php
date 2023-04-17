@@ -50,7 +50,22 @@
                                     <td>{{ $row->email}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
-                                        <a href="/deleteda/{{ $row->id }}" class="btn btn-danger" data-id="{{ $row->id }}">Delete</a>
+                                    <a href="/deleteda/{{ $row->id }}">
+                                        <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
+                                          swal({ title: 'Apakah Anda yakin ingin menghapus pengguna ini?', 
+                                                 icon: 'warning', 
+                                                 buttons: ['Batal', 'Ya'], 
+                                                 dangerMode: true, })
+                                          .then((willBan) => { if (willBan) { 
+                                            document.getElementById('ban-form').submit();
+                                          } else { swal('Pengguna tidak dibanned'); } });">
+                                          Hapus
+                                        </button>
+                                      </a>
+                                      <form id="ban-form" action="/deleteda/{{ $row->id }}" method="get" style="display: none;">
+                                        @csrf
+                                        
+                                      </form>
                                     </td>
                                     <td>
                                         <a href="/unban/{{ $row->id }}" class="btn btn-primary">Unban</a>

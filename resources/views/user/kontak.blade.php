@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-12 col-md-7 item">
                         <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
-                            <h2 class="contact-form-title mb-30">Jika Anda Memiliki Pertanyaan Hubungi Saya Sekarang!!</h2>
+                            <h2 class="contact-form-title mb-30">Jika Anda Memiliki Pertanyaan Hubungi Kami Sekarang!!</h2>
                             <!-- Contact Form -->
                             <form action="/insertdataulasan" method="post">
                                 @csrf

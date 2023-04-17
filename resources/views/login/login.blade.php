@@ -51,6 +51,13 @@
                             </ul>
                         </div>
                     @endif
+                    @if(session('Error'))
+    <div class="alert alert-danger">
+        <center>{{ session('Error') }}</center>
+        
+    </div>
+@endif
+
                         <div class="page-links">
                             <a href="/login" class="active">Login</a>
                             <a href="/register">Register</a>
