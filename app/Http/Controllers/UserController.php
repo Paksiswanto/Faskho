@@ -122,7 +122,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->unbanned();
-        Toastr::success('Pengguna berhasil di unbanned.', 'Success');
+        Toastr::success('larangan telah dibuka.', 'Success');
 
         return redirect()->back();
     }
@@ -133,7 +133,7 @@ class UserController extends Controller
         $post = postingan::all();
         $post = postingan::where('user_id', $id)->update(['status' => 'pending']);
 
-        Toastr::success('Pengguna berhasil dibanned.', 'Success');
+        Toastr::success('Pengguna berhasil diblokir.', 'Success');
 
         return redirect()->back();
     }

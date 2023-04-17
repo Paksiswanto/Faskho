@@ -63,7 +63,7 @@
                                             @else
                                             <a href="/ban/{{ $row->id }}">
                                                 <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
-                                                  swal({ title: 'Apakah kamu yakin ingin Banned pengguna ini?', 
+                                                  swal({ title: 'Apakah kamu yakin ingin melarang pengguna ini?', 
                                                          icon: 'warning', 
                                                          buttons: ['Batal', 'Ya'], 
                                                          dangerMode: true, })
