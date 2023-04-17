@@ -138,7 +138,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Kategori lainya</h2>
+                        <h2>Kategori</h2>
                     </div>
                 </div>
             </div>
@@ -151,8 +151,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">artikel</li>
-                            <li class="breadcrumb-item active" aria-current="page">Kategori lainya</li>
+                            <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                         </ol>
                     </nav>
                 </div>

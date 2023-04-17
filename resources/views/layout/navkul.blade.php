@@ -90,14 +90,8 @@
                                 </li> 
                               
                                 
-                                <li class="nav-item dropdown {{ Request::is('kategori') ? 'active' : '' }}">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="yummyDropdown" role="button" onclick="toggleDropdown()" data-bs-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">kategori<span class="sr-only">Toggle Dropdown</span></a>
-                                    <ul class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        @foreach ( $kat as $kat )
-                                        <a class="nav-link" href="/kategori/{{ $kat->id }}">{{ $kat->kategori }}</a>
-                                        @endforeach
-                                        <a class="nav-link" href="/lainnya">Lainnya...</a>
-                                    </ul>
+                                <li class="nav-item {{ Request::routeIs('kategori2') || Request::routeIs('lainnya') || Request::routeIs('tampil') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{Route('lainnya')}}">Kategori</a>
                                 </li>
                                     
                                 <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">
