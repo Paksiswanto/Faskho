@@ -90,11 +90,11 @@
                                 </li> 
                               
                                 
-                                <li class="nav-item {{ Request::routeIs('kategori2') || Request::routeIs('lainnya') || Request::routeIs('tampil') ? 'active' : '' }}">
+                                <li class="nav-item {{ Request::routeIs('kategori2') || Request::routeIs('lainnya')  ? 'active' : '' }}">
                                     <a class="nav-link" href="{{Route('lainnya')}}">Kategori</a>
                                 </li>
                                     
-                                <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}">
+                                <li class="nav-item {{ Request::is('artikel')  || Request::routeIs('tampil') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{Route('artikel')}}">Artikel</a>
                                 </li>
                                 
