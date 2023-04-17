@@ -106,7 +106,7 @@
                           <span class="badge badge-danger">{{ $unreadCount }}</span>
                       @endif
                   </a>
-                  <a class="nav-link mr-2" href="/"><i class="fa-solid fa-right-from-bracket fa-beat" style="width: 8%;margin-right:5%"></i>Keluar</a>
+                  <a class="nav-link mr-2" href="/logout"><i class="fa-solid fa-right-from-bracket fa-beat" style="width: 8%;margin-right:5%"></i>Keluar</a>
                   </div>
                 </div>
               </div>
