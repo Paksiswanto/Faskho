@@ -230,10 +230,12 @@
 
                         <!-- Single Post -->
                         <div class="col-12 col-md-6">
-                            <div class="single-post wow fadeInUp" data-wow-delay=".6s">
-                                <!-- Post Thumb -->
-                              
-                            </div>
+                           <center>
+<div class="mb-5">
+                                <h3>Postingan Terbaru  : </h3>
+                                </div>
+
+</center>
                         </div>
 
                         <!-- Single Post -->
@@ -242,10 +244,9 @@
                         <!-- Single Post -->
                         
 
-                        <!-- ******* List Blog Area Start ******* -->
-
                         <!-- Single Post -->
                         @foreach ($posts as $item)
+                        
                         <div class="col-12">
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
