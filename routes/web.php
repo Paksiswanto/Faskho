@@ -204,7 +204,7 @@ Route::middleware('admin')->group(function () {
     route::get('/admin', [UserController::class, 'showTotalUsers'])->name('showTotalUsers');
     route::get('/ban', [UserController::class, 'ban'])->name('ban');
     route::get('/deleteda/{id}', [UserController::class, 'deleteda'])->name('deleteda');
-    route::get('/ban/{id}', [UserController::class, 'bannedUSer'])->name('bannnedUser');
+    route::put('/ban/{id}', [UserController::class, 'bannedUser'])->name('bannedUser');
     route::get('/unban/{id}', [UserController::class, 'unbannedUser'])->name('unbannedUser');
 
 

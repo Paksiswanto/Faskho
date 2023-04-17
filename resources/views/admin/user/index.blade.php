@@ -46,41 +46,43 @@
                                 @php
                                 $no = 1;
                                 @endphp
-                                @foreach ($data as $index=>$row )
-                                <tr>
-                                    <th scope="row">{{ $index +$data->firstitem()}}</th>
-                                    <td>{{ $row->name}}</td>
-                                    <td>{{ $row->email}}</td>
-                                    @if ($row->is_banned == true)
-                                    <td>banned</td>
-                                    @else
-                                    <td>aktif</td>
-                                    @endif
-                                    <td>{{ $row->created_at->format('D M Y') }}</td>
-                                    <td>
-                                        @if ($row->is_banned == true)
-                                        <a href="/ban/{{ $row->id }}"><button disabled class="btn btn-danger p-2">Ban</button></a>
-                                            @else
-                                            <a href="/ban/{{ $row->id }}">
-                                                <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
-                                                  swal({ title: 'Apakah kamu yakin ingin melarang pengguna ini?', 
-                                                         icon: 'warning', 
-                                                         buttons: ['Batal', 'Ya'], 
-                                                         dangerMode: true, })
-                                                  .then((willBan) => { if (willBan) { 
-                                                    document.getElementById('ban-form').submit();
-                                                  } else { swal('Pengguna tidak dibanned'); } });">
-                                                  Ban
-                                                </button>
-                                              </a>
-                                              <form id="ban-form" action="/ban/{{ $row->id }}" method="get" style="display: none;">
-                                                @csrf
-                                                
-                                              </form>
+                              @foreach ($data as $index=>$row)
+                              <tr>
+                                  <th scope="row">{{ $index +$data->firstitem() }}</th>
+                                  <td>{{ $row->name }}</td>
+                                  <td>{{ $row->email }}</td>
+                                  @if ($row->is_banned == true)
+                                      <td>banned</td>
+                                  @else
+                                      <td>aktif</td>
                                   @endif
-                                    </td>
-                                </tr>
-                                @endforeach
+                                  <td>{{ $row->created_at->format('D M Y') }}</td>
+                                  <td>
+                                      <form id="ban-form-{{ $row->id }}" action="{{ route('bannedUser', $row->id) }}" method="post" style="display: none;">
+                                          @csrf
+                                          @method('PUT')
+                                      </form>
+                                      <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
+                                          swal({ 
+                                              title: 'Apakah kamu yakin ingin memblokir pengguna ini?', 
+                                              icon: 'warning', 
+                                              buttons: ['Batal', 'Ya'], 
+                                              dangerMode: true, 
+                                          })
+                                          .then((willBan) => { 
+                                              if (willBan) { 
+                                                  document.getElementById('ban-form-{{ $row->id }}').submit();
+                                              } else { 
+                                                  swal('Pengguna tidak diblokir'); 
+                                              } 
+                                          });
+                                      ">
+                                          Ban
+                                      </button>
+                                  </td>
+                              </tr>
+                          @endforeach
+                          
                             </tbody>
                         </table>
                         <div>
