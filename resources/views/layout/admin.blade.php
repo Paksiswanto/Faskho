@@ -114,7 +114,7 @@
                         </a>
                         <div class="user-menu dropdown-menu">
 
-                            <a class="nav-link" href="/profile"><i class="fa fa -cog"></i>Profil</a>
+                            <a class="nav-link" href="/profile/{{ Auth::user()->id }}"><i class="fa fa -cog"></i>Profil</a>
 
                             <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>Keluar</a>
                         </div>
