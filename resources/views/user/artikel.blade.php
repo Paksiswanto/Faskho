@@ -137,7 +137,7 @@ img.square {
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('artikel') }}">artikel</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Artikel</li>
                         </ol>
                     </nav>
                 </div>
