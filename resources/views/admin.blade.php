@@ -66,13 +66,14 @@
                 </div>
                 <!-- /Widgets -->
                 <!--  Traffic  -->
+                <center>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="box-title">Statistik Kategori: </h4>
                             </div>
-                            <div class="row">
+                            <div >
                                 <div class="col-lg-8">
                                     <div class="card-body">
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
@@ -90,6 +91,7 @@
                         </div>
                     </div><!-- /# column -->
                 </div>
+                </center>
                 <!--  /Traffic -->
                 <div class="clearfix">
                 <!-- Orders -->
