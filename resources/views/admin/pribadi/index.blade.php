@@ -22,10 +22,7 @@
                             <div class="add_button ms-2 mb-3">
                                 <div class="my-3">
                                     <form action="" method="get">
-                                        <div class="input-group mb-3 col-12 col-sm-8 col-md-6">
-                                                <input type="text" class="form-control" name="keyword" placeholder="Cari Data">
-                                                 <button  class="input-group-text btn btn-primary">Search</button>
-                                        </div>
+                                       
                                     </form>
                                 </div>
                             </div>
