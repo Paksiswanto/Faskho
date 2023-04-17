@@ -69,7 +69,7 @@
                                                 <td>
                                                     <button class="btn btn-danger" type="button" data-bs-toggle="modal"
                                                             data-bs-target="#exampleModal-{{ $row->id }}">
-                                                            Tolak Promo
+                                                            Tolak 
                                                         </button>
                                                         <div class="modal fade" id="exampleModal-{{ $row->id }}" tabindex="-1"
                                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
