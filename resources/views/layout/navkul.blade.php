@@ -1,4 +1,15 @@
-    <!-- ****** Top Header Area Start ****** -->
+   
+   <style>
+   .nav-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link i {
+    margin-right: 5px;
+  }
+   </style>
+   <!-- ****** Top Header Area Start ****** -->
 <div class="top_header_area">
         <div class="container">
             <div class="row">
@@ -48,8 +59,7 @@
                                     <a class="nav-link mr-2" href="/admin"><i class="fa fa-wrench"></i>Admin</a>
                                     @endif
                                     <a class="nav-link mr-2" href="/notif/{{auth::user()->id}}">
-                                        <i class="fa fa-bell" style="width: 8%;margin-right:5%"></i>
-                                        Notifikasi
+                                        <i class="fa fa-bell" style="width: 8%;margin-right:5%"></i>Notifikasi
                                         @if ($unreadCount > 0)
                                             <span class="badge badge-danger">{{ $unreadCount }}</span>
                                         @endif

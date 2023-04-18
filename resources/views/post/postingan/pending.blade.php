@@ -131,15 +131,26 @@ img.nova {
                                 </div>
                                 <div class="col-5 my-auto">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $row->judul }}</h5>
+                                        <h4 class="card-title">{{ $row->judul }}</h4>
 
 
-                                        <p class="card-text">
+                                        <p class="card-text" style="font-size: 150%">
                                             {{ $row->deskripsi }}
                                         </p>
                                         <p class="card-text"><small class="text-muted">{{ $row->created_at->format('d F Y') }}</small></p>
                                         <br>
-                                        <a href="{{ route('show', $row->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                                        <a href="{{ route('show', $row->id) }}" class="btn btn-primary p-1">Baca Selengkapnya</a>
+                                        
+                                        <p class="mt-2">                                                
+                                            @if ($row->judul <= now())
+                                                <span class="badge bg-warning text-white" style="font-size: 85%">Expired</span>
+                                            @elseif ($row->status == 'pending')
+                                                <span class="badge bg-warning text-dark" style="font-size: 85%">Menunggu</span>
+                                            @elseif ($row->status == 'ditolak')
+                                                <span class="badge bg-danger text-white" style="font-size: 85%">Ditolak</span>
+                                            @else
+                                                <span class="badge bg-success text-white" style="font-size: 85%">Diterima</span>
+                                            @endif</p>
                                     </div>
                                 </div>
                             </div>
@@ -147,18 +158,6 @@ img.nova {
                                 <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
 
                                 <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
-
-                                
-                                 <p style="font-width: bold;">                                                
-                                        @if ($row->judul <= now())
-                                            <span class="badge bg-warning text-white">Expired</span>
-                                        @elseif ($row->status == 'pending')
-                                            <span class="badge bg-warning text-dark">Menunggu</span>
-                                        @elseif ($row->status == 'ditolak')
-                                            <span class="badge bg-danger text-white">Ditolak</span>
-                                        @else
-                                            <span class="badge bg-success text-white">Diterima</span>
-                                        @endif</p>
                                 </div>
                             </div>
                         </div>
