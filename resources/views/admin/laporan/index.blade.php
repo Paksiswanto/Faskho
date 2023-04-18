@@ -30,7 +30,7 @@
                                                 <div class="container">
                                                     <div class="row">
                                                         @foreach ($data as $index => $row)
-                                                        <div class="col-12 col-md-6 mb-4">
+                                                            <div class="col-12 col-md-6 mb-4">
                                                                 <div class="card">
                                                                     <div class="card-body">
                                                                         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -41,47 +41,37 @@
                                                                         <p class="card-text">{{ $row->judul }}</p>
                                                                         <p class="card-text">{{ $row->laporan }}</p>
                                                                         <div class="d-flex justify-content-end mt-3">
-                                                                            <a href="/deletedp/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
-                                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                                            <a href="/deletedp/{{ $row->id }}" class=""><button class="btn btn-danger ml-2">Hapus</button></a>
+                                                                            <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal">
                                                                                 Balas
-                                                                              </button>
-                                                                              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                            </button>
+                                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                 <div class="modal-dialog" role="document">
-                                                                                  <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                      <h5 class="modal-title" id="exampleModalLabel">Kirim Balasan Ke User</h5>
-                                                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                      </button>
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h5 class="modal-title" id="exampleModalLabel">Kirim Balasan Ke User</h5>
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                <span aria-hidden="true">&times;</span>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <form action="/laporan/{{$row->id}}" method="post">
+                                                                                                @csrf
+                                                                                                <textarea name="pesan" id="" cols="50" rows="5"></textarea>
+                                                                                                <button type="submit" class="btn btn-primary mt-3">Kirim</button>
+                                                                                            </form>
+                                                                                        </div>
                                                                                     </div>
-                                                                                    <div class="modal-body">
-                                                                                      <form action="/laporan/{{$row->id}}" method="post">
-                                                                                        @csrf
-                                                                                        <textarea name="pesan" id="" cols="50" rows="5"></textarea>
-                                                                                        <button type="submit" class="btn btn-primary mt-3">Kirim</button>
-                                                                                    </form>
-                                                                                    </div>
-                                                                                    
-                                                                                    <div class="modal-footer">
-                                                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                    </div>
-                                                                                  </div>
                                                                                 </div>
-                                                                              </div>
-                                                                           
-                                                                                </td>
-                                                                            </tr>
-                                                                        
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                            </section>
-                                            
-                                            
-                                            
-    
-                                            
-                                        
+                                            </section>                     
                                         <div>
                                             showing
                                             {{ $data->firstitem() }}
