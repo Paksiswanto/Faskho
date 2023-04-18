@@ -561,6 +561,11 @@ $unreadCount = count($notifications);
     public function deletekomenku($id)
     {
         $data = Komen::find($id);
+        $balas = Komen::where('parent',$id)->get();
+
+        foreach ($balas as $key) {
+            $key->delete();
+        }
         $data->delete();
         return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
     }

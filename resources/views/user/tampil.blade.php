@@ -41,6 +41,20 @@
         }
 
     </style>
+    <style>
+        .btn-balas, 
+        .delete {
+            display: inline-block;
+            margin-right: 5px; /* jika ingin menambahkan jarak antara dua tombol */
+        }
+        .delete {
+        font-size: 15px;
+        width: 80px;
+        height: 35px;
+        }
+
+        </style>
+  
     <!-- ** Breadcumb Area Start ** -->
     
     <div class="breadcumb-area" style="background-image: url({{ asset('thumbnail/' . $data->thumbnail) }});">
@@ -175,15 +189,34 @@
         <span class="like-count {{ $komentar->like->count() > 0 ? 'text-danger' : '' }}">{{ $komentar->like->count() }}</span> like
     </form>
 
-
-                                </div>
+    
+</div>
+                            
+<br>
+                                <div class="d-flex">
+                                    @if(Auth::check())
+                                    <div class="balaskomen" data-id="balas-{{$komentar->id}}">
+                                        <button class="btn btn-default btn-balas">Balas</button>
+                                    </div>
+                                @endif
+                                
+                                @if (auth()->check() && auth()->user()->id == $komentar->user_id)
+                                <a href="#" class="btn btn-danger delete mr-2" data-id="{{ $komentar->id }}" data-judul="{{ $data->judul }}">Hapus</a>
+                                @endif
+                        </div>
+                                {{-- <a href="#" class="btn btn-danger delete" data-id="{{ $komentar->id }}" data-judul="{{ $data->judul }}">Hapus</a>
                                 <div class="balaskomen" data-id="balas-{{$komentar->id}}">
-                                    {{-- @dd($komentar->id) --}}
                                     <button class="btn btn-default btn-balas">Balas</button>
-                                </div>
+                                </div> --}}
+                                {{-- <button type="button" class="btn btn-outline-danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" class="bi bi-trash-fill">
+                                        ::before
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0zM2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
+                                    </svg>Hapus</button> --}}
+                                
                                 <form action="{{ route('komentar.store',['id'=>$data->id]) }}" style="margin-top:-1%;display:none;" class="balas" id="balas-{{$komentar->id}}" method="post" enctype="multipart/form-data">
                                     @csrf
-
+                                    <input type="hidden" name="komen_id" value="{{ $komentar->id }}">
                                     <input type="hidden" name="postingan_id" value=" {{ $data->id }} ">
                                     @auth
                                     <input type="hidden" name="user_id" value=" {{ Auth::user()->id }} ">
@@ -202,10 +235,10 @@
                                     </div>
                                     <button type="submit" class="btn contact-btn mb-3" style="margin-top: -1%">Balas Komentar</button>
                                 </form>
-
+                                
                                 @foreach ($komentar->childs as $child)
                                 <div class="">
-
+                                    
                                     <div class="comment-author mt-3 mb-3 media mr-3" style="display: flex">
                                         @if ($child->user->foto == null)
                                         <img class="user-avatar rounded-circle" style="width: 45px;margin-left:7%" style="height: 45px" src="{{ asset('poto.jpg') }}" alt="User Avatar" />
@@ -221,7 +254,6 @@
 
                                 @endforeach
                                 @endforeach
-
                                 <div style="border-bottom: 2px solid silver"></div>
 
                                 <!-- Leave A Comment -->
@@ -229,7 +261,7 @@
                                 <div class="leave-comment-area section_padding_50 clearfix">
                                     <div class="comment-form">
                                         <h4 class="mb-30">Tinggalkan Komentar</h4>
-
+                                        
 
                                         <form action="{{ route('komentar.store', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data">
                                             @csrf
@@ -504,8 +536,9 @@
     <!-- Active JS -->
     <script src="{{ asset('yummy-master/yummy-master/js/active.js') }}"></script>
     <script src="{{ asset ('user/demo.dashboardpack.com/sales-html/vendors/text_editor/summernote-bs4.js') }}"></script>
-
-    <script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
         $(document).ready(function() {
             $('.balaskomen').click(function() {
                 var id = $(this).data('id');
@@ -530,6 +563,37 @@
             ]
         });
 
+    </script>
+    <Script>
+        $('.delete').click(function() {
+            var komenid = $(this).attr('data-id');
+            var judul = $(this).attr('data-judul');
+            swal({
+                    title: "Yakin Mau Hapus Komentar ?"
+                    , text: ""
+                    , icon: "warning"
+                    , buttons: true
+                    , dangerMode: true
+                , })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "/deletekomenku/" + komenid + ""
+                        swal("Komentar Berhasil dihapus", {
+                            icon: "success"
+                        , });
+                    } else {
+                        swal("Komentar tidak jadi dihapus");
+                    }
+                });
+        })
+    
+    </script>
+    <script>
+        @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    
+        @endif
+    
     </script>
     {{-- <script>
         $(document).ready(function() {
