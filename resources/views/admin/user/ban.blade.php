@@ -50,23 +50,27 @@
                                     <td>{{ $row->email}}</td>
                                     <td>{{ $row->created_at->format('D M Y') }}</td>
                                     <td>
-                                    <a href="/deleteda/{{ $row->id }}">
-                                        <button class="btn btn-danger ban p-2" onclick="event.preventDefault(); 
-                                          swal({ title: 'Apakah Anda yakin ingin menghapus pengguna ini?', 
-                                                 icon: 'warning', 
-                                                 buttons: ['Batal', 'Ya'], 
-                                                 dangerMode: true, })
-                                          .then((willBan) => { if (willBan) { 
-                                            document.getElementById('ban-form').submit();
-                                          } else { swal('Pengguna tidak dibanned'); } });">
+                                        <form id="delete-form-{{$row->id}}" action="/deleteda/{{$row->id}}" method="get">
+                                          @csrf
+                                          <button class="btn btn-danger ban p-2" type="submit" onclick="event.preventDefault(); 
+                                          swal({ 
+                                            title: 'Apakah Anda yakin ingin menghapus pengguna ini?', 
+                                            icon: 'warning', 
+                                            buttons: ['Batal', 'Ya'], 
+                                            dangerMode: true,
+                                          })
+                                          .then((willDelete) => { 
+                                            if (willDelete) { 
+                                              document.getElementById('delete-form-{{$row->id}}').submit();
+                                            } else { 
+                                              swal('Pengguna tidak dihapus'); 
+                                            } 
+                                          });">
                                           Hapus
-                                        </button>
-                                      </a>
-                                      <form id="ban-form" action="/deleteda/{{ $row->id }}" method="get" style="display: none;">
-                                        @csrf
-                                        
-                                      </form>
-                                    </td>
+                                          </button>
+                                        </form>
+                                      </td>
+                                      
                                     <td>
                                         <a href="/unban/{{ $row->id }}" class="btn btn-primary">Unban</a>
                                     </td>
