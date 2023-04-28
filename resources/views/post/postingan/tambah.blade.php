@@ -135,16 +135,14 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-6 mb-3 w-50">
-                                    <h5>Deskripsi:</h5>
-                                    <textarea name="deskripsi" class="form-control @error('deskripsi')
-                                    is-invalid
-                                @enderror" id="exampleInputEmail1" value="{{old('deskripsi')}}" > {{ old('deskripsi') }}
-                                 </textarea>
-                                 @error('deskripsi') 
-                                {{$message}}
-                                 @enderror
-                                </div>
+                               <div class="col-md-6 mb-3 w-50">
+    <h5>Deskripsi:</h5>
+    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="exampleInputEmail1" >{{ old('deskripsi') }}</textarea>
+    @error('deskripsi')
+    {{$message}}
+    @enderror
+</div>
+
                                 {{-- <div class="col-md-6 mb-3 w-50">
                                     <h5>Deskripsi:</h5>
                                     <textarea name="deskripsi" class="form-control @error('deskripsi')

@@ -19,6 +19,9 @@ class KategoriController extends Controller
         return view('admin.kategori.tambah',compact('data'));
     }
     public function insertdatakategori(request $request){
+        $validatedata = $request->validate([
+            'kategori' => 'unique:kategoris',
+        ]);
     $data = kategori::create($request->all());  
     
     return redirect()->route('kategori')->with('success','data Berhasil Ditambahkan');

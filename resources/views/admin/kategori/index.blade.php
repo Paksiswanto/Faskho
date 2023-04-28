@@ -36,7 +36,6 @@
                                     <th>#</th>
                                     <th>kategori</th>
 
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,9 +46,7 @@
                                 <tr>
                                     <th scope="row">{{ $index +$data->firstitem()}}</th>
                                     <td>{{ $row->kategori}}</td>
-                                    <td>
-                                        <a href="/deleted/{{ $row->id }}" class="btn btn-danger delete">Hapus</a>
-                                    </td>
+                                
                                 </tr>
                                 @endforeach
                             </tbody>

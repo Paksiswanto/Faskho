@@ -47,7 +47,7 @@
                                             <tr>
                                                 <th scope="row">{{ $index +$data->firstitem()}}</th>
                                                 <td>{{ $row->name}}</td>
-                                                <td>{{ $row->judul}}</td>
+                                                <td>{{Str::limit ($row->judul,10)}}</td>
                                                 <td>{{ $row->kategori->kategori }}</td>
 
                                                 <td>

@@ -142,8 +142,9 @@
                                 {{$message}}
                                 @enderror {!! $data->konten !!}</textarea>
                             </div>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary">kirim</button>
+                            <button type="submit" class="btn btn-primary mb-2">kirim</button>
                         </form>
                         </div>
                     </div>

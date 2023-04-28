@@ -196,7 +196,7 @@ img.square {
                                           <div class="dot"></div>
                                           <div class="dot"></div>
                                           <ul class="menu">
-                                              <li><button class="btn btn-primary btn-lapor" data-target="#modal-lapor" data-id="{{ $data->id }}">Laporkan</button>
+                                              <li><button class="btn btn-warning btn-lapor" data-target="#modal-lapor" data-id="{{ $data->id }}">Laporkan</button>
                                                 
                                                 
                                               </li>

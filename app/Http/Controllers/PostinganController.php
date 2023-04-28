@@ -193,7 +193,7 @@ $unreadCount = count($notifications);
     {
         // dd($request->all());
         $validatedata = $request->validate([
-            'judul' => 'required',
+            'judul' => 'required|max:65',
             'konten' => 'required',
             'thumbnail' => 'required|mimes:png,jpg,jpeg,jfif',
             'deskripsi' => 'required',

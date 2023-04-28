@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('postingans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('judul');
+            $table->longtext('judul');
             $table->longText('konten');
             $table->string('thumbnail')->onDelete('cascade');
             $table->string('agree');

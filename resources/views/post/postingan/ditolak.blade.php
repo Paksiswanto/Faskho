@@ -137,13 +137,13 @@ img.nova {
                                                 @else
                                                     <span class="badge bg-success text-white" style="font-size: 85%" >Diterima</span>
                                                 @endif</p>
+                                               <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning" style="float: right;">Edit</a>
+<a href="#" class="btn btn-danger delete mr-2 " data-id="{{ $row->id }}" style="float: right;" data-judul="{{ $row->judul }}">Hapus</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="/tampilkandatapostingan/{{ $row->id }}" class="btn btn-warning">Edit</a>
-
-                                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-judul="{{ $row->judul }}">Hapus</a>
+                              
                             </div>
                         </div>
                             </div>
