@@ -150,7 +150,7 @@ $unreadCount = count($notifications);
         $deletedPost->content = 'telah admin hapus karena melanggar aturan komunitas';
         $deletedPost->save();
         $data->delete();
-        return redirect()->route('postingan')->with('success', 'data Berhasil Di Hapus');
+        return redirect()->back()->with('success', 'data Berhasil Di Hapus');
     }
 
     public function  posts(Request $request, $id)
