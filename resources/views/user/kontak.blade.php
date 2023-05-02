@@ -288,7 +288,7 @@
                     <div class="footer-content">
                         <!-- Logo Area Start -->
                         <div class="footer-logo-area text-center">
-                            <a href="index.html" class="yummy-logo">KulinerKu Blog</a>
+                            <a href="/" class="yummy-logo">KulinerKu</a>
                         </div>
                     </div>
                 </div>
