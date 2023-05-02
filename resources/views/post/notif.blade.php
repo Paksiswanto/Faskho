@@ -149,9 +149,16 @@
                                                             <button type="submit"
                                                                 class="btn btn-primary mt-2 p-1 mb-2" style="display:inline">Telah Dibaca</button>
                                                     </form>
+                                                    @if ($notification->status =="ditolak")
                                                     <button class="btn btn-success p-1" style="display:inline" > <a
                                                         href="/tampilkandatapostingan/{{ $notification->post_id }}"
                                                         style="text-decoration: none;color:white;display:inline">Lihat</a></button>
+                                                        @else
+                                                        <button class="btn btn-success p-1" style="display:inline" > <a
+                                                            href="/tampil/{{ $notification->post_id }}"
+                                                            style="text-decoration: none;color:white;display:inline">Lihat</a></button>
+                                                    @endif
+                                                    
                                                 @endif
                                                 @endif
                                             </div>

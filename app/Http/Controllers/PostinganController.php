@@ -542,11 +542,13 @@ $unreadCount = count($notifications);
     }
     public function notif($id)
     {
-        $notifications= DeletedPost::where('user_id', $id)->whereNull('read_at')->orderBy('created_at', 'desc')->get();
-        $notifications = DB::table('deleted_posts')
-    ->where('user_id', Auth::id())
-    ->whereNull('read_at')
-    ->get();
+
+        $notifications=DB::table('deleted_posts')
+            ->join('postingans', 'deleted_posts.post_id', '=', 'postingans.id')
+            ->select('deleted_posts.id', 'deleted_posts.foto', 'postingans.views', 'deleted_posts.created_at', 'postingans.judul', 'postingans.deskripsi','postingans.status','deleted_posts.user_id','deleted_posts.content','deleted_posts.read_at','deleted_posts.post_id')
+            ->where('deleted_posts.user_id',$id)
+            ->whereNull('read_at')
+            ->get();
 
 $unreadCount = count($notifications);
         return view('post.notif', compact('notifications','unreadCount'));
