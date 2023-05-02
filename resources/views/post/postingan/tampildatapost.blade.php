@@ -114,14 +114,22 @@
                                 <img src="{{ asset('thumbnail/'.$data->thumbnail) }}" alt="" style="width: 130px;">
                             </div>
 
-                             <div class="col-md-6 mb-3 w-50">
+                             {{-- <div class="col-md-6 mb-3 w-50">
                                 <h5>Deskripsi:</h5>
                                 <textarea  name="deskripsi"  value="{{$data ->deskripsi}}" class="form-control @error('deskripsi')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1" aria-describedby="emailHelp"> @error('deskripsi') 
                                 {{$message}}
                                 @enderror {{$data ->deskripsi}}</textarea>
-                            </div>
+                            </div> --}}
+
+                             <div class="col-md-6 mb-3 w-50">
+    <h5>Deskripsi:</h5>
+    <textarea name="deskripsi" value="{{ $data ->deskripsi }}" class="form-control @error('deskripsi') is-invalid @enderror" id="exampleInputEmail1" > {{$data ->deskripsi}}</textarea>
+    @error('deskripsi')
+    {{$message}}
+    @enderror
+</div>
 
                              <div class="col-md-6 mb-3 w-50">
                                 <h5>Kategori:</h5>
@@ -134,14 +142,24 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Konten:</label>
                                 <textarea name="konten" id="summernote" class="form-control @error('konten')
                                     is-invalid
                                 @enderror" id="exampleInputEmail1"  aria-describedby="emailHelp">@error('konten')
                                 {{$message}}
                                 @enderror {!! $data->konten !!}</textarea>
-                            </div>
+                            </div> --}}
+                              <div class="mb-3">
+                                    <h3>Konten:</h3>
+                                    <textarea name="konten" id="summernote" class="form-control @error('konten')
+                                    is-invalid
+                                @enderror" id="exampleInputEmail1" value="{{old('konten')}}"> {!! $data->konten !!}
+                                   </textarea>
+                                   @error('konten')
+                                {{$message}}
+                                  @enderror
+                                </div>
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-2">kirim</button>

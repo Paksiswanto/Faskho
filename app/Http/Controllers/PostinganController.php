@@ -240,6 +240,15 @@ $unreadCount = count($notifications);
     }
     public function updt(Request $request, $id)
     {
+        $validatedata = $request->validate([
+            'judul' => 'required|max:65',
+            'konten' => 'required',
+            'thumbnail' => 'required|mimes:png,jpg,jpeg,jfif',
+            'deskripsi' => 'required',
+            'kategori_id' => 'required',
+            'agree' => 'required',
+
+        ]);
         $data = postingan::with('kategori')->find($id);
         $data->update([
             'judul' => $request->judul,
