@@ -12,6 +12,109 @@ img.square {
 }
 
 </style>
+<style>
+    .dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 2px;
+  background-color: #000;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu li {
+  padding: 10px;
+}
+
+.dropdown:hover .menu {
+  display: block;
+}
+
+height{
+
+height: 100vh;
+}
+
+.form{
+
+position: relative;
+}
+
+.form .fa-search{
+
+position: absolute;
+top:20px;
+left: 20px;
+color: #9ca3af;
+
+}
+
+.form span{
+
+    position: absolute;
+right: 17px;
+top: 13px;
+padding: 2px;
+border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+padding-left: 7px;
+}
+
+.left-pan i{
+
+padding-left: 10px;
+}
+
+.form-input{
+
+height: 55px;
+text-indent: 33px;
+border-radius: 20px;
+}
+
+.form-input:focus{
+
+box-shadow: none;
+border:none;
+}
+.comment-form {
+  display: none;
+}
+
+#report-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 9999;
+}
+
+#report-form.show {
+  display: block;
+}
+
+</style>
 
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg);">
@@ -40,6 +143,18 @@ img.square {
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+          <div class="col-md-6">
+            <div class="form">
+              <i class="fa fa-search"></i>
+              <form action="{{route('kategori')}}" method="get">
+              <input type="search" class="form-control form-input" name="cari" value="{{Request::get('cari')}}" placeholder="Cari ...">
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- ****** Breadcumb Area End ****** -->
 
