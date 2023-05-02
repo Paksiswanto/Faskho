@@ -135,8 +135,8 @@ border:none;
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Kategori</li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $kategori->kategori }}</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('lainnya') }}">Kategori</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="/kategori/{{ $kategori->id }}">{{ $kategori->kategori }}</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -148,7 +148,7 @@ border:none;
           <div class="col-md-6">
             <div class="form">
               <i class="fa fa-search"></i>
-              <form action="{{route('kategori')}}" method="get">
+              <form action="" method="get">
               <input type="search" class="form-control form-input" name="cari" value="{{Request::get('cari')}}" placeholder="Cari ...">
             </form>
             </div>

@@ -585,7 +585,7 @@ $unreadCount = count($notifications);
     {
         $kat = kategori::all()->take(3);
         $kategori = Kategori::find($id);
-        $keyword = $request->keyword;
+        $keyword = $request->cari;
 
         $data = postingan::where('judul', 'LIKE', '%'.$keyword.'%')
         ->where('kategori_id',$id)
