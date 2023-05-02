@@ -209,33 +209,34 @@ img.square {
                                         <div class="modal-header">
                                           <h5 class="modal-title" id="modal-lapor-label">Form Laporan</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>                                        
                                         </div>
                                         <div class="modal-body">
                                           <form id="form-lapor" method="post" action="/insertdatalaporan">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="hidden" name="nama" value="{{Auth::user()->name}}">
-                                                <input type="hidden" name="email" value="{{Auth::user()->email}}">
-                                                <input type="hidden" name="judul" value="{{$data->judul}}">
+                                              <input type="hidden" name="nama" value="{{Auth::user()->name}}">
+                                              <input type="hidden" name="email" value="{{Auth::user()->email}}">
+                                              <input type="hidden" name="judul" value="{{$data->judul}}">
                                               <label for="laporan">Laporan</label>
                                               <textarea class="form-control" name="laporan" id="laporan" rows="3" required></textarea>
                                             </div>
                                             <input type="hidden" id="post-id">
                                             <button class="btn btn-rounded btn-danger" type="submit">kirim</button>
-                                        </form>
+                                          </form>
                                         </div>
                                         <div class="modal-footer">
                                         </div>
+                                      </div>
                                     </div>
-                                    </div>
+                                  </div>
                                 </div>
-                                <form id="report-form">
+                                  <form id="report-form">
                                     <textarea id="report-text" name="message" placeholder="Laporkan masalah"></textarea>
                                     <button type="submit">Laporkan</button>
                                   </form>
-                                </div>
+                                  
                                 @endauth
                             </div>
                             <a href="{{ route('tampil', $data->id) }}">
@@ -429,6 +430,15 @@ $(document).ready(function() {
     var laporan = $('#laporan').val();
     var postId = $('#post-id').val();
 
+    // kode Ajax
+
+    // Menutup modal setelah data terkirim
+    $('#modal-lapor').modal('hide');
+  });
+  
+  // Menutup modal ketika tombol close di-klik
+  $('#modal-lapor .close').click(function() {
+    $('#modal-lapor').modal('hide');
   });
 });
 
