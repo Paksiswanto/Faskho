@@ -273,7 +273,7 @@
                                     <a href="#">
                                         <h4 class="post-headline"> {{$item->judul}} </h4>
                                     </a>
-                                    <p>{{$item->deskripsi}}{{Str::limit($item->deskripsi,10) }}</p>
+                                    <p>{{Str::limit($item->deskripsi,10) }}</p>
                                     <a href="/tampil/{{$item->id}}" class="read-more">Mulai Baca...</a>
                                 </div>
                             </div>

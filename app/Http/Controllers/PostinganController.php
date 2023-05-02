@@ -239,35 +239,38 @@ $unreadCount = count($notifications);
         return view('post.postingan.tampildatapost', compact('data', 'user_id', 'dtkategori', 'kt','unreadCount'));
     }
     public function updt(Request $request, $id)
-    {
-        $validatedata = $request->validate([
-            'judul' => 'required|max:65',
-            'konten' => 'required',
-            'thumbnail' => 'required|mimes:png,jpg,jpeg,jfif',
-            'deskripsi' => 'required',
-            'kategori_id' => 'required',
-            'agree' => 'required',
+{
+    // Validasi input
+    $validatedData = $request->validate([
+        'judul' => 'required',
+        'konten' => 'required',
+        'deskripsi' => 'required',
+        'kategori_id' => 'required',
+        'user_id' => 'required',
+        'thumbnail' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi file gambar
+    ]);
 
-        ]);
-        $data = postingan::with('kategori')->find($id);
-        $data->update([
-            'judul' => $request->judul,
-            'konten' => $request->konten,
-            'deskripsi' => $request->deskripsi,
-            'kategori_id' => $request->kategori_id,
-            'status'=>'pending',
-            'user_id' => $request->user_id
+    $data = postingan::with('kategori')->find($id);
+    $data->update([
+        'judul' => $validatedData['judul'],
+        'konten' => $validatedData['konten'],
+        'deskripsi' => $validatedData['deskripsi'],
+        'kategori_id' => $validatedData['kategori_id'],
+        'status' => 'pending',
+        'user_id' => $validatedData['user_id']
+    ]);
 
-        ]);
-        if ($request->hasFile('thumbnail')) {
-            unlink(public_path('thumbnail/' . $data->thumbnail));
-            $imageName = time() . '_' . Str::random(10) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-            $request->file('thumbnail')->move('thumbnail/', $imageName);
-            $data->thumbnail = $imageName;
-            $data->save();
-        }
-        return redirect()->route('pending', $data->user_id)->with('success', 'data Berhasil Di Update');
+    if ($request->hasFile('thumbnail')) {
+        unlink(public_path('thumbnail/' . $data->thumbnail));
+        $imageName = time() . '_' . Str::random(10) . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+        $request->file('thumbnail')->move('thumbnail/', $imageName);
+        $data->thumbnail = $imageName;
+        $data->save();
     }
+
+    return redirect()->route('pending', $data->user_id)->with('success', 'Data Berhasil Di Update');
+}
+
     public function deletepostingan($id)
     {
         $data = postingan::find($id);
