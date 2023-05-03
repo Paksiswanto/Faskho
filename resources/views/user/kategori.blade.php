@@ -117,7 +117,7 @@ border:none;
 </style>
 
     <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(https://cdn-brilio-net.akamaized.net/webp/news/2021/05/03/205112/1462872-1000xauto-hidangan-pembuka-paling-terkenal-di-dunia.jpg);">
+        <div class="breadcumb-area" style="background-image: url('{{ asset('kumpulanmakanan.jpg') }}');">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
