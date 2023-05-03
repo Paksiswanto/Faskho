@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ulasan;
 use App\Models\Comment;
 use App\Models\postingan;
-use App\Models\ulasan;
 
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
 use Yoeunes\Toastr\Toastr as ToastrToastr;
 
 class UlasanController extends Controller
@@ -74,7 +75,10 @@ public function hubungi(Request $request)
     }
     public function inserthubungii(Request $request)
     { 
-        ulasan::create([
+        $request->validate([
+            'email' => 'required|exists:users,email'
+        ]);
+            ulasan::create([
             'nama' => $request->nama, 
             'email' => $request->email,
             'laporan' => $request->laporan

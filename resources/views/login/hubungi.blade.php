@@ -35,15 +35,18 @@
                         <form action="{{route('inserthubungii')}}" method="post">
                         @csrf
                         <div class="form-group fxt-transformY-50 fxt-transition-delay-1">
-							<input type="nama" class="form-control" name="nama" placeholder="Username" required="required">
+							<input type="nama" class="form-control" value="{{ old('nama') }}" name="nama" placeholder="Username" required="required">
 							<i class="flaticon-user"></i>
 						</div>
+                        <input value="{{old('email')}}" id="email" type="email" class="form-control @error('email')
+                        is-invalid
+                    @enderror" name="email" placeholder="Email" required>@error('email')
+                    <div class="alert alert-danger" role="alert">
+                        {{$message}}
+                        </div>
+                    @enderror
                         <div class="form-group fxt-transformY-50 fxt-transition-delay-1">
-							<input type="email" class="form-control" name="email" placeholder="Email" required="required">
-							<i class="flaticon-envelope"></i>
-						</div>
-                        <div class="form-group fxt-transformY-50 fxt-transition-delay-1">
-							<input type="laporan" class="form-control" name="laporan" placeholder="Tinggalkan pesan" required="required">
+							<input type="laporan" class="form-control" value="{{ old('laporan') }}" name="laporan" placeholder="Tinggalkan pesan" required="required">
 							<i class="flaticon-envelope"></i>
 						</div>
                             
