@@ -182,9 +182,9 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h2 class="post-headline"> {{$item->judul}}</h2>
+                                        <h2 class="post-headline"> {{Str::limit($item->judul,10) }} </h2>
                                     </a>
-                                    <p>{{$item->deskripsi}}</p>
+                                    <p>{{Str::limit($item->deskripsi,10) }}</p>
                                     <a href="/tampil/{{$item->id}}" class="read-more">Mulai baca...</a>
                                 </div>
                             </div>
@@ -219,9 +219,9 @@
                                         </div>
                                         </div>
                                         <a href="#">
-                                            <h2 class="post-headline"> {{$item->judul}}</h2>
+                                            <h2 class="post-headline"> {{Str::limit($item->judul,10) }}</h2>
                                         </a>
-                                        <p>{{$item->deskripsi}}</p>
+                                        <p>{{Str::limit($item->deskripsi,10) }}</p>
                                         <a href="/tampil/{{$item->id}}" class="read-more">Mulai baca...</a>
                                     </div>
                                 </div>
@@ -271,7 +271,7 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h4 class="post-headline"> {{$item->judul}} </h4>
+                                        <h4 class="post-headline"> {{Str::limit($item->judul,10) }} </h4>
                                     </a>
                                     <p>{{Str::limit($item->deskripsi,10) }}</p>
                                     <a href="/tampil/{{$item->id}}" class="read-more">Mulai Baca...</a>
@@ -304,7 +304,7 @@
                                 <img src="{{ asset('thumbnail/'.$item->thumbnail) }}" class="pia">
                                 <div class="post-content">
                                     <a href="#">
-                                        <h6> {{$item->judul}} </h6>
+                                        <h6>{{Str::limit($item->judul,10) }} </h6>
                                     </a>
                                     <p>{{ date('D-M-Y',strtotime($item->created_at)) }}</p>
                                     <div class="media">

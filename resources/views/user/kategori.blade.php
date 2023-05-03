@@ -186,7 +186,7 @@ border:none;
                                 
                             </div>
                             <a href="{{ route('tampil', $row->id) }}">
-                                <h5 class="post-headline">{{$row->judul}}.</h5>
+                                <h5 class="post-headline">{{Str::limit($row->judul,10) }}</h5>
                             </a>
                         </div>
                     </div>
