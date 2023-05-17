@@ -72,7 +72,25 @@
                                                                     <h4 class="card-title">{{ $row->nama}}</h4>
                                                                     <h6 class="card-subtitle mb-2 text-muted">{{ $row->email}}</h6>
                                                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                                                        <p class="card-text">{{ $row->laporan }}</p>
+                                                                        <a href="#" class="data-link" data-toggle="modal" data-target="#exampleModal" data-id="{{ $row->id }}"> {{Str::limit($row->laporan,10) }} </a>
+                                                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog">
+                                                                              <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                  <h5 class="modal-title" id="exampleModalLabel">Detail Data</h5>
+                                                                                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                  <p id="data-detail"></p>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                          
+
                                                                         <a href = "/deletedata/{{$row->id}}"  class="btn btn-danger delete">Hapus</a>
                                                                     </div>
                                                                 </div>
@@ -183,6 +201,25 @@
     @endif
 
 </script>
+<
+<script>
+    $(document).on("click", "[data-toggle='modal']", function () {
+        var id = $(this).data('id');
+        $.ajax({
+            type: "GET",
+            url: "/laporan/" + id,
+            success: function (response) {
+                $("#data-detail").html(response);
+            },
+            error: function (xhr) {
+                console.log(xhr.responseText);
+            }
+        });
+    });
+</script>
+
+
+
 @push('scripts')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

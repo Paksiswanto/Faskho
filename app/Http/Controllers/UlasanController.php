@@ -96,6 +96,13 @@ public function hubungi(Request $request)
         return back() ->with('success', 'Data Behasil Di Hapus!');
     }
 
+    public function data($id)
+{
+    
+    $data = ulasan::findOrFail($id);
+    return response()->json($data->laporan);
+}
 
+    
 
 }

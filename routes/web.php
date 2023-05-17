@@ -224,6 +224,6 @@ Route::middleware('admin')->group(function () {
     //Syarat Dan Ketentuan Dari Admin
     Route::get('/terms-and-conditions', [TermsConditionController::class,'index'])->name('syarat-dan-ketentuan');
     Route::post('/terms-and-conditions', [TermsConditionController::class,'update'])->name('syarat-dan-ketentuan.update');
-    
+    route::get('laporan/id',[UlasanController::class,'data']);
 
 });
